@@ -213,7 +213,7 @@ export function Services({ onNavigate }: ServicesProps) {
         </div>
 
         {/* Other Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
           {services.slice(1).map((service, index) => {
             const Icon = service.icon;
             const cardAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -222,13 +222,14 @@ export function Services({ onNavigate }: ServicesProps) {
                 key={service.id}
                 ref={cardAnimation.ref} 
                 style={animations.fadeInUp(cardAnimation.isVisible, index * 0.1)}
+                className="h-full flex flex-col"
               >
                 <Card 
-                  className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2"
+                  className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
                   onClick={() => onNavigate(service.id)}
                 >
                   {/* Image with gradient overlay */}
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden flex-shrink-0">
                     <ImageWithFallback
                       src={service.image}
                       alt={service.title}
@@ -254,7 +255,7 @@ export function Services({ onNavigate }: ServicesProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 relative">
+                  <div className="p-6 relative flex-1 flex flex-col">
                     {/* Gradient line */}
                     <div 
                       className={`absolute top-0 left-0 right-0 h-1 ${service.gradient ? `bg-gradient-to-r ${service.gradient}` : ''}`}
@@ -264,7 +265,7 @@ export function Services({ onNavigate }: ServicesProps) {
                     <h3 className="text-xl text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed flex-1">
                       {service.description}
                     </p>
                     
@@ -279,7 +280,7 @@ export function Services({ onNavigate }: ServicesProps) {
                     </div>
                     
                     {/* CTA */}
-                    <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors">
+                    <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
                       <span className="mr-2">Zjistit více</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>

@@ -4,7 +4,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
-import { CheckCircle, ArrowRight, Check, Shield, Award, Clock, Star, Sparkles, Zap, Send } from 'lucide-react';
+import { CheckCircle, ArrowRight, Check, Shield, Award, Clock, Star, Sparkles, Zap, Send, HelpCircle } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState, useEffect, useRef } from 'react';
 import {
@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import { Contact } from './Contact';
 
 interface ServicePageProps {
   title: string;
@@ -110,12 +111,7 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl text-gray-900 mb-4">
-          <span style={{ color: accentColor }}>Jak</span> to funguje?
-        </h2>
-        <p className="text-xl text-gray-600">Jednoduchý proces v několika krocích</p>
-      </div>
+     
 
       <div ref={timelineRef} className="relative">
         {/* Background line */}
@@ -302,8 +298,8 @@ export function ServicePage({
                   className="hover:opacity-90"
                   style={{backgroundColor: accentColor}}
                   onClick={() => {
-                    const contactForm = document.getElementById('contact-form');
-                    contactForm?.scrollIntoView({ behavior: 'smooth' });
+                    const contactSection = document.getElementById('contact-section');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Nezávazná poptávka
@@ -584,18 +580,18 @@ export function ServicePage({
               <div className="relative">
                 <div className="hidden md:block absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-green-200 via-green-400 to-green-200"></div>
                 
-                <div className="grid md:grid-cols-4 gap-8 relative">
+                <div className="grid md:grid-cols-4 gap-8 relative items-stretch">
                   {process.map((item, index) => (
-                    <div key={index} className="relative">
-                      <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-all bg-white relative z-10">
+                    <div key={index} className="relative h-full flex flex-col">
+                      <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-all bg-white relative z-10 h-full flex flex-col">
                         <div 
-                          className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-4 shadow-lg"
+                          className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-4 shadow-lg flex-shrink-0"
                           style={{backgroundColor: index % 2 === 0 ? '#4ca137' : '#FFA826'}}
                         >
                           {item.step}
                         </div>
                         <h3 className="text-lg text-gray-900 mb-2 text-center">{item.title}</h3>
-                        <p className="text-sm text-gray-600 text-center leading-relaxed">{item.description}</p>
+                        <p className="text-sm text-gray-600 text-center leading-relaxed flex-1">{item.description}</p>
                       </Card>
                     </div>
                   ))}
@@ -639,32 +635,69 @@ export function ServicePage({
       )}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl text-gray-900 mb-4">
-                Časté <span style={{ color: accentColor }}>otázky</span>
-              </h2>
-              <p className="text-xl text-gray-600">
-                Odpovědi na nejčastější dotazy k této službě
-              </p>
+      <section className="py-16 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#FFA826'}}></div>
+        
+        <div className="container mx-auto px-8 lg:px-20 max-w-4xl relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-6 shadow-lg border border-green-200">
+              <HelpCircle className="w-5 h-5 text-green-600" />
+              <span className="text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
+                FAQ
+              </span>
             </div>
+            <h2 className="text-5xl text-gray-900 mb-6">
+              Často kladené{' '}
+              <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                otázky
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Odpovědi na nejčastější dotazy o této službě
+            </p>
+          </div>
 
-            <Card className="p-6 border-0 shadow-xl">
-              <Accordion type="single" collapsible className="w-full">
-                {faq.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index + 1}`}>
-                    <AccordionTrigger className="text-left">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Card>
+          {/* FAQ Accordion */}
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faq.map((item, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-0 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              >
+                <AccordionTrigger className="text-left hover:no-underline px-6 py-5 hover:bg-gradient-to-r hover:from-green-50 hover:to-lime-50 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <Sparkles className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-lg text-gray-900">{item.question}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  <div className="pl-12 pt-2">
+                    {item.answer}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          {/* CTA */}
+          <div className="mt-16 text-center">
+            <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
+              <p className="text-gray-700 mb-4">
+                Máte další otázky? Neváhejte nás kontaktovat!
+              </p>
+              <a 
+                href="mailto:info@greenclean-praha.cz" 
+                className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
+              >
+                info@greenclean-praha.cz
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -739,199 +772,11 @@ export function ServicePage({
         </div>
       </section>
 
-      {/* FAQ Section */}
-      {faqItems && faqItems.length > 0 && (
-        <section className="py-16 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#FFA826'}}></div>
-          
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 max-w-4xl relative z-10">
-            {/* Header */}
-            <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-6 shadow-lg border border-green-200">
-                <Sparkles className="w-5 h-5 text-green-600" />
-                <span className="text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
-                  FAQ
-                </span>
-              </div>
-              <h2 className="text-5xl text-gray-900 mb-6">
-                Často kladené{' '}
-                <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  otázky
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600">
-                Odpovědi na nejčastější dotazy o této službě
-              </p>
-            </div>
 
-            {/* FAQ Accordion */}
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {faqItems.slice(0, 6).map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`} 
-                  className="border-0 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
-                  <AccordionTrigger className="text-left hover:no-underline px-6 py-5 hover:bg-gradient-to-r hover:from-green-50 hover:to-lime-50 transition-all">
-                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        <Sparkles className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-lg text-gray-900">{faq.question}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6 text-gray-600 leading-relaxed">
-                    <div className="pl-12 pt-2">
-                      {faq.answer}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-
-            {/* CTA */}
-            <div className="mt-16 text-center">
-              <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
-                <p className="text-gray-700 mb-4">
-                  Máte další otázky? Neváhejte nás kontaktovat!
-                </p>
-                <a 
-                  href="mailto:info@greenclean-praha.cz" 
-                  className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
-                >
-                  info@greenclean-praha.cz
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Contact Form */}
-      <section id="contact-form" className="py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
-              <Sparkles className="w-5 h-5 text-green-600" />
-              <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Kontaktní formulář
-              </span>
-            </div>
-            <h2 className="text-4xl text-gray-900 mb-4">
-              Poptejte si <span style={{ color: accentColor }}>tuto službu</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Rádi vám připravíme cenovou nabídku na míru
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group">
-              {/* Gradient glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              
-              <div className="relative">
-                <h3 className="text-3xl text-gray-900 mb-8 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Send className="w-5 h-5 text-white" />
-                  </div>
-                  Nezávazná poptávka
-                </h3>
-                
-                <form className="space-y-6">
-                  <div>
-                    <Label className="text-gray-700 mb-3">Píšete jako *</Label>
-                    <RadioGroup defaultValue="private" className="flex gap-4 mt-2">
-                      <div className="flex items-center space-x-2 flex-1">
-                        <RadioGroupItem value="private" id="private-service" className="border-2 border-gray-300" />
-                        <Label htmlFor="private-service" className="cursor-pointer text-gray-700">Soukromá osoba</Label>
-                      </div>
-                      <div className="flex items-center space-x-2 flex-1">
-                        <RadioGroupItem value="company" id="company-service" className="border-2 border-gray-300" />
-                        <Label htmlFor="company-service" className="cursor-pointer text-gray-700">Firma</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="name" className="text-gray-700">Jméno a příjmení *</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Jan Novák"
-                      className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email" className="text-gray-700">E-mail *</Label>
-                    <Input 
-                      id="email" 
-                      type="email"
-                      placeholder="jan.novak@email.cz"
-                      className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="phone" className="text-gray-700">Telefon *</Label>
-                    <Input 
-                      id="phone" 
-                      type="tel"
-                      placeholder="+420 123 456 789"
-                      className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="service" className="text-gray-700">Typ služby</Label>
-                    <select 
-                      id="service"
-                      className="w-full mt-2 px-3 py-2 border-2 border-gray-300 rounded-md focus:border-green-500 focus:outline-none transition-colors"
-                    >
-                      <option>{title}</option>
-                      <option>Úklid bytů a domů</option>
-                      <option>Úklid kanceláří a firem</option>
-                      <option>Úklid Airbnb bytů</option>
-                      <option>Čištění nábytku</option>
-                      <option>Úklid po rekonstrukci</option>
-                      <option>Developerské projekty</option>
-                      <option>Panelové domy a SVJ</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message" className="text-gray-700">Zpráva</Label>
-                    <Textarea 
-                      id="message"
-                      placeholder="Popište nám vaše požadavky..."
-                      rows={4}
-                      className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 py-6 text-lg"
-                  >
-                    <Send className="w-5 h-5 mr-2" />
-                    Odeslat poptávku
-                  </Button>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    Odpovíme vám do 24 hodin
-                  </p>
-                </form>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Contact Section */}
+      <div id="contact-section">
+        <Contact />
+      </div>
     </div>
   );
 }

@@ -101,13 +101,13 @@ export function Contact() {
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gray-300 to-gray-300"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
-          <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group" {...formAnimation}>
+          <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col" {...formAnimation}>
             {/* Gradient glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
             
-            <div className="relative">
+            <div className="relative flex-1 flex flex-col">
               <h3 className="text-3xl text-gray-900 mb-8 flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Send className="w-5 h-5 text-white" />
@@ -115,7 +115,7 @@ export function Contact() {
                 Nezávazná poptávka
               </h3>
               
-              <form className="space-y-6">
+              <form className="space-y-6 flex-1 flex flex-col">
                 <div>
                   <Label className="text-gray-700 mb-3">Píšete jako *</Label>
                   <RadioGroup defaultValue="private" className="flex gap-4 mt-2">
@@ -193,31 +193,33 @@ export function Contact() {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 py-6 text-lg"
-                >
-                  <Send className="w-5 h-5 mr-2" />
-                  Odeslat poptávku
-                </Button>
+                <div className="mt-auto">
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 py-6 text-lg"
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                    Odeslat poptávku
+                  </Button>
 
-                <p className="text-sm text-gray-500 text-center">
-                  Odpovíme vám do 24 hodin
-                </p>
+                  <p className="text-sm text-gray-500 text-center mt-4">
+                    Odpovíme vám do 24 hodin
+                  </p>
+                </div>
               </form>
             </div>
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
+          <div className="space-y-6 h-full flex flex-col">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-lg text-gray-900 mb-2">Telefon</h4>
                   <a href="tel:+420123456789" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
                     +420 123 456 789
@@ -227,14 +229,14 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-lime-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-lg text-gray-900 mb-2">E-mail</h4>
                   <a href="mailto:info@greenclean-praha.cz" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
                     info@greenclean-praha.cz
@@ -244,14 +246,14 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-lg text-gray-900 mb-2">Adresa</h4>
                   <p className="text-gray-600 text-lg">
                     Praha, Česká republika
@@ -261,14 +263,14 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}></div>
               
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" style={{backgroundImage: 'linear-gradient(to bottom right, #FFA826, #E59518)'}}>
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-lg text-gray-900 mb-2">Provozní doba</h4>
                   <p className="text-gray-600">Po-Pá: 8:00 - 18:00</p>
                   <p className="text-gray-600">So: 9:00 - 15:00</p>

@@ -239,7 +239,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 items-stretch">
             {[
               {
                 step: '01',
@@ -266,13 +266,13 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                 description: 'Relaxujte v čistém a svěžím domově'
               }
             ].map((item, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="relative h-full flex flex-col">
                 {/* Connection line */}
                 {index < 3 && (
                   <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-white/30"></div>
                 )}
                 
-                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300">
+                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 h-full flex flex-col">
                   {/* Step number */}
                   <div className="text-6xl font-bold text-white/20 mb-4">{item.step}</div>
                   
@@ -282,7 +282,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                   </div>
                   
                   <h3 className="text-xl text-white mb-3">{item.title}</h3>
-                  <p className="text-green-100 leading-relaxed">{item.description}</p>
+                  <p className="text-green-100 leading-relaxed flex-1">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -510,7 +510,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                   </div>
 
                   <Button 
-                    className="w-full mb-6 border-2 border-green-600 text-green-600 hover:bg-green-50"
+                    className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                     onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Objednat službu
@@ -852,26 +852,9 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
       </section>
 
       {/* Contact Section */}
-      <section id="contact-section" className="py-20 bg-gradient-to-b from-white to-green-50/30">
-        <div className="container mx-auto px-8 lg:px-20">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
-              <Clock className="w-5 h-5 text-green-600" />
-              <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Kontaktujte nás
-              </span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              Začněte s <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">čistým domovem</span> ještě dnes
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Vyplňte formulář a my vás budeme kontaktovat do 24 hodin
-            </p>
-          </div>
-
-          <Contact onNavigate={onNavigate} />
-        </div>
-      </section>
+      <div id="contact-section">
+        <Contact />
+      </div>
     </div>
   );
 }
