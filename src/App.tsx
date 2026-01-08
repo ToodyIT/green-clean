@@ -757,7 +757,7 @@ export default function App() {
               {
                 name: 'Martina Kovářová',
                 role: 'Project Manager',
-                text: 'Oceňuji zejména jejich reporting a proaktivní přístup. Vždy včas upozorní na př��padné problémy.',
+                text: 'Oceňuji zejména jejich reporting a proaktivní přístup. Vždy včas upozorní na případné problémy.',
                 rating: 5
               }
             ]}
@@ -792,7 +792,7 @@ export default function App() {
             ]}
             whatsIncluded={[
               'Úklid schodišť a chodeb',
-              'Mytí z��bradlí a madel',
+              'Mytí zábradlí a madel',
               'Úklid vstupních prostor',
               'Čištění výtahů',
               'Mytí vchodových dveří',
