@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
@@ -9,6 +10,7 @@ interface PricingProps {
 }
 
 export function Pricing({ onNavigate }: PricingProps) {
+  const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState('home');
   const [homeServiceTab, setHomeServiceTab] = useState('weekly'); // For home service tabs
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -501,7 +503,7 @@ export function Pricing({ onNavigate }: PricingProps) {
                   <Button 
                     className="w-full text-white transition-all duration-300 hover:scale-105 border-0 hover:shadow-lg mt-auto"
                     style={{background: currentService.color}}
-                    onClick={() => onNavigate(currentService.id)}
+                    onClick={() => navigate(`/${currentService.id}`)}
                   >
                     Zjistit více
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -530,7 +532,7 @@ export function Pricing({ onNavigate }: PricingProps) {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => onNavigate('contact')}
+                onClick={() => navigate('/contact')}
               >
                 Nezávazná poptávka
                 <ArrowRight className="w-5 h-5 ml-2" />

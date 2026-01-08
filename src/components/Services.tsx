@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Building2, Home, Sofa, HardHat, Building, Warehouse, ArrowRight, Sparkles } from 'lucide-react';
@@ -9,6 +10,7 @@ interface ServicesProps {
 }
 
 export function Services({ onNavigate }: ServicesProps) {
+  const navigate = useNavigate();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const featuredAnimation = useScrollAnimation({ threshold: 0.15 });
   
@@ -121,7 +123,7 @@ export function Services({ onNavigate }: ServicesProps) {
               <Card 
                 key={service.id} 
                 className="group relative overflow-hidden border-2 border-green-200 shadow-2xl hover:shadow-green-500/30 transition-all duration-500 cursor-pointer bg-gradient-to-br from-white to-green-50/30 hover:-translate-y-2 mb-16"
-                onClick={() => onNavigate(service.id)}
+                onClick={() => navigate(`/${service.id}`)}
               >
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Image with gradient overlay */}
@@ -226,7 +228,7 @@ export function Services({ onNavigate }: ServicesProps) {
               >
                 <Card 
                   className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
-                  onClick={() => onNavigate(service.id)}
+                  onClick={() => navigate(`/${service.id}`)}
                 >
                   {/* Image with gradient overlay */}
                   <div className="relative h-56 overflow-hidden flex-shrink-0">
@@ -302,7 +304,7 @@ export function Services({ onNavigate }: ServicesProps) {
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
-            onClick={() => onNavigate('contact')}
+            onClick={() => navigate('/contact')}
           >
             Nezávazná poptávka
             <ArrowRight className="w-5 h-5 ml-2" />

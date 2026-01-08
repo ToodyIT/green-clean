@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -186,6 +187,7 @@ export function ServicePage({
   guarantees,
   onNavigate 
 }: ServicePageProps) {
+  const navigate = useNavigate();
   // Default values
   const defaultWhatsIncluded = [
     'Kompletní vysávání všech prostor',
@@ -309,7 +311,7 @@ export function ServicePage({
                   size="lg" 
                   variant="outline"
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
-                  onClick={() => onNavigate('pricing')}
+                  onClick={() => navigate('/pricing')}
                 >
                   Zobrazit kompletní ceník
                 </Button>

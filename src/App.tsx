@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
@@ -16,12 +17,22 @@ import { CookieConsent } from './components/CookieConsent';
 import { Button } from './components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
+// Component to handle scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('homepage');
+  const navigate = useNavigate();
 
   const handleNavigate = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(`/${page === 'homepage' ? '' : page}`);
   };
 
   // Service data
@@ -273,15 +284,13 @@ export default function App() {
     }
   };
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'homepage':
-        return (
-          <>
-            <Hero onNavigate={handleNavigate} />
-            <Partners />
-            <Services onNavigate={handleNavigate} />
-            <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
+  // Homepage component
+  const HomePage = () => (
+    <>
+      <Hero onNavigate={handleNavigate} />
+      <Partners />
+      <Services onNavigate={handleNavigate} />
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
               {/* Animated background */}
               <div className="absolute inset-0">
                 <div className="absolute top-10 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
@@ -322,19 +331,13 @@ export default function App() {
             </section>
             <About />
             <References />
-            <FAQ />
-          </>
-        );
-      
-      case 'services':
-        return <Services onNavigate={handleNavigate} />;
-      
-      case 'home':
-        return <HomeCleaningPage onNavigate={handleNavigate} />;
-      
-      case 'office':
-        return (
-          <ServicePage
+      <FAQ />
+    </>
+  );
+
+  // Office service page component
+  const OfficePage = () => (
+    <ServicePage
             title={servicesData.office.title}
             description={servicesData.office.description}
             features={servicesData.office.features}
@@ -409,13 +412,13 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1627098241506-344dea0aa27b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHRlYW0lMjBvZmZpY2UlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyMjEyMzA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Profesionální tým' },
               { img: 'https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Moderní technologie' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'airbnb':
-        return (
-          <ServicePage
+    onNavigate={handleNavigate}
+  />
+  );
+
+  // Airbnb service page component
+  const AirbnbPage = () => (
+    <ServicePage
             title={servicesData.airbnb.title}
             description={servicesData.airbnb.description}
             features={servicesData.airbnb.features}
@@ -496,13 +499,13 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1666282167632-c613fbeb163c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGFwYXJ0bWVudHxlbnwxfHx8fDE3NjExNDQ2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Moderní prostory' },
               { img: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Připraveno pro hosty' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'furniture':
-        return (
-          <ServicePage
+    onNavigate={handleNavigate}
+  />
+  );
+
+  // Furniture service page component
+  const FurniturePage = () => (
+    <ServicePage
             title={servicesData.furniture.title}
             description={servicesData.furniture.description}
             features={servicesData.furniture.features}
@@ -583,13 +586,13 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1654511830326-63a577771a7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXJuaXR1cmUlMjBjbGVhbmluZyUyMHNvZmF8ZW58MXx8fHwxNzYxMTQ0NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Profesionální péče' },
               { img: 'https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Moderní technologie' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'renovation':
-        return (
-          <ServicePage
+    onNavigate={handleNavigate}
+  />
+  );
+
+  // Renovation service page component
+  const RenovationPage = () => (
+    <ServicePage
             title={servicesData.renovation.title}
             description={servicesData.renovation.description}
             features={servicesData.renovation.features}
@@ -670,13 +673,13 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1661746785480-439c1a4b8254?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBjbGVhbmluZ3xlbnwxfHx8fDE3NjExNDQ2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Stavební úklid' },
               { img: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Finální výsledek' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'development':
-        return (
-          <ServicePage
+    onNavigate={handleNavigate}
+  />
+  );
+
+  // Development service page component
+  const DevelopmentPage = () => (
+    <ServicePage
             title={servicesData.development.title}
             description={servicesData.development.description}
             features={servicesData.development.features}
@@ -763,13 +766,13 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1631365696563-4990f4e9302c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBjbGVhbmluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjExNDQ2MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Velké projekty' },
               { img: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Před předáním' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'buildings':
-        return (
-          <ServicePage
+    onNavigate={handleNavigate}
+  />
+  );
+
+  // Buildings service page component
+  const BuildingsPage = () => (
+    <ServicePage
             title={servicesData.buildings.title}
             description={servicesData.buildings.description}
             features={servicesData.buildings.features}
@@ -850,95 +853,30 @@ export default function App() {
               { img: 'https://images.unsplash.com/photo-1666282167632-c613fbeb163c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGFwYXJ0bWVudHxlbnwxfHx8fDE3NjExNDQ2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Panelové domy' },
               { img: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', title: 'Čisté prostředí' }
             ]}
-            onNavigate={handleNavigate}
-          />
-        );
-      
-      case 'pricing':
-        return (
-          <>
-            <Pricing onNavigate={handleNavigate} />
-            <Contact />
-          </>
-        );
-      
-      case 'about':
-        return (
-          <>
-            <About />
-            <Contact />
-          </>
-        );
-      
-      case 'references':
-        return (
-          <>
-            <References />
-            <Contact />
-          </>
-        );
-      
-      case 'contact':
-        return <Contact onNavigate={handleNavigate} />;
-      
-      default:
-        return (
-          <>
-            <Hero onNavigate={handleNavigate} />
-            <Partners />
-            <Services onNavigate={handleNavigate} />
-            <section className="py-16 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
-              {/* Animated background */}
-              <div className="absolute inset-0">
-                <div className="absolute top-10 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
-                <div className="absolute bottom-10 right-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000" style={{backgroundColor: 'rgba(255, 168, 38, 0.2)'}}></div>
-              </div>
-              
-              {/* Grid pattern */}
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMTAgMTBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
-              
-              <div className="container mx-auto px-8 lg:px-20 relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-8 shadow-lg">
-                    <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#FFA826'}}></div>
-                    <span className="text-sm text-white">Připraveni začít?</span>
-                  </div>
-                  
-                  <h2 className="text-5xl lg:text-6xl text-white mb-6">
-                    Získejte{' '}
-                    <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFB84D, #FFA826, #FFB84D)', WebkitBackgroundClip: 'text', backgroundClip: 'text'}}>
-                      nezávaznou nabídku
-                    </span>
-                  </h2>
-                  
-                  <p className="text-xl text-green-50 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Kontaktujte nás ještě dnes a získejte cenovou nabídku šitou přímo vašim potřebám
-                  </p>
-                  
-                  <Button 
-                    size="lg" 
-                    className="bg-white hover:bg-gray-50 text-green-700 shadow-2xl hover:shadow-white/50 hover:scale-110 transition-all duration-300 border-0 text-lg px-10 py-7"
-                    onClick={() => handleNavigate('contact')}
-                  >
-                    Nezávazná poptávka
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </div>
-              </div>
-            </section>
-            <About />
-            <References />
-            <FAQ />
-          </>
-        );
-    }
-  };
+    onNavigate={handleNavigate}
+  />
+  );
 
   return (
     <div className="min-h-screen">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <ScrollToTop />
+      <Header onNavigate={handleNavigate} />
       <main>
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<Services onNavigate={handleNavigate} />} />
+          <Route path="/home" element={<HomeCleaningPage onNavigate={handleNavigate} />} />
+          <Route path="/office" element={<OfficePage />} />
+          <Route path="/airbnb" element={<AirbnbPage />} />
+          <Route path="/furniture" element={<FurniturePage />} />
+          <Route path="/renovation" element={<RenovationPage />} />
+          <Route path="/development" element={<DevelopmentPage />} />
+          <Route path="/buildings" element={<BuildingsPage />} />
+          <Route path="/pricing" element={<><Pricing onNavigate={handleNavigate} /><Contact /></>} />
+          <Route path="/about" element={<><About /><Contact /></>} />
+          <Route path="/references" element={<><References /><Contact /></>} />
+          <Route path="/contact" element={<Contact onNavigate={handleNavigate} />} />
+        </Routes>
       </main>
       <Footer onNavigate={handleNavigate} />
       <FloatingActionButton onNavigate={handleNavigate} />

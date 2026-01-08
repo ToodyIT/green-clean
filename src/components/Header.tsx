@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import {
   Menu,
@@ -21,14 +22,12 @@ import { Logo } from "./Logo";
 // Header component with improved mobile menu background
 
 interface HeaderProps {
-  currentPage: string;
   onNavigate: (page: string) => void;
 }
 
-export function Header({
-  currentPage,
-  onNavigate,
-}: HeaderProps) {
+export function Header({ onNavigate }: HeaderProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState("cs");
 
@@ -40,16 +39,19 @@ export function Header({
   ];
 
   const menuItems = [
-    { id: "homepage", label: "Hlavní" },
-    { id: "services", label: "Služby" },
-    { id: "pricing", label: "Ceník" },
-    { id: "about", label: "O nás" },
-    { id: "references", label: "Reference" },
-    { id: "contact", label: "Kontakt" },
+    { id: "homepage", path: "/", label: "Hlavní" },
+    { id: "services", path: "/services", label: "Služby" },
+    { id: "pricing", path: "/pricing", label: "Ceník" },
+    { id: "about", path: "/about", label: "O nás" },
+    { id: "references", path: "/references", label: "Reference" },
+    { id: "contact", path: "/contact", label: "Kontakt" },
   ];
 
+  const currentPage = location.pathname === "/" ? "homepage" : location.pathname.slice(1);
+
   const handleNavigation = (page: string) => {
-    onNavigate(page);
+    const path = page === "homepage" ? "/" : `/${page}`;
+    navigate(path);
     setIsOpen(false);
   };
 
@@ -58,8 +60,8 @@ export function Header({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main header */}
         <div className="flex items-center justify-between py-3 sm:py-4">
-          <button
-            onClick={() => handleNavigation("homepage")}
+          <Link
+            to="/"
             className="flex items-center gap-3 hover:scale-105 transition-transform duration-300"
           >
             <img
@@ -67,33 +69,36 @@ export function Header({
               alt="GreenClean"
               className="h-12 sm:h-14 w-auto"
             />
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavigation(item.id)}
-                className={`relative px-4 py-2 rounded-xl transition-all duration-300 ${
-                  currentPage === item.id
-                    ? "text-green-600"
-                    : "text-gray-700 hover:text-green-600"
-                }`}
-              >
-                {item.label}
-                {currentPage === item.id && (
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
-                )}
-              </button>
-            ))}
+            {menuItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  className={`relative px-4 py-2 rounded-xl transition-all duration-300 ${
+                    isActive
+                      ? "text-green-600"
+                      : "text-gray-700 hover:text-green-600"
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
             {/* Úklid bytů a domů - Featured Service */}
             <Button
               className="bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 shadow-sm hover:shadow-md transition-all duration-300"
-              onClick={() => handleNavigation("home")}
+              onClick={() => navigate("/home")}
             >
               <Home className="w-4 h-4 mr-2" />
               Úklid bytů a domů
@@ -152,7 +157,7 @@ export function Header({
 
             <Button
               className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0"
-              onClick={() => handleNavigation("contact")}
+              onClick={() => navigate("/contact")}
             >
               <Sparkles className="w-4 h-4 mr-2" />
               Nezávazná poptávka
@@ -238,40 +243,40 @@ export function Header({
             <div className="overflow-y-auto h-[calc(100vh-80px)] px-5 py-6 bg-gradient-to-b from-transparent to-green-50/30">
               {/* Navigation Items */}
               <nav className="flex flex-col gap-2 mb-6">
-                {menuItems.map((item, index) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavigation(item.id)}
-                    className={`
-                      px-5 py-4 rounded-2xl transition-all duration-300 text-left
-                      transform hover:scale-[1.02] active:scale-[0.98]
-                      ${
-                        currentPage === item.id
-                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/30"
-                          : "text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-md"
-                      }
-                    `}
-                    style={{
-                      animationDelay: `${index * 50}ms`,
-                      animation: isOpen
-                        ? "slideInRight 0.3s ease-out forwards"
-                        : "none",
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={
-                          currentPage === item.id ? "" : ""
+                {menuItems.map((item, index) => {
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.id}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`
+                        px-5 py-4 rounded-2xl transition-all duration-300 text-left
+                        transform hover:scale-[1.02] active:scale-[0.98]
+                        ${
+                          isActive
+                            ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/30"
+                            : "text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-md"
                         }
-                      >
-                        {item.label}
-                      </span>
-                      {currentPage === item.id && (
-                        <Check className="w-5 h-5 animate-bounce" />
-                      )}
-                    </div>
-                  </button>
-                ))}
+                      `}
+                      style={{
+                        animationDelay: `${index * 50}ms`,
+                        animation: isOpen
+                          ? "slideInRight 0.3s ease-out forwards"
+                          : "none",
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>
+                          {item.label}
+                        </span>
+                        {isActive && (
+                          <Check className="w-5 h-5 animate-bounce" />
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
               </nav>
 
               {/* Divider */}
@@ -281,7 +286,10 @@ export function Header({
               <div className="mb-6">
                 <Button
                   className="w-full bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 hover:from-green-100 hover:to-emerald-100 border-2 border-green-200 shadow-md hover:shadow-lg transition-all py-6 rounded-2xl"
-                  onClick={() => handleNavigation("home")}
+                  onClick={() => {
+                    navigate("/home");
+                    setIsOpen(false);
+                  }}
                 >
                   <Home className="w-5 h-5 mr-2" />
                   Úklid bytů a domů
@@ -324,7 +332,10 @@ export function Header({
               {/* CTA Button */}
               <Button
                 className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl hover:shadow-2xl border-0 py-6 rounded-2xl transform hover:scale-[1.02] active:scale-[0.98] transition-all"
-                onClick={() => handleNavigation("contact")}
+                onClick={() => {
+                  navigate("/contact");
+                  setIsOpen(false);
+                }}
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 Nezávazná poptávka

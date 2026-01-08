@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Phone, MessageCircle, X, Mail, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
@@ -7,6 +8,7 @@ interface FloatingActionButtonProps {
 }
 
 export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -42,7 +44,7 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
       icon: Mail,
       label: 'Email',
       onClick: () => {
-        onNavigate('contact');
+        navigate('/contact');
         setIsOpen(false);
       },
       customGradient: 'linear-gradient(to bottom right, #FFA826, #E59518)',

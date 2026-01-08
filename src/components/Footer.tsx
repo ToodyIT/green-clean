@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import { Separator } from './ui/separator';
 import { Logo } from './Logo';
@@ -7,6 +8,7 @@ interface FooterProps {
 }
 
 export function Footer({ onNavigate }: FooterProps) {
+  const navigate = useNavigate();
   const services = [
     { id: 'home', label: 'Úklid bytů a domů' },
     { id: 'office', label: 'Úklid kanceláří a firem' },
@@ -87,7 +89,7 @@ export function Footer({ onNavigate }: FooterProps) {
               {services.map((service) => (
                 <li key={service.id}>
                   <button
-                    onClick={() => onNavigate(service.id)}
+                    onClick={() => navigate(`/${service.id}`)}
                     className="text-sm hover:text-green-400 transition-all text-left group flex items-center gap-2 hover:translate-x-1"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-green-400 group-hover:w-2 transition-all"></span>
@@ -107,7 +109,7 @@ export function Footer({ onNavigate }: FooterProps) {
               {company.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => onNavigate(item.id)}
+                    onClick={() => navigate(`/${item.id}`)}
                     className="text-sm hover:text-green-400 transition-all text-left group flex items-center gap-2 hover:translate-x-1"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-green-400 group-hover:w-2 transition-all"></span>
