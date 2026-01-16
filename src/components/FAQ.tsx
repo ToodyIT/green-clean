@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -35,33 +36,33 @@ export function FAQ() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#FFA826'}}></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 max-w-4xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-6 shadow-lg border border-green-200">
-            <HelpCircle className="w-5 h-5 text-green-600" />
-            <span className="text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-4 sm:mb-6 shadow-lg border border-green-200">
+            <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+            <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
               FAQ
             </span>
           </div>
-          <h2 className="text-5xl text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-4 sm:mb-6">
             Často kladené{' '}
             <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
               otázky
             </span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-4">
             Odpovědi na nejčastější dotazy o našich službách
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 

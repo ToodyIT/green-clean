@@ -290,7 +290,7 @@ export default function App() {
       <Hero onNavigate={handleNavigate} />
       <Partners />
       <Services onNavigate={handleNavigate} />
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
+            <section className="py-10 sm:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
               {/* Animated background */}
               <div className="absolute inset-0">
                 <div className="absolute top-10 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
@@ -302,25 +302,25 @@ export default function App() {
               
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
-                  <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-6 sm:mb-8 shadow-lg">
+                  <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-4 sm:mb-6 lg:mb-8 shadow-lg">
                     <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#FFA826'}}></div>
                     <span className="text-xs sm:text-sm text-white">Připraveni začít?</span>
                   </div>
                   
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 sm:mb-6 px-4">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-white mb-3 sm:mb-4 lg:mb-6 px-4">
                     Získejte{' '}
                     <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFB84D, #FFA826, #FFB84D)', WebkitBackgroundClip: 'text', backgroundClip: 'text'}}>
                       nezávaznou nabídku
                     </span>
                   </h2>
                   
-                  <p className="text-base sm:text-lg lg:text-xl text-green-50 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
+                  <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-50 mb-6 sm:mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
                     Kontaktujte nás ještě dnes a získejte cenovou nabídku šitou přímo vašim potřebám
                   </p>
                   
                   <Button 
                     size="lg" 
-                    className="bg-white hover:bg-gray-50 text-green-700 shadow-2xl hover:shadow-white/50 hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-0 text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7"
+                    className="bg-white hover:bg-gray-50 text-green-700 shadow-2xl hover:shadow-white/50 hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-0 text-sm sm:text-base lg:text-lg px-5 sm:px-6 lg:px-10 py-4 sm:py-5 lg:py-7"
                     onClick={() => handleNavigate('contact')}
                   >
                     Nezávazná poptávka

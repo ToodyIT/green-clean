@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import { Separator } from './ui/separator';

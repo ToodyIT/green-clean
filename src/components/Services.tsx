@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
@@ -89,21 +90,21 @@ export function Services({ onNavigate }: ServicesProps) {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
-        <div ref={headerAnimation.ref} style={animations.fadeInUp(headerAnimation.isVisible)} className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
-            <Sparkles className="w-5 h-5 text-green-600" />
-            <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+        <div ref={headerAnimation.ref} style={animations.fadeInUp(headerAnimation.isVisible)} className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 sm:mb-6 shadow-lg border border-green-200">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+            <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               Naše služby
             </span>
           </div>
-          <h2 className="text-5xl text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-4 sm:mb-6">
             Komplexní úklidové <br/>
             <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
               řešení pro všechny

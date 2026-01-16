@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
@@ -545,7 +546,7 @@ export function ServicePage({
                   return (
                     <Card 
                       key={index} 
-                      className="relative p-8 text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20"
+                      className="relative p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20"
                     >
                       <div className="relative">
                         {/* Icon */}

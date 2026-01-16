@@ -1,3 +1,4 @@
+import React from 'react';
 import { Building2, Hotel, Home, Utensils, Store, Users, Warehouse, Briefcase } from 'lucide-react';
 
 export function Partners() {
@@ -13,7 +14,7 @@ export function Partners() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -25,19 +26,19 @@ export function Partners() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-green-200 rounded-full mb-4 shadow-lg">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white border border-green-200 rounded-full mb-3 sm:mb-4 shadow-lg">
             <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#FFA826'}}></div>
-            <span className="text-sm text-gray-900">Oblasti působení</span>
+            <span className="text-xs sm:text-sm text-gray-900">Oblasti působení</span>
           </div>
-          <h2 className="text-4xl text-gray-900 mb-3">
+          <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 sm:mb-3">
             Kde <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">působíme</span>
           </h2>
-          <p className="text-gray-700 text-lg">Poskytujeme profesionální úklidové služby pro různé typy prostor</p>
+          <p className="text-gray-700 text-base sm:text-lg px-4">Poskytujeme profesionální úklidové služby pro různé typy prostor</p>
         </div>
         
         {/* Service Areas Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 md:gap-6 items-center max-w-7xl mx-auto">
           {serviceAreas.map((area, index) => {
             const Icon = area.icon;
             return (
@@ -52,14 +53,14 @@ export function Partners() {
                 ></div>
                 
                 {/* Card */}
-                <div className="relative flex flex-col items-center gap-3 p-6 bg-white border border-gray-200 rounded-2xl hover:border-green-300 hover:shadow-lg hover:scale-110 transition-all duration-300">
+                <div className="relative flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 bg-white border border-gray-200 rounded-xl sm:rounded-2xl hover:border-green-300 hover:shadow-lg hover:scale-110 transition-all duration-300">
                   <div 
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 ${area.gradient ? `bg-gradient-to-br ${area.gradient}` : ''}`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 ${area.gradient ? `bg-gradient-to-br ${area.gradient}` : ''}`}
                     style={area.customColor ? {background: `linear-gradient(to bottom right, ${area.customColor}, ${area.customColor}dd)`} : {}}
                   >
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <span className="text-xs text-gray-700 group-hover:text-gray-900 transition-colors text-center">
+                  <span className="text-[10px] sm:text-xs text-gray-700 group-hover:text-gray-900 transition-colors text-center leading-tight">
                     {area.name}
                   </span>
                 </div>

@@ -1,10 +1,11 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface HeroProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
 export function Hero({ onNavigate }: HeroProps) {
@@ -21,25 +22,25 @@ export function Hero({ onNavigate }: HeroProps) {
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0Y2ExMzciIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMTAgMTBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10 py-8 sm:py-12 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             {/* Badge with glassmorphism */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-md border border-green-200 rounded-full mb-6 sm:mb-8 shadow-lg hover:bg-white transition-all duration-300 group">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-md border border-green-200 rounded-full mb-4 sm:mb-6 lg:mb-8 shadow-lg hover:bg-white transition-all duration-300 group">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 group-hover:rotate-12 transition-transform" />
               <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                 Profesionální služby od roku 2010
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 leading-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-gray-900">
               Úklidové služby
               <span className="block bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
                 Praha
               </span>
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 lg:mb-10 leading-relaxed max-w-xl">
               Zajistíme čistotu a pořádek ve vašich prostorách. 
               Spolehlivě, rychle a za{' '}
               <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}>
@@ -49,7 +50,7 @@ export function Hero({ onNavigate }: HeroProps) {
             </p>
 
             {/* Feature Cards with glassmorphism */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
               {[
                 { icon: CheckCircle, title: 'Certifikovaný personál', desc: 'Proškolení profesionálové', gradient: 'from-green-500 to-emerald-600' },
                 { icon: Zap, title: 'Ekologické prostředky', desc: 'Šetrné k prostředí', gradient: 'from-lime-500 to-green-600' },
@@ -131,7 +132,7 @@ export function Hero({ onNavigate }: HeroProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
         <div className="w-6 h-10 border-2 border-green-600/30 rounded-full p-1">
           <div className="w-1.5 h-3 bg-green-600/50 rounded-full mx-auto animate-pulse"></div>
         </div>
