@@ -1,16 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, Hotel, Home, Utensils, Store, Users, Warehouse, Briefcase } from 'lucide-react';
 
 export function Partners() {
+  const { t } = useTranslation();
   const serviceAreas = [
-    { name: 'Kanceláře', icon: Building2, gradient: 'from-green-500 to-emerald-500' },
-    { name: 'Hotely', icon: Hotel, customColor: '#FFB84D' },
-    { name: 'Airbnb byty', icon: Home, customColor: '#FFA826' },
-    { name: 'Restaurace', icon: Utensils, gradient: 'from-lime-500 to-green-500' },
-    { name: 'Obchody', icon: Store, gradient: 'from-teal-500 to-green-500' },
-    { name: 'SVJ', icon: Users, customColor: '#E59518' },
-    { name: 'Developerské projekty', icon: Warehouse, gradient: 'from-emerald-500 to-teal-500' },
-    { name: 'Panelové domy', icon: Briefcase, gradient: 'from-green-600 to-lime-600' },
+    { name: t('partners.offices'), icon: Building2, gradient: 'from-green-500 to-emerald-500' },
+    { name: t('partners.hotels'), icon: Hotel, customColor: '#FFB84D' },
+    { name: t('partners.airbnb'), icon: Home, customColor: '#FFA826' },
+    { name: t('partners.restaurants'), icon: Utensils, gradient: 'from-lime-500 to-green-500' },
+    { name: t('partners.stores'), icon: Store, gradient: 'from-teal-500 to-green-500' },
+    { name: t('partners.hoas'), icon: Users, customColor: '#E59518' },
+    { name: t('partners.developmentProjects'), icon: Warehouse, gradient: 'from-emerald-500 to-teal-500' },
+    { name: t('partners.apartmentBuildings'), icon: Briefcase, gradient: 'from-green-600 to-lime-600' },
   ];
 
   return (
@@ -29,12 +31,12 @@ export function Partners() {
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white border border-green-200 rounded-full mb-3 sm:mb-4 shadow-lg">
             <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#FFA826'}}></div>
-            <span className="text-xs sm:text-sm text-gray-900">Oblasti působení</span>
+            <span className="text-xs sm:text-sm text-gray-900">{t("partners.serviceAreas")}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl text-gray-900 mb-2 sm:mb-3">
-            Kde <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">působíme</span>
+            {t("partners.whereWeOperate")}
           </h2>
-          <p className="text-gray-700 text-base sm:text-lg px-4">Poskytujeme profesionální úklidové služby pro různé typy prostor</p>
+          <p className="text-gray-700 text-base sm:text-lg px-4">{t("partners.description")}</p>
         </div>
         
         {/* Service Areas Grid */}

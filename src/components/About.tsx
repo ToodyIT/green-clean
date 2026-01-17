@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Award, Users, Shield, Clock, Target, Heart, Sparkles, Zap, TrendingUp, CheckCircle, Calendar, Leaf, Droplets, Wind, Briefcase, Building2, Home, Star } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -6,6 +7,7 @@ import { Logo } from './Logo';
 
 // Timeline Section Component with scroll animations
 function TimelineSection() {
+  const { t } = useTranslation();
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
   const [visibleDots, setVisibleDots] = useState<Set<number>>(new Set());
@@ -13,38 +15,38 @@ function TimelineSection() {
   const milestones = [
     {
       year: '2010',
-      title: 'Založení společnosti',
-      description: 'Začali jsme jako malý tým 5 lidí s velkými ambicemi poskytovat nejlepší úklidové služby v Praze.',
+      title: t('about.companyFoundation'),
+      description: t('about.companyFoundationDesc'),
       position: 'left'
     },
     {
       year: '2013',
-      title: 'Rozšíření týmu',
-      description: 'Díky rostoucí poptávce jsme rozšířili náš tým na 20 profesionálů a získali první velké korporátní klienty.',
+      title: t('about.teamExpansion'),
+      description: t('about.teamExpansionDesc'),
       position: 'right'
     },
     {
       year: '2016',
-      title: 'Ekologická iniciativa',
-      description: 'Přešli jsme na 100% ekologické čisticí prostředky a získali certifikaci EU Ecolabel.',
+      title: t('about.ecoInitiative'),
+      description: t('about.ecoInitiativeDesc'),
       position: 'left'
     },
     {
       year: '2019',
-      title: 'Nové technologie',
-      description: 'Investovali jsme do moderních úklidových technologií a automatizace procesů pro lepší kvalitu služeb.',
+      title: t('about.newTechnologies'),
+      description: t('about.newTechnologiesDesc'),
       position: 'right'
     },
     {
       year: '2022',
-      title: 'Ocenění kvality',
-      description: 'Získali jsme ocenění "Nejlepší úklidová firma roku" a certifikaci ISO 9001.',
+      title: t('about.qualityAward'),
+      description: t('about.qualityAwardDesc'),
       position: 'left'
     },
     {
       year: '2025',
-      title: 'Dnes',
-      description: 'Tým 50+ profesionálů obsluhujících přes 500 spokojených klientů po celé Praze a okolí.',
+      title: t('about.today'),
+      description: t('about.todayDesc'),
       position: 'right'
     }
   ];
@@ -99,10 +101,10 @@ function TimelineSection() {
   return (
     <div className="mb-20">
       <div className="text-center mb-16">
-        <h3 className="text-4xl text-gray-900 mb-4">
-          Naše <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">cesta</span>
-        </h3>
-        <p className="text-lg text-gray-600">Klíčové milníky našeho růstu</p>
+          <h3 className="text-4xl text-gray-900 mb-4">
+            {t('about.ourJourney')}
+          </h3>
+        <p className="text-lg text-gray-600">{t('about.keyMilestones')}</p>
       </div>
 
       <div ref={timelineRef} className="relative max-w-4xl mx-auto">
@@ -172,38 +174,38 @@ export function About() {
   const values = [
     {
       icon: Award,
-      title: 'Kvalita na prvním místě',
-      description: 'Používáme pouze profesionální vybavení a ověřené čisticí prostředky',
+      title: t('about.qualityFirst'),
+      description: t('about.qualityFirstDesc'),
       gradient: 'from-green-500 to-emerald-500'
     },
     {
       icon: Users,
-      title: 'Zkušený tým',
-      description: 'Náš tým tvoří proškolení profesionálové s letitými zkušenostmi',
+      title: t('about.experiencedTeam'),
+      description: t('about.experiencedTeamDesc'),
       gradient: 'from-lime-500 to-green-500'
     },
     {
       icon: Shield,
-      title: 'Pojištění a garance',
-      description: 'Máme pojištění odpovědnosti a garantujeme kvalitu našich služeb',
+      title: t('about.insuranceGuarantee'),
+      description: t('about.insuranceGuaranteeDesc'),
       gradient: 'from-teal-500 to-green-500'
     },
     {
       icon: Clock,
-      title: 'Spolehlivost',
-      description: 'Dodržujeme termíny a jsme flexibilní podle vašich potřeb',
+      title: t('about.reliability'),
+      description: t('about.reliabilityDesc'),
       customColor: '#FFA826'
     },
     {
       icon: Target,
-      title: 'Individuální přístup',
-      description: 'Každému zákazníkovi věnujeme maximální pozornost',
+      title: t('about.individualApproach'),
+      description: t('about.individualApproachDesc'),
       customColor: '#FFB84D'
     },
     {
       icon: Heart,
-      title: 'Ekologie',
-      description: 'Preferujeme ekologické čisticí prostředky šetrné k přírodě',
+      title: t('about.ecology'),
+      description: t('about.ecologyDesc'),
       customColor: '#E59518'
     },
   ];
@@ -211,25 +213,25 @@ export function About() {
   const stats = [
     { 
       value: '500+', 
-      label: 'Spokojených klientů', 
+      label: t('about.satisfiedClients'), 
       gradient: 'from-green-500 to-emerald-600',
       icon: Users
     },
     { 
       value: '15+', 
-      label: 'Let na trhu', 
+      label: t('about.yearsInBusiness'), 
       customColor: '#FFA826',
       icon: TrendingUp
     },
     { 
       value: '50+', 
-      label: 'Členný tým', 
+      label: t('about.teamMembers'), 
       gradient: 'from-lime-500 to-green-600',
       icon: Zap
     },
     { 
       value: '98%', 
-      label: 'Spokojenost klientů', 
+      label: t('about.clientSatisfaction'), 
       customColor: '#FFB84D',
       icon: Sparkles
     },
@@ -247,13 +249,11 @@ export function About() {
           <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-4 sm:mb-6 shadow-lg border border-green-200">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
             <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
-              O nás
+              {t('about.title')}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-4 sm:mb-6">
-            Proč si vybrat{' '}
-            <Logo />
-            ?
+            {t('about.subtitle')}
           </h2>
         </div>
 
@@ -261,17 +261,13 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Jsme <span className="text-green-600">profesionální úklidová firma</span> s více než 15letou tradicí na českém trhu. 
-              Specializujeme se na úklid komerčních i rezidenčních prostor v Praze a okolí.
+              {t('about.description1')}
             </p>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Naše společnost byla založena s jasnou vizí - poskytovat kvalitní úklidové služby 
-              s důrazem na individuální přístup ke každému klientovi. Za dobu našeho působení jsme 
-              si vybudovali důvěru <span className="text-green-600">stovek spokojených zákazníků</span>.
+              {t('about.description2')}
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Důvěřujeme zkušeným profesionálům, kteří jsou pravidelně proškolováni v nejnovějších 
-              metodách úklidu. Používáme pouze <span className="text-green-600">certifikované čisticí prostředky</span> a moderní technologie.
+              {t('about.description3')}
             </p>
           </div>
 
@@ -285,7 +281,7 @@ export function About() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group-hover:scale-105 transition-transform duration-500">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Náš úklidový tým"
+                  alt="Our cleaning team"
                   className="w-full h-full object-cover aspect-[4/3]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
@@ -338,9 +334,9 @@ export function About() {
         <div className="mb-12">
           <div className="text-center mb-12">
             <h3 className="text-4xl text-gray-900 mb-4">
-              Co nás <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">definuje</span>
+              {t('about.whatDefinesUs')}
             </h3>
-            <p className="text-lg text-gray-600">Naše hodnoty a přístup k práci</p>
+            <p className="text-lg text-gray-600">{t('about.ourValues')}</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -387,38 +383,38 @@ export function About() {
         <div className="mb-20">
           <div className="text-center mb-16">
             <h3 className="text-4xl text-gray-900 mb-4">
-              Náš <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">tým</span>
+              {t('about.ourTeam')}
             </h3>
-            <p className="text-lg text-gray-600">Profesionálové, kteří tvoří GreenClean</p>
+            <p className="text-lg text-gray-600">{t('about.professionals')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: 'Komerční úklidy',
-                role: '25 specialistů',
-                description: 'Profesionální úklid kanceláří, obchodů a průmyslových prostor',
+                name: 'Commercial Cleaning',
+                role: '25 specialists',
+                description: 'Professional cleaning of offices, stores and industrial spaces',
                 icon: Briefcase,
                 gradient: 'from-green-500 to-emerald-600'
               },
               {
-                name: 'Rezidenční služby',
-                role: '15 odborníků',
-                description: 'Péče o domácnosti, byty a rodinné domy',
+                name: 'Residential Services',
+                role: '15 experts',
+                description: 'Care for households, apartments and family homes',
                 icon: Home,
                 customColor: '#FFA826'
               },
               {
-                name: 'Speciální úklidy',
-                role: '10 expertů',
-                description: 'Výškové práce, havarijní úklidy a dezinfekce',
+                name: 'Special Cleaning',
+                role: '10 experts',
+                description: 'High-rise work, emergency cleaning and disinfection',
                 icon: Building2,
                 gradient: 'from-lime-500 to-green-600'
               },
               {
-                name: 'Zákaznická podpora',
-                role: '5 konzultantů',
-                description: 'Koordinace, plánování a péče o zákazníky',
+                name: 'Customer Support',
+                role: '5 consultants',
+                description: 'Coordination, planning and customer care',
                 icon: Users,
                 customColor: '#FFB84D'
               }
@@ -462,9 +458,9 @@ export function About() {
         <div className="mb-20">
           <div className="text-center mb-16">
             <h3 className="text-4xl text-gray-900 mb-4">
-              Naše <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">technologie</span>
+              {t('about.ourTechnology')}
             </h3>
-            <p className="text-lg text-gray-600">Moderní vybavení pro dokonalé výsledky</p>
+            <p className="text-lg text-gray-600">{t('about.modernEquipment')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -550,15 +546,14 @@ export function About() {
             <div className="relative text-center max-w-3xl mx-auto">
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-6">
                 <Sparkles className="w-5 h-5 text-white" />
-                <span className="text-sm text-white">Jsme tu pro vás</span>
+                <span className="text-sm text-white">We're here for you</span>
               </div>
 
               <h3 className="text-4xl text-white mb-6">
-                Připraveni začít spolupráci?
+                {t('about.readyToStart')}
               </h3>
               <p className="text-xl text-green-50 mb-8 leading-relaxed">
-                Kontaktujte nás ještě dnes a přesvědčte se sami o kvalitě našich služeb. 
-                Nabízíme nezávaznou konzultaci a cenovou nabídku zdarma.
+                {t('about.contactToday')}
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center">
@@ -566,7 +561,7 @@ export function About() {
                   href="#kontakt"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-600 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 >
-                  <span>Získat cenovou nabídku</span>
+                  <span>{t('about.getPriceQuote')}</span>
                   <CheckCircle className="w-5 h-5" />
                 </a>
                 <a 

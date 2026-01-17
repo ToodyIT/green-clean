@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -65,10 +66,10 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
 
   const steps = [
-    { step: '1', title: 'Kontaktujte nás', desc: 'Zavolejte nebo vyplňte formulář' },
-    { step: '2', title: 'Cenová nabídka', desc: 'Připravíme nabídku na míru' },
-    { step: '3', title: 'Domluvíme termín', desc: 'Přizpůsobíme se vašim potřebám' },
-    { step: '4', title: 'Úklid', desc: 'Provedeme kvalitní úklid' },
+    { step: '1', title: t('homeCleaning.contactUs'), desc: t('homeCleaning.contactUsDesc') },
+    { step: '2', title: t('homeCleaning.scheduleAppointment'), desc: t('homeCleaning.scheduleAppointmentDesc') },
+    { step: '3', title: t('homeCleaning.weClean'), desc: t('homeCleaning.weCleanDesc') },
+    { step: '4', title: t('homeCleaning.enjoyCleanliness'), desc: t('homeCleaning.enjoyCleanlinessDesc') },
   ];
 
   useEffect(() => {
@@ -188,45 +189,35 @@ export function ServicePage({
   guarantees,
   onNavigate 
 }: ServicePageProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   // Default values
-  const defaultWhatsIncluded = [
-    'Kompletní vysávání všech prostor',
-    'Mytí a dezinfekce všech povrchů',
-    'Čištění oken a rámů',
-    'Mytí podlah mokrou cestou',
-    'Odstranění prachu z těžko dostupných míst',
-    'Čištění sanitárních zařízení',
-    'Vyprázdnění a dezinfekce odpadkových košů',
-    'Doplnění hygienických potřeb',
-    'Kontrola kvality po ukončení práce',
-    'Dokumentace provedených prací',
-  ];
+  const defaultWhatsIncluded = t('servicePage.defaultWhatsIncluded', { returnObjects: true }) as string[];
   
   const defaultFaqItems = [
     {
-      question: 'Jak dlouho trvá úklid?',
-      answer: 'Doba úklidu závisí na velikosti prostoru a rozsahu prací. Pro standardní prostor do 100 m² počítejte s 2-4 hodinami. Přesný časový odhad vám sdělíme po prohlídce.'
+      question: t('servicePage.defaultFaq.howLong.question'),
+      answer: t('servicePage.defaultFaq.howLong.answer')
     },
     {
-      question: 'Jaké čistící prostředky používáte?',
-      answer: 'Používáme výhradně profesionální ekologické prostředky, které jsou šetrné k životnímu prostředí, zdraví a zároveň velmi účinné. Všechny prostředky mají certifikaci EU.'
+      question: t('servicePage.defaultFaq.cleaningProducts.question'),
+      answer: t('servicePage.defaultFaq.cleaningProducts.answer')
     },
     {
-      question: 'Musím být při úklidu přítomen?',
-      answer: 'Není nutné. Většina našich klientů nám svěřuje klíče a my úklid provedeme dle domluvených požadavků. Samozřejmě můžete být přítomni, pokud si to přejete.'
+      question: t('servicePage.defaultFaq.needToBePresent.question'),
+      answer: t('servicePage.defaultFaq.needToBePresent.answer')
     },
     {
-      question: 'Jak probíhá platba?',
-      answer: 'Platbu můžete provést hotově, bankovním převodem nebo kartou. Fakturujeme po provedení služby s možností nastavení pravidelných plateb pro opakující se úklidy.'
+      question: t('servicePage.defaultFaq.payment.question'),
+      answer: t('servicePage.defaultFaq.payment.answer')
     },
     {
-      question: 'Máte pojištění odpovědnosti?',
-      answer: 'Ano, máme profesionální pojištění odpovědnosti za škody do výše 5 mil. Kč. Váš majetek je tak plně chráněn během provádění našich služeb.'
+      question: t('servicePage.defaultFaq.liabilityInsurance.question'),
+      answer: t('servicePage.defaultFaq.liabilityInsurance.answer')
     },
     {
-      question: 'Můžu si objednat jednorázový úklid?',
-      answer: 'Samozřejmě! Nabízíme jak jednorázové úklidy, tak pravidelné služby. Ceník je flexibilní a přizpůsobujeme se vašim potřebám.'
+      question: t('servicePage.defaultFaq.oneTimeCleaning.question'),
+      answer: t('servicePage.defaultFaq.oneTimeCleaning.answer')
     }
   ];
   
@@ -281,7 +272,7 @@ export function ServicePage({
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
                 style={{backgroundColor: `${accentColor}20`, color: accentColor}}
               >
-                <span className="text-sm">Naše služby</span>
+                <span className="text-sm">{t('services.title')}</span>
               </div>
               <h1 className="text-5xl text-gray-900 mb-6">{title}</h1>
               <p className="text-xl text-gray-600 mb-8">{description}</p>
@@ -305,7 +296,7 @@ export function ServicePage({
                     contactSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Nezávazná poptávka
+                  Free Quote
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Button 
@@ -314,7 +305,7 @@ export function ServicePage({
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
                   onClick={() => navigate('/pricing')}
                 >
-                  Zobrazit kompletní ceník
+                  View Complete Pricing
                 </Button>
               </div>
             </div>
@@ -341,14 +332,14 @@ export function ServicePage({
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <Sparkles className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Proč si vybrat právě nás
+                {t('services.title')}
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              Důvody, proč nám <span style={{ color: accentColor }}>věřit</span>
+              {t('services.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Profesionální přístup a špičková kvalita v každém detailu
+              {t('services.title')}
             </p>
           </div>
 
@@ -356,26 +347,26 @@ export function ServicePage({
             {[
               { 
                 icon: Shield, 
-                title: 'Garance kvality', 
-                desc: 'Pojištění odpovědnosti a záruka spokojenosti',
+                title: t('about.insuranceGuarantee'), 
+                desc: t('about.insuranceGuaranteeDesc'),
                 color: '#4ca137'
               },
               { 
                 icon: Award, 
-                title: '10+ let zkušeností', 
-                desc: 'Stovky spokojených klientů po celé Praze',
+                title: t('about.qualityFirst'), 
+                desc: t('about.qualityFirstDesc'),
                 color: '#5cb944'
               },
               { 
                 icon: Clock, 
-                title: 'Flexibilní termíny', 
-                desc: 'Přizpůsobíme se vašemu harmonogramu',
+                title: t('about.reliability'), 
+                desc: t('about.reliabilityDesc'),
                 color: '#f59e0b'
               },
               { 
                 icon: Zap, 
-                title: 'Ekologické prostředky', 
-                desc: 'Šetrné k životnímu prostředí i zdraví',
+                title: t('about.ecology'), 
+                desc: t('about.ecologyDesc'),
                 color: '#FFA826'
               },
             ].map((item, index) => {
@@ -412,9 +403,9 @@ export function ServicePage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl text-gray-900 mb-4">
-              Ceny za <span style={{ color: '#FFA826' }}>tuto službu</span>
+              {t('pricing.title')}
             </h2>
-            <p className="text-xl text-gray-600">Transparentní ceník přizpůsobený vašim potřebám</p>
+            <p className="text-xl text-gray-600">{t('pricing.description')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
@@ -439,7 +430,7 @@ export function ServicePage({
           </div>
 
           <div className="text-center">
-            <p className="text-gray-600 mb-4">Všechny ceny jsou orientační. Rádi vám připravíme nabídku na míru.</p>
+            <p className="text-gray-600 mb-4">{t('pricing.description')}</p>
           </div>
         </div>
       </section>
@@ -464,10 +455,10 @@ export function ServicePage({
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              Výsledky našich <span style={{ color: accentColor }}>služeb</span>
+              {t('services.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Podívejte se na naše referenční projekty
+              {t('services.description')}
             </p>
           </div>
 
@@ -500,10 +491,10 @@ export function ServicePage({
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl text-gray-900 mb-4">
-                Co všechno <span style={{ color: '#4ca137' }}>zahrnuje</span> tato služba?
+                {t('services.title')}
               </h2>
               <p className="text-xl text-gray-600">
-                Detailní přehled všech prací, které pro vás provedeme
+                {t('services.description')}
               </p>
             </div>
 
@@ -653,13 +644,10 @@ export function ServicePage({
               </span>
             </div>
             <h2 className="text-5xl text-gray-900 mb-6">
-              Často kladené{' '}
-              <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                otázky
-              </span>
+              {t('faq.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Odpovědi na nejčastější dotazy o této službě
+              {t('faq.description')}
             </p>
           </div>
 
@@ -692,7 +680,7 @@ export function ServicePage({
           <div className="mt-16 text-center">
             <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
               <p className="text-gray-700 mb-4">
-                Máte další otázky? Neváhejte nás kontaktovat!
+                {t('faq.haveMoreQuestions')}
               </p>
               <a 
                 href="mailto:info@greenclean-praha.cz" 
@@ -716,10 +704,10 @@ export function ServicePage({
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              Co říkají naši <span style={{ color: '#4ca137' }}>klienti</span>
+              {t('references.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Důvěřují nám stovky spokojených zákazníků
+              {t('references.description')}
             </p>
           </div>
 
@@ -766,9 +754,9 @@ export function ServicePage({
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl text-gray-900 mb-4">
-              <span style={{ color: '#4ca137' }}>Jak</span> to funguje?
+              {t('homeCleaning.howItWorks')}
             </h2>
-            <p className="text-xl text-gray-600">Jednoduchý proces v několika krocích</p>
+            <p className="text-xl text-gray-600">{t('homeCleaning.simpleSteps')}</p>
           </div>
 
           <ProcessTimelineComponent accentColor={accentColor} />

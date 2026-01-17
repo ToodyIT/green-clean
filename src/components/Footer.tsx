@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import { Separator } from './ui/separator';
 import { Logo } from './Logo';
@@ -9,22 +10,23 @@ interface FooterProps {
 }
 
 export function Footer({ onNavigate }: FooterProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const services = [
-    { id: 'home', label: 'Úklid bytů a domů' },
-    { id: 'office', label: 'Úklid kanceláří a firem' },
-    { id: 'airbnb', label: 'Úklid Airbnb bytů' },
-    { id: 'furniture', label: 'Čištění nábytku' },
-    { id: 'renovation', label: 'Úklid po rekonstrukci' },
-    { id: 'development', label: 'Developerské projekty' },
-    { id: 'buildings', label: 'Panelové domy a SVJ' },
+    { id: 'home', label: t('services.homeCleaning') },
+    { id: 'office', label: t('services.officeCleaning') },
+    { id: 'airbnb', label: t('services.airbnbCleaning') },
+    { id: 'furniture', label: t('services.furnitureCleaning') },
+    { id: 'renovation', label: t('services.renovationCleaning') },
+    { id: 'development', label: t('services.developmentCleaning') },
+    { id: 'buildings', label: t('services.buildingCleaning') },
   ];
 
   const company = [
-    { id: 'about', label: 'O nás' },
-    { id: 'references', label: 'Reference' },
-    { id: 'pricing', label: 'Ceník' },
-    { id: 'contact', label: 'Kontakt' },
+    { id: 'about', label: t('common.about') },
+    { id: 'references', label: t('common.references') },
+    { id: 'pricing', label: t('common.pricing') },
+    { id: 'contact', label: t('common.contact') },
   ];
 
   return (
@@ -62,7 +64,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   <span style={{ color: '#4ca137' }}>Green</span>
                   <span style={{ color: '#FFA826' }}>Clean</span>
                 </div>
-                <div className="text-sm text-gray-400">Profesionální úklidové služby</div>
+                <div className="text-sm text-gray-400">{t("footer.professionalCleaning")}</div>
               </div>
             </div>
             <div className="flex gap-3 mt-6">
@@ -84,7 +86,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Services */}
           <div>
             <h4 className="text-white mb-4 relative inline-block">
-              Služby
+              {t("footer.services")}
             </h4>
             <ul className="space-y-2">
               {services.map((service) => (
@@ -104,7 +106,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Company */}
           <div>
             <h4 className="text-white mb-4 relative inline-block">
-              Společnost
+              {t("footer.company")}
             </h4>
             <ul className="space-y-2">
               {company.map((item) => (
@@ -124,7 +126,7 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Contact */}
           <div>
             <h4 className="text-white mb-4 relative inline-block">
-              Kontakt
+              {t("footer.contact")}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm group">
@@ -148,8 +150,8 @@ export function Footer({ onNavigate }: FooterProps) {
                   <MapPin className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <span className="mt-1.5">
-                  Václavské náměstí 123<br />
-                  110 00 Praha 1
+                  Wenceslas Square 123<br />
+                  110 00 Prague 1
                 </span>
               </li>
             </ul>

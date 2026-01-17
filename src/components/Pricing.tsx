@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Check, ArrowRight, Building2, Home, Sparkles, Crown, Zap, Sofa, HardHat, Building, Warehouse, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
@@ -10,6 +11,7 @@ interface PricingProps {
 }
 
 export function Pricing({ onNavigate }: PricingProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState('home');
   const [homeServiceTab, setHomeServiceTab] = useState('weekly'); // For home service tabs
@@ -19,7 +21,7 @@ export function Pricing({ onNavigate }: PricingProps) {
   const allServices = [
     {
       id: 'home',
-      name: 'Byty a domy',
+      name: t('pricing.homesApartments'),
       icon: Home,
       color: '#4ca137',
       gradient: 'from-emerald-500 via-green-500 to-lime-500',
@@ -27,82 +29,82 @@ export function Pricing({ onNavigate }: PricingProps) {
       tabs: [
         {
           id: 'weekly',
-          name: 'Lehký úklid',
+          name: t('pricing.lightCleaning'),
           pricing: [
             {
-              name: '1+kk',
-              price: '800–1100 Kč',
+              name: '1 Bedroom',
+              price: '800–1100 CZK',
               unit: '20–40 m²',
-              time: '2–3 hodiny',
-              features: ['Vysávání a vytírání', 'Čištění koupelny', 'Úklid kuchyně', 'Otírání prachu']
+              time: '2–3 hours',
+              features: ['Vacuuming and mopping', 'Bathroom cleaning', 'Kitchen cleaning', 'Dusting']
             },
             {
-              name: '2+kk / 2+1',
-              price: '1200–1700 Kč',
+              name: '2 Bedroom',
+              price: '1200–1700 CZK',
               unit: '45–70 m²',
-              time: '4–6 hodin',
-              features: ['Více místností', 'Důkladnější čištění', 'Mytí zrcadel', 'Flexibilní termíny']
+              time: '4–6 hours',
+              features: ['More rooms', 'Thorough cleaning', 'Mirror cleaning', 'Flexible scheduling']
             },
             {
-              name: '3+kk / 3+1',
-              price: '1600–2100 Kč',
+              name: '3 Bedroom',
+              price: '1600–2100 CZK',
               unit: '70–100 m²',
-              time: '6–8 hodin',
-              features: ['Kompletní úklid', 'Péče o rostliny', 'Možnost žehlení', 'Individuální požadavky']
+              time: '6–8 hours',
+              features: ['Complete cleaning', 'Plant care', 'Ironing option', 'Custom requirements']
             }
           ]
         },
         {
           id: 'monthly',
-          name: 'Generální úklid',
+          name: t('pricing.deepCleaning'),
           pricing: [
             {
-              name: '1+kk',
-              price: '1500–2200 Kč',
+              name: '1 Bedroom',
+              price: '1500–2200 CZK',
               unit: '20–40 m²',
-              time: '3–4 hodiny',
-              features: ['Mytí všech oken', 'Čištění spotřebičů', 'Čištění skříní', 'Dezinfekce']
+              time: '3–4 hours',
+              features: ['Window washing', 'Appliance cleaning', 'Cabinet cleaning', 'Disinfection']
             },
             {
-              name: '2+kk / 2+1',
-              price: '2000–3200 Kč',
+              name: '2 Bedroom',
+              price: '2000–3200 CZK',
               unit: '45–70 m²',
-              time: '5–7 hodin',
-              features: ['Mytí obkladů', 'Čištění digestoře', 'Leštění podlah', 'Kompletní dezinfekce']
+              time: '5–7 hours',
+              features: ['Tile cleaning', 'Range hood cleaning', 'Floor polishing', 'Complete disinfection']
             },
             {
-              name: '3+kk / 3+1',
-              price: '2500–4000 Kč',
+              name: '3 Bedroom',
+              price: '2500–4000 CZK',
               unit: '70–100 m²',
-              time: '7–9 hodin',
-              features: ['Hloubkové čištění', 'Čištění nábytku', 'Mytí oken a rámů', 'Premium dezinfekce']
+              time: '7–9 hours',
+              features: ['Deep cleaning', 'Furniture cleaning', 'Window and frame washing', 'Premium disinfection']
             }
           ]
         },
         {
           id: 'onetime',
-          name: 'Úklid po rekonstrukci',
+          name: t('pricing.postRenovation'),
           pricing: [
             {
-              name: '1+kk',
-              price: '2500–3500 Kč',
+              name: '1 Bedroom',
+              price: '2500–3500 CZK',
               unit: '20–40 m²',
-              time: '4–5 hodin',
-              features: ['Odstranění prachu', 'Mytí oken', 'Čištění po malířích', 'Finální úklid']
+              time: '4–5 hours',
+              features: ['Dust removal', 'Window washing', 'Post-painting cleaning', 'Final cleaning']
             },
             {
-              name: '2+kk / 2+1',
-              price: '3500–5500 Kč',
+              name: '2 Bedroom',
+              price: '3500–5500 CZK',
               unit: '45–70 m²',
-              time: '6–8 hodin',
-              features: ['Hloubkové čištění', 'Čištění obkladů', 'Mytí všech povrchů', 'Kompletní finalizace']
+              time: '6–8 hours',
+              features: ['Deep cleaning', 'Tile cleaning', 'All surface washing', 'Complete finalization']
             },
             {
-              name: '3+kk / 3+1',
-              price: '5000–6500 Kč',
+              name: '3 Bedroom',
+              price: '5000–6500 CZK',
               unit: '70–100 m²',
-              time: '8–10 hodin',
-              features: ['Kompletní úklid', 'Odstranění nečistot', 'Čištění spotřebičů', 'Premium dokončení']
+              time: '8–10 hours',
+              features: ['Complete cleaning', 'Debris removal', 'Appliance cleaning', 'Premium finish']
             }
           ]
         }
@@ -110,169 +112,169 @@ export function Pricing({ onNavigate }: PricingProps) {
     },
     {
       id: 'office',
-      name: 'Kanceláře a firmy',
+      name: 'Offices and Companies',
       icon: Building2,
       color: '#48b349',
       gradient: 'from-green-500 via-emerald-500 to-teal-500',
       pricing: [
         {
-          name: 'Malé kanceláře',
-          price: '30 Kč/m²',
-          unit: 'za úklid',
-          features: ['Do 100 m²', 'Základní úklid', 'Flexibilní termíny', 'Pravidelné úklidy']
+          name: 'Small Offices',
+          price: '30 CZK/m²',
+          unit: 'per cleaning',
+          features: ['Up to 100 m²', 'Basic cleaning', 'Flexible scheduling', 'Regular cleanings']
         },
         {
-          name: 'Střední kanceláře',
-          price: '25 Kč/m²',
-          unit: 'za úklid',
-          features: ['100-300 m²', 'Kompletní úklid', 'Stálý tým', 'Account manager', 'Sleva 15%'],
+          name: 'Medium Offices',
+          price: '25 CZK/m²',
+          unit: 'per cleaning',
+          features: ['100-300 m²', 'Complete cleaning', 'Dedicated team', 'Account manager', '15% discount'],
           highlighted: true
         },
         {
-          name: 'Velké kanceláře',
-          price: 'Od 20 Kč/m²',
-          unit: 'individuální cena',
-          features: ['Nad 300 m²', 'Dedikovaný tým', 'SLA garanty', 'Reporting', '24/7 podpora']
+          name: 'Large Offices',
+          price: 'From 20 CZK/m²',
+          unit: 'custom price',
+          features: ['Over 300 m²', 'Dedicated team', 'SLA guarantees', 'Reporting', '24/7 support']
         }
       ]
     },
     {
       id: 'airbnb',
-      name: 'Airbnb byty',
+      name: 'Airbnb Apartments',
       icon: Building,
       color: '#5cb946',
       gradient: 'from-lime-500 via-green-500 to-emerald-500',
       pricing: [
         {
-          name: 'Byt 1+kk',
-          price: '800 Kč',
-          unit: 'za úklid',
-          features: ['Do 35 m²', 'Kompletní úklid', 'Výměna prádla']
+          name: '1 Bedroom Apartment',
+          price: '800 CZK',
+          unit: 'per cleaning',
+          features: ['Up to 35 m²', 'Complete cleaning', 'Linen change']
         },
         {
-          name: 'Byt 2+kk/3+kk',
-          price: '1200 Kč',
-          unit: 'za úklid',
-          features: ['35-70 m²', 'Kompletní úklid', 'Výměna prádla', 'Foto dokumentace'],
+          name: '2-3 Bedroom Apartment',
+          price: '1200 CZK',
+          unit: 'per cleaning',
+          features: ['35-70 m²', 'Complete cleaning', 'Linen change', 'Photo documentation'],
           highlighted: true
         },
         {
-          name: 'Velké byty',
-          price: 'Od 1500 Kč',
-          unit: 'za úklid',
-          features: ['Nad 70 m²', 'Kompletní úklid', 'Výměna prádla', 'Express možnost']
+          name: 'Large Apartments',
+          price: 'From 1500 CZK',
+          unit: 'per cleaning',
+          features: ['Over 70 m²', 'Complete cleaning', 'Linen change', 'Express option']
         }
       ]
     },
     {
       id: 'furniture',
-      name: 'Nábytek a sedačky',
+      name: 'Furniture and Upholstery',
       icon: Sofa,
       color: '#48b881',
       gradient: 'from-blue-500 via-cyan-500 to-teal-500',
       pricing: [
         {
-          name: 'Čištění sedaček',
-          price: 'Od 800 Kč',
-          unit: 'za kus',
-          features: ['Křeslo: 800 Kč', 'Sedačka 2-místná: 1400 Kč', 'Sedačka 3-místná: 1800 Kč']
+          name: 'Sofa Cleaning',
+          price: 'From 800 CZK',
+          unit: 'per piece',
+          features: ['Armchair: 800 CZK', '2-seater sofa: 1400 CZK', '3-seater sofa: 1800 CZK']
         },
         {
-          name: 'Čištění koberců',
-          price: '120 Kč/m²',
-          unit: 'za metr čtvereční',
-          features: ['Hloubkové čištění', 'Odstranění skvrn', 'Dezinfekce'],
+          name: 'Carpet Cleaning',
+          price: '120 CZK/m²',
+          unit: 'per square meter',
+          features: ['Deep cleaning', 'Stain removal', 'Disinfection'],
           highlighted: true
         },
         {
-          name: 'Impregnace',
-          price: 'Od 400 Kč',
-          unit: 'za kus',
-          features: ['Ochrana proti skvrnám', 'Prodloužení životnosti', 'Snazší údržba']
+          name: 'Protection Treatment',
+          price: 'From 400 CZK',
+          unit: 'per piece',
+          features: ['Stain protection', 'Extended lifespan', 'Easier maintenance']
         }
       ]
     },
     {
       id: 'renovation',
-      name: 'Po rekonstrukci',
+      name: 'Post-Renovation',
       icon: HardHat,
       color: '#FFA826',
       customGradient: 'linear-gradient(to right, #FFA826, #FFB84D, #E59518)',
       pricing: [
         {
-          name: 'Hrubý úklid',
-          price: '25 Kč/m²',
-          unit: 'za metr čtvereční',
-          features: ['Odstranění prachu', 'Čištění podlah', 'Základní mytí oken']
+          name: 'Rough Cleaning',
+          price: '25 CZK/m²',
+          unit: 'per square meter',
+          features: ['Dust removal', 'Floor cleaning', 'Basic window washing']
         },
         {
-          name: 'Finální úklid',
-          price: '35 Kč/m²',
-          unit: 'za metr čtvereční',
-          features: ['Kompletní úklid', 'Leštění povrchů', 'Důkladné mytí oken', 'Připraven k předání'],
+          name: 'Final Cleaning',
+          price: '35 CZK/m²',
+          unit: 'per square meter',
+          features: ['Complete cleaning', 'Surface polishing', 'Thorough window washing', 'Ready for handover'],
           highlighted: true
         },
         {
-          name: 'Komplexní balíček',
-          price: 'Na míru',
-          unit: 'individuální cena',
-          features: ['Hrubý + finální', 'Pravidelný úklid během stavby', 'Dedikovaný tým']
+          name: 'Complete Package',
+          price: 'Custom',
+          unit: 'custom price',
+          features: ['Rough + final', 'Regular cleaning during construction', 'Dedicated team']
         }
       ]
     },
     {
       id: 'development',
-      name: 'Developerské projekty',
+      name: 'Development Projects',
       icon: Building,
       color: '#FFB84D',
       gradient: 'from-purple-500 via-violet-500 to-indigo-500',
       pricing: [
         {
-          name: 'Malé projekty',
-          price: 'Od 30 Kč/m²',
-          unit: 'za metr čtvereční',
-          features: ['Do 10 bytů', 'Kompletní úklid', 'Flexibilní termíny']
+          name: 'Small Projects',
+          price: 'From 30 CZK/m²',
+          unit: 'per square meter',
+          features: ['Up to 10 apartments', 'Complete cleaning', 'Flexible scheduling']
         },
         {
-          name: 'Střední projekty',
-          price: 'Od 25 Kč/m²',
-          unit: 'za metr čtvereční',
-          features: ['10-50 bytů', 'Dedikovaný tým', 'Koordinace', 'Reporting'],
+          name: 'Medium Projects',
+          price: 'From 25 CZK/m²',
+          unit: 'per square meter',
+          features: ['10-50 apartments', 'Dedicated team', 'Coordination', 'Reporting'],
           highlighted: true
         },
         {
-          name: 'Velké projekty',
-          price: 'Individuální',
-          unit: 'na poptávku',
-          features: ['Nad 50 bytů', 'Kompletní správa', 'SLA garanty', '24/7 dostupnost']
+          name: 'Large Projects',
+          price: 'Custom',
+          unit: 'on request',
+          features: ['Over 50 apartments', 'Complete management', 'SLA guarantees', '24/7 availability']
         }
       ]
     },
     {
       id: 'buildings',
-      name: 'Panelové domy a SVJ',
+      name: 'Apartment Buildings and HOAs',
       icon: Warehouse,
       color: '#6bc14a',
       gradient: 'from-amber-500 via-orange-500 to-red-500',
       pricing: [
         {
-          name: 'Malý dům',
-          price: 'Od 3000 Kč',
-          unit: 'měsíčně',
-          features: ['Do 12 bytů', '2x týdně', 'Základní úklid', 'Flexibilní termíny']
+          name: 'Small Building',
+          price: 'From 3000 CZK',
+          unit: 'monthly',
+          features: ['Up to 12 apartments', '2x per week', 'Basic cleaning', 'Flexible scheduling']
         },
         {
-          name: 'Střední dům',
-          price: 'Od 6000 Kč',
-          unit: 'měsíčně',
-          features: ['12-30 bytů', '3x týdně', 'Kompletní úklid', 'Reporting pro SVJ'],
+          name: 'Medium Building',
+          price: 'From 6000 CZK',
+          unit: 'monthly',
+          features: ['12-30 apartments', '3x per week', 'Complete cleaning', 'HOA reporting'],
           highlighted: true
         },
         {
-          name: 'Velký dům',
-          price: 'Individuální',
-          unit: 'na poptávku',
-          features: ['Nad 30 bytů', 'Denní úklid', 'Dedikovaný personál', 'Kompletní správa']
+          name: 'Large Building',
+          price: 'Custom',
+          unit: 'on request',
+          features: ['Over 30 apartments', 'Daily cleaning', 'Dedicated staff', 'Complete management']
         }
       ]
     }
@@ -297,16 +299,13 @@ export function Pricing({ onNavigate }: PricingProps) {
         <div className="text-center mb-12" ref={headerAnimation.ref}>
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-green-200 rounded-full mb-6 shadow-lg">
             <Sparkles className="w-5 h-5 text-green-600" />
-            <span className="text-sm text-gray-900">Ceník</span>
+            <span className="text-sm text-gray-900">{t('pricing.title')}</span>
           </div>
           <h2 className="text-5xl lg:text-6xl text-gray-900 mb-6">
-            Transparentní{' '}
-            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              ceník
-            </span>
+            {t('pricing.subtitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Jasné ceny podle služeb a metrů čtverečních bez skrytých poplatků
+            {t('pricing.description')}
           </p>
         </div>
 
@@ -391,7 +390,7 @@ export function Pricing({ onNavigate }: PricingProps) {
                     key={`dot-${service.id}`}
                     onClick={() => setSelectedService(service.id)}
                     className="transition-all duration-300 hover:scale-110"
-                    aria-label={`Přejít na ${service.name}`}
+                    aria-label={`Go to ${service.name}`}
                   >
                     <div 
                       className={`rounded-full transition-all duration-300 ${
@@ -505,7 +504,7 @@ export function Pricing({ onNavigate }: PricingProps) {
                     style={{background: currentService.color}}
                     onClick={() => navigate(`/${currentService.id}`)}
                   >
-                    Zjistit více
+                    Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -528,13 +527,13 @@ export function Pricing({ onNavigate }: PricingProps) {
             
             <div className="relative">
               <Zap className="w-12 h-12 mx-auto mb-4" style={{color: '#FFA826'}} />
-              <p className="text-2xl text-gray-900 mb-6">Potřebujete přesnou cenovou nabídku?</p>
+              <p className="text-2xl text-gray-900 mb-6">{t('pricing.needAccurateQuote')}</p>
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
                 onClick={() => navigate('/contact')}
               >
-                Nezávazná poptávka
+                Free Quote
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>

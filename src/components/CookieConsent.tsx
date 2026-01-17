@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, Cookie } from 'lucide-react';
 import { Button } from './ui/button';
 
 export function CookieConsent() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -50,13 +52,12 @@ export function CookieConsent() {
             {/* Content */}
             <div className="flex-1">
               <h3 className="text-xl sm:text-2xl text-gray-900 mb-2">
-                Používáme cookies 🍪
+                {t("cookieConsent.title")}
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Náš web používá cookies pro zlepšení vašeho zážitku z prohlížení. 
-                Kliknutím na "Přijmout" souhlasíte s používáním cookies.{' '}
+                {t("cookieConsent.description")}{' '}
                 <a href="#" className="text-green-600 hover:text-green-700 underline">
-                  Zjistit více
+                  {t("cookieConsent.learnMore")}
                 </a>
               </p>
             </div>
@@ -67,14 +68,14 @@ export function CookieConsent() {
                 onClick={handleAccept}
                 className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 whitespace-nowrap"
               >
-                Přijmout cookies
+                {t("cookieConsent.acceptCookies")}
               </Button>
               <Button
                 onClick={handleDecline}
                 variant="outline"
                 className="border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 transition-all duration-300 whitespace-nowrap"
               >
-                Odmítnout
+                {t("common.decline")}
               </Button>
             </div>
             
@@ -82,7 +83,7 @@ export function CookieConsent() {
             <button
               onClick={handleDecline}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all duration-300 hover:rotate-90"
-              aria-label="Zavřít"
+              aria-label={t("common.close")}
             >
               <X className="w-5 h-5" />
             </button>

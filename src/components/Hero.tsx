@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -9,6 +10,7 @@ interface HeroProps {
 }
 
 export function Hero({ onNavigate }: HeroProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-green-50 to-emerald-50">
@@ -29,33 +31,28 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-md border border-green-200 rounded-full mb-4 sm:mb-6 lg:mb-8 shadow-lg hover:bg-white transition-all duration-300 group">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 group-hover:rotate-12 transition-transform" />
               <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Profesionální služby od roku 2010
+                {t("hero.badge")}
               </span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-gray-900">
-              Úklidové služby
+              {t("hero.title")}
               <span className="block bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
-                Praha
+                {t("hero.titleHighlight")}
               </span>
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 lg:mb-10 leading-relaxed max-w-xl">
-              Zajistíme čistotu a pořádek ve vašich prostorách. 
-              Spolehlivě, rychle a za{' '}
-              <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}>
-                férové ceny
-              </span>
-              .
+              {t("hero.description")}
             </p>
 
             {/* Feature Cards with glassmorphism */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
               {[
-                { icon: CheckCircle, title: 'Certifikovaný personál', desc: 'Proškolení profesionálové', gradient: 'from-green-500 to-emerald-600' },
-                { icon: Zap, title: 'Ekologické prostředky', desc: 'Šetrné k prostředí', gradient: 'from-lime-500 to-green-600' },
-                { icon: Star, title: 'Pojištění odpovědnosti', desc: 'Garantovaná bezpečnost', color: '#FFA826' },
-                { icon: Sparkles, title: 'Flexibilní termíny', desc: 'Dle vašich potřeb', color: '#FFB84D' },
+                { icon: CheckCircle, title: t("hero.certifiedStaff"), desc: t("hero.certifiedStaffDesc"), gradient: 'from-green-500 to-emerald-600' },
+                { icon: Zap, title: t("hero.ecoFriendly"), desc: t("hero.ecoFriendlyDesc"), gradient: 'from-lime-500 to-green-600' },
+                { icon: Star, title: t("hero.liabilityInsurance"), desc: t("hero.liabilityInsuranceDesc"), color: '#FFA826' },
+                { icon: Sparkles, title: t("hero.flexibleScheduling"), desc: t("hero.flexibleSchedulingDesc"), color: '#FFB84D' },
               ].map((item, idx) => (
                 <div 
                   key={idx}
@@ -82,7 +79,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
                 onClick={() => navigate('/contact')}
               >
-                Nezávazná poptávka
+                {t("common.freeQuote")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
@@ -91,7 +88,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="bg-white border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-green-600 hover:scale-105 transition-all duration-300"
                 onClick={() => navigate('/services')}
               >
-                Naše služby
+                {t("hero.ourServices")}
               </Button>
             </div>
           </div>
@@ -106,7 +103,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-500">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Profesionální úklidový tým"
+                  alt="Professional cleaning team"
                   className="w-full h-full object-cover aspect-[4/3]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
@@ -117,12 +114,12 @@ export function Hero({ onNavigate }: HeroProps) {
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <div className="text-4xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">500+</div>
-                    <div className="text-sm text-gray-600">Spokojených klientů</div>
+                    <div className="text-sm text-gray-600">{t("hero.satisfiedClients")}</div>
                   </div>
                   <div className="w-px h-12 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
                   <div className="text-center">
                     <div className="text-4xl bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}>15+</div>
-                    <div className="text-sm text-gray-600">Let zkušeností</div>
+                    <div className="text-sm text-gray-600">{t("hero.yearsOfExperience")}</div>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Building2, Home, Sofa, HardHat, Building, Warehouse, ArrowRight, Sparkles } from 'lucide-react';
@@ -11,6 +12,7 @@ interface ServicesProps {
 }
 
 export function Services({ onNavigate }: ServicesProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const featuredAnimation = useScrollAnimation({ threshold: 0.15 });
@@ -19,8 +21,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'home',
       icon: Home,
-      title: 'Úklid bytů a domů',
-      description: 'Pravidelný i jednorázový úklid domácností. Profesionální péče o váš domov s důrazem na detail a kvalitu.',
+      title: t('services.homeCleaning'),
+      description: t('services.homeCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1758272422189-b10f36fd4ddd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMGhvbWUlMjBhcGFydG1lbnQlMjBsaXZpbmd8ZW58MXx8fHwxNzYyMzc1NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       gradient: 'from-emerald-500 via-green-500 to-lime-500',
       featured: true,
@@ -30,8 +32,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'office',
       icon: Building2,
-      title: 'Úklid kanceláří a firem Praha',
-      description: 'Pravidelný i jednorázový úklid kancelářských prostor. Zajistíme čisté a příjemné pracovní prostředí.',
+      title: t('services.officeCleaning'),
+      description: t('services.officeCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1631365696563-4990f4e9302c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBjbGVhbmluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjExNDQ2MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       gradient: 'from-green-500 via-emerald-500 to-teal-500',
       priceFrom: '25 Kč/m²',
@@ -40,8 +42,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'airbnb',
       icon: Building,
-      title: 'Úklid Airbnb bytů',
-      description: 'Rychlý a důkladný úklid mezi hosty. Garantujeme termín a vysokou kvalitu pro vaše hodnocení.',
+      title: t('services.airbnbCleaning'),
+      description: t('services.airbnbCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1666282167632-c613fbeb163c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGFwYXJ0bWVudHxlbnwxfHx8fDE3NjExNDQ2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       gradient: 'from-lime-500 via-green-500 to-emerald-500',
       priceFrom: '1 500 Kč',
@@ -50,8 +52,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'furniture',
       icon: Sofa,
-      title: 'Čištění nábytku a sedaček',
-      description: 'Profesionální chemické čištění sedacích souprav, koberců a další čalouněné nábytku.',
+      title: t('services.furnitureCleaning'),
+      description: t('services.furnitureCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1654511830326-63a577771a7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXJuaXR1cmUlMjBjbGVhbmluZyUyMHNvZmF8ZW58MXx8fHwxNzYxMTQ0NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       customGradient: 'linear-gradient(to right, #FFA826, #FFB84D, #E59518)',
       priceFrom: '500 Kč',
@@ -60,8 +62,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'renovation',
       icon: HardHat,
-      title: 'Úklid po rekonstrukci a stavbě',
-      description: 'Odstranění stavebního prachu a nečistot. Připravíme prostor k okamžitému užívání.',
+      title: t('services.renovationCleaning'),
+      description: t('services.renovationCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1661746785480-439c1a4b8254?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBjbGVhbmluZ3xlbnwxfHx8fDE3NjExNDQ2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       customGradient: 'linear-gradient(to right, #FFB84D, #FFA826, #E59518)',
       priceFrom: '35 Kč/m²',
@@ -70,8 +72,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'development',
       icon: Building,
-      title: 'Úklid developerských projektů',
-      description: 'Komplexní úklidové služby pro developerské projekty. Zkušenosti s velkými projekty.',
+      title: t('services.developmentCleaning'),
+      description: t('services.developmentCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1631365696563-4990f4e9302c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBjbGVhbmluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjExNDQ2MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       gradient: 'from-teal-500 via-green-500 to-lime-500',
       priceFrom: '30 Kč/m²',
@@ -80,8 +82,8 @@ export function Services({ onNavigate }: ServicesProps) {
     {
       id: 'buildings',
       icon: Warehouse,
-      title: 'Úklid panelových domů a SVJ',
-      description: 'Pravidelný úklid společných prostor bytových domů. Péče o chodby, schodiště a okolí.',
+      title: t('services.buildingCleaning'),
+      description: t('services.buildingCleaningDesc'),
       image: 'https://images.unsplash.com/photo-1666282167632-c613fbeb163c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGFwYXJ0bWVudHxlbnwxfHx8fDE3NjExNDQ2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       customGradient: 'linear-gradient(to right, #E59518, #FFA826, #CC8A1C)',
       priceFrom: '15 Kč/m²',
@@ -101,17 +103,14 @@ export function Services({ onNavigate }: ServicesProps) {
           <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 sm:mb-6 shadow-lg border border-green-200">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
             <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              Naše služby
+              {t('services.title')}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-4 sm:mb-6">
-            Komplexní úklidové <br/>
-            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              řešení pro všechny
-            </span>
+            {t('services.subtitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Od kanceláří po bytové domy - zajistíme čistotu ve vašich prostorách
+            {t('services.description')}
           </p>
         </div>
 
@@ -150,7 +149,7 @@ export function Services({ onNavigate }: ServicesProps) {
                     {/* Featured badge */}
                     <div className="absolute top-6 right-6">
                       <div className="px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-lg">
-                        <span className="text-white text-sm">★ Nejpopulárnější</span>
+                        <span className="text-white text-sm">★ {t('services.mostPopular')}</span>
                       </div>
                     </div>
 
@@ -178,16 +177,16 @@ export function Services({ onNavigate }: ServicesProps) {
                     {/* Price - Minimalist */}
                     <div className="mb-8">
                       <div className="flex items-baseline gap-2 text-gray-500">
-                        <span className="text-sm">od</span>
+                        <span className="text-sm">{t('common.from')}</span>
                         <span className="text-xl text-gray-700">{service.priceFrom}</span>
-                        <span className="text-sm">do</span>
+                        <span className="text-sm">{t('common.to')}</span>
                         <span className="text-xl text-gray-700">{service.priceTo}</span>
                       </div>
                     </div>
                     
                     {/* CTA */}
                     <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors text-lg">
-                      <span className="mr-2">Zjistit více</span>
+                      <span className="mr-2">{t('common.learnMore')}</span>
                       <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
@@ -210,7 +209,7 @@ export function Services({ onNavigate }: ServicesProps) {
           </div>
           <div className="relative flex justify-center">
             <span className="bg-gradient-to-b from-slate-50 to-white px-6 py-2 text-sm text-gray-500">
-              Další specializované služby
+              {t('services.otherServices')}
             </span>
           </div>
         </div>
@@ -275,16 +274,16 @@ export function Services({ onNavigate }: ServicesProps) {
                     {/* Price - Minimalist */}
                     <div className="mb-6">
                       <div className="flex items-baseline gap-1.5 text-gray-500">
-                        <span className="text-xs">od</span>
+                        <span className="text-xs">{t('common.from')}</span>
                         <span className="text-base text-gray-700">{service.priceFrom}</span>
-                        <span className="text-xs">do</span>
+                        <span className="text-xs">{t('common.to')}</span>
                         <span className="text-base text-gray-700">{service.priceTo}</span>
                       </div>
                     </div>
                     
                     {/* CTA */}
                     <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
-                      <span className="mr-2">Zjistit více</span>
+                      <span className="mr-2">Learn More</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
@@ -307,7 +306,7 @@ export function Services({ onNavigate }: ServicesProps) {
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
             onClick={() => navigate('/contact')}
           >
-            Nezávazná poptávka
+            Free Quote
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

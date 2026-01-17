@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -11,6 +12,7 @@ import { useScrollAnimation, animations } from '../hooks/useScrollAnimation';
 import { useState } from 'react';
 
 export function Contact() {
+  const { t } = useTranslation();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -28,14 +30,14 @@ export function Contact() {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
             <Sparkles className="w-5 h-5 text-green-600" />
             <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              Kontakt
+              {t('contact.title')}
             </span>
           </div>
           <h2 className="text-5xl text-gray-900 mb-6">
-            Kontaktujte nás
+            {t('contact.subtitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Rádi vám připravíme cenovou nabídku na míru
+            {t('contact.description')}
           </p>
         </div>
 
@@ -49,7 +51,7 @@ export function Contact() {
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 group-hover:scale-105 transition-all duration-500">
                 <ImageWithFallback 
                   src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Andrii Mazar - Majitel GreenClean"
+                  alt="Andrii Mazar - Owner GreenClean"
                   className="w-full h-full object-cover"
                 />
                 {/* Green overlay with animation */}
@@ -62,7 +64,7 @@ export function Contact() {
               <div className="flex-1">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 shadow-md">
                   <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#4ca137'}}></div>
-                  <span className="text-sm" style={{color: '#4ca137'}}>Majitel a jednatel</span>
+                  <span className="text-sm" style={{color: '#4ca137'}}>{t('contact.ownerDirector')}</span>
                 </div>
                 
                 <h3 className="text-3xl md:text-4xl text-gray-900 mb-4">
@@ -70,7 +72,7 @@ export function Contact() {
                 </h3>
                 
                 <p className="text-lg text-gray-600 mb-6 italic">
-                  "S úklidem máme více než 10 let zkušeností. Naším cílem je poskytovat špičkové služby a budovat dlouhodobé vztahy s našimi klienty. Jsme tu pro vás!"
+                  "{t('contact.ownerQuote')}"
                 </p>
                 
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -98,7 +100,7 @@ export function Contact() {
         {/* Separator with text */}
         <div className="flex items-center gap-4 max-w-6xl mx-auto mb-16">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-gray-300"></div>
-          <span className="text-sm text-gray-500 px-4">Kontaktní formulář a informace</span>
+          <span className="text-sm text-gray-500 px-4">{t('contact.contactFormInfo')}</span>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gray-300 to-gray-300"></div>
         </div>
 
@@ -113,29 +115,29 @@ export function Contact() {
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Send className="w-5 h-5 text-white" />
                 </div>
-                Nezávazná poptávka
+                {t('contact.freeQuote')}
               </h3>
               
               <form className="space-y-6 flex-1 flex flex-col">
                 <div>
-                  <Label className="text-gray-700 mb-3">Píšete jako *</Label>
+                  <Label className="text-gray-700 mb-3">{t('contact.writingAs')}</Label>
                   <RadioGroup defaultValue="private" className="flex gap-4 mt-2">
                     <div className="flex items-center space-x-2 flex-1">
                       <RadioGroupItem value="private" id="private" className="border-2 border-gray-300" />
-                      <Label htmlFor="private" className="cursor-pointer text-gray-700">Soukromá osoba</Label>
+                      <Label htmlFor="private" className="cursor-pointer text-gray-700">{t('contact.privatePerson')}</Label>
                     </div>
                     <div className="flex items-center space-x-2 flex-1">
                       <RadioGroupItem value="company" id="company" className="border-2 border-gray-300" />
-                      <Label htmlFor="company" className="cursor-pointer text-gray-700">Firma</Label>
+                      <Label htmlFor="company" className="cursor-pointer text-gray-700">{t('contact.company')}</Label>
                     </div>
                   </RadioGroup>
                 </div>
 
                 <div>
-                  <Label htmlFor="name" className="text-gray-700">Jméno a příjmení *</Label>
+                  <Label htmlFor="name" className="text-gray-700">{t('contact.fullName')}</Label>
                   <Input 
                     id="name" 
-                    placeholder="Jan Novák"
+                    placeholder="John Doe"
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
                     onFocus={() => setFocusedField('name')}
                     onBlur={() => setFocusedField(null)}
@@ -143,11 +145,11 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="text-gray-700">E-mail *</Label>
+                  <Label htmlFor="email" className="text-gray-700">{t('contact.email')}</Label>
                   <Input 
                     id="email" 
                     type="email"
-                    placeholder="jan.novak@email.cz"
+                    placeholder="john.doe@email.com"
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
@@ -155,7 +157,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <Label htmlFor="phone" className="text-gray-700">Telefon *</Label>
+                  <Label htmlFor="phone" className="text-gray-700">{t('contact.phone')}</Label>
                   <Input 
                     id="phone" 
                     type="tel"
@@ -167,26 +169,26 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <Label htmlFor="service" className="text-gray-700">Typ služby</Label>
+                  <Label htmlFor="service" className="text-gray-700">{t('contact.serviceType')}</Label>
                   <select 
                     id="service"
                     className="w-full mt-2 px-3 py-2 border-2 border-gray-300 rounded-md focus:border-green-500 focus:outline-none transition-colors"
                   >
-                    <option>Úklid bytů a domů</option>
-                    <option>Úklid kanceláří a firem</option>
-                    <option>Úklid Airbnb bytů</option>
-                    <option>Čištění nábytku</option>
-                    <option>Úklid po rekonstrukci</option>
-                    <option>Developerské projekty</option>
-                    <option>Panelové domy a SVJ</option>
+                    <option>{t('services.homeCleaning')}</option>
+                    <option>{t('services.officeCleaning')}</option>
+                    <option>{t('services.airbnbCleaning')}</option>
+                    <option>{t('services.furnitureCleaning')}</option>
+                    <option>{t('services.renovationCleaning')}</option>
+                    <option>{t('services.developmentCleaning')}</option>
+                    <option>{t('services.buildingCleaning')}</option>
                   </select>
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-gray-700">Zpráva</Label>
+                  <Label htmlFor="message" className="text-gray-700">{t('contact.message')}</Label>
                   <Textarea 
                     id="message"
-                    placeholder="Popište nám vaše požadavky..."
+                    placeholder={t('contact.message')}
                     rows={4}
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
                     onFocus={() => setFocusedField('message')}
@@ -200,11 +202,11 @@ export function Contact() {
                     className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 py-6 text-lg"
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    Odeslat poptávku
+                    {t('contact.sendRequest')}
                   </Button>
 
                   <p className="text-sm text-gray-500 text-center mt-4">
-                    Odpovíme vám do 24 hodin
+                    {t('contact.responseTime')}
                   </p>
                 </div>
               </form>
@@ -221,11 +223,11 @@ export function Contact() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">Telefon</h4>
+                  <h4 className="text-lg text-gray-900 mb-2">{t('common.phone')}</h4>
                   <a href="tel:+420123456789" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
                     +420 123 456 789
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">Po-Pá: 8:00 - 18:00</p>
+                  <p className="text-sm text-gray-500 mt-1">{t('contact.monFri')}</p>
                 </div>
               </div>
             </Card>
@@ -238,11 +240,11 @@ export function Contact() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">E-mail</h4>
+                  <h4 className="text-lg text-gray-900 mb-2">{t('common.email')}</h4>
                   <a href="mailto:info@greenclean-praha.cz" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
                     info@greenclean-praha.cz
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">Odpovíme do 24 hodin</p>
+                  <p className="text-sm text-gray-500 mt-1">{t('contact.weRespond')}</p>
                 </div>
               </div>
             </Card>
@@ -255,11 +257,11 @@ export function Contact() {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">Adresa</h4>
+                  <h4 className="text-lg text-gray-900 mb-2">{t('common.address')}</h4>
                   <p className="text-gray-600 text-lg">
-                    Praha, Česká republika
+                    Prague, Czech Republic
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">Poskytujeme služby v celé Praze</p>
+                  <p className="text-sm text-gray-500 mt-1">{t('contact.servicesPrague')}</p>
                 </div>
               </div>
             </Card>
@@ -272,10 +274,10 @@ export function Contact() {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">Provozní doba</h4>
-                  <p className="text-gray-600">Po-Pá: 8:00 - 18:00</p>
-                  <p className="text-gray-600">So: 9:00 - 15:00</p>
-                  <p className="text-sm text-gray-500 mt-1">Neděle zavřeno</p>
+                  <h4 className="text-lg text-gray-900 mb-2">{t('common.businessHours')}</h4>
+                  <p className="text-gray-600">{t('contact.monFri')}</p>
+                  <p className="text-gray-600">{t('contact.sat')}</p>
+                  <p className="text-sm text-gray-500 mt-1">{t('contact.sundayClosed')}</p>
                 </div>
               </div>
             </Card>

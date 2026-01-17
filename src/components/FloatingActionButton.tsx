@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Phone, MessageCircle, X, Mail, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -8,6 +9,7 @@ interface FloatingActionButtonProps {
 }
 
 export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -28,7 +30,7 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
   const actions = [
     {
       icon: Phone,
-      label: 'Zavolat',
+      label: t('common.call'),
       href: 'tel:+420123456789',
       gradient: 'from-green-500 to-emerald-600',
       delay: 0.1
@@ -42,7 +44,7 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
     },
     {
       icon: Mail,
-      label: 'Email',
+      label: t('common.email'),
       onClick: () => {
         navigate('/contact');
         setIsOpen(false);

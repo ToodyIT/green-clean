@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, X } from 'lucide-react';
 
 interface WhatsAppWidgetProps {
@@ -9,9 +10,11 @@ interface WhatsAppWidgetProps {
 
 export function WhatsAppWidget({ 
   phoneNumber, 
-  message = 'Dobrý den, rád bych se zeptal na...',
+  message,
   position = 'right' 
 }: WhatsAppWidgetProps) {
+  const { t } = useTranslation();
+  const defaultMessage = message || t("whatsapp.defaultMessage");
   const [isVisible, setIsVisible] = useState(false);
   const [showPrompt, setShowPrompt] = useState(true);
 
@@ -36,7 +39,7 @@ export function WhatsAppWidget({
   }, [showPrompt]);
 
   const handleWhatsAppClick = () => {
-    const encodedMessage = encodeURIComponent(message);
+    const encodedMessage = encodeURIComponent(defaultMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -57,7 +60,7 @@ export function WhatsAppWidget({
             <button
               onClick={() => setShowPrompt(false)}
               className="absolute -top-2 -right-2 w-6 h-6 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors"
-              aria-label="Zavřít"
+              aria-label={t("common.close")}
             >
               <X className="w-3 h-3" />
             </button>
@@ -73,7 +76,7 @@ export function WhatsAppWidget({
                   <strong>GreenClean Praha</strong>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Máte dotaz? Napište nám na WhatsApp! 👋
+                  {t("whatsapp.haveQuestion")}
                 </p>
               </div>
             </div>
@@ -93,7 +96,7 @@ export function WhatsAppWidget({
       <button
         onClick={handleWhatsAppClick}
         className="group relative w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 overflow-hidden"
-        aria-label="Chatovat na WhatsApp"
+        aria-label={t("whatsapp.chatOnWhatsApp")}
       >
         {/* Ripple effect */}
         <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75"></div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "./ui/button";
 import {
   Menu,
@@ -27,26 +28,31 @@ interface HeaderProps {
 }
 
 export function Header({ onNavigate }: HeaderProps) {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("cs");
+  const currentLanguage = i18n.language || "cs";
 
   const languages = [
     { code: "cs", name: "Čeština", flag: "🇨🇿" },
     { code: "en", name: "English", flag: "🇬🇧" },
-    { code: "de", name: "Deutsch", flag: "🇩🇪" },
+    { code: "uk", name: "Українська", flag: "🇺🇦" },
     { code: "ru", name: "Русский", flag: "🇷🇺" },
   ];
 
   const menuItems = [
-    { id: "homepage", path: "/", label: "Hlavní" },
-    { id: "services", path: "/services", label: "Služby" },
-    { id: "pricing", path: "/pricing", label: "Ceník" },
-    { id: "about", path: "/about", label: "O nás" },
-    { id: "references", path: "/references", label: "Reference" },
-    { id: "contact", path: "/contact", label: "Kontakt" },
+    { id: "homepage", path: "/", labelKey: "header.home" },
+    { id: "services", path: "/services", labelKey: "header.services" },
+    { id: "pricing", path: "/pricing", labelKey: "header.pricing" },
+    { id: "about", path: "/about", labelKey: "header.about" },
+    { id: "references", path: "/references", labelKey: "header.references" },
+    { id: "contact", path: "/contact", labelKey: "header.contact" },
   ];
+
+  const handleLanguageChange = (langCode: string) => {
+    i18n.changeLanguage(langCode);
+  };
 
   const currentPage = location.pathname === "/" ? "homepage" : location.pathname.slice(1);
 
@@ -87,7 +93,7 @@ export function Header({ onNavigate }: HeaderProps) {
                         : "text-gray-700 hover:text-green-600"
                     }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                     {isActive && (
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
                     )}
@@ -103,7 +109,7 @@ export function Header({ onNavigate }: HeaderProps) {
                 onClick={() => navigate("/home")}
               >
                 <Home className="w-4 h-4 mr-2" />
-                Úklid bytů a domů
+                {t("header.homeCleaning")}
               </Button>
 
               {/* Language Selector */}
@@ -134,9 +140,7 @@ export function Header({ onNavigate }: HeaderProps) {
                   {languages.map((lang) => (
                     <DropdownMenuItem
                       key={lang.code}
-                      onClick={() =>
-                        setCurrentLanguage(lang.code)
-                      }
+                      onClick={() => handleLanguageChange(lang.code)}
                       className="cursor-pointer py-3 px-4 hover:bg-green-50 transition-colors"
                     >
                       <div className="flex items-center justify-between w-full">
@@ -162,7 +166,7 @@ export function Header({ onNavigate }: HeaderProps) {
                 onClick={() => navigate("/contact")}
               >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Nezávazná poptávka
+                {t("common.freeQuote")}
               </Button>
             </div>
 
@@ -270,7 +274,7 @@ export function Header({ onNavigate }: HeaderProps) {
                       >
                         <div className="flex items-center justify-between">
                           <span>
-                            {item.label}
+                            {t(item.labelKey)}
                           </span>
                           {isActive && (
                             <Check className="w-5 h-5 animate-bounce" />
@@ -294,22 +298,20 @@ export function Header({ onNavigate }: HeaderProps) {
                     }}
                   >
                     <Home className="w-5 h-5 mr-2" />
-                    Úklid bytů a domů
+                    {t("header.homeCleaning")}
                   </Button>
                 </div>
 
                 {/* Language Selector */}
                 <div className="mb-6">
                   <div className="px-2 py-2 mb-3 text-xs uppercase tracking-wider text-gray-500">
-                    Vyberte jazyk
+                    {t("header.selectLanguage")}
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() =>
-                          setCurrentLanguage(lang.code)
-                        }
+                        onClick={() => handleLanguageChange(lang.code)}
                         className={`
                           px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2
                           transform hover:scale-105 active:scale-95
@@ -340,7 +342,7 @@ export function Header({ onNavigate }: HeaderProps) {
                   }}
                 >
                   <Sparkles className="w-5 h-5 mr-2" />
-                  Nezávazná poptávka
+                  {t("common.freeQuote")}
                 </Button>
 
                 {/* Bottom Decoration */}
@@ -348,7 +350,7 @@ export function Header({ onNavigate }: HeaderProps) {
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                     <span className="text-xs text-gray-600">
-                      Profesionální úklidové služby
+                      {t("header.professionalCleaning")}
                     </span>
                   </div>
                 </div>

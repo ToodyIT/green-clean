@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { 
@@ -35,6 +36,7 @@ interface HomeCleaningPageProps {
 }
 
 export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'weekly' | 'monthly' | 'onetime'>('weekly');
 
   return (
@@ -53,34 +55,31 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
               <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
                 <Home className="w-4 h-4 text-green-600" />
                 <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                  Nejoblíbenější služba
+                  {t('homeCleaning.mostPopularService')}
                 </span>
               </div>
               
               <h1 className="text-5xl lg:text-6xl text-gray-900 mb-6 leading-tight">
-                Váš domov <br/>
-                <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-green-500 bg-clip-text text-transparent">
-                  zaslouží čistotu
-                </span>
+                {t('homeCleaning.title')}
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Profesionální úklidové služby pro byty a domy. Uvolněte si čas pro to, co máte rádi, zatímco my se postaráme o čistotu vašeho domova.
+                {t('homeCleaning.description')}
               </p>
               
               {/* Features badges */}
               <div className="flex flex-wrap gap-3 mb-10">
                 <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-green-100">
                   <CheckCircle2 className="w-5 h-5 text-green-600" />
-                  <span className="text-sm text-gray-700">Pojištěno</span>
+                  <span className="text-sm text-gray-700">{t('homeCleaning.insured')}</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-green-100">
                   <Leaf className="w-5 h-5 text-green-600" />
-                  <span className="text-sm text-gray-700">Ekologické</span>
+                  <span className="text-sm text-gray-700">{t('homeCleaning.ecofriendly')}</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-green-100">
                   <Star className="w-5 h-5" style={{color: '#FFA826'}} />
-                  <span className="text-sm text-gray-700">4.9/5 hodnocení</span>
+                  <span className="text-sm text-gray-700">{t('homeCleaning.rating')}</span>
                 </div>
               </div>
               
@@ -91,7 +90,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                   className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl shadow-green-500/40 hover:shadow-green-500/60 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
                   onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Získat nabídku zdarma
+                  {t('common.getFreeQuote')}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button 
@@ -100,13 +99,13 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                   className="border-2 border-green-600 text-green-600 hover:bg-green-50 shadow-lg hover:scale-105 transition-all duration-300 text-lg px-8 py-6"
                   onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Zobrazit ceny
+                  {t('common.viewPrices')}
                 </Button>
               </div>
             </div>
             
             {/* Right Image */}
-            <div className="relative">
+            <div className="hidden md:block relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1648475235027-21cd0ed83671?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGhvbWUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjIzNzYxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -117,8 +116,8 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                 <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-white/50 shadow-xl">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-3xl mb-1">2000+</div>
-                      <div className="text-sm text-gray-600">Spokojených zákazníků</div>
+                    <div className="text-3xl mb-1">2000+</div>
+                    <div className="text-sm text-gray-600">{t('homeCleaning.satisfiedCustomers')}</div>
                     </div>
                     <div className="flex -space-x-2">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 border-2 border-white"></div>
@@ -132,13 +131,13 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
               </div>
               
               {/* Floating card */}
-              <div className="absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-2xl border border-green-100 animate-float">
+              <div className="hidden md:block absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-2xl border border-green-100 animate-float">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center">
                     <Sparkles className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500">Kvalita</div>
+                    <div className="text-sm text-gray-500">{t('homeCleaning.quality')}</div>
                     <div className="flex items-center gap-1">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current" style={{color: '#FFA826'}} />
@@ -159,14 +158,14 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <ThumbsUp className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Proč si vybrat nás
+                {t('homeCleaning.whyChooseUs')}
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              Důvěřují nám <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">tisíce domácností</span>
+              {t('homeCleaning.trustedByThousands')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Kombinujeme profesionalitu, spolehlivost a osobní přístup
+              {t('homeCleaning.combineProfessionalism')}
             </p>
           </div>
 
@@ -174,26 +173,26 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             {[
               {
                 icon: Shield,
-                title: 'Plně pojištěno',
-                description: 'Pojištění odpovědnosti za škodu až 5 mil. Kč',
+                title: t('homeCleaning.fullyInsured'),
+                description: t('homeCleaning.fullyInsuredDesc'),
                 color: 'from-green-500 to-emerald-500'
               },
               {
                 icon: Users,
-                title: 'Prověřený personál',
-                description: 'Všichni pracovníci prochází důkladným prověřením',
+                title: t('homeCleaning.verifiedStaff'),
+                description: t('homeCleaning.verifiedStaffDesc'),
                 color: 'from-emerald-500 to-teal-500'
               },
               {
                 icon: Leaf,
-                title: '100% ekologické',
-                description: 'Používáme pouze šetrné a certifikované prostředky',
+                title: t('homeCleaning.100Eco'),
+                description: t('homeCleaning.100EcoDesc'),
                 color: 'from-green-500 to-lime-500'
               },
               {
                 icon: Award,
-                title: 'Garantovaná kvalita',
-                description: 'Nespokojenost? Vrátíme se a opravíme zdarma',
+                title: t('homeCleaning.guaranteedQuality'),
+                description: t('homeCleaning.guaranteedQualityDesc'),
                 color: 'from-lime-500 to-green-500'
               }
             ].map((item, index) => (
@@ -228,14 +227,14 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-4 sm:mb-6 shadow-lg">
               <Target className="w-5 h-5 text-white" />
               <span className="text-sm text-white">
-                Jak to funguje
+                {t('homeCleaning.howItWorks')}
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-white mb-4">
-              Jednoduché kroky k <span className="text-yellow-300">čistému domovu</span>
+              {t('homeCleaning.simpleSteps')} <span className="text-yellow-300">{t('homeCleaning.cleanHome')}</span>
             </h2>
             <p className="text-xl text-green-50 max-w-3xl mx-auto">
-              Od objednávky po dokonale čistý domov
+              {t('homeCleaning.fromOrderToClean')}
             </p>
           </div>
 
@@ -244,26 +243,26 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
               {
                 step: '01',
                 icon: MessageCircle,
-                title: 'Kontaktujte nás',
-                description: 'Zavolejte, napište nebo vyplňte formulář'
+                title: t('homeCleaning.contactUs'),
+                description: t('homeCleaning.contactUsDesc')
               },
               {
                 step: '02',
                 icon: Calendar,
-                title: 'Domluvíme termín',
-                description: 'Vyberte si čas, který vám vyhovuje'
+                title: t('homeCleaning.scheduleAppointment'),
+                description: t('homeCleaning.scheduleAppointmentDesc')
               },
               {
                 step: '03',
                 icon: Zap,
-                title: 'Uklízíme',
-                description: 'Náš tým důkladně uklidí váš domov'
+                title: t('homeCleaning.weClean'),
+                description: t('homeCleaning.weCleanDesc')
               },
               {
                 step: '04',
                 icon: Heart,
-                title: 'Užijte si čistotu',
-                description: 'Relaxujte v čistém a svěžím domově'
+                title: t('homeCleaning.enjoyCleanliness'),
+                description: t('homeCleaning.enjoyCleanlinessDesc')
               }
             ].map((item, index) => (
               <div key={index} className="relative h-full flex flex-col">
@@ -297,14 +296,14 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <TrendingUp className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Transparentní ceny
+                {t('homeCleaning.transparentPricing')}
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              Vyberte si <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">ideální balíček</span>
+              {t('homeCleaning.chooseIdealPackage')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-              Transparentní ceník bez skrytých poplatků
+              {t('homeCleaning.transparentPricingDesc')}
             </p>
 
             {/* Tabs */}
@@ -317,7 +316,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                Lehký úklid
+                {t('pricing.lightCleaning')}
               </button>
               <button
                 onClick={() => setActiveTab('monthly')}
@@ -327,7 +326,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                Generální úklid
+                {t('pricing.deepCleaning')}
               </button>
               <button
                 onClick={() => setActiveTab('onetime')}
@@ -337,7 +336,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                Úklid po rekonstrukci
+                {t('pricing.postRenovation')}
               </button>
             </div>
           </div>
@@ -346,49 +345,25 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {activeTab === 'weekly' && [
               {
-                name: '1+kk',
+                name: t('homeCleaning.pricingPlans.weekly.plan1.name'),
                 size: '20–40 m²',
                 priceRange: '800–1100',
-                time: '2–3 hodiny',
-                features: [
-                  'Vysávání a vytírání podlah',
-                  'Otírání prachu',
-                  'Čištění koupelny a WC',
-                  'Úklid kuchyně',
-                  'Vynášení odpadků',
-                  'Úklid oken zevnitř',
-                  'Základní údržba'
-                ]
+                time: t('homeCleaning.pricingPlans.weekly.plan1.time'),
+                features: t('homeCleaning.pricingPlans.weekly.plan1.features', { returnObjects: true }) as string[]
               },
               {
-                name: '2+kk / 2+1',
+                name: t('homeCleaning.pricingPlans.weekly.plan2.name'),
                 size: '45–70 m²',
                 priceRange: '1200–1700',
-                time: '4–6 hodin',
-                features: [
-                  'Vše z menšího bytu',
-                  'Více místností',
-                  'Důkladnější čištění',
-                  'Péče o detaily',
-                  'Čištění skříní zvenčí',
-                  'Mytí zrcadel',
-                  'Flexibilní termíny'
-                ]
+                time: t('homeCleaning.pricingPlans.weekly.plan2.time'),
+                features: t('homeCleaning.pricingPlans.weekly.plan2.features', { returnObjects: true }) as string[]
               },
               {
-                name: '3+kk / 3+1',
+                name: t('homeCleaning.pricingPlans.weekly.plan3.name'),
                 size: '70–100 m²',
                 priceRange: '1600–2100',
-                time: '6–8 hodin',
-                features: [
-                  'Kompletní úklid všech místností',
-                  'Důkladné čištění koupelny',
-                  'Čištění kuchyňských spotřebičů',
-                  'Péče o rostliny',
-                  'Možnost žehlení',
-                  'Prioritní termíny',
-                  'Individuální požadavky'
-                ]
+                time: t('homeCleaning.pricingPlans.weekly.plan3.time'),
+                features: t('homeCleaning.pricingPlans.weekly.plan3.features', { returnObjects: true }) as string[]
               }
             ].map((plan, index) => (
               <Card
@@ -413,7 +388,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                       <span className="text-xl text-gray-600">Kč</span>
                     </div>
                     <div className="text-sm text-gray-500">
-                      za lehký úklid
+                      {t('homeCleaning.perLightCleaning')}
                     </div>
                   </div>
 
@@ -421,7 +396,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                     onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Objednat službu
+                    {t('common.orderService')}
                   </Button>
 
                   <div className="space-y-3">
@@ -438,49 +413,25 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
 
             {activeTab === 'monthly' && [
               {
-                name: '1+kk',
+                name: t('homeCleaning.pricingPlans.monthly.plan1.name'),
                 size: '20–40 m²',
                 priceRange: '1500–2200',
-                time: '3–4 hodiny',
-                features: [
-                  'Kompletní generální úklid',
-                  'Mytí všech oken',
-                  'Čištění kuchyňských spotřebičů',
-                  'Detailní čištění koupelny',
-                  'Čištění skříní uvnitř',
-                  'Péče o všechny povrchy',
-                  'Dezinfekce'
-                ]
+                time: t('homeCleaning.pricingPlans.monthly.plan1.time'),
+                features: t('homeCleaning.pricingPlans.monthly.plan1.features', { returnObjects: true }) as string[]
               },
               {
-                name: '2+kk / 2+1',
+                name: t('homeCleaning.pricingPlans.monthly.plan2.name'),
                 size: '45–70 m²',
                 priceRange: '2000–3200',
-                time: '5–7 hodin',
-                features: [
-                  'Vše z menšího bytu',
-                  'Mytí obkladů',
-                  'Čištění digestoře',
-                  'Péče o podlahy (leštění)',
-                  'Čištění radiátorů',
-                  'Čištění lustrů',
-                  'Kompletní dezinfekce'
-                ]
+                time: t('homeCleaning.pricingPlans.monthly.plan2.time'),
+                features: t('homeCleaning.pricingPlans.monthly.plan2.features', { returnObjects: true }) as string[]
               },
               {
-                name: '3+kk / 3+1',
+                name: t('homeCleaning.pricingPlans.monthly.plan3.name'),
                 size: '70–100 m²',
                 priceRange: '2500–4000',
-                time: '7–9 hodin',
-                features: [
-                  'Kompletní generální úklid',
-                  'Mytí oken včetně rámů',
-                  'Hloubkové čištění koberců',
-                  'Čištění čalouněného nábytku',
-                  'Čištění všech spotřebičů',
-                  'Kompletní údržba',
-                  'Premium dezinfekce'
-                ]
+                time: t('homeCleaning.pricingPlans.monthly.plan3.time'),
+                features: t('homeCleaning.pricingPlans.monthly.plan3.features', { returnObjects: true }) as string[]
               }
             ].map((plan, index) => (
               <Card
@@ -505,7 +456,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                       <span className="text-xl text-gray-600">Kč</span>
                     </div>
                     <div className="text-sm text-gray-500">
-                      za generální úklid
+                      {t('homeCleaning.perDeepCleaning')}
                     </div>
                   </div>
 
@@ -513,7 +464,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                     onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Objednat službu
+                    {t('common.orderService')}
                   </Button>
 
                   <div className="space-y-3">
@@ -530,49 +481,25 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
 
             {activeTab === 'onetime' && [
               {
-                name: '1+kk',
+                name: t('homeCleaning.pricingPlans.onetime.plan1.name'),
                 size: '20–40 m²',
                 priceRange: '2500–3500',
-                time: '4–5 hodin',
-                features: [
-                  'Odstranění stavebního prachu',
-                  'Mytí oken a rámů',
-                  'Čištění po malířských pracích',
-                  'Odstranění štítků a lepidel',
-                  'Kompletní úklid podlah',
-                  'Čištění radiátorů',
-                  'Finální úklid'
-                ]
+                time: t('homeCleaning.pricingPlans.onetime.plan1.time'),
+                features: t('homeCleaning.pricingPlans.onetime.plan1.features', { returnObjects: true }) as string[]
               },
               {
-                name: '2+kk / 2+1',
+                name: t('homeCleaning.pricingPlans.onetime.plan2.name'),
                 size: '45–70 m²',
                 priceRange: '3500–5500',
-                time: '6–8 hodin',
-                features: [
-                  'Vše z menšího bytu',
-                  'Hloubkové čištění',
-                  'Odstranění hrubých nečistot',
-                  'Čištění obkladů a dlažeb',
-                  'Mytí všech povrchů',
-                  'Čištění kuchyňské linky',
-                  'Kompletní finalizace'
-                ]
+                time: t('homeCleaning.pricingPlans.onetime.plan2.time'),
+                features: t('homeCleaning.pricingPlans.onetime.plan2.features', { returnObjects: true }) as string[]
               },
               {
-                name: '3+kk / 3+1',
+                name: t('homeCleaning.pricingPlans.onetime.plan3.name'),
                 size: '70–100 m²',
                 priceRange: '5000–6500',
-                time: '8–10 hodin',
-                features: [
-                  'Kompletní úklid po rekonstrukci',
-                  'Odstranění všech nečistot',
-                  'Profesionální čištění oken',
-                  'Čištění spotřebičů',
-                  'Péče o všechny povrchy',
-                  'Speciální požadavky',
-                  'Premium dokončení'
-                ]
+                time: t('homeCleaning.pricingPlans.onetime.plan3.time'),
+                features: t('homeCleaning.pricingPlans.onetime.plan3.features', { returnObjects: true }) as string[]
               }
             ].map((plan, index) => (
               <Card
@@ -597,7 +524,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                       <span className="text-xl text-gray-600">Kč</span>
                     </div>
                     <div className="text-sm text-gray-500">
-                      úklid po rekonstrukci
+                      {t('homeCleaning.perPostRenovation')}
                     </div>
                   </div>
 
@@ -605,7 +532,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                     className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                     onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Objednat službu
+                    {t('common.orderService')}
                   </Button>
 
                   <div className="space-y-3">
@@ -645,18 +572,18 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             {[
               {
                 image: 'https://images.unsplash.com/photo-1648475235027-21cd0ed83671?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGhvbWUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjIzNzYxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-                title: 'Moderní obývací pokoj',
-                description: 'Generální úklid s hloubkovým čištěním'
+                title: t('homeCleaning.gallery.modernLivingRoom'),
+                description: t('homeCleaning.gallery.deepCleaning')
               },
               {
                 image: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nJTIwdHJhbnNmb3JtYXRpb258ZW58MXx8fHwxNzYyMzc2MTUzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-                title: 'Kuchyně po rekonstrukci',
-                description: 'Odstranění stavebního prachu'
+                title: t('homeCleaning.gallery.kitchenAfterRenovation'),
+                description: t('homeCleaning.gallery.dustRemoval')
               },
               {
                 image: 'https://images.unsplash.com/photo-1650964336589-96b3f1719a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY28lMjBmcmllbmRseSUyMGNsZWFuaW5nJTIwcHJvZHVjdHN8ZW58MXx8fHwxNzYyMzQ5NDAyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-                title: 'Ekologický přístup',
-                description: 'Bezpečné pro celou rodinu'
+                title: t('homeCleaning.gallery.ecoApproach'),
+                description: t('homeCleaning.gallery.safeForFamily')
               }
             ].map((item, index) => (
               <Card key={index} className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
@@ -677,7 +604,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
                   <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-emerald-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <div className="text-center text-white">
                       <CheckCircle2 className="w-16 h-16 mx-auto mb-4" />
-                      <div className="text-lg">100% spokojenost</div>
+                      <div className="text-lg">{t('homeCleaning.gallery.satisfaction')}</div>
                     </div>
                   </div>
                 </div>
@@ -694,34 +621,34 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <Star className="w-5 h-5" style={{color: '#FFA826'}} />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Co říkají klienti
+                {t('homeCleaning.testimonials.badge')}
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              Přečtěte si <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">zkušenosti</span> našich klientů
+              {t('homeCleaning.testimonials.title')} <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">{t('homeCleaning.testimonials.titleHighlight')}</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: 'Jana Svobodová',
-                role: 'Pracující maminka',
-                text: 'Úžasná pomoc! Konečně mám čas na rodinu a domov je vždy perfektně uklizený. Paní je milá, diskrétní a nesmírně důkladná.',
+                name: t('homeCleaning.testimonials.testimonial1Name'),
+                role: t('homeCleaning.testimonials.testimonial1Role'),
+                text: t('homeCleaning.testimonials.testimonial1Text'),
                 rating: 5,
                 avatar: 'JS'
               },
               {
-                name: 'Petr Novák',
-                role: 'Senior manager',
-                text: 'Profesionální služby za férovou cenu. Uklízí nám už 3 roky a vždy jsme spokojeni. Spolehlivost na 100%. Doporučuji!',
+                name: t('homeCleaning.testimonials.testimonial2Name'),
+                role: t('homeCleaning.testimonials.testimonial2Role'),
+                text: t('homeCleaning.testimonials.testimonial2Text'),
                 rating: 5,
                 avatar: 'PN'
               },
               {
-                name: 'Martina Kučerová',
-                role: 'Důchodkyně',
-                text: 'Velmi příjemná a důkladná paní. Vždy se těším na úklid, protože vím, že byt bude zářit čistotou. Děkuji!',
+                name: t('homeCleaning.testimonials.testimonial3Name'),
+                role: t('homeCleaning.testimonials.testimonial3Role'),
+                text: t('homeCleaning.testimonials.testimonial3Text'),
                 rating: 5,
                 avatar: 'MK'
               }
@@ -774,13 +701,13 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
               </span>
             </div>
             <h2 className="text-5xl text-gray-900 mb-6">
-              Často kladené{' '}
+              {t('homeCleaning.faq.titlePart1')}{' '}
               <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                otázky
+                {t('homeCleaning.faq.titlePart2')}
               </span>
             </h2>
             <p className="text-xl text-gray-600">
-              Odpovědi na nejčastější dotazy o úklidu bytů a domů
+              {t('homeCleaning.faq.description')}
             </p>
           </div>
 
@@ -788,28 +715,28 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
               {
-                question: 'Jak často byste doporučili pravidelný úklid?',
-                answer: 'Pro běžnou domácnost doporučujeme úklid 1x týdně nebo 2x měsíčně. Záleží na velikosti bytu, počtu obyvatel a vašich preferencích. Rádi vám pomůžeme najít ideální frekvenci.'
+                question: t('homeCleaning.faq.q1'),
+                answer: t('homeCleaning.faq.a1')
               },
               {
-                question: 'Musím být doma během úklidu?',
-                answer: 'Ne, nabízíme klíčovou službu. Po podepsání smlouvy můžeme uklízet i bez vaší přítomnosti. Máme pojištění odpovědnosti za škodu a všichni naši pracovníci jsou prověření.'
+                question: t('homeCleaning.faq.q2'),
+                answer: t('homeCleaning.faq.a2')
               },
               {
-                question: 'Poskytujete vlastní čisticí prostředky?',
-                answer: 'Ano, přinášíme vlastní ekologické čisticí prostředky a profesionální vybavení. Můžeme však použít i vaše produkty, pokud to preferujete nebo máte speciální požadavky.'
+                question: t('homeCleaning.faq.q3'),
+                answer: t('homeCleaning.faq.a3')
               },
               {
-                question: 'Uklízíte i o víkendech?',
-                answer: 'Ano, nabízíme úklidy 7 dní v týdnu včetně sobot a nedělí, abychom vyhověli vašemu rozvrhu. Víkendové termíny jsou velmi oblíbené, proto doporučujeme rezervaci předem.'
+                question: t('homeCleaning.faq.q4'),
+                answer: t('homeCleaning.faq.a4')
               },
               {
-                question: 'Co když potřebuji změnit termín?',
-                answer: 'Stačí nás informovat alespoň 24 hodin předem a domluvíme náhradní termín bez jakýchkoli poplatků. Chápeme, že život přináší nečekané situace.'
+                question: t('homeCleaning.faq.q5'),
+                answer: t('homeCleaning.faq.a5')
               },
               {
-                question: 'Nabízíte i generální úklid?',
-                answer: 'Ano, provádíme i rozsáhlé generální úklidy včetně mytí oken, čištění sporáku, lednice, obkladů a dalších náročnějších prací. Generální úklid doporučujeme 2-4x ročně.'
+                question: t('homeCleaning.faq.q6'),
+                answer: t('homeCleaning.faq.a6')
               }
             ].map((faq, index) => (
               <AccordionItem 
@@ -838,7 +765,7 @@ export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
           <div className="mt-16 text-center">
             <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
               <p className="text-gray-700 mb-4">
-                Máte další otázky? Neváhejte nás kontaktovat!
+                {t('homeCleaning.faq.moreQuestions')}
               </p>
               <a 
                 href="mailto:info@greenclean-praha.cz" 

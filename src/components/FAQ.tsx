@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Accordion,
   AccordionContent,
@@ -8,30 +9,31 @@ import {
 import { HelpCircle, Sparkles } from 'lucide-react';
 
 export function FAQ() {
+  const { t } = useTranslation();
   const faqs = [
     {
-      question: 'Jak si objednat úklidovou službu?',
-      answer: 'Objednání je velmi jednoduché. Můžete nás kontaktovat telefonicky na +420 123 456 789, poslat email na info@greenclean-praha.cz nebo vyplnit kontaktní formulář na našem webu. Do 24 hodin vám odpovíme s cenovou nabídkou.',
+      question: t('faq.howToOrder'),
+      answer: t('faq.howToOrderAnswer'),
     },
     {
-      question: 'Jaký je rozsah vašich služeb?',
-      answer: 'Nabízíme komplexní úklidové služby včetně úklidu bytů a domů, kanceláří a firem, Airbnb bytů, čištění nábytku, úklidu po rekonstrukci, developerských projektů a panelových domů. Každou službu přizpůsobujeme individuálním potřebám klienta.',
+      question: t('faq.serviceScope'),
+      answer: t('faq.serviceScopeAnswer'),
     },
     {
-      question: 'Jak se vypočítává cena úklidu?',
-      answer: 'Cena se stanovuje na základě velikosti prostoru (m²) a typu služby. Nabízíme transparentní ceník bez skrytých poplatků. Pro přesnou cenu nás kontaktujte s podrobnostmi o vašem prostoru.',
+      question: t('faq.priceCalculation'),
+      answer: t('faq.priceCalculationAnswer'),
     },
     {
-      question: 'Používáte ekologické čisticí prostředky?',
-      answer: 'Ano, klademe důraz na ekologii. Používáme certifikované ekologické čisticí prostředky, které jsou šetrné k životnímu prostředí i k vašemu zdraví.',
+      question: t('faq.ecoProducts'),
+      answer: t('faq.ecoProductsAnswer'),
     },
     {
-      question: 'Musím být přítomen během úklidu?',
-      answer: 'Není to nutné. Můžete nám poskytnout přístup k prostorám a my provedeme úklid podle dohodnutého plánu. Samozřejmě můžete být přítomni, pokud to preferujete.',
+      question: t('faq.needToBePresent'),
+      answer: t('faq.needToBePresentAnswer'),
     },
     {
-      question: 'Nabízíte pravidelné úklidy?',
-      answer: 'Ano, specializujeme se na pravidelné úklidy kanceláří, bytů a dalších prostor. Můžeme nastavit denní, týdenní nebo měsíční harmonogram podle vašich potřeb.',
+      question: t('faq.regularCleaning'),
+      answer: t('faq.regularCleaningAnswer'),
     },
   ];
 
@@ -51,13 +53,10 @@ export function FAQ() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-4 sm:mb-6">
-            Často kladené{' '}
-            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              otázky
-            </span>
+            {t("faq.title")}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-4">
-            Odpovědi na nejčastější dotazy o našich službách
+            {t("faq.description")}
           </p>
         </div>
 
@@ -90,7 +89,7 @@ export function FAQ() {
         <div className="mt-16 text-center">
           <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
             <p className="text-gray-700 mb-4">
-              Máte další otázky? Neváhejte nás kontaktovat!
+              {t("faq.haveMoreQuestions")}
             </p>
             <a 
               href="mailto:info@greenclean-praha.cz" 
