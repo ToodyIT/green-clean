@@ -70,6 +70,7 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
+  const { t } = useTranslation();
 
   const steps = [
     {

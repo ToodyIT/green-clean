@@ -148,19 +148,17 @@ function TimelineSection() {
               key={index}
               data-milestone
               data-index={index}
-              className={`relative flex items-center ${
-                milestone.position === "left"
+              className={`relative flex items-center ${milestone.position === "left"
                   ? "lg:justify-start"
                   : "lg:justify-end"
-              }`}
+                }`}
             >
               {/* Timeline dot with animation */}
               <div
-                className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 border-4 border-white shadow-lg z-10 hidden lg:block transition-all duration-500 ${
-                  visibleDots.has(index)
+                className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 border-4 border-white shadow-lg z-10 hidden lg:block transition-all duration-500 ${visibleDots.has(index)
                     ? "scale-100 opacity-100 animate-pulse"
                     : "scale-0 opacity-0"
-                }`}
+                  }`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                 }}
@@ -173,9 +171,8 @@ function TimelineSection() {
 
               {/* Content card */}
               <Card
-                className={`relative w-full lg:w-5/12 p-6 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group bg-white ${
-                  milestone.position === "left" ? "lg:mr-auto" : "lg:ml-auto"
-                }`}
+                className={`relative w-full lg:w-5/12 p-6 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group bg-white ${milestone.position === "left" ? "lg:mr-auto" : "lg:ml-auto"
+                  }`}
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
 
@@ -205,6 +202,8 @@ function TimelineSection() {
 }
 
 export function About() {
+  const { t } = useTranslation();
+
   const values = [
     {
       icon: Award,
@@ -344,9 +343,8 @@ export function About() {
               >
                 {/* Gradient background on hover */}
                 <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${
-                    stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
-                  }`}
+                  className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
+                    }`}
                   style={
                     stat.customColor
                       ? { backgroundColor: stat.customColor }
@@ -357,14 +355,13 @@ export function About() {
                 {/* Icon */}
                 <div className="relative mb-4 flex justify-center">
                   <div
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
-                      stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
-                    }`}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
+                      }`}
                     style={
                       stat.customColor
                         ? {
-                            background: `linear-gradient(to bottom right, ${stat.customColor}, ${stat.customColor}dd)`,
-                          }
+                          background: `linear-gradient(to bottom right, ${stat.customColor}, ${stat.customColor}dd)`,
+                        }
                         : {}
                     }
                   >
@@ -375,16 +372,15 @@ export function About() {
                 {/* Content */}
                 <div className="relative">
                   <div
-                    className={`text-5xl mb-2 bg-clip-text text-transparent ${
-                      stat.gradient ? `bg-gradient-to-r ${stat.gradient}` : ""
-                    }`}
+                    className={`text-5xl mb-2 bg-clip-text text-transparent ${stat.gradient ? `bg-gradient-to-r ${stat.gradient}` : ""
+                      }`}
                     style={
                       stat.customColor
                         ? {
-                            backgroundImage: `linear-gradient(to right, ${stat.customColor}, ${stat.customColor}dd)`,
-                            WebkitBackgroundClip: "text",
-                            backgroundClip: "text",
-                          }
+                          backgroundImage: `linear-gradient(to right, ${stat.customColor}, ${stat.customColor}dd)`,
+                          WebkitBackgroundClip: "text",
+                          backgroundClip: "text",
+                        }
                         : {}
                     }
                   >
@@ -416,11 +412,10 @@ export function About() {
                 >
                   {/* Gradient background on hover */}
                   <div
-                    className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${
-                      value.gradient
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${value.gradient
                         ? `bg-gradient-to-br ${value.gradient}`
                         : ""
-                    }`}
+                      }`}
                     style={
                       value.customColor
                         ? { backgroundColor: value.customColor }
@@ -431,16 +426,15 @@ export function About() {
                   {/* Content */}
                   <div className="relative">
                     <div
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
-                        value.gradient
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${value.gradient
                           ? `bg-gradient-to-br ${value.gradient}`
                           : ""
-                      }`}
+                        }`}
                       style={
                         value.customColor
                           ? {
-                              background: `linear-gradient(to bottom right, ${value.customColor}, ${value.customColor}dd)`,
-                            }
+                            background: `linear-gradient(to bottom right, ${value.customColor}, ${value.customColor}dd)`,
+                          }
                           : {}
                       }
                     >
@@ -456,16 +450,15 @@ export function About() {
 
                   {/* Decorative corner */}
                   <div
-                    className={`absolute bottom-0 right-0 w-20 h-20 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${
-                      value.gradient
+                    className={`absolute bottom-0 right-0 w-20 h-20 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${value.gradient
                         ? `bg-gradient-to-br ${value.gradient}`
                         : ""
-                    }`}
+                      }`}
                     style={
                       value.customColor
                         ? {
-                            background: `linear-gradient(to bottom right, ${value.customColor}, ${value.customColor}88)`,
-                          }
+                          background: `linear-gradient(to bottom right, ${value.customColor}, ${value.customColor}88)`,
+                        }
                         : {}
                     }
                   ></div>
@@ -527,9 +520,8 @@ export function About() {
                   className="relative p-6 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden bg-white"
                 >
                   <div
-                    className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${
-                      team.gradient ? `bg-gradient-to-br ${team.gradient}` : ""
-                    }`}
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${team.gradient ? `bg-gradient-to-br ${team.gradient}` : ""
+                      }`}
                     style={
                       team.customColor
                         ? { backgroundColor: team.customColor }
@@ -540,16 +532,15 @@ export function About() {
                   <div className="relative text-center">
                     <div className="mb-4 flex justify-center">
                       <div
-                        className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
-                          team.gradient
+                        className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${team.gradient
                             ? `bg-gradient-to-br ${team.gradient}`
                             : ""
-                        }`}
+                          }`}
                         style={
                           team.customColor
                             ? {
-                                background: `linear-gradient(to bottom right, ${team.customColor}, ${team.customColor}dd)`,
-                              }
+                              background: `linear-gradient(to bottom right, ${team.customColor}, ${team.customColor}dd)`,
+                            }
                             : {}
                         }
                       >
@@ -558,11 +549,10 @@ export function About() {
                     </div>
                     <h4 className="text-xl text-gray-900 mb-2">{team.name}</h4>
                     <div
-                      className={`text-sm mb-3 ${
-                        team.gradient
+                      className={`text-sm mb-3 ${team.gradient
                           ? `bg-gradient-to-r ${team.gradient} bg-clip-text text-transparent`
                           : ""
-                      }`}
+                        }`}
                       style={
                         team.customColor ? { color: team.customColor } : {}
                       }

@@ -589,7 +589,7 @@ export function Pricing({ onNavigate }: PricingProps) {
             ? currentService.tabs.find((t: any) => t.id === homeServiceTab)
                 ?.pricing
             : currentService.pricing
-          ).map((plan: any, index: number) => {
+          )?.map((plan: any, index: number) => {
             const Icon = currentService.icon;
             return (
               <Card
