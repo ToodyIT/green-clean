@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "./ui/button";
-import {
-  Menu,
-  Sparkles,
-  Globe,
-  Check,
-  Home,
-  X,
-} from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sparkles, Globe, Check, Home, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import logo from "figma:asset/ceba5cb5c3fd6bd444b916dd60188eedaad096e0.png";
-import { Logo } from "./Logo";
 import { twJoin } from "tailwind-merge";
 
 // Header component with improved mobile menu background
@@ -54,7 +45,8 @@ export function Header({ onNavigate }: HeaderProps) {
     i18n.changeLanguage(langCode);
   };
 
-  const currentPage = location.pathname === "/" ? "homepage" : location.pathname.slice(1);
+  const currentPage =
+    location.pathname === "/" ? "homepage" : location.pathname.slice(1);
 
   const handleNavigation = (page: string) => {
     const path = page === "homepage" ? "/" : `/${page}`;
@@ -64,7 +56,12 @@ export function Header({ onNavigate }: HeaderProps) {
 
   return (
     <>
-      <header className={twJoin("sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg", !isOpen && "overflow-hidden")}>
+      <header
+        className={twJoin(
+          "sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg",
+          !isOpen && "overflow-hidden"
+        )}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main header */}
           <div className="flex items-center justify-between py-3 sm:py-4">
@@ -122,15 +119,9 @@ export function Header({ onNavigate }: HeaderProps) {
                   >
                     <Globe className="w-4 h-4" />
                     <span className="text-lg">
-                      {
-                        languages.find(
-                          (l) => l.code === currentLanguage,
-                        )?.flag
-                      }
+                      {languages.find((l) => l.code === currentLanguage)?.flag}
                     </span>
-                    <span className="uppercase text-xs">
-                      {currentLanguage}
-                    </span>
+                    <span className="uppercase text-xs">{currentLanguage}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -145,12 +136,8 @@ export function Header({ onNavigate }: HeaderProps) {
                     >
                       <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-3">
-                          <span className="text-xl">
-                            {lang.flag}
-                          </span>
-                          <span className="text-gray-900">
-                            {lang.name}
-                          </span>
+                          <span className="text-xl">{lang.flag}</span>
+                          <span className="text-gray-900">{lang.name}</span>
                         </div>
                         {currentLanguage === lang.code && (
                           <Check className="w-4 h-4 text-green-600" />
@@ -202,7 +189,11 @@ export function Header({ onNavigate }: HeaderProps) {
                   <span
                     className={`
                       absolute left-0 w-5 h-0.5 bg-current transition-all duration-300 ease-in-out
-                      ${isOpen ? "top-1/2 -rotate-45 -translate-y-1/2" : "bottom-1"}
+                      ${
+                        isOpen
+                          ? "top-1/2 -rotate-45 -translate-y-1/2"
+                          : "bottom-1"
+                      }
                     `}
                   />
                 </div>
@@ -217,7 +208,11 @@ export function Header({ onNavigate }: HeaderProps) {
                 shadow-2xl z-50 
                 transform transition-all duration-500 ease-out lg:hidden
                 border-l-2 border-green-200
-                ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
+                ${
+                  isOpen
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-full opacity-0"
+                }
               `}
               style={{
                 background:
@@ -229,11 +224,7 @@ export function Header({ onNavigate }: HeaderProps) {
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-5 border-b border-green-200 bg-white shadow-sm">
                 <div className="flex items-center gap-3">
-                  <img
-                    src={logo}
-                    alt="GreenClean"
-                    className="h-10 w-auto"
-                  />
+                  <img src={logo} alt="GreenClean" className="h-10 w-auto" />
                 </div>
                 <Button
                   variant="ghost"
@@ -273,9 +264,7 @@ export function Header({ onNavigate }: HeaderProps) {
                         }}
                       >
                         <div className="flex items-center justify-between">
-                          <span>
-                            {t(item.labelKey)}
-                          </span>
+                          <span>{t(item.labelKey)}</span>
                           {isActive && (
                             <Check className="w-5 h-5 animate-bounce" />
                           )}
@@ -322,9 +311,7 @@ export function Header({ onNavigate }: HeaderProps) {
                           }
                         `}
                       >
-                        <span className="text-xl">
-                          {lang.flag}
-                        </span>
+                        <span className="text-xl">{lang.flag}</span>
                         <span className="text-xs uppercase tracking-wide">
                           {lang.code}
                         </span>
@@ -358,7 +345,6 @@ export function Header({ onNavigate }: HeaderProps) {
             </div>
 
             {/* Overlay */}
-          
           </div>
         </div>
 

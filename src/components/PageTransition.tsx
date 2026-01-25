@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ export function PageTransition({ children, currentPage }: PageTransitionProps) {
         exit={{ opacity: 0, y: -20 }}
         transition={{
           duration: 0.3,
-          ease: [0.4, 0, 0.2, 1]
+          ease: [0.4, 0, 0.2, 1],
         }}
       >
         {children}

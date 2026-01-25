@@ -1,39 +1,39 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './ui/accordion';
-import { HelpCircle, Sparkles } from 'lucide-react';
+} from "./ui/accordion";
+import { HelpCircle, Sparkles } from "lucide-react";
 
 export function FAQ() {
   const { t } = useTranslation();
   const faqs = [
     {
-      question: t('faq.howToOrder'),
-      answer: t('faq.howToOrderAnswer'),
+      question: t("faq.howToOrder"),
+      answer: t("faq.howToOrderAnswer"),
     },
     {
-      question: t('faq.serviceScope'),
-      answer: t('faq.serviceScopeAnswer'),
+      question: t("faq.serviceScope"),
+      answer: t("faq.serviceScopeAnswer"),
     },
     {
-      question: t('faq.priceCalculation'),
-      answer: t('faq.priceCalculationAnswer'),
+      question: t("faq.priceCalculation"),
+      answer: t("faq.priceCalculationAnswer"),
     },
     {
-      question: t('faq.ecoProducts'),
-      answer: t('faq.ecoProductsAnswer'),
+      question: t("faq.ecoProducts"),
+      answer: t("faq.ecoProductsAnswer"),
     },
     {
-      question: t('faq.needToBePresent'),
-      answer: t('faq.needToBePresentAnswer'),
+      question: t("faq.needToBePresent"),
+      answer: t("faq.needToBePresentAnswer"),
     },
     {
-      question: t('faq.regularCleaning'),
-      answer: t('faq.regularCleaningAnswer'),
+      question: t("faq.regularCleaning"),
+      answer: t("faq.regularCleaningAnswer"),
     },
   ];
 
@@ -41,8 +41,11 @@ export function FAQ() {
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#FFA826'}}></div>
-      
+      <div
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
+        style={{ backgroundColor: "#FFA826" }}
+      ></div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 max-w-4xl relative z-10">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -61,11 +64,15 @@ export function FAQ() {
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full space-y-3 sm:space-y-4"
+        >
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`} 
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
               className="border-0 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
               <AccordionTrigger className="text-left hover:no-underline px-6 py-5 hover:bg-gradient-to-r hover:from-green-50 hover:to-lime-50 transition-all">
@@ -77,9 +84,7 @@ export function FAQ() {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6 text-gray-600 leading-relaxed">
-                <div className="pl-12 pt-2">
-                  {faq.answer}
-                </div>
+                <div className="pl-12 pt-2">{faq.answer}</div>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -88,11 +93,9 @@ export function FAQ() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
-            <p className="text-gray-700 mb-4">
-              {t("faq.haveMoreQuestions")}
-            </p>
-            <a 
-              href="mailto:info@greenclean-praha.cz" 
+            <p className="text-gray-700 mb-4">{t("faq.haveMoreQuestions")}</p>
+            <a
+              href="mailto:info@greenclean-praha.cz"
               className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
             >
               info@greenclean-praha.cz

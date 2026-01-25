@@ -1,11 +1,11 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import enTranslations from '../locales/en.json';
-import csTranslations from '../locales/cs.json';
-import ukTranslations from '../locales/uk.json';
-import ruTranslations from '../locales/ru.json';
+import enTranslations from "../locales/en.json";
+import csTranslations from "../locales/cs.json";
+import ukTranslations from "../locales/uk.json";
+import ruTranslations from "../locales/ru.json";
 
 i18n
   .use(LanguageDetector)
@@ -17,16 +17,16 @@ i18n
       uk: { translation: ukTranslations },
       ru: { translation: ruTranslations },
     },
-    fallbackLng: 'cs',
-    lng: 'cs',
-    defaultNS: 'translation',
+    fallbackLng: "cs",
+    lng: "cs",
+    defaultNS: "translation",
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-      lookupLocalStorage: 'i18nextLng',
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+      lookupLocalStorage: "i18nextLng",
     },
   });
 

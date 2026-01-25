@@ -1,15 +1,14 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
-import { Phone, Mail, MapPin, Clock, Send, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { useScrollAnimation, animations } from '../hooks/useScrollAnimation';
-import { useState } from 'react';
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
+import { Phone, Mail, MapPin, Clock, Send, Sparkles } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Contact() {
   const { t } = useTranslation();
@@ -17,27 +16,30 @@ export function Contact() {
   const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });
   const [focusedField, setFocusedField] = useState<string | null>(null);
-  
+
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
-      
+      <div
+        className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+        style={{ backgroundColor: "#FFA826" }}
+      ></div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16" {...headerAnimation}>
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
             <Sparkles className="w-5 h-5 text-green-600" />
             <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              {t('contact.title')}
+              {t("contact.title")}
             </span>
           </div>
           <h2 className="text-5xl text-gray-900 mb-6">
-            {t('contact.subtitle')}
+            {t("contact.subtitle")}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('contact.description')}
+            {t("contact.description")}
           </p>
         </div>
 
@@ -46,49 +48,57 @@ export function Contact() {
           <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-hidden bg-white">
             {/* Gradient glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500"></div>
-            
+
             <div className="relative flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 group-hover:scale-105 transition-all duration-500">
-                <ImageWithFallback 
+                <ImageWithFallback
                   src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Andrii Mazar - Owner GreenClean"
                   className="w-full h-full object-cover"
                 />
                 {/* Green overlay with animation */}
                 <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-emerald-600/30 group-hover:from-green-600/20 group-hover:to-emerald-600/20 transition-all duration-500"></div>
-                
+
                 {/* Decorative ring */}
-                <div className="absolute -inset-2 rounded-3xl border-4 opacity-30 group-hover:opacity-50 transition-opacity duration-500" style={{borderColor: '#4ca137'}}></div>
+                <div
+                  className="absolute -inset-2 rounded-3xl border-4 opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+                  style={{ borderColor: "#4ca137" }}
+                ></div>
               </div>
-              
+
               <div className="flex-1">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 shadow-md">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#4ca137'}}></div>
-                  <span className="text-sm" style={{color: '#4ca137'}}>{t('contact.ownerDirector')}</span>
+                  <div
+                    className="w-2 h-2 rounded-full animate-pulse"
+                    style={{ backgroundColor: "#4ca137" }}
+                  ></div>
+                  <span className="text-sm" style={{ color: "#4ca137" }}>
+                    {t("contact.ownerDirector")}
+                  </span>
                 </div>
-                
+
                 <h3 className="text-3xl md:text-4xl text-gray-900 mb-4">
                   Andrii Mazar
                 </h3>
-                
+
                 <p className="text-lg text-gray-600 mb-6 italic">
-                  "{t('contact.ownerQuote')}"
+                  "{t("contact.ownerQuote")}"
                 </p>
-                
+
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <a 
+                  <a
                     href="tel:+420123456789"
                     className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                   >
                     <Phone className="w-4 h-4" />
                     +420 123 456 789
                   </a>
-                  <a 
+                  <a
                     href="mailto:info@greenclean-praha.cz"
                     className="inline-flex items-center gap-2 px-5 py-3 bg-white border-2 text-gray-700 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-                    style={{borderColor: '#4ca137'}}
+                    style={{ borderColor: "#4ca137" }}
                   >
-                    <Mail className="w-4 h-4" style={{color: '#4ca137'}} />
+                    <Mail className="w-4 h-4" style={{ color: "#4ca137" }} />
                     info@greenclean-praha.cz
                   </a>
                 </div>
@@ -100,113 +110,151 @@ export function Contact() {
         {/* Separator with text */}
         <div className="flex items-center gap-4 max-w-6xl mx-auto mb-16">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-gray-300"></div>
-          <span className="text-sm text-gray-500 px-4">{t('contact.contactFormInfo')}</span>
+          <span className="text-sm text-gray-500 px-4">
+            {t("contact.contactFormInfo")}
+          </span>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gray-300 to-gray-300"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
-          <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col" {...formAnimation}>
+          <Card
+            className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col"
+            {...formAnimation}
+          >
             {/* Gradient glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-            
+
             <div className="relative flex-1 flex flex-col">
               <h3 className="text-3xl text-gray-900 mb-8 flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Send className="w-5 h-5 text-white" />
                 </div>
-                {t('contact.freeQuote')}
+                {t("contact.freeQuote")}
               </h3>
-              
+
               <form className="space-y-6 flex-1 flex flex-col">
                 <div>
-                  <Label className="text-gray-700 mb-3">{t('contact.writingAs')}</Label>
-                  <RadioGroup defaultValue="private" className="flex gap-4 mt-2">
+                  <Label className="text-gray-700 mb-3">
+                    {t("contact.writingAs")}
+                  </Label>
+                  <RadioGroup
+                    defaultValue="private"
+                    className="flex gap-4 mt-2"
+                  >
                     <div className="flex items-center space-x-2 flex-1">
-                      <RadioGroupItem value="private" id="private" className="border-2 border-gray-300" />
-                      <Label htmlFor="private" className="cursor-pointer text-gray-700">{t('contact.privatePerson')}</Label>
+                      <RadioGroupItem
+                        value="private"
+                        id="private"
+                        className="border-2 border-gray-300"
+                      />
+                      <Label
+                        htmlFor="private"
+                        className="cursor-pointer text-gray-700"
+                      >
+                        {t("contact.privatePerson")}
+                      </Label>
                     </div>
                     <div className="flex items-center space-x-2 flex-1">
-                      <RadioGroupItem value="company" id="company" className="border-2 border-gray-300" />
-                      <Label htmlFor="company" className="cursor-pointer text-gray-700">{t('contact.company')}</Label>
+                      <RadioGroupItem
+                        value="company"
+                        id="company"
+                        className="border-2 border-gray-300"
+                      />
+                      <Label
+                        htmlFor="company"
+                        className="cursor-pointer text-gray-700"
+                      >
+                        {t("contact.company")}
+                      </Label>
                     </div>
                   </RadioGroup>
                 </div>
 
                 <div>
-                  <Label htmlFor="name" className="text-gray-700">{t('contact.fullName')}</Label>
-                  <Input 
-                    id="name" 
+                  <Label htmlFor="name" className="text-gray-700">
+                    {t("contact.fullName")}
+                  </Label>
+                  <Input
+                    id="name"
                     placeholder="John Doe"
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    onFocus={() => setFocusedField('name')}
+                    onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="text-gray-700">{t('contact.email')}</Label>
-                  <Input 
-                    id="email" 
+                  <Label htmlFor="email" className="text-gray-700">
+                    {t("contact.email")}
+                  </Label>
+                  <Input
+                    id="email"
                     type="email"
                     placeholder="john.doe@email.com"
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    onFocus={() => setFocusedField('email')}
+                    onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="phone" className="text-gray-700">{t('contact.phone')}</Label>
-                  <Input 
-                    id="phone" 
+                  <Label htmlFor="phone" className="text-gray-700">
+                    {t("contact.phone")}
+                  </Label>
+                  <Input
+                    id="phone"
                     type="tel"
                     placeholder="+420 123 456 789"
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    onFocus={() => setFocusedField('phone')}
+                    onFocus={() => setFocusedField("phone")}
                     onBlur={() => setFocusedField(null)}
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="service" className="text-gray-700">{t('contact.serviceType')}</Label>
-                  <select 
+                  <Label htmlFor="service" className="text-gray-700">
+                    {t("contact.serviceType")}
+                  </Label>
+                  <select
                     id="service"
                     className="w-full mt-2 px-3 py-2 border-2 border-gray-300 rounded-md focus:border-green-500 focus:outline-none transition-colors"
                   >
-                    <option>{t('services.homeCleaning')}</option>
-                    <option>{t('services.officeCleaning')}</option>
-                    <option>{t('services.airbnbCleaning')}</option>
-                    <option>{t('services.furnitureCleaning')}</option>
-                    <option>{t('services.renovationCleaning')}</option>
-                    <option>{t('services.developmentCleaning')}</option>
-                    <option>{t('services.buildingCleaning')}</option>
+                    <option>{t("services.homeCleaning")}</option>
+                    <option>{t("services.officeCleaning")}</option>
+                    <option>{t("services.airbnbCleaning")}</option>
+                    <option>{t("services.furnitureCleaning")}</option>
+                    <option>{t("services.renovationCleaning")}</option>
+                    <option>{t("services.developmentCleaning")}</option>
+                    <option>{t("services.buildingCleaning")}</option>
                   </select>
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-gray-700">{t('contact.message')}</Label>
-                  <Textarea 
+                  <Label htmlFor="message" className="text-gray-700">
+                    {t("contact.message")}
+                  </Label>
+                  <Textarea
                     id="message"
-                    placeholder={t('contact.message')}
+                    placeholder={t("contact.message")}
                     rows={4}
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
-                    onFocus={() => setFocusedField('message')}
+                    onFocus={() => setFocusedField("message")}
                     onBlur={() => setFocusedField(null)}
                   />
                 </div>
 
                 <div className="mt-auto">
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 py-6 text-lg"
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    {t('contact.sendRequest')}
+                    {t("contact.sendRequest")}
                   </Button>
 
                   <p className="text-sm text-gray-500 text-center mt-4">
-                    {t('contact.responseTime')}
+                    {t("contact.responseTime")}
                   </p>
                 </div>
               </form>
@@ -217,67 +265,101 @@ export function Contact() {
           <div className="space-y-6 h-full flex flex-col">
             <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              
+
               <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">{t('common.phone')}</h4>
-                  <a href="tel:+420123456789" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
+                  <h4 className="text-lg text-gray-900 mb-2">
+                    {t("common.phone")}
+                  </h4>
+                  <a
+                    href="tel:+420123456789"
+                    className="text-gray-600 hover:text-green-600 transition-colors text-lg"
+                  >
                     +420 123 456 789
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">{t('contact.monFri')}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t("contact.monFri")}
+                  </p>
                 </div>
               </div>
             </Card>
 
             <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-lime-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              
+
               <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">{t('common.email')}</h4>
-                  <a href="mailto:info@greenclean-praha.cz" className="text-gray-600 hover:text-green-600 transition-colors text-lg">
+                  <h4 className="text-lg text-gray-900 mb-2">
+                    {t("common.email")}
+                  </h4>
+                  <a
+                    href="mailto:info@greenclean-praha.cz"
+                    className="text-gray-600 hover:text-green-600 transition-colors text-lg"
+                  >
                     info@greenclean-praha.cz
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">{t('contact.weRespond')}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t("contact.weRespond")}
+                  </p>
                 </div>
               </div>
             </Card>
 
             <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              
+
               <div className="relative flex items-start gap-4 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">{t('common.address')}</h4>
+                  <h4 className="text-lg text-gray-900 mb-2">
+                    {t("common.address")}
+                  </h4>
                   <p className="text-gray-600 text-lg">
                     Prague, Czech Republic
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">{t('contact.servicesPrague')}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t("contact.servicesPrague")}
+                  </p>
                 </div>
               </div>
             </Card>
 
             <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
-              <div className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}></div>
-              
+              <div
+                className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, #FFA826, #E59518)",
+                }}
+              ></div>
+
               <div className="relative flex items-start gap-4 h-full">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" style={{backgroundImage: 'linear-gradient(to bottom right, #FFA826, #E59518)'}}>
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to bottom right, #FFA826, #E59518)",
+                  }}
+                >
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">{t('common.businessHours')}</h4>
-                  <p className="text-gray-600">{t('contact.monFri')}</p>
-                  <p className="text-gray-600">{t('contact.sat')}</p>
-                  <p className="text-sm text-gray-500 mt-1">{t('contact.sundayClosed')}</p>
+                  <h4 className="text-lg text-gray-900 mb-2">
+                    {t("common.businessHours")}
+                  </h4>
+                  <p className="text-gray-600">{t("contact.monFri")}</p>
+                  <p className="text-gray-600">{t("contact.sat")}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t("contact.sundayClosed")}
+                  </p>
                 </div>
               </div>
             </Card>

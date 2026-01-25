@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { MessageCircle, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { MessageCircle, X } from "lucide-react";
 
 interface WhatsAppWidgetProps {
   phoneNumber: string;
   message?: string;
-  position?: 'left' | 'right';
+  position?: "left" | "right";
 }
 
-export function WhatsAppWidget({ 
-  phoneNumber, 
+export function WhatsAppWidget({
+  phoneNumber,
   message,
-  position = 'right' 
+  position = "right",
 }: WhatsAppWidgetProps) {
   const { t } = useTranslation();
   const defaultMessage = message || t("whatsapp.defaultMessage");
@@ -40,18 +40,22 @@ export function WhatsAppWidget({
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(defaultMessage);
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${phoneNumber.replace(
+      /\D/g,
+      ""
+    )}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   if (!isVisible) return null;
 
-  const positionClasses = position === 'left' 
-    ? 'left-4 sm:left-6' 
-    : 'right-4 sm:right-6';
+  const positionClasses =
+    position === "left" ? "left-4 sm:left-6" : "right-4 sm:right-6";
 
   return (
-    <div className={`fixed bottom-20 ${positionClasses} z-40 flex flex-col items-end gap-3 animate-fade-in-up`}>
+    <div
+      className={`fixed bottom-20 ${positionClasses} z-40 flex flex-col items-end gap-3 animate-fade-in-up`}
+    >
       {/* Chat Prompt */}
       {showPrompt && (
         <div className="relative max-w-xs animate-scale-in">
@@ -70,7 +74,7 @@ export function WhatsAppWidget({
               <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
-              
+
               <div>
                 <div className="text-sm text-gray-900 mb-1">
                   <strong>GreenClean Praha</strong>
@@ -82,10 +86,10 @@ export function WhatsAppWidget({
             </div>
 
             {/* Arrow pointing to button */}
-            <div 
+            <div
               className="absolute -bottom-2 w-4 h-4 bg-white border-r-2 border-b-2 border-green-200 transform rotate-45"
-              style={{ 
-                [position]: '24px'
+              style={{
+                [position]: "24px",
               }}
             ></div>
           </div>
@@ -100,7 +104,7 @@ export function WhatsAppWidget({
       >
         {/* Ripple effect */}
         <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75"></div>
-        
+
         {/* Icon */}
         <MessageCircle className="w-7 h-7 relative z-10 group-hover:rotate-12 transition-transform" />
 

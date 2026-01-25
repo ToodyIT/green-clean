@@ -1,22 +1,28 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
-import { CheckCircle, ArrowRight, Check, Shield, Award, Clock, Star, Sparkles, Zap, Send, HelpCircle } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import {
+  CheckCircle,
+  ArrowRight,
+  Check,
+  Shield,
+  Award,
+  Clock,
+  Star,
+  Sparkles,
+  Zap,
+  HelpCircle,
+} from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import { Contact } from './Contact';
+import { Contact } from "./Contact";
 
 interface ServicePageProps {
   title: string;
@@ -66,10 +72,26 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
 
   const steps = [
-    { step: '1', title: t('homeCleaning.contactUs'), desc: t('homeCleaning.contactUsDesc') },
-    { step: '2', title: t('homeCleaning.scheduleAppointment'), desc: t('homeCleaning.scheduleAppointmentDesc') },
-    { step: '3', title: t('homeCleaning.weClean'), desc: t('homeCleaning.weCleanDesc') },
-    { step: '4', title: t('homeCleaning.enjoyCleanliness'), desc: t('homeCleaning.enjoyCleanlinessDesc') },
+    {
+      step: "1",
+      title: t("homeCleaning.contactUs"),
+      desc: t("homeCleaning.contactUsDesc"),
+    },
+    {
+      step: "2",
+      title: t("homeCleaning.scheduleAppointment"),
+      desc: t("homeCleaning.scheduleAppointmentDesc"),
+    },
+    {
+      step: "3",
+      title: t("homeCleaning.weClean"),
+      desc: t("homeCleaning.weCleanDesc"),
+    },
+    {
+      step: "4",
+      title: t("homeCleaning.enjoyCleanliness"),
+      desc: t("homeCleaning.enjoyCleanlinessDesc"),
+    },
   ];
 
   useEffect(() => {
@@ -81,85 +103,89 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
       const timelineHeight = rect.height;
 
       if (rect.top < windowHeight && rect.bottom > 0) {
-        const visibleAmount = Math.max(0, Math.min(1, (windowHeight - rect.top) / (timelineHeight + windowHeight)));
+        const visibleAmount = Math.max(
+          0,
+          Math.min(
+            1,
+            (windowHeight - rect.top) / (timelineHeight + windowHeight)
+          )
+        );
         setLineProgress(visibleAmount * 100);
       }
     };
 
     const observerOptions = {
       threshold: 0.5,
-      rootMargin: '-50px'
+      rootMargin: "-50px",
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const index = Number(entry.target.getAttribute('data-index'));
+        const index = Number(entry.target.getAttribute("data-index"));
         if (entry.isIntersecting) {
-          setVisibleSteps(prev => new Set([...prev, index]));
+          setVisibleSteps((prev) => new Set([...prev, index]));
         }
       });
     }, observerOptions);
 
-    const stepElements = timelineRef.current?.querySelectorAll('[data-step]');
-    stepElements?.forEach(el => observer.observe(el));
+    const stepElements = timelineRef.current?.querySelectorAll("[data-step]");
+    stepElements?.forEach((el) => observer.observe(el));
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
 
   return (
     <div className="max-w-3xl mx-auto">
-     
-
       <div ref={timelineRef} className="relative">
         {/* Background line */}
         <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-200"></div>
-        
+
         {/* Animated progress line */}
-        <div 
+        <div
           className="absolute left-8 top-0 w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-green-600 transition-all duration-300 ease-out"
-          style={{ 
+          style={{
             height: `${lineProgress}%`,
           }}
         ></div>
 
         <div className="space-y-8">
           {steps.map((item, index) => (
-            <div 
-              key={index} 
-              data-step 
+            <div
+              key={index}
+              data-step
               data-index={index}
               className="relative pl-24 pb-8"
             >
               {/* Step circle/dot with animation */}
-              <div 
+              <div
                 className={`absolute left-5 top-0 w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center text-white transition-all duration-500 ${
-                  visibleSteps.has(index) 
-                    ? 'scale-100 opacity-100' 
-                    : 'scale-0 opacity-0'
+                  visibleSteps.has(index)
+                    ? "scale-100 opacity-100"
+                    : "scale-0 opacity-0"
                 }`}
                 style={{
-                  backgroundColor: index % 2 === 0 ? accentColor : '#FFA826',
-                  transitionDelay: `${index * 100}ms`
+                  backgroundColor: index % 2 === 0 ? accentColor : "#FFA826",
+                  transitionDelay: `${index * 100}ms`,
                 }}
               >
                 <span className="text-sm">{item.step}</span>
               </div>
 
               {/* Content card */}
-              <Card 
+              <Card
                 className={`p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${
-                  visibleSteps.has(index) 
-                    ? 'translate-x-0 opacity-100' 
-                    : 'translate-x-8 opacity-0'
+                  visibleSteps.has(index)
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-8 opacity-0"
                 }`}
                 style={{
-                  transitionDelay: `${index * 100 + 100}ms`
+                  transitionDelay: `${index * 100 + 100}ms`,
                 }}
               >
                 <h3 className="text-xl text-gray-900 mb-2">{item.title}</h3>
@@ -173,13 +199,13 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   );
 }
 
-export function ServicePage({ 
-  title, 
-  description, 
-  features, 
-  image, 
-  pricing, 
-  accentColor = '#4ca137',
+export function ServicePage({
+  title,
+  description,
+  features,
+  image,
+  pricing,
+  accentColor = "#4ca137",
   whatsIncluded,
   faqItems,
   testimonials,
@@ -187,76 +213,78 @@ export function ServicePage({
   stats,
   process,
   guarantees,
-  onNavigate 
+  onNavigate,
 }: ServicePageProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   // Default values
-  const defaultWhatsIncluded = t('servicePage.defaultWhatsIncluded', { returnObjects: true }) as string[];
-  
+  const defaultWhatsIncluded = t("servicePage.defaultWhatsIncluded", {
+    returnObjects: true,
+  }) as string[];
+
   const defaultFaqItems = [
     {
-      question: t('servicePage.defaultFaq.howLong.question'),
-      answer: t('servicePage.defaultFaq.howLong.answer')
+      question: t("servicePage.defaultFaq.howLong.question"),
+      answer: t("servicePage.defaultFaq.howLong.answer"),
     },
     {
-      question: t('servicePage.defaultFaq.cleaningProducts.question'),
-      answer: t('servicePage.defaultFaq.cleaningProducts.answer')
+      question: t("servicePage.defaultFaq.cleaningProducts.question"),
+      answer: t("servicePage.defaultFaq.cleaningProducts.answer"),
     },
     {
-      question: t('servicePage.defaultFaq.needToBePresent.question'),
-      answer: t('servicePage.defaultFaq.needToBePresent.answer')
+      question: t("servicePage.defaultFaq.needToBePresent.question"),
+      answer: t("servicePage.defaultFaq.needToBePresent.answer"),
     },
     {
-      question: t('servicePage.defaultFaq.payment.question'),
-      answer: t('servicePage.defaultFaq.payment.answer')
+      question: t("servicePage.defaultFaq.payment.question"),
+      answer: t("servicePage.defaultFaq.payment.answer"),
     },
     {
-      question: t('servicePage.defaultFaq.liabilityInsurance.question'),
-      answer: t('servicePage.defaultFaq.liabilityInsurance.answer')
+      question: t("servicePage.defaultFaq.liabilityInsurance.question"),
+      answer: t("servicePage.defaultFaq.liabilityInsurance.answer"),
     },
     {
-      question: t('servicePage.defaultFaq.oneTimeCleaning.question'),
-      answer: t('servicePage.defaultFaq.oneTimeCleaning.answer')
-    }
+      question: t("servicePage.defaultFaq.oneTimeCleaning.question"),
+      answer: t("servicePage.defaultFaq.oneTimeCleaning.answer"),
+    },
   ];
-  
+
   const defaultTestimonials = [
     {
-      name: 'Petra Nováková',
-      role: 'Majitelka Airbnb',
-      text: 'Skvělá komunikace a flexibilita. Uklízí mé byty už rok a jsem maximálně spokojená. Hosté hodnotí čistotu 5 hvězdičkami.',
-      rating: 5
+      name: "Petra Nováková",
+      role: "Majitelka Airbnb",
+      text: "Skvělá komunikace a flexibilita. Uklízí mé byty už rok a jsem maximálně spokojená. Hosté hodnotí čistotu 5 hvězdičkami.",
+      rating: 5,
     },
     {
-      name: 'Martin Kovář',
-      role: 'Facility Manager',
-      text: 'Profesionální přístup a spolehlivost. Starají se o naše kanceláře už 3 roky a nikdy jsme neměli žádný problém.',
-      rating: 5
+      name: "Martin Kovář",
+      role: "Facility Manager",
+      text: "Profesionální přístup a spolehlivost. Starají se o naše kanceláře už 3 roky a nikdy jsme neměli žádný problém.",
+      rating: 5,
     },
     {
-      name: 'Jana Svobodová',
-      role: 'Obchodní ředitelka',
-      text: 'Konečně úklidová firma, která myslí na detaily. Ekologické prostředky jsou pro nás důležité a oni to dodržují.',
-      rating: 5
-    }
+      name: "Jana Svobodová",
+      role: "Obchodní ředitelka",
+      text: "Konečně úklidová firma, která myslí na detaily. Ekologické prostředky jsou pro nás důležité a oni to dodržují.",
+      rating: 5,
+    },
   ];
-  
+
   const defaultGalleryImages = [
-    { 
-      img: 'https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZXxlbnwxfHx8fDE3NjIyMzMwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', 
-      title: 'Kancelářské prostory' 
+    {
+      img: "https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZXxlbnwxfHx8fDE3NjIyMzMwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Kancelářské prostory",
     },
-    { 
-      img: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', 
-      title: 'Profesionální výsledky' 
+    {
+      img: "https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Profesionální výsledky",
     },
-    { 
-      img: 'https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral', 
-      title: 'Špičkové vybavení' 
-    }
+    {
+      img: "https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Špičkové vybavení",
+    },
   ];
-  
+
   const includedItems = whatsIncluded || defaultWhatsIncluded;
   const faq = faqItems || defaultFaqItems;
   const reviews = testimonials || defaultTestimonials;
@@ -268,15 +296,18 @@ export function ServicePage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <div 
+              <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-                style={{backgroundColor: `${accentColor}20`, color: accentColor}}
+                style={{
+                  backgroundColor: `${accentColor}20`,
+                  color: accentColor,
+                }}
               >
-                <span className="text-sm">{t('services.title')}</span>
+                <span className="text-sm">{t("services.title")}</span>
               </div>
               <h1 className="text-5xl text-gray-900 mb-6">{title}</h1>
               <p className="text-xl text-gray-600 mb-8">{description}</p>
-              
+
               <div className="space-y-4 mb-8">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -287,23 +318,24 @@ export function ServicePage({
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="hover:opacity-90"
-                  style={{backgroundColor: accentColor}}
+                  style={{ backgroundColor: accentColor }}
                   onClick={() => {
-                    const contactSection = document.getElementById('contact-section');
-                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                    const contactSection =
+                      document.getElementById("contact-section");
+                    contactSection?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   Free Quote
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="outline"
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
-                  onClick={() => navigate('/pricing')}
+                  onClick={() => navigate("/pricing")}
                 >
                   View Complete Pricing
                 </Button>
@@ -325,66 +357,73 @@ export function ServicePage({
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
-        
+        <div
+          className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+          style={{ backgroundColor: "#FFA826" }}
+        ></div>
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <Sparkles className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                {t('services.title')}
+                {t("services.title")}
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              {t('services.title')}
+              {t("services.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('services.title')}
+              {t("services.title")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
-              { 
-                icon: Shield, 
-                title: t('about.insuranceGuarantee'), 
-                desc: t('about.insuranceGuaranteeDesc'),
-                color: '#4ca137'
+              {
+                icon: Shield,
+                title: t("about.insuranceGuarantee"),
+                desc: t("about.insuranceGuaranteeDesc"),
+                color: "#4ca137",
               },
-              { 
-                icon: Award, 
-                title: t('about.qualityFirst'), 
-                desc: t('about.qualityFirstDesc'),
-                color: '#5cb944'
+              {
+                icon: Award,
+                title: t("about.qualityFirst"),
+                desc: t("about.qualityFirstDesc"),
+                color: "#5cb944",
               },
-              { 
-                icon: Clock, 
-                title: t('about.reliability'), 
-                desc: t('about.reliabilityDesc'),
-                color: '#f59e0b'
+              {
+                icon: Clock,
+                title: t("about.reliability"),
+                desc: t("about.reliabilityDesc"),
+                color: "#f59e0b",
               },
-              { 
-                icon: Zap, 
-                title: t('about.ecology'), 
-                desc: t('about.ecologyDesc'),
-                color: '#FFA826'
+              {
+                icon: Zap,
+                title: t("about.ecology"),
+                desc: t("about.ecologyDesc"),
+                color: "#FFA826",
               },
             ].map((item, index) => {
               const Icon = item.icon;
               return (
-                <Card 
-                  key={index} 
+                <Card
+                  key={index}
                   className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white"
                 >
-                  <div 
+                  <div
                     className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
-                    style={{background: `linear-gradient(to right, ${item.color}, ${item.color})`}}
+                    style={{
+                      background: `linear-gradient(to right, ${item.color}, ${item.color})`,
+                    }}
                   ></div>
-                  
+
                   <div className="relative">
-                    <div 
+                    <div
                       className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
-                      style={{background: `linear-gradient(to bottom right, ${item.color}, ${item.color}dd)`}}
+                      style={{
+                        background: `linear-gradient(to bottom right, ${item.color}, ${item.color}dd)`,
+                      }}
                     >
                       <Icon className="w-7 h-7 text-white" />
                     </div>
@@ -403,17 +442,22 @@ export function ServicePage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-3xl text-gray-900 mb-4">
-              {t('pricing.title')}
+              {t("pricing.title")}
             </h2>
-            <p className="text-xl text-gray-600">{t('pricing.description')}</p>
+            <p className="text-xl text-gray-600">{t("pricing.description")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
             {pricing.map((plan, index) => (
-              <Card key={index} className="p-6 border-gray-200 hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-gray-200 hover:shadow-lg transition-shadow"
+              >
                 <div className="text-center mb-6">
                   <h3 className="text-xl text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-3xl text-green-600 mb-1">{plan.price}</div>
+                  <div className="text-3xl text-green-600 mb-1">
+                    {plan.price}
+                  </div>
                   <div className="text-sm text-gray-600">{plan.unit}</div>
                 </div>
 
@@ -430,7 +474,7 @@ export function ServicePage({
           </div>
 
           <div className="text-center">
-            <p className="text-gray-600 mb-4">{t('pricing.description')}</p>
+            <p className="text-gray-600 mb-4">{t("pricing.description")}</p>
           </div>
         </div>
       </section>
@@ -439,33 +483,30 @@ export function ServicePage({
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
           <div className="text-center mb-12 sm:mb-16">
-            <div 
+            <div
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full mb-6 shadow-lg border"
               style={{
                 background: `linear-gradient(to right, ${accentColor}20, ${accentColor}30)`,
-                borderColor: `${accentColor}40`
+                borderColor: `${accentColor}40`,
               }}
             >
-              <Star className="w-5 h-5" style={{color: accentColor}} />
-              <span 
-                className="text-sm"
-                style={{color: accentColor}}
-              >
+              <Star className="w-5 h-5" style={{ color: accentColor }} />
+              <span className="text-sm" style={{ color: accentColor }}>
                 Naše práce
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              {t('services.title')}
+              {t("services.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('services.description')}
+              {t("services.description")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {gallery.map((item, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -491,23 +532,23 @@ export function ServicePage({
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl text-gray-900 mb-4">
-                {t('services.title')}
+                {t("services.title")}
               </h2>
               <p className="text-xl text-gray-600">
-                {t('services.description')}
+                {t("services.description")}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {includedItems.map((item, index) => (
-                <Card 
+                <Card
                   key={index}
                   className="p-4 border-gray-200 hover:border-green-300 hover:shadow-md transition-all duration-300 group"
                 >
                   <div className="flex items-start gap-3">
-                    <div 
+                    <div
                       className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300"
-                      style={{backgroundColor: accentColor}}
+                      style={{ backgroundColor: accentColor }}
                     >
                       <Check className="w-4 h-4 text-white" />
                     </div>
@@ -525,18 +566,22 @@ export function ServicePage({
         <section className="py-20 bg-gradient-to-br from-green-600 to-emerald-700 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-blob"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
-          
+          <div
+            className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+            style={{ backgroundColor: "#FFA826" }}
+          ></div>
+
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {stats.map((stat, index) => {
                   // Map icons based on index
-                  const IconComponent = [CheckCircle, Star, Award, Sparkles][index] || CheckCircle;
-                  
+                  const IconComponent =
+                    [CheckCircle, Star, Award, Sparkles][index] || CheckCircle;
+
                   return (
-                    <Card 
-                      key={index} 
+                    <Card
+                      key={index}
                       className="relative p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20"
                     >
                       <div className="relative">
@@ -546,7 +591,7 @@ export function ServicePage({
                             <IconComponent className="w-10 h-10 text-white" />
                           </div>
                         </div>
-                        
+
                         {/* Label */}
                         <div className="text-xl text-white">{stat.label}</div>
                       </div>
@@ -566,26 +611,35 @@ export function ServicePage({
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl text-gray-900 mb-4">
-                  Jak <span style={{ color: '#4ca137' }}>pracujeme</span>
+                  Jak <span style={{ color: "#4ca137" }}>pracujeme</span>
                 </h2>
-                <p className="text-xl text-gray-600">Náš osvědčený postup krok za krokem</p>
+                <p className="text-xl text-gray-600">
+                  Náš osvědčený postup krok za krokem
+                </p>
               </div>
 
               <div className="relative">
                 <div className="hidden md:block absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-green-200 via-green-400 to-green-200"></div>
-                
+
                 <div className="grid md:grid-cols-4 gap-8 relative items-stretch">
                   {process.map((item, index) => (
                     <div key={index} className="relative h-full flex flex-col">
                       <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-all bg-white relative z-10 h-full flex flex-col">
-                        <div 
+                        <div
                           className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-4 shadow-lg flex-shrink-0"
-                          style={{backgroundColor: index % 2 === 0 ? '#4ca137' : '#FFA826'}}
+                          style={{
+                            backgroundColor:
+                              index % 2 === 0 ? "#4ca137" : "#FFA826",
+                          }}
                         >
                           {item.step}
                         </div>
-                        <h3 className="text-lg text-gray-900 mb-2 text-center">{item.title}</h3>
-                        <p className="text-sm text-gray-600 text-center leading-relaxed flex-1">{item.description}</p>
+                        <h3 className="text-lg text-gray-900 mb-2 text-center">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 text-center leading-relaxed flex-1">
+                          {item.description}
+                        </p>
                       </Card>
                     </div>
                   ))}
@@ -603,18 +657,23 @@ export function ServicePage({
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl text-gray-900 mb-4">
-                  Naše <span style={{ color: '#FFA826' }}>záruky</span>
+                  Naše <span style={{ color: "#FFA826" }}>záruky</span>
                 </h2>
-                <p className="text-xl text-gray-600">Vaše spokojenost je naší prioritou</p>
+                <p className="text-xl text-gray-600">
+                  Vaše spokojenost je naší prioritou
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 {guarantees.map((guarantee, index) => (
-                  <Card key={index} className="p-6 border-0 shadow-md hover:shadow-lg transition-all bg-gradient-to-br from-white to-green-50">
+                  <Card
+                    key={index}
+                    className="p-6 border-0 shadow-md hover:shadow-lg transition-all bg-gradient-to-br from-white to-green-50"
+                  >
                     <div className="flex items-start gap-4">
-                      <div 
+                      <div
                         className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{backgroundColor: '#4ca137'}}
+                        style={{ backgroundColor: "#4ca137" }}
                       >
                         <CheckCircle className="w-6 h-6 text-white" />
                       </div>
@@ -632,8 +691,11 @@ export function ServicePage({
       <section className="py-16 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#FFA826'}}></div>
-        
+        <div
+          className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
+          style={{ backgroundColor: "#FFA826" }}
+        ></div>
+
         <div className="container mx-auto px-8 lg:px-20 max-w-4xl relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
@@ -643,20 +705,16 @@ export function ServicePage({
                 FAQ
               </span>
             </div>
-            <h2 className="text-5xl text-gray-900 mb-6">
-              {t('faq.title')}
-            </h2>
-            <p className="text-xl text-gray-600">
-              {t('faq.description')}
-            </p>
+            <h2 className="text-5xl text-gray-900 mb-6">{t("faq.title")}</h2>
+            <p className="text-xl text-gray-600">{t("faq.description")}</p>
           </div>
 
           {/* FAQ Accordion */}
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faq.map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`} 
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
                 className="border-0 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 <AccordionTrigger className="text-left hover:no-underline px-6 py-5 hover:bg-gradient-to-r hover:from-green-50 hover:to-lime-50 transition-all">
@@ -664,13 +722,13 @@ export function ServicePage({
                     <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <Sparkles className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-lg text-gray-900">{item.question}</span>
+                    <span className="text-lg text-gray-900">
+                      {item.question}
+                    </span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  <div className="pl-12 pt-2">
-                    {item.answer}
-                  </div>
+                  <div className="pl-12 pt-2">{item.answer}</div>
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -679,11 +737,9 @@ export function ServicePage({
           {/* CTA */}
           <div className="mt-16 text-center">
             <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
-              <p className="text-gray-700 mb-4">
-                {t('faq.haveMoreQuestions')}
-              </p>
-              <a 
-                href="mailto:info@greenclean-praha.cz" 
+              <p className="text-gray-700 mb-4">{t("faq.haveMoreQuestions")}</p>
+              <a
+                href="mailto:info@greenclean-praha.cz"
                 className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
               >
                 info@greenclean-praha.cz
@@ -704,42 +760,47 @@ export function ServicePage({
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
-              {t('references.title')}
+              {t("references.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('references.description')}
+              {t("references.description")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {reviews.map((testimonial, index) => (
-              <Card 
+              <Card
                 key={index}
                 className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-                
+
                 <div className="relative">
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                      />
                     ))}
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 italic">
                     "{testimonial.text}"
                   </p>
-                  
+
                   <div className="flex items-center gap-3">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white"
-                      style={{backgroundColor: '#4ca137'}}
+                      style={{ backgroundColor: "#4ca137" }}
                     >
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
                       <div className="text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-500">{testimonial.role}</div>
+                      <div className="text-sm text-gray-500">
+                        {testimonial.role}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -754,15 +815,16 @@ export function ServicePage({
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl text-gray-900 mb-4">
-              {t('homeCleaning.howItWorks')}
+              {t("homeCleaning.howItWorks")}
             </h2>
-            <p className="text-xl text-gray-600">{t('homeCleaning.simpleSteps')}</p>
+            <p className="text-xl text-gray-600">
+              {t("homeCleaning.simpleSteps")}
+            </p>
           </div>
 
           <ProcessTimelineComponent accentColor={accentColor} />
         </div>
       </section>
-
 
       {/* Contact Section */}
       <div id="contact-section">

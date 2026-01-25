@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export function useParallax(speed: number = 0.5) {
+export function useParallax(speed = 0.5) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -8,8 +8,8 @@ export function useParallax(speed: number = 0.5) {
       setOffset(window.pageYOffset * speed);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [speed]);
 
   return offset;

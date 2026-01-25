@@ -1,14 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Phone, MessageCircle, X, Mail, ArrowUp } from 'lucide-react';
-import { Button } from './ui/button';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Phone, MessageCircle, X, Mail, ArrowUp } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface FloatingActionButtonProps {
   onNavigate: (page: string) => void;
 }
 
-export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) {
+export function FloatingActionButton({
+  onNavigate,
+}: FloatingActionButtonProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,47 +21,49 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
       setShowScrollTop(window.scrollY > 400);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const actions = [
     {
       icon: Phone,
-      label: t('common.call'),
-      href: 'tel:+420123456789',
-      gradient: 'from-green-500 to-emerald-600',
-      delay: 0.1
+      label: t("common.call"),
+      href: "tel:+420123456789",
+      gradient: "from-green-500 to-emerald-600",
+      delay: 0.1,
     },
     {
       icon: MessageCircle,
-      label: 'WhatsApp',
-      href: 'https://wa.me/420123456789',
-      gradient: 'from-lime-500 to-green-600',
-      delay: 0.15
+      label: "WhatsApp",
+      href: "https://wa.me/420123456789",
+      gradient: "from-lime-500 to-green-600",
+      delay: 0.15,
     },
     {
       icon: Mail,
-      label: t('common.email'),
+      label: t("common.email"),
       onClick: () => {
-        navigate('/contact');
+        navigate("/contact");
         setIsOpen(false);
       },
-      customGradient: 'linear-gradient(to bottom right, #FFA826, #E59518)',
-      delay: 0.2
+      customGradient: "linear-gradient(to bottom right, #FFA826, #E59518)",
+      delay: 0.2,
     },
   ];
 
   return (
     <>
       {/* Scroll to Top Button */}
-      <div 
+      <div
         className={`fixed bottom-24 right-4 sm:right-6 lg:right-8 z-40 transition-all duration-500 ${
-          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10 pointer-events-none"
         }`}
       >
         <Button
@@ -84,30 +88,48 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
                   className="flex items-center gap-3 animate-scale-in"
                   style={{
                     animationDelay: `${action.delay}s`,
-                    animationFillMode: 'both'
+                    animationFillMode: "both",
                   }}
                 >
                   {/* Label */}
                   <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-gray-200 whitespace-nowrap text-sm text-gray-800">
                     {action.label}
                   </div>
-                  
+
                   {/* Button */}
                   {action.href ? (
                     <a
                       href={action.href}
-                      target={action.href.startsWith('http') ? '_blank' : undefined}
-                      rel={action.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 bg-gradient-to-br ${action.gradient || ''}`}
-                      style={action.customGradient ? { backgroundImage: action.customGradient } : {}}
+                      target={
+                        action.href.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        action.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 bg-gradient-to-br ${
+                        action.gradient || ""
+                      }`}
+                      style={
+                        action.customGradient
+                          ? { backgroundImage: action.customGradient }
+                          : {}
+                      }
                     >
                       <Icon className="w-6 h-6" />
                     </a>
                   ) : (
                     <button
                       onClick={action.onClick}
-                      className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 bg-gradient-to-br ${action.gradient || ''}`}
-                      style={action.customGradient ? { backgroundImage: action.customGradient } : {}}
+                      className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 bg-gradient-to-br ${
+                        action.gradient || ""
+                      }`}
+                      style={
+                        action.customGradient
+                          ? { backgroundImage: action.customGradient }
+                          : {}
+                      }
                     >
                       <Icon className="w-6 h-6" />
                     </button>
@@ -122,15 +144,19 @@ export function FloatingActionButton({ onNavigate }: FloatingActionButtonProps) 
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`relative w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white shadow-2xl hover:shadow-green-500/60 transition-all duration-300 overflow-hidden group ${
-            isOpen ? 'scale-100 rotate-0' : 'scale-100 hover:scale-110'
+            isOpen ? "scale-100 rotate-0" : "scale-100 hover:scale-110"
           }`}
         >
           {/* Animated background pulse */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-emerald-500 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          
+
           {/* Ripple effect */}
-          <div className={`absolute inset-0 rounded-full bg-green-400 ${isOpen ? 'animate-none' : 'animate-ping'} opacity-75`}></div>
-          
+          <div
+            className={`absolute inset-0 rounded-full bg-green-400 ${
+              isOpen ? "animate-none" : "animate-ping"
+            } opacity-75`}
+          ></div>
+
           {/* Icon */}
           <div className="relative z-10 transition-transform duration-300">
             {isOpen ? (

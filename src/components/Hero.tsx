@@ -1,9 +1,9 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Button } from './ui/button';
-import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Button } from "./ui/button";
+import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
@@ -17,13 +17,19 @@ export function Hero({ onNavigate }: HeroProps) {
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" style={{backgroundColor: '#FFA826'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" style={{backgroundColor: '#FFB84D'}}></div>
+        <div
+          className="absolute top-40 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+          style={{ backgroundColor: "#FFA826" }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+          style={{ backgroundColor: "#FFB84D" }}
+        ></div>
       </div>
 
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0Y2ExMzciIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMTAgMTBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10 py-8 sm:py-12 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
@@ -34,14 +40,14 @@ export function Hero({ onNavigate }: HeroProps) {
                 {t("hero.badge")}
               </span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-gray-900">
               {t("hero.title")}
               <span className="block bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
                 {t("hero.titleHighlight")}
               </span>
             </h1>
-            
+
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 lg:mb-10 leading-relaxed max-w-xl">
               {t("hero.description")}
             </p>
@@ -49,24 +55,56 @@ export function Hero({ onNavigate }: HeroProps) {
             {/* Feature Cards with glassmorphism */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
               {[
-                { icon: CheckCircle, title: t("hero.certifiedStaff"), desc: t("hero.certifiedStaffDesc"), gradient: 'from-green-500 to-emerald-600' },
-                { icon: Zap, title: t("hero.ecoFriendly"), desc: t("hero.ecoFriendlyDesc"), gradient: 'from-lime-500 to-green-600' },
-                { icon: Star, title: t("hero.liabilityInsurance"), desc: t("hero.liabilityInsuranceDesc"), color: '#FFA826' },
-                { icon: Sparkles, title: t("hero.flexibleScheduling"), desc: t("hero.flexibleSchedulingDesc"), color: '#FFB84D' },
+                {
+                  icon: CheckCircle,
+                  title: t("hero.certifiedStaff"),
+                  desc: t("hero.certifiedStaffDesc"),
+                  gradient: "from-green-500 to-emerald-600",
+                },
+                {
+                  icon: Zap,
+                  title: t("hero.ecoFriendly"),
+                  desc: t("hero.ecoFriendlyDesc"),
+                  gradient: "from-lime-500 to-green-600",
+                },
+                {
+                  icon: Star,
+                  title: t("hero.liabilityInsurance"),
+                  desc: t("hero.liabilityInsuranceDesc"),
+                  color: "#FFA826",
+                },
+                {
+                  icon: Sparkles,
+                  title: t("hero.flexibleScheduling"),
+                  desc: t("hero.flexibleSchedulingDesc"),
+                  color: "#FFB84D",
+                },
               ].map((item, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="flex items-start gap-3 p-3 sm:p-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl sm:rounded-2xl hover:bg-white hover:shadow-lg hover:scale-105 transition-all duration-300 group"
                 >
-                  <div 
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:rotate-6 transition-transform ${item.gradient ? `bg-gradient-to-br ${item.gradient}` : ''}`}
-                    style={item.color ? {background: `linear-gradient(to bottom right, ${item.color}, ${item.color}dd)`} : {}}
+                  <div
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:rotate-6 transition-transform ${
+                      item.gradient ? `bg-gradient-to-br ${item.gradient}` : ""
+                    }`}
+                    style={
+                      item.color
+                        ? {
+                            background: `linear-gradient(to bottom right, ${item.color}, ${item.color}dd)`,
+                          }
+                        : {}
+                    }
                   >
                     <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm sm:text-base text-gray-900 mb-1">{item.title}</div>
-                    <div className="text-xs sm:text-sm text-gray-600">{item.desc}</div>
+                    <div className="text-sm sm:text-base text-gray-900 mb-1">
+                      {item.title}
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-600">
+                      {item.desc}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -74,19 +112,19 @@ export function Hero({ onNavigate }: HeroProps) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate("/contact")}
               >
                 {t("common.freeQuote")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 className="bg-white border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-green-600 hover:scale-105 transition-all duration-300"
-                onClick={() => navigate('/services')}
+                onClick={() => navigate("/services")}
               >
                 {t("hero.ourServices")}
               </Button>
@@ -97,8 +135,14 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="relative lg:block hidden">
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-20 animate-pulse" style={{backgroundImage: 'linear-gradient(to right, #4ca137, #FFA826)'}}></div>
-              
+              <div
+                className="absolute -inset-4 rounded-3xl blur-2xl opacity-20 animate-pulse"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, #4ca137, #FFA826)",
+                }}
+              ></div>
+
               {/* Image container */}
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-500">
                 <ImageWithFallback
@@ -108,18 +152,32 @@ export function Hero({ onNavigate }: HeroProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
               </div>
-              
+
               {/* Floating stats card with glassmorphism */}
               <div className="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-2xl p-6 shadow-2xl hover:scale-110 transition-transform duration-300">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <div className="text-4xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">500+</div>
-                    <div className="text-sm text-gray-600">{t("hero.satisfiedClients")}</div>
+                    <div className="text-4xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                      500+
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {t("hero.satisfiedClients")}
+                    </div>
                   </div>
                   <div className="w-px h-12 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
                   <div className="text-center">
-                    <div className="text-4xl bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #FFA826, #E59518)'}}>15+</div>
-                    <div className="text-sm text-gray-600">{t("hero.yearsOfExperience")}</div>
+                    <div
+                      className="text-4xl bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, #FFA826, #E59518)",
+                      }}
+                    >
+                      15+
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {t("hero.yearsOfExperience")}
+                    </div>
                   </div>
                 </div>
               </div>
