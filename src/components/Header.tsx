@@ -91,7 +91,7 @@ export function Header() {
               {/* Úklid bytů a domů - Featured Service */}
               <Button
                 className="bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 shadow-sm hover:shadow-md transition-all duration-300"
-                onClick={() => router.push("/home")}
+                onClick={() => router.push("/home-cleaning")}
               >
                 <Home className="w-4 h-4 mr-2" />
                 {t("header.homeCleaning")}
@@ -270,7 +270,7 @@ export function Header() {
                   <Button
                     className="w-full bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 hover:from-green-100 hover:to-emerald-100 border-2 border-green-200 shadow-md hover:shadow-lg transition-all py-6 rounded-2xl"
                     onClick={() => {
-                      router.push("/home");
+                      router.push("/home-cleaning");
                       setIsOpen(false);
                     }}
                   >
