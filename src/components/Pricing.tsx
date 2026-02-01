@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -17,19 +17,15 @@ import {
   Clock,
 } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { useRouter } from "next/router";
 
-interface PricingProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Pricing({ onNavigate }: PricingProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+export function Pricing() {
+  const { t } = useTranslation("common");
   const [selectedService, setSelectedService] = useState("home");
   const [homeServiceTab, setHomeServiceTab] = useState("weekly"); // For home service tabs
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const cardsAnimation = useScrollAnimation({ threshold: 0.1 });
-
+  const router = useRouter();
   const allServices = [
     {
       id: "home",
@@ -586,7 +582,7 @@ export function Pricing({ onNavigate }: PricingProps) {
           ref={cardsAnimation.ref}
         >
           {(currentService.hasTabs
-            ? currentService.tabs.find((t: any) => t.id === homeServiceTab)
+            ? currentService.tabs.find((tab: any) => tab.id === homeServiceTab)
                 ?.pricing
             : currentService.pricing
           )?.map((plan: any, index: number) => {
@@ -659,7 +655,7 @@ export function Pricing({ onNavigate }: PricingProps) {
                   <Button
                     className="w-full text-white transition-all duration-300 hover:scale-105 border-0 hover:shadow-lg mt-auto"
                     style={{ background: currentService.color }}
-                    onClick={() => navigate(`/${currentService.id}`)}
+                    onClick={() => router.push(`/${currentService.id}`)}
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -698,7 +694,7 @@ export function Pricing({ onNavigate }: PricingProps) {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => navigate("/contact")}
+                onClick={() => router.push("/contact")}
               >
                 Free Quote
                 <ArrowRight className="w-5 h-5 ml-2" />

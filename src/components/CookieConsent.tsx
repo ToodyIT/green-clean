@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { X, Cookie } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function CookieConsent() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

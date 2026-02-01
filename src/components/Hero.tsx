@@ -1,6 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Button } from "./ui/button";
 import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -10,8 +9,7 @@ interface HeroProps {
 }
 
 export function Hero({ onNavigate }: HeroProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { t } = useTranslation("common");
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-green-50 to-emerald-50">
       {/* Animated Background Elements */}
@@ -115,7 +113,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => navigate("/contact")}
+                onClick={() => onNavigate?.("contact")}
               >
                 {t("common.freeQuote")}
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -124,7 +122,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 size="lg"
                 variant="outline"
                 className="bg-white border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-green-600 hover:scale-105 transition-all duration-300"
-                onClick={() => navigate("/services")}
+                onClick={() => onNavigate?.("services")}
               >
                 {t("hero.ourServices")}
               </Button>

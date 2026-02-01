@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -15,16 +15,13 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation, animations } from "../hooks/useScrollAnimation";
+import { useRouter } from "next/router";
 
-interface ServicesProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Services({ onNavigate }: ServicesProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+export function Services() {
+  const { t } = useTranslation("common");
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const featuredAnimation = useScrollAnimation({ threshold: 0.15 });
+  const router = useRouter();
 
   const services = [
     {
@@ -150,7 +147,7 @@ export function Services({ onNavigate }: ServicesProps) {
                 <Card
                   key={service.id}
                   className="group relative overflow-hidden border-2 border-green-200 shadow-2xl hover:shadow-green-500/30 transition-all duration-500 cursor-pointer bg-gradient-to-br from-white to-green-50/30 hover:-translate-y-2 mb-16"
-                  onClick={() => navigate(`/${service.id}`)}
+                  onClick={() => router.push(`/${service.id}`)}
                 >
                   <div className="grid lg:grid-cols-2 gap-0">
                     {/* Image with gradient overlay */}
@@ -288,7 +285,7 @@ export function Services({ onNavigate }: ServicesProps) {
               >
                 <Card
                   className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
-                  onClick={() => navigate(`/${service.id}`)}
+                  onClick={() => router.push(`/${service.id}`)}
                 >
                   {/* Image with gradient overlay */}
                   <div className="relative h-56 overflow-hidden flex-shrink-0">
@@ -392,7 +389,7 @@ export function Services({ onNavigate }: ServicesProps) {
           <Button
             size="lg"
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
-            onClick={() => navigate("/contact")}
+            onClick={() => router.push("/contact")}
           >
             Free Quote
             <ArrowRight className="w-5 h-5 ml-2" />

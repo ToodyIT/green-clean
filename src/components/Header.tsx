@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import { Button } from "./ui/button";
 import { Sparkles, Globe, Check, Home, X } from "lucide-react";
 import {
@@ -9,21 +10,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import logo from "figma:asset/ceba5cb5c3fd6bd444b916dd60188eedaad096e0.png";
+import logo from "../../public/images/logo.png";
 import { twJoin } from "tailwind-merge";
+import Image from "next/image";
 
 // Header component with improved mobile menu background
 
-interface HeaderProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Header({ onNavigate }: HeaderProps) {
-  const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
+export function Header() {
+  const { t } = useTranslation("common");
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const currentLanguage = i18n.language || "cs";
+  const currentLanguage = router.locale || "cs";
 
   const languages = [
     { code: "cs", name: "Čeština", flag: "🇨🇿" },
@@ -42,16 +39,7 @@ export function Header({ onNavigate }: HeaderProps) {
   ];
 
   const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-  };
-
-  const currentPage =
-    location.pathname === "/" ? "homepage" : location.pathname.slice(1);
-
-  const handleNavigation = (page: string) => {
-    const path = page === "homepage" ? "/" : `/${page}`;
-    navigate(path);
-    setIsOpen(false);
+    router.push(router.asPath, router.asPath, { locale: langCode });
   };
 
   return (
@@ -66,10 +54,10 @@ export function Header({ onNavigate }: HeaderProps) {
           {/* Main header */}
           <div className="flex items-center justify-between py-3 sm:py-4">
             <Link
-              to="/"
+              href="/"
               className="flex items-center gap-3 hover:scale-105 transition-transform duration-300"
             >
-              <img
+              <Image
                 src={logo}
                 alt="GreenClean"
                 className="h-12 sm:h-14 w-auto"
@@ -79,11 +67,11 @@ export function Header({ onNavigate }: HeaderProps) {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-2">
               {menuItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                const isActive = router.pathname === item.path;
                 return (
                   <Link
                     key={item.id}
-                    to={item.path}
+                    href={item.path}
                     className={`relative px-4 py-2 rounded-xl transition-all duration-300 ${
                       isActive
                         ? "text-green-600"
@@ -103,7 +91,7 @@ export function Header({ onNavigate }: HeaderProps) {
               {/* Úklid bytů a domů - Featured Service */}
               <Button
                 className="bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 shadow-sm hover:shadow-md transition-all duration-300"
-                onClick={() => navigate("/home")}
+                onClick={() => router.push("/home")}
               >
                 <Home className="w-4 h-4 mr-2" />
                 {t("header.homeCleaning")}
@@ -150,7 +138,7 @@ export function Header({ onNavigate }: HeaderProps) {
 
               <Button
                 className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => navigate("/contact")}
+                onClick={() => router.push("/contact")}
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 {t("common.freeQuote")}
@@ -224,7 +212,7 @@ export function Header({ onNavigate }: HeaderProps) {
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-5 border-b border-green-200 bg-white shadow-sm">
                 <div className="flex items-center gap-3">
-                  <img src={logo} alt="GreenClean" className="h-10 w-auto" />
+                  <Image src={logo} alt="GreenClean" className="h-10 w-auto" />
                 </div>
                 <Button
                   variant="ghost"
@@ -241,11 +229,11 @@ export function Header({ onNavigate }: HeaderProps) {
                 {/* Navigation Items */}
                 <nav className="flex flex-col gap-2 mb-6">
                   {menuItems.map((item, index) => {
-                    const isActive = location.pathname === item.path;
+                    const isActive = router.pathname === item.path;
                     return (
                       <Link
                         key={item.id}
-                        to={item.path}
+                        href={item.path}
                         onClick={() => setIsOpen(false)}
                         className={`
                           px-5 py-4 rounded-2xl transition-all duration-300 text-left
@@ -282,7 +270,7 @@ export function Header({ onNavigate }: HeaderProps) {
                   <Button
                     className="w-full bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 hover:from-green-100 hover:to-emerald-100 border-2 border-green-200 shadow-md hover:shadow-lg transition-all py-6 rounded-2xl"
                     onClick={() => {
-                      navigate("/home");
+                      router.push("/home");
                       setIsOpen(false);
                     }}
                   >
@@ -324,7 +312,7 @@ export function Header({ onNavigate }: HeaderProps) {
                 <Button
                   className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl hover:shadow-2xl border-0 py-6 rounded-2xl transform hover:scale-[1.02] active:scale-[0.98] transition-all"
                   onClick={() => {
-                    navigate("/contact");
+                    router.push("/contact");
                     setIsOpen(false);
                   }}
                 >

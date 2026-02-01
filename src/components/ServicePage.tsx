@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -70,7 +69,7 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const steps = [
     {
@@ -216,8 +215,7 @@ export function ServicePage({
   guarantees,
   onNavigate,
 }: ServicePageProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { t } = useTranslation("common");
   // Default values
   const defaultWhatsIncluded = t("servicePage.defaultWhatsIncluded", {
     returnObjects: true,
@@ -336,7 +334,7 @@ export function ServicePage({
                   size="lg"
                   variant="outline"
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
-                  onClick={() => navigate("/pricing")}
+                  onClick={() => onNavigate("pricing")}
                 >
                   View Complete Pricing
                 </Button>

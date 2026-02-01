@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import {
   Building2,
   Hotel,
@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export function Partners() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const serviceAreas = [
     {
       name: t("partners.offices"),

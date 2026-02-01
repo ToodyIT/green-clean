@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +9,7 @@ import {
 import { HelpCircle, Sparkles } from "lucide-react";
 
 export function FAQ() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const faqs = [
     {
       question: t("faq.howToOrder"),

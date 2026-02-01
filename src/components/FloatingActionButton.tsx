@@ -1,21 +1,14 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Phone, MessageCircle, X, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/router";
 
-interface FloatingActionButtonProps {
-  onNavigate: (page: string) => void;
-}
-
-export function FloatingActionButton({
-  onNavigate,
-}: FloatingActionButtonProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+export function FloatingActionButton() {
+  const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
@@ -48,7 +41,7 @@ export function FloatingActionButton({
       icon: Mail,
       label: t("common.email"),
       onClick: () => {
-        navigate("/contact");
+        router.push("/contact");
         setIsOpen(false);
       },
       customGradient: "linear-gradient(to bottom right, #FFA826, #E59518)",
@@ -112,7 +105,7 @@ export function FloatingActionButton({
                         action.gradient || ""
                       }`}
                       style={
-                        action.customGradient
+                        (action.customGradient as any)
                           ? { backgroundImage: action.customGradient }
                           : {}
                       }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -11,7 +11,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Contact() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });

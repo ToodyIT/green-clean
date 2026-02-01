@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import {
   Star,
@@ -17,7 +17,7 @@ import {
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function References() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
 
   const testimonials = [

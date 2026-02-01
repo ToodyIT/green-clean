@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -31,12 +31,8 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-interface HomeCleaningPageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function HomeCleaningPage({ onNavigate }: HomeCleaningPageProps) {
-  const { t } = useTranslation();
+export function HomeCleaningPage() {
+  const { t } = useTranslation("common");
   const [activeTab, setActiveTab] = useState<"weekly" | "monthly" | "onetime">(
     "weekly"
   );

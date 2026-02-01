@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
+import { useTranslation } from "next-i18next";
 import {
   Facebook,
   Instagram,
@@ -10,14 +10,11 @@ import {
   MapPin,
 } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { useRouter } from "next/router";
 
-interface FooterProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+export function Footer() {
+  const { t } = useTranslation("common");
+  const router = useRouter();
   const services = [
     { id: "home", label: t("services.homeCleaning") },
     { id: "office", label: t("services.officeCleaning") },
@@ -120,7 +117,7 @@ export function Footer({ onNavigate }: FooterProps) {
               {services.map((service) => (
                 <li key={service.id}>
                   <button
-                    onClick={() => navigate(`/${service.id}`)}
+                    onClick={() => router.push(`/${service.id}`)}
                     className="text-sm hover:text-green-400 transition-all text-left group flex items-center gap-2 hover:translate-x-1"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-green-400 group-hover:w-2 transition-all"></span>
@@ -140,7 +137,7 @@ export function Footer({ onNavigate }: FooterProps) {
               {company.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => navigate(`/${item.id}`)}
+                    onClick={() => router.push(`/${item.id}`)}
                     className="text-sm hover:text-green-400 transition-all text-left group flex items-center gap-2 hover:translate-x-1"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-green-400 group-hover:w-2 transition-all"></span>
