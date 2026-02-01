@@ -207,7 +207,7 @@ export function References() {
 
                 {/* Review text */}
                 <p className="text-gray-700 leading-relaxed">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
               </div>
 

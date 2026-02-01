@@ -78,7 +78,6 @@ function TimelineSection() {
 
       // Calculate how much of timeline is visible
       const scrollStart = rect.top;
-      const scrollEnd = rect.bottom - windowHeight;
 
       if (scrollStart < windowHeight && rect.bottom > 0) {
         // Timeline is in view
@@ -103,7 +102,11 @@ function TimelineSection() {
       entries.forEach((entry) => {
         const index = Number(entry.target.getAttribute("data-index"));
         if (entry.isIntersecting) {
-          setVisibleDots((prev) => new Set([...prev, index]));
+          setVisibleDots((prev) => {
+            const updated = new Set(prev);
+            updated.add(index);
+            return updated;
+          });
         }
       });
     }, observerOptions);
@@ -711,7 +714,9 @@ export function About() {
             <div className="relative text-center max-w-3xl mx-auto">
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-6">
                 <Sparkles className="w-5 h-5 text-white" />
-                <span className="text-sm text-white">We're here for you</span>
+                <span className="text-sm text-white">
+                  We&apos;re here for you
+                </span>
               </div>
 
               <h3 className="text-4xl text-white mb-6">

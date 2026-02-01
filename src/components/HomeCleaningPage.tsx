@@ -786,7 +786,7 @@ export function HomeCleaningPage() {
 
                 {/* Text */}
                 <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
 
                 {/* Author */}
@@ -804,7 +804,7 @@ export function HomeCleaningPage() {
 
                 {/* Decorative quote */}
                 <div className="absolute top-4 right-4 text-6xl text-green-100 opacity-50">
-                  "
+                  &quot;
                 </div>
               </Card>
             ))}

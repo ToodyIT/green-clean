@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { ServicePage } from "../src/components/ServicePage";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
@@ -11,13 +10,7 @@ import { useServiceData } from "../src/utils/serviceData";
 
 export default function DevelopmentPage() {
   const { t } = useTranslation("common");
-  const router = useRouter();
   const servicesData = useServiceData();
-
-  const handleNavigate = (page: string) => {
-    const path = page === "homepage" ? "/" : `/${page}`;
-    router.push(path);
-  };
 
   return (
     <div className="min-h-screen">
@@ -134,7 +127,6 @@ export default function DevelopmentPage() {
               title: "Před předáním",
             },
           ]}
-          onNavigate={handleNavigate}
         />
       </main>
       <Footer />

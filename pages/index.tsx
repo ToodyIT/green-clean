@@ -19,11 +19,6 @@ export default function HomePage() {
   const { t } = useTranslation("common");
   const router = useRouter();
 
-  const handleNavigate = (page: string) => {
-    const path = page === "homepage" ? "/" : `/${page}`;
-    router.push(path);
-  };
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -67,7 +62,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-white hover:bg-gray-50 text-green-700 shadow-2xl hover:shadow-white/50 hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-0 text-sm sm:text-base lg:text-lg px-5 sm:px-6 lg:px-10 py-4 sm:py-5 lg:py-7"
-                onClick={() => handleNavigate("contact")}
+                onClick={() => router.push("/contact")}
               >
                 {t("common.freeQuote")}
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />

@@ -17,6 +17,133 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation, animations } from "../hooks/useScrollAnimation";
 import { useRouter } from "next/router";
 
+interface ServiceCardProps {
+  service: {
+    id: string;
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    description: string;
+    image: string;
+    gradient?: string;
+    customGradient?: string;
+    priceFrom: string;
+    priceTo: string;
+  };
+  index: number;
+}
+
+function ServiceCard({ service, index }: ServiceCardProps) {
+  const { t } = useTranslation("common");
+  const router = useRouter();
+  const cardAnimation = useScrollAnimation({ threshold: 0.2 });
+  const Icon = service.icon;
+
+  return (
+    <div
+      ref={cardAnimation.ref}
+      style={animations.fadeInUp(cardAnimation.isVisible, index * 0.1)}
+      className="h-full flex flex-col"
+    >
+      <Card
+        className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
+        onClick={() => router.push(`/${service.id}`)}
+      >
+        {/* Image with gradient overlay */}
+        <div className="relative h-56 overflow-hidden flex-shrink-0">
+          <ImageWithFallback
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          {/* Gradient overlay */}
+          <div
+            className={`absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500 ${
+              service.gradient
+                ? `bg-gradient-to-br ${service.gradient}`
+                : ""
+            }`}
+            style={
+              service.customGradient
+                ? { backgroundImage: service.customGradient }
+                : {}
+            }
+          ></div>
+
+          {/* Icon badge */}
+          <div className="absolute top-4 left-4">
+            <div className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+              <Icon className="w-7 h-7 text-white" />
+            </div>
+          </div>
+
+          {/* Shimmer effect on hover */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute inset-0 animate-shimmer"></div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 relative flex-1 flex flex-col">
+          {/* Gradient line */}
+          <div
+            className={`absolute top-0 left-0 right-0 h-1 ${
+              service.gradient
+                ? `bg-gradient-to-r ${service.gradient}`
+                : ""
+            }`}
+            style={
+              service.customGradient
+                ? { backgroundImage: service.customGradient }
+                : {}
+            }
+          ></div>
+
+          <h3 className="text-xl text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">
+            {service.title}
+          </h3>
+          <p className="text-gray-600 mb-4 leading-relaxed flex-1">
+            {service.description}
+          </p>
+
+          {/* Price - Minimalist */}
+          <div className="mb-6">
+            <div className="flex items-baseline gap-1.5 text-gray-500">
+              <span className="text-xs">{t("common.from")}</span>
+              <span className="text-base text-gray-700">
+                {service.priceFrom}
+              </span>
+              <span className="text-xs">{t("common.to")}</span>
+              <span className="text-base text-gray-700">
+                {service.priceTo}
+              </span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
+            <span className="mr-2">Learn More</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+          </div>
+        </div>
+
+        {/* Corner accent */}
+        <div
+          className={`absolute bottom-0 right-0 w-24 h-24 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${
+            service.gradient
+              ? `bg-gradient-to-br ${service.gradient}`
+              : ""
+          }`}
+          style={
+            service.customGradient
+              ? { backgroundImage: service.customGradient }
+              : {}
+          }
+        ></div>
+      </Card>
+    </div>
+  );
+}
+
 export function Services() {
   const { t } = useTranslation("common");
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -270,118 +397,13 @@ export function Services() {
 
         {/* Other Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
-          {services.slice(1).map((service, index) => {
-            const Icon = service.icon;
-            const cardAnimation = useScrollAnimation({ threshold: 0.2 });
-            return (
-              <div
-                key={service.id}
-                ref={cardAnimation.ref}
-                style={animations.fadeInUp(
-                  cardAnimation.isVisible,
-                  index * 0.1
-                )}
-                className="h-full flex flex-col"
-              >
-                <Card
-                  className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
-                  onClick={() => router.push(`/${service.id}`)}
-                >
-                  {/* Image with gradient overlay */}
-                  <div className="relative h-56 overflow-hidden flex-shrink-0">
-                    <ImageWithFallback
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    {/* Gradient overlay */}
-                    <div
-                      className={`absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500 ${
-                        service.gradient
-                          ? `bg-gradient-to-br ${service.gradient}`
-                          : ""
-                      }`}
-                      style={
-                        service.customGradient
-                          ? { backgroundImage: service.customGradient }
-                          : {}
-                      }
-                    ></div>
-
-                    {/* Icon badge */}
-                    <div className="absolute top-4 left-4">
-                      <div className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Shimmer effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute inset-0 animate-shimmer"></div>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 relative flex-1 flex flex-col">
-                    {/* Gradient line */}
-                    <div
-                      className={`absolute top-0 left-0 right-0 h-1 ${
-                        service.gradient
-                          ? `bg-gradient-to-r ${service.gradient}`
-                          : ""
-                      }`}
-                      style={
-                        service.customGradient
-                          ? { backgroundImage: service.customGradient }
-                          : {}
-                      }
-                    ></div>
-
-                    <h3 className="text-xl text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed flex-1">
-                      {service.description}
-                    </p>
-
-                    {/* Price - Minimalist */}
-                    <div className="mb-6">
-                      <div className="flex items-baseline gap-1.5 text-gray-500">
-                        <span className="text-xs">{t("common.from")}</span>
-                        <span className="text-base text-gray-700">
-                          {service.priceFrom}
-                        </span>
-                        <span className="text-xs">{t("common.to")}</span>
-                        <span className="text-base text-gray-700">
-                          {service.priceTo}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* CTA */}
-                    <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
-                      <span className="mr-2">Learn More</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                    </div>
-                  </div>
-
-                  {/* Corner accent */}
-                  <div
-                    className={`absolute bottom-0 right-0 w-24 h-24 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${
-                      service.gradient
-                        ? `bg-gradient-to-br ${service.gradient}`
-                        : ""
-                    }`}
-                    style={
-                      service.customGradient
-                        ? { backgroundImage: service.customGradient }
-                        : {}
-                    }
-                  ></div>
-                </Card>
-              </div>
-            );
-          })}
+          {services.slice(1).map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={index}
+            />
+          ))}
         </div>
 
         {/* CTA Button */}

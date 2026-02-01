@@ -7,7 +7,7 @@ interface PageTransitionProps {
 }
 
 export function PageTransition({ children, currentPage }: PageTransitionProps) {
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     setIsTransitioning(true);

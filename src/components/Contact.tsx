@@ -15,7 +15,7 @@ export function Contact() {
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });
-  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [, setFocusedField] = useState<string | null>(null);
 
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
@@ -82,7 +82,7 @@ export function Contact() {
                 </h3>
 
                 <p className="text-lg text-gray-600 mb-6 italic">
-                  "{t("contact.ownerQuote")}"
+                  &quot;{t("contact.ownerQuote")}&quot;
                 </p>
 
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">

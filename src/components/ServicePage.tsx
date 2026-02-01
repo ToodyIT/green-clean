@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { Contact } from "./Contact";
+import { useRouter } from "next/router";
 
 interface ServicePageProps {
   title: string;
@@ -61,7 +62,13 @@ interface ServicePageProps {
     description: string;
   }[];
   guarantees?: string[];
-  onNavigate: (page: string) => void;
+}
+
+function ensureArray<T>(value: T[] | Record<string, T> | undefined | null): T[] {
+  if (value == null) return [];
+  if (Array.isArray(value)) return value;
+  if (typeof value === "object") return Object.values(value);
+  return [];
 }
 
 // Process Timeline Component with scroll animation
@@ -123,7 +130,11 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
       entries.forEach((entry) => {
         const index = Number(entry.target.getAttribute("data-index"));
         if (entry.isIntersecting) {
-          setVisibleSteps((prev) => new Set([...prev, index]));
+          setVisibleSteps((prev) => {
+            const updated = new Set(prev);
+            updated.add(index);
+            return updated;
+          });
         }
       });
     }, observerOptions);
@@ -213,9 +224,9 @@ export function ServicePage({
   stats,
   process,
   guarantees,
-  onNavigate,
 }: ServicePageProps) {
   const { t } = useTranslation("common");
+  const router = useRouter();
   // Default values
   const defaultWhatsIncluded = t("servicePage.defaultWhatsIncluded", {
     returnObjects: true,
@@ -308,7 +319,7 @@ export function ServicePage({
               <p className="text-xl text-gray-600 mb-8">{description}</p>
 
               <div className="space-y-4 mb-8">
-                {features.map((feature, index) => (
+                {ensureArray(features).map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                     <span className="text-gray-700">{feature}</span>
@@ -334,7 +345,7 @@ export function ServicePage({
                   size="lg"
                   variant="outline"
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
-                  onClick={() => onNavigate("pricing")}
+                  onClick={() => router.push("/pricing")}
                 >
                   View Complete Pricing
                 </Button>
@@ -447,7 +458,7 @@ export function ServicePage({
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            {pricing.map((plan, index) => (
+            {ensureArray(pricing).map((plan, index) => (
               <Card
                 key={index}
                 className="p-6 border-gray-200 hover:shadow-lg transition-shadow"
@@ -461,7 +472,7 @@ export function ServicePage({
                 </div>
 
                 <ul className="space-y-3">
-                  {plan.features.map((feature, idx) => (
+                  {ensureArray(plan.features).map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-700">{feature}</span>
@@ -503,7 +514,7 @@ export function ServicePage({
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {gallery.map((item, index) => (
+            {ensureArray(gallery).map((item, index) => (
               <Card
                 key={index}
                 className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -539,7 +550,7 @@ export function ServicePage({
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {includedItems.map((item, index) => (
+              {ensureArray(includedItems).map((item, index) => (
                 <Card
                   key={index}
                   className="p-4 border-gray-200 hover:border-green-300 hover:shadow-md transition-all duration-300 group"
@@ -573,7 +584,7 @@ export function ServicePage({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {stats.map((stat, index) => {
+                {ensureArray(stats).map((stat, index) => {
                   // Map icons based on index
                   const IconComponent =
                     [CheckCircle, Star, Award, Sparkles][index] || CheckCircle;
@@ -621,7 +632,7 @@ export function ServicePage({
                 <div className="hidden md:block absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-green-200 via-green-400 to-green-200"></div>
 
                 <div className="grid md:grid-cols-4 gap-8 relative items-stretch">
-                  {process.map((item, index) => (
+                  {ensureArray(process).map((item, index) => (
                     <div key={index} className="relative h-full flex flex-col">
                       <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-all bg-white relative z-10 h-full flex flex-col">
                         <div
@@ -664,7 +675,7 @@ export function ServicePage({
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {guarantees.map((guarantee, index) => (
+                {ensureArray(guarantees).map((guarantee, index) => (
                   <Card
                     key={index}
                     className="p-6 border-0 shadow-md hover:shadow-lg transition-all bg-gradient-to-br from-white to-green-50"
@@ -710,7 +721,7 @@ export function ServicePage({
 
           {/* FAQ Accordion */}
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {faq.map((item, index) => (
+            {ensureArray(faq).map((item, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
@@ -767,7 +778,7 @@ export function ServicePage({
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {reviews.map((testimonial, index) => (
+            {ensureArray(reviews).map((testimonial, index) => (
               <Card
                 key={index}
                 className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white"
@@ -785,7 +796,7 @@ export function ServicePage({
                   </div>
 
                   <p className="text-gray-700 mb-6 italic">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
 
                   <div className="flex items-center gap-3">
