@@ -1,9 +1,19 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
-export default function Document() {
+const DEFAULT_LOCALE = "cs";
+
+export default function Document({
+  locale,
+}: {
+  locale?: string;
+}) {
+  const lang = locale ?? DEFAULT_LOCALE;
   return (
-    <Html>
-      <Head />
+    <Html lang={lang}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="theme-color" content="#16a34a" />
+      </Head>
       <body>
         <Main />
         <NextScript />
@@ -11,3 +21,9 @@ export default function Document() {
     </Html>
   );
 }
+
+Document.getInitialProps = async (ctx: DocumentContext) => {
+  const initialProps = await ctx.defaultGetInitialProps(ctx);
+  const locale = ctx.locale ?? DEFAULT_LOCALE;
+  return { ...initialProps, locale };
+};

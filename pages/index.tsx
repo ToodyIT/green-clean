@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { Header } from "../src/components/Header";
 import { Hero } from "../src/components/Hero";
+import { SEO } from "../src/components/SEO";
 import { Services } from "../src/components/Services";
 import { About } from "../src/components/About";
 import { References } from "../src/components/References";
@@ -21,6 +22,10 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title={`${t("hero.title")} ${t("hero.titleHighlight")}`}
+        description={t("hero.description")}
+      />
       <Header />
       <main>
         <Hero />

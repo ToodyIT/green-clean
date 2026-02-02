@@ -6,15 +6,16 @@ import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
 import { FloatingActionButton } from "../src/components/FloatingActionButton";
 import { CookieConsent } from "../src/components/CookieConsent";
+import { SEO } from "../src/components/SEO";
 import { useServiceData } from "../src/utils/serviceData";
 
 export default function BuildingsPage() {
   const { t } = useTranslation("common");
   const servicesData = useServiceData();
- 
 
   return (
     <div className="min-h-screen">
+      <SEO title={servicesData.buildings.title} description={servicesData.buildings.description} />
       <Header />
       <main>
         <ServicePage

@@ -6,6 +6,7 @@ import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
 import { FloatingActionButton } from "../src/components/FloatingActionButton";
 import { CookieConsent } from "../src/components/CookieConsent";
+import { SEO } from "../src/components/SEO";
 import { useServiceData } from "../src/utils/serviceData";
 
 export default function RenovationPage() {
@@ -14,6 +15,7 @@ export default function RenovationPage() {
 
   return (
     <div className="min-h-screen">
+      <SEO title={servicesData.renovation.title} description={servicesData.renovation.description} />
       <Header />
       <main>
         <ServicePage
