@@ -152,7 +152,7 @@ export function Services() {
 
   const services = [
     {
-      id: "home",
+      id: "home-cleaning",
       icon: Home,
       title: t("services.homeCleaning"),
       description: t("services.homeCleaningDesc"),
