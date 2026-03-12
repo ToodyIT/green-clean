@@ -25,10 +25,10 @@ export default function FurniturePage() {
           image={servicesData.furniture.image}
           pricing={servicesData.furniture.pricing}
           stats={[
-            { value: "15 000+", label: "Vyčištěných kusů", icon: "🛋️" },
-            { value: "100%", label: "Ekologické", icon: "🌿" },
-            { value: "2-4h", label: "Schnutí", icon: "⏱️" },
-            { value: "5★", label: "Hodnocení", icon: "⭐" },
+            { value: "15 000+", label: t("serviceData.furniture.stats.cleanedItems"), icon: "🛋️" },
+            { value: "100%", label: t("serviceData.furniture.stats.ecoFriendly"), icon: "🌿" },
+            { value: "2-4h", label: t("serviceData.furniture.stats.dryingTime"), icon: "⏱️" },
+            { value: "5★", label: t("serviceData.furniture.stats.rating"), icon: "⭐" },
           ]}
           process={
             t("serviceData.furniture.process", {
@@ -46,53 +46,47 @@ export default function FurniturePage() {
           }
           faqItems={[
             {
-              question: "Jak dlouho trvá schnutí?",
-              answer:
-                "Díky moderní technologii je nábytek vlhký jen lehce a je možné jej používat již za 2-4 hodiny. Kompletní vyschnutí trvá 6-12 hodin dle materiálu.",
+              question: t("serviceData.furniture.faq.dryingTime.question"),
+              answer: t("serviceData.furniture.faq.dryingTime.answer"),
             },
             {
-              question: "Dokážete odstranit staré skvrny?",
-              answer:
-                "Většinu skvrn ano. Máme speciální prostředky na víno, kávu, krev, tuky atd. U velmi starých skvrn nemůžeme garantovat 100% odstranění, ale vždy se snažíme o maximální výsledek.",
+              question: t("serviceData.furniture.faq.oldStains.question"),
+              answer: t("serviceData.furniture.faq.oldStains.answer"),
             },
             {
-              question: "Je čištění bezpečné pro děti a domácí mazlíčky?",
-              answer:
-                "Ano, používáme ekologické, certifikované prostředky, které jsou bezpečné pro celou rodinu včetně dětí a zvířat.",
+              question: t("serviceData.furniture.faq.safeForChildren.question"),
+              answer: t("serviceData.furniture.faq.safeForChildren.answer"),
             },
             {
-              question: "Čistíte i kožený nábytek?",
-              answer:
-                "Ano, máme speciální procedury a prostředky pro kůži a koženku. Čištění včetně následného ošetření a výživy kůže.",
+              question: t("serviceData.furniture.faq.leatherFurniture.question"),
+              answer: t("serviceData.furniture.faq.leatherFurniture.answer"),
             },
             {
-              question: "Co impregnace a k čemu slouží?",
-              answer:
-                "Impregnace vytváří neviditelnou ochrannou vrstvu, která odpuzuje tekutiny a nečistoty. Prodlužuje životnost nábytku a usnadňuje běžnou údržbu.",
+              question: t("serviceData.furniture.faq.protectionTreatment.question"),
+              answer: t("serviceData.furniture.faq.protectionTreatment.answer"),
             },
             {
-              question: "Musím nábytek nějak připravit?",
-              answer:
-                "Ideálně odstraňte volné předměty (polštáře, deky atd.). My se již postaráme o kompletní přípravu a následný úklid.",
+              question: t("serviceData.furniture.faq.preparation.question"),
+              answer: t("serviceData.furniture.faq.preparation.answer"),
             },
           ]}
           testimonials={[
             {
-              name: "Markéta Horáková",
-              role: "Majitelka domu",
-              text: "Sedačka vypadá jako nová! Nevěřila jsem, že se skvrny po dětech podaří odstranit. Fantastická práce!",
+              name: t("serviceData.furniture.testimonials.testimonial1Name"),
+              role: t("serviceData.furniture.testimonials.testimonial1Role"),
+              text: t("serviceData.furniture.testimonials.testimonial1Text"),
               rating: 5,
             },
             {
-              name: "David Novotný",
-              role: "Restauratér",
-              text: "Čistíme u nich veškerý nábytek v restauraci. Profesionální přístup, rychlé schnutí, žádné prostoje.",
+              name: t("serviceData.furniture.testimonials.testimonial2Name"),
+              role: t("serviceData.furniture.testimonials.testimonial2Role"),
+              text: t("serviceData.furniture.testimonials.testimonial2Text"),
               rating: 5,
             },
             {
-              name: "Ivana Králová",
-              role: "Designérka interiérů",
-              text: "Doporučuji všem svým klientům. Vždy špičková kvalita a šetrný přístup k luxusním materiálům.",
+              name: t("serviceData.furniture.testimonials.testimonial3Name"),
+              role: t("serviceData.furniture.testimonials.testimonial3Role"),
+              text: t("serviceData.furniture.testimonials.testimonial3Text"),
               rating: 5,
             },
           ]}

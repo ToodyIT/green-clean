@@ -99,19 +99,13 @@ export function getServiceData(t: TFunction) {
       ],
     },
     airbnb: {
-      title: "Airbnb Cleaning",
-      description:
-        "Fast and thorough cleaning between guests with timing guarantee. We help you maintain high ratings for your Airbnb.",
-      features: [
-        "Cleaning on check-out day and before check-in",
-        "Changing bed linens and towels",
-        "Checking functionality of all equipment",
-        "Restocking basic hygiene supplies",
-        "Photo documentation for your review",
-        "Reporting any issues",
-        "Flexible availability 7 days a week",
-        "Special prices for regular cleanings",
-      ],
+      title: t("serviceData.airbnb.title"),
+      description: t("serviceData.airbnb.description"),
+      features: ensureStringArray(
+        t("serviceData.airbnb.features", { returnObjects: true }) as
+          | string[]
+          | Record<string, string>
+      ),
       image:
         "https://images.unsplash.com/photo-1666282167632-c613fbeb163c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGFwYXJ0bWVudHxlbnwxfHx8fDE3NjExNDQ2MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       pricing: [

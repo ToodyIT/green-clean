@@ -27,37 +27,36 @@ export default function DevelopmentPage() {
           process={[
             {
               step: 1,
-              title: "Úvodní jednání",
-              description: "Prodiskutujeme rozsah a harmonogram projektu",
+              title: t("serviceData.development.process.step1Title"),
+              description: t("serviceData.development.process.step1Desc"),
             },
             {
               step: 2,
-              title: "Cenová nabídka",
-              description: "Připravíme detailní nabídku na míru",
+              title: t("serviceData.development.process.step2Title"),
+              description: t("serviceData.development.process.step2Desc"),
             },
             {
               step: 3,
-              title: "Koordinace",
-              description: "Projektový manažer koordinuje všechny práce",
+              title: t("serviceData.development.process.step3Title"),
+              description: t("serviceData.development.process.step3Desc"),
             },
             {
               step: 4,
-              title: "Realizace",
-              description: "Postupné úklidy dle plánu projektu",
+              title: t("serviceData.development.process.step4Title"),
+              description: t("serviceData.development.process.step4Desc"),
             },
           ]}
           stats={[
-            { value: "50+", label: "Developerských projektů", icon: "🏗️" },
-            { value: "5000+", label: "Vyčištěných bytů", icon: "🏠" },
-            { value: "100%", label: "Dodržení termínů", icon: "⏰" },
-            { value: "15+", label: "Let zkušeností", icon: "📅" },
+            { value: "50+", label: t("serviceData.development.stats.developmentProjects"), icon: "🏗️" },
+            { value: "5000+", label: t("serviceData.development.stats.cleanedApartments"), icon: "🏠" },
+            { value: "100%", label: t("serviceData.development.stats.deadlineCompliance"), icon: "⏰" },
+            { value: "15+", label: t("serviceData.development.stats.yearsExperience"), icon: "📅" },
           ]}
-          guarantees={[
-            "Dedikovaný projektový manažer - jeden kontakt pro všechno",
-            "Pravidelný reporting s fotodokumentací - máte přehled o postupu",
-            "Flexibilní kapacita - dokážeme nasadit více týmů současně",
-            "SLA garanty - jasně definovaná úroveň služeb",
-          ]}
+          guarantees={
+            t("serviceData.development.guarantees", {
+              returnObjects: true,
+            }) as string[]
+          }
           whatsIncluded={
             t("serviceData.development.whatsIncluded", {
               returnObjects: true,
@@ -65,68 +64,62 @@ export default function DevelopmentPage() {
           }
           faqItems={[
             {
-              question: "Máte zkušenosti s velkými projekty?",
-              answer:
-                "Ano, máme reference z projektů od 20 do 200+ bytových jednotek. Disponujeme dostatečnou kapacitou a zkušenostmi s koordinací velkých projektů.",
+              question: t("serviceData.development.faq.largeProjects.question"),
+              answer: t("serviceData.development.faq.largeProjects.answer"),
             },
             {
-              question: "Jak probíhá koordinace s ostatními firmami?",
-              answer:
-                "Máme projektového manažera, který koordinuje práce s generálním dodavatelem a ostatními profesemi. Používáme moderní nástroje pro komunikaci a reporting.",
+              question: t("serviceData.development.faq.coordination.question"),
+              answer: t("serviceData.development.faq.coordination.answer"),
             },
             {
-              question: "Poskytujete pravidelný reporting?",
-              answer:
-                "Ano, poskytujeme týdenní/měsíční reporting s fotodokumentací, popisem provedených prací a plánem na další období.",
+              question: t("serviceData.development.faq.reporting.question"),
+              answer: t("serviceData.development.faq.reporting.answer"),
             },
             {
-              question: "Dokážete dodržet přísné termíny?",
-              answer:
-                "Ano, máme zkušenosti s náročnými termíny. V případě potřeby dokážeme nasadit více týmů současně a pracovat i o víkendech.",
+              question: t("serviceData.development.faq.strictDeadlines.question"),
+              answer: t("serviceData.development.faq.strictDeadlines.answer"),
             },
             {
-              question: "Nabízíte individuální cenové podmínky?",
-              answer:
-                "Ano, pro velké projekty vytváříme cenovou nabídku na míru s ohledem na rozsah, četnost a délku spolupráce.",
+              question: t("serviceData.development.faq.customPricing.question"),
+              answer: t("serviceData.development.faq.customPricing.answer"),
             },
             {
-              question: "Máte pojištění pro developerské projekty?",
-              answer:
-                "Ano, máme profesionální pojištění odpovědnosti do výše 10 mil. Kč, což je standard pro práci na developerských projektech.",
+              question: t("serviceData.development.faq.insurance.question"),
+              answer: t("serviceData.development.faq.insurance.answer"),
             },
           ]}
           testimonials={[
             {
-              name: "Ing. Petr Novák",
-              role: "Developer",
-              text: "Spolupracovali jsme na projektu 85 bytů. Perfektní koordinace, dodržení termínů a výborná komunikace. Určitě budeme pokračovat.",
+              name: t("serviceData.development.testimonials.testimonial1Name"),
+              role: t("serviceData.development.testimonials.testimonial1Role"),
+              text: t("serviceData.development.testimonials.testimonial1Text"),
               rating: 5,
             },
             {
-              name: "Jan Malý",
-              role: "Generální dodavatel",
-              text: "Konečně úklidová firma, která rozumí stavebním procesům. Flexibilní, rychlí a hlavně spolehliví.",
+              name: t("serviceData.development.testimonials.testimonial2Name"),
+              role: t("serviceData.development.testimonials.testimonial2Role"),
+              text: t("serviceData.development.testimonials.testimonial2Text"),
               rating: 5,
             },
             {
-              name: "Martina Kovářová",
-              role: "Project Manager",
-              text: "Oceňuji zejména jejich reporting a proaktivní přístup. Vždy včas upozorní na případné problémy.",
+              name: t("serviceData.development.testimonials.testimonial3Name"),
+              role: t("serviceData.development.testimonials.testimonial3Role"),
+              text: t("serviceData.development.testimonials.testimonial3Text"),
               rating: 5,
             },
           ]}
           galleryImages={[
             {
               img: "https://images.unsplash.com/photo-1759931373726-298a1df1960c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wbWVudCUyMHByb2plY3QlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjIyNTA2Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Developerské projekty",
+              title: t("serviceData.development.gallery.developmentProjects"),
             },
             {
               img: "https://images.unsplash.com/photo-1631365696563-4990f4e9302c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBjbGVhbmluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjExNDQ2MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Velké projekty",
+              title: t("serviceData.development.gallery.largeProjects"),
             },
             {
               img: "https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Před předáním",
+              title: t("serviceData.development.gallery.beforeHandover"),
             },
           ]}
         />

@@ -165,7 +165,7 @@ export function Pricing() {
     },
     {
       id: "office",
-      name: "Offices and Companies",
+      name: t("pricing.officesCompanies"),
       icon: Building2,
       color: "#48b349",
       gradient: "from-green-500 via-emerald-500 to-teal-500",
@@ -210,7 +210,7 @@ export function Pricing() {
     },
     {
       id: "airbnb",
-      name: "Airbnb Apartments",
+      name: t("pricing.airbnbApartments"),
       icon: Building,
       color: "#5cb946",
       gradient: "from-lime-500 via-green-500 to-emerald-500",
@@ -248,7 +248,7 @@ export function Pricing() {
     },
     {
       id: "furniture",
-      name: "Furniture and Upholstery",
+      name: t("pricing.furnitureUpholstery"),
       icon: Sofa,
       color: "#48b881",
       gradient: "from-blue-500 via-cyan-500 to-teal-500",
@@ -284,7 +284,7 @@ export function Pricing() {
     },
     {
       id: "renovation",
-      name: "Post-Renovation",
+      name: t("pricing.postRenovationTitle"),
       icon: HardHat,
       color: "#FFA826",
       customGradient: "linear-gradient(to right, #FFA826, #FFB84D, #E59518)",
@@ -321,7 +321,7 @@ export function Pricing() {
     },
     {
       id: "development",
-      name: "Development Projects",
+      name: t("pricing.developmentProjects"),
       icon: Building,
       color: "#FFB84D",
       gradient: "from-purple-500 via-violet-500 to-indigo-500",
@@ -363,7 +363,7 @@ export function Pricing() {
     },
     {
       id: "buildings",
-      name: "Apartment Buildings and HOAs",
+      name: t("pricing.apartmentBuildings"),
       icon: Warehouse,
       color: "#6bc14a",
       gradient: "from-amber-500 via-orange-500 to-red-500",
@@ -408,6 +408,40 @@ export function Pricing() {
 
   const currentService =
     allServices.find((s) => s.id === selectedService) || allServices[0];
+
+  const planTexts = (() => {
+    const data = t("pricing.planTexts", { returnObjects: true });
+    return data && typeof data === "object" && !Array.isArray(data) ? data : null;
+  })();
+
+  const translateUnit = (unit: string) => {
+    const key: Record<string, string> = {
+      "per cleaning": "pricing.perCleaning",
+      "per square meter": "pricing.perSquareMeter",
+      monthly: "pricing.monthly",
+      "custom price": "pricing.customPrice",
+      "on request": "pricing.onRequest",
+      "per piece": "pricing.perPiece",
+    };
+    return key[unit] ? t(key[unit]) : unit;
+  };
+
+  const getPlanLabel = (
+    serviceId: string,
+    tabId: string | null,
+    planIndex: number,
+    field: "name" | "time" | "features",
+    fallback: string | string[]
+  ) => {
+    if (!planTexts) return fallback;
+    const section =
+      tabId && serviceId === "home"
+        ? (planTexts as any).home?.[tabId]?.[planIndex]
+        : (planTexts as any)[serviceId]?.[planIndex];
+    if (!section) return fallback;
+    const val = section[field];
+    return val !== undefined ? val : fallback;
+  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 via-green-50 to-slate-50 relative overflow-hidden">
@@ -610,17 +644,21 @@ export function Pricing() {
                   </div>
 
                   {/* Time badge for home service */}
-                  {plan.time && (
+                  {(plan.time || (currentService.hasTabs && getPlanLabel(currentService.id, homeServiceTab, index, "time", ""))) && (
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 w-fit">
                       <Clock className="w-3.5 h-3.5 text-green-600" />
                       <span className="text-xs bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                        {plan.time}
+                        {currentService.hasTabs ? getPlanLabel(currentService.id, homeServiceTab, index, "time", plan.time || "") : plan.time}
                       </span>
                     </div>
                   )}
 
                   {/* Title */}
-                  <h3 className="text-2xl text-gray-900 mb-3">{plan.name}</h3>
+                  <h3 className="text-2xl text-gray-900 mb-3">
+                    {currentService.hasTabs
+                      ? getPlanLabel(currentService.id, homeServiceTab, index, "name", plan.name)
+                      : getPlanLabel(currentService.id, null, index, "name", plan.name)}
+                  </h3>
 
                   {/* Price */}
                   <div className="mb-6">
@@ -628,14 +666,18 @@ export function Pricing() {
                       className="text-3xl mb-2"
                       style={{ color: currentService.color }}
                     >
-                      {plan.price}
+                      {plan.price === "Custom"
+                        ? t("pricing.custom")
+                        : plan.price.startsWith("From ")
+                          ? `${t("pricing.from")} ${plan.price.slice(5)}`
+                          : plan.price}
                     </div>
-                    <div className="text-gray-600">{plan.unit}</div>
+                    <div className="text-gray-600">{translateUnit(plan.unit)}</div>
                   </div>
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8 flex-grow">
-                    {plan.features.map((feature: string, idx: number) => (
+                    {((currentService.hasTabs ? getPlanLabel(currentService.id, homeServiceTab, index, "features", plan.features) : getPlanLabel(currentService.id, null, index, "features", plan.features)) as string[]).map((feature: string, idx: number) => (
                       <li key={idx} className="flex items-start gap-3">
                         <div
                           className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
@@ -657,7 +699,7 @@ export function Pricing() {
                     style={{ background: currentService.color }}
                     onClick={() => router.push(`/${currentService.id}`)}
                   >
-                    Learn More
+                    {t("common.learnMore")}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -688,15 +730,18 @@ export function Pricing() {
                 className="w-12 h-12 mx-auto mb-4"
                 style={{ color: "#FFA826" }}
               />
-              <p className="text-2xl text-gray-900 mb-6">
+              <p className="text-2xl text-gray-900 mb-2">
                 {t("pricing.needAccurateQuote")}
+              </p>
+              <p className="text-gray-600 mb-6">
+                {t("pricing.needAccurateQuoteSubline")}
               </p>
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => router.push("/contact")}
+                onClick={() => router.push("/pricing")}
               >
-                Free Quote
+                {t("common.freeQuote")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>

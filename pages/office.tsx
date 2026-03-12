@@ -25,10 +25,10 @@ export default function OfficePage() {
           image={servicesData.office.image}
           pricing={servicesData.office.pricing}
           stats={[
-            { value: "500+", label: "Spokojených firem", icon: "🏢" },
-            { value: "10 let", label: "Na trhu", icon: "⭐" },
-            { value: "98%", label: "Spokojenost", icon: "😊" },
-            { value: "24/7", label: "Podpora", icon: "📞" },
+            { value: "500+", label: t("serviceData.office.stats.satisfiedCompanies"), icon: "🏢" },
+            { value: "10 let", label: t("serviceData.office.stats.yearsOnMarket"), icon: "⭐" },
+            { value: "98%", label: t("serviceData.office.stats.satisfaction"), icon: "😊" },
+            { value: "24/7", label: t("serviceData.office.stats.support"), icon: "📞" },
           ]}
           whatsIncluded={
             t("serviceData.office.whatsIncluded", {
@@ -65,36 +65,36 @@ export default function OfficePage() {
           ]}
           testimonials={[
             {
-              name: "Tomáš Dvořák",
-              role: "CEO IT společnosti",
-              text: "Spolupracujeme již 3 roky. Týmy jsou vždy profesionální, diskrétní a dodržují všechny naše bezpečnostní požadavky.",
+              name: t("serviceData.office.testimonials.testimonial1Name"),
+              role: t("serviceData.office.testimonials.testimonial1Role"),
+              text: t("serviceData.office.testimonials.testimonial1Text"),
               rating: 5,
             },
             {
-              name: "Lucie Marková",
-              role: "Office Manager",
-              text: "Konečně úklidová firma, na kterou je spolehnutí. Flexibilní, komunikativní a hlavně spolehliví. Doporučuji!",
+              name: t("serviceData.office.testimonials.testimonial2Name"),
+              role: t("serviceData.office.testimonials.testimonial2Role"),
+              text: t("serviceData.office.testimonials.testimonial2Text"),
               rating: 5,
             },
             {
-              name: "Pavel Černý",
-              role: "Facility Manager",
-              text: "Perfektní kvalita za rozumnou cenu. Oceňuji zejména jejich proaktivní přístup a pravidelný reporting.",
+              name: t("serviceData.office.testimonials.testimonial3Name"),
+              role: t("serviceData.office.testimonials.testimonial3Role"),
+              text: t("serviceData.office.testimonials.testimonial3Text"),
               rating: 5,
             },
           ]}
           galleryImages={[
             {
               img: "https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZXxlbnwxfHx8fDE3NjIyMzMwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Moderní kanceláře",
+              title: t("serviceData.office.gallery.modernOffices"),
             },
             {
               img: "https://images.unsplash.com/photo-1627098241506-344dea0aa27b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHRlYW0lMjBvZmZpY2UlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyMjEyMzA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Profesionální tým",
+              title: t("serviceData.office.gallery.professionalTeam"),
             },
             {
               img: "https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              title: "Moderní technologie",
+              title: t("serviceData.office.gallery.modernTechnology"),
             },
           ]}
         />

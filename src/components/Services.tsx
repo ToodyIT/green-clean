@@ -121,7 +121,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
           {/* CTA */}
           <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
-            <span className="mr-2">Learn More</span>
+            <span className="mr-2">{t("common.learnMore")}</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
           </div>
         </div>
@@ -411,9 +411,9 @@ export function Services() {
           <Button
             size="lg"
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
-            onClick={() => router.push("/contact")}
+            onClick={() => router.push("/pricing")}
           >
-            Free Quote
+            {t("common.freeQuote")}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

@@ -65,14 +65,14 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-2">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-2 shrink-0">
               {menuItems.map((item) => {
                 const isActive = router.pathname === item.path;
                 return (
                   <Link
                     key={item.id}
                     href={item.path}
-                    className={`relative px-4 py-2 rounded-xl transition-all duration-300 ${
+                    className={`relative px-2 xl:px-4 py-2 rounded-xl transition-all duration-300 text-sm xl:text-base whitespace-nowrap ${
                       isActive
                         ? "text-green-600"
                         : "text-gray-700 hover:text-green-600"
@@ -87,14 +87,14 @@ export function Header() {
               })}
             </nav>
 
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0 min-w-0">
               {/* Úklid bytů a domů - Featured Service */}
               <Button
-                className="bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 shadow-sm hover:shadow-md transition-all duration-300 text-xs xl:text-sm px-2.5 xl:px-4 py-2 whitespace-nowrap"
                 onClick={() => router.push("/home-cleaning")}
               >
-                <Home className="w-4 h-4 mr-2" />
-                {t("header.homeCleaning")}
+                <Home className="w-4 h-4 mr-1.5 xl:mr-2 shrink-0" />
+                <span className="truncate max-w-[140px] xl:max-w-none">{t("header.homeCleaning")}</span>
               </Button>
 
               {/* Language Selector */}
@@ -103,7 +103,7 @@ export function Header() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-2 hover:border-green-600 hover:bg-green-50 transition-all gap-2"
+                    className="border-2 hover:border-green-600 hover:bg-green-50 transition-all gap-1.5 shrink-0"
                   >
                     <Globe className="w-4 h-4" />
                     <span className="text-lg">
@@ -137,11 +137,11 @@ export function Header() {
               </DropdownMenu>
 
               <Button
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0"
-                onClick={() => router.push("/contact")}
+                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 text-xs xl:text-sm px-2.5 xl:px-4 py-2 min-w-0"
+                onClick={() => router.push("/pricing")}
               >
-                <Sparkles className="w-4 h-4 mr-2" />
-                {t("common.freeQuote")}
+                <Sparkles className="w-4 h-4 mr-1.5 xl:mr-2 shrink-0" />
+                <span className="whitespace-normal text-left leading-tight max-w-[125px] xl:max-w-[180px] 2xl:max-w-none">{t("common.freeQuote")}</span>
               </Button>
             </div>
 

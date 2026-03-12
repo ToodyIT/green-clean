@@ -338,7 +338,7 @@ export function ServicePage({
                     contactSection?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Free Quote
+                  {t("common.freeQuote")}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Button
@@ -347,7 +347,7 @@ export function ServicePage({
                   className="hover:border-[#FFA826] hover:text-[#FFA826]"
                   onClick={() => router.push("/pricing")}
                 >
-                  View Complete Pricing
+                  {t("common.viewCompletePricing")}
                 </Button>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import {
   Accordion,
@@ -6,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import { HelpCircle, Sparkles } from "lucide-react";
+import { HelpCircle, Sparkles, Mail } from "lucide-react";
 
 export function FAQ() {
   const { t } = useTranslation("common");
@@ -96,10 +97,17 @@ export function FAQ() {
             <p className="text-gray-700 mb-4">{t("faq.haveMoreQuestions")}</p>
             <a
               href="mailto:info@greenclean-praha.cz"
-              className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
+              className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all block mb-4"
             >
               info@greenclean-praha.cz
             </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-green-700 hover:to-emerald-700 hover:shadow-xl"
+            >
+              {t("faq.contactUs")}
+              <Mail className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

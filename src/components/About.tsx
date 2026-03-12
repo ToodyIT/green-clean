@@ -301,16 +301,27 @@ export function About() {
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              {t("about.description1")}
-            </p>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              {t("about.description2")}
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {t("about.description3")}
-            </p>
+          <div className="space-y-4">
+            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                {t("about.description1")}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                {t("about.description2")}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                {t("about.description3")}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                {t("about.description4")}
+              </p>
+            </div>
           </div>
 
           {/* Image with 3D effect */}
@@ -483,8 +494,8 @@ export function About() {
         {/* Timeline - Our Journey */}
         <TimelineSection />
 
-        {/* Our Team Structure */}
-        <div className="mb-20">
+        {/* Our Team Structure - hidden */}
+        <div className="mb-20 hidden">
           <div className="text-center mb-16">
             <h3 className="text-4xl text-gray-900 mb-4">
               {t("about.ourTeam")}
@@ -598,66 +609,40 @@ export function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Ekologické prostředky",
-                description:
-                  "Certifikované bio čisticí prostředky šetrné k životnímu prostředí i zdraví",
+                titleKey: "about.techEcoTitle",
+                descKey: "about.techEcoDesc",
+                featureKeys: ["about.techEco1", "about.techEco2", "about.techEco3"],
                 icon: Leaf,
-                features: [
-                  "100% biologicky rozložitelné",
-                  "Hypoalergenní složení",
-                  "EU Ecolabel",
-                ],
               },
               {
-                title: "HEPA filtrace",
-                description:
-                  "Profesionální vysavače s HEPA H13 filtrem pro maximální čistotu vzduchu",
+                titleKey: "about.techHepaTitle",
+                descKey: "about.techHepaDesc",
+                featureKeys: ["about.techHepa1", "about.techHepa2", "about.techHepa3"],
                 icon: Wind,
-                features: [
-                  "Zachytí 99.95% částic",
-                  "Ideální pro alergiky",
-                  "Tiché provedení",
-                ],
               },
               {
-                title: "Parní čistění",
-                description:
-                  "Dezinfekce pomocí páry bez použití chemikálií pro hloubkový úklid",
+                titleKey: "about.techSteamTitle",
+                descKey: "about.techSteamDesc",
+                featureKeys: ["about.techSteam1", "about.techSteam2", "about.techSteam3"],
                 icon: Droplets,
-                features: [
-                  "Ekologické čištění",
-                  "Antibakteriální účinek",
-                  "Bezpečné pro děti",
-                ],
               },
               {
-                title: "Mikrofiber technologie",
-                description:
-                  "Profesionální mikrofiber hadříky s vysokou absorpcí a čisticím účinkem",
+                titleKey: "about.techMicrofiberTitle",
+                descKey: "about.techMicrofiberDesc",
+                featureKeys: ["about.techMicrofiber1", "about.techMicrofiber2", "about.techMicrofiber3"],
                 icon: Sparkles,
-                features: [
-                  "10x účinnější než bavlna",
-                  "Žádné škrábance",
-                  "Dlouhá životnost",
-                ],
               },
               {
-                title: "UV dezinfekce",
-                description:
-                  "UV-C germicidní lampy pro efektivní dezinfekci bez chemických prostředků",
+                titleKey: "about.techUvTitle",
+                descKey: "about.techUvDesc",
+                featureKeys: ["about.techUv1", "about.techUv2", "about.techUv3"],
                 icon: Zap,
-                features: [
-                  "Ničí 99.9% bakterií",
-                  "Bez reziduí",
-                  "Rychlá aplikace",
-                ],
               },
               {
-                title: "Profesionální stroje",
-                description:
-                  "Průmyslové úklidové stroje pro velké plochy a náročné úkoly",
+                titleKey: "about.techEquipmentTitle",
+                descKey: "about.techEquipmentDesc",
+                featureKeys: ["about.techEquipment1", "about.techEquipment2", "about.techEquipment3"],
                 icon: Target,
-                features: ["Vysoký výkon", "Ergonomické", "Pravidelný servis"],
               },
             ].map((tech, index) => {
               const Icon = tech.icon;
@@ -675,22 +660,22 @@ export function About() {
                       </div>
                       <div className="flex-1">
                         <h4 className="text-lg text-gray-900 mb-2">
-                          {tech.title}
+                          {t(tech.titleKey)}
                         </h4>
                       </div>
                     </div>
                     <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                      {tech.description}
+                      {t(tech.descKey)}
                     </p>
 
                     <div className="space-y-2">
-                      {tech.features.map((feature, idx) => (
+                      {tech.featureKeys.map((key, idx) => (
                         <div
                           key={idx}
                           className="flex items-center gap-2 text-xs text-gray-700"
                         >
                           <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                          <span>{feature}</span>
+                          <span>{t(key)}</span>
                         </div>
                       ))}
                     </div>
@@ -715,7 +700,7 @@ export function About() {
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-6">
                 <Sparkles className="w-5 h-5 text-white" />
                 <span className="text-sm text-white">
-                  We&apos;re here for you
+                  {t("about.weAreHere")}
                 </span>
               </div>
 

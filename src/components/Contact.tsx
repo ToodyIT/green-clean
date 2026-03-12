@@ -185,6 +185,19 @@ export function Contact() {
                 </div>
 
                 <div>
+                  <Label htmlFor="companyName" className="text-gray-700">
+                    {t("contact.companyName")}
+                  </Label>
+                  <Input
+                    id="companyName"
+                    placeholder=""
+                    className="mt-2 border-2 focus:border-green-500 transition-colors"
+                    onFocus={() => setFocusedField("companyName")}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                </div>
+
+                <div>
                   <Label htmlFor="email" className="text-gray-700">
                     {t("contact.email")}
                   </Label>
@@ -213,20 +226,36 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <Label htmlFor="service" className="text-gray-700">
-                    {t("contact.serviceType")}
+                  <Label htmlFor="objectType" className="text-gray-700">
+                    {t("contact.objectType")}
                   </Label>
                   <select
-                    id="service"
+                    id="objectType"
                     className="w-full mt-2 px-3 py-2 border-2 border-gray-300 rounded-md focus:border-green-500 focus:outline-none transition-colors"
                   >
-                    <option>{t("services.homeCleaning")}</option>
-                    <option>{t("services.officeCleaning")}</option>
-                    <option>{t("services.airbnbCleaning")}</option>
-                    <option>{t("services.furnitureCleaning")}</option>
-                    <option>{t("services.renovationCleaning")}</option>
-                    <option>{t("services.developmentCleaning")}</option>
-                    <option>{t("services.buildingCleaning")}</option>
+                    <option>{t("contact.objectTypeApartment")}</option>
+                    <option>{t("contact.objectTypeHouse")}</option>
+                    <option>{t("contact.objectTypeOffice")}</option>
+                    <option>{t("contact.objectTypeCommercial")}</option>
+                    <option>{t("contact.objectTypeAirbnb")}</option>
+                    <option>{t("contact.objectTypeRenovation")}</option>
+                    <option>{t("contact.objectTypeDryCleaning")}</option>
+                    <option>{t("contact.objectTypeOther")}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <Label htmlFor="urgency" className="text-gray-700">
+                    {t("contact.urgencyLabel")}
+                  </Label>
+                  <select
+                    id="urgency"
+                    className="w-full mt-2 px-3 py-2 border-2 border-gray-300 rounded-md focus:border-green-500 focus:outline-none transition-colors"
+                  >
+                    <option>{t("contact.urgencyUrgent")}</option>
+                    <option>{t("contact.urgencyWeek")}</option>
+                    <option>{t("contact.urgencyMonth")}</option>
+                    <option>{t("contact.urgencyRegular")}</option>
                   </select>
                 </div>
 

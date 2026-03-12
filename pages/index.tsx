@@ -28,7 +28,12 @@ export default function HomePage() {
       />
       <Header />
       <main>
-        <Hero />
+        <Hero
+          onNavigate={(page) => {
+            if (page === "contact") router.push("/pricing");
+            if (page === "services") router.push("/services");
+          }}
+        />
         <Partners />
         <Services />
         <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
