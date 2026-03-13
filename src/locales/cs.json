@@ -65,6 +65,16 @@
     "mostPopular": "Nejpopulárnější",
     "otherServices": "Další specializované služby"
   },
+  "processSection": {
+    "titlePart1": "Jak",
+    "titleHighlight": "pracujeme",
+    "subtitle": "Náš osvědčený postup krok za krokem"
+  },
+  "guaranteesSection": {
+    "titlePart1": "Naše",
+    "titleHighlight": "záruky",
+    "subtitle": "Vaše spokojenost je naší prioritou"
+  },
   "pricing": {
     "title": "Ceník",
     "subtitle": "Transparentní ceník",
@@ -243,6 +253,7 @@
     "professionalCleaning": "Profesionální úklidové služby"
   },
   "faq": {
+    "badge": "FAQ",
     "title": "Často kladené otázky",
     "description": "Odpovědi na nejčastější dotazy o našich službách",
     "haveMoreQuestions": "Máte další otázky? Neváhejte nás kontaktovat!",
@@ -356,6 +367,10 @@
     "perDeepCleaning": "za generální úklid",
     "perPostRenovation": "úklid po rekonstrukci",
     "cleanHome": "čistému domovu",
+    "ourWork": "Naše práce",
+    "resultsTitlePart1": "Výsledky, které",
+    "resultsTitleHighlight": "mluví za nás",
+    "resultsSubtitle": "Podívejte se na skutečné transformace našich zákazníků",
     "gallery": {
       "modernLivingRoom": "Moderní obývací pokoj",
       "deepCleaning": "Generální úklid s hloubkovým čištěním",
@@ -510,6 +525,7 @@
       "stats": {
         "satisfiedCompanies": "Spokojených firem",
         "yearsOnMarket": "Let na trhu",
+        "yearsValue": "10 let",
         "satisfaction": "Spokojenost",
         "support": "Podpora"
       },
@@ -554,7 +570,13 @@
       "testimonials": {
         "testimonial1Name": "Tomáš Dvořák",
         "testimonial1Role": "CEO IT společnosti",
-        "testimonial1Text": "Spolupracujeme již 3 roky. Týmy jsou vždy profesionální, diskrétní a dodržují všechny naše bezpečnostní požadavky."
+        "testimonial1Text": "Spolupracujeme již 3 roky. Týmy jsou vždy profesionální, diskrétní a dodržují všechny naše bezpečnostní požadavky.",
+        "testimonial2Name": "Lucie Marková",
+        "testimonial2Role": "Office Manager",
+        "testimonial2Text": "Konečně úklidová firma, na kterou se můžete spolehnout. Flexibilní, komunikativní a hlavně spolehlivá. Doporučuji!",
+        "testimonial3Name": "Pavel Černý",
+        "testimonial3Role": "Facility Manager",
+        "testimonial3Text": "Perfektní kvalita za rozumnou cenu. Oceňuji zejména proaktivní přístup a pravidelné reportování."
       },
       "gallery": {
         "modernOffices": "Moderní kanceláře",

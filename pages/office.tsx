@@ -26,7 +26,7 @@ export default function OfficePage() {
           pricing={servicesData.office.pricing}
           stats={[
             { value: "500+", label: t("serviceData.office.stats.satisfiedCompanies"), icon: "🏢" },
-            { value: "10 let", label: t("serviceData.office.stats.yearsOnMarket"), icon: "⭐" },
+            { value: t("serviceData.office.stats.yearsValue"), label: t("serviceData.office.stats.yearsOnMarket"), icon: "⭐" },
             { value: "98%", label: t("serviceData.office.stats.satisfaction"), icon: "😊" },
             { value: "24/7", label: t("serviceData.office.stats.support"), icon: "📞" },
           ]}

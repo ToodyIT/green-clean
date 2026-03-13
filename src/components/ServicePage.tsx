@@ -190,7 +190,7 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
 
               {/* Content card */}
               <Card
-                className={`p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${
+                className={`p-5 sm:p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden ${
                   visibleSteps.has(index)
                     ? "translate-x-0 opacity-100"
                     : "translate-x-8 opacity-0"
@@ -199,8 +199,8 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
                   transitionDelay: `${index * 100 + 100}ms`,
                 }}
               >
-                <h3 className="text-xl text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <h3 className="text-lg sm:text-xl text-gray-900 mb-2 break-words">{item.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base break-words leading-relaxed">{item.desc}</p>
               </Card>
             </div>
           ))}
@@ -261,21 +261,21 @@ export function ServicePage({
 
   const defaultTestimonials = [
     {
-      name: "Petra Nováková",
-      role: "Majitelka Airbnb",
-      text: "Skvělá komunikace a flexibilita. Uklízí mé byty už rok a jsem maximálně spokojená. Hosté hodnotí čistotu 5 hvězdičkami.",
+      name: t("servicePage.defaultTestimonials.testimonial1Name"),
+      role: t("servicePage.defaultTestimonials.testimonial1Role"),
+      text: t("servicePage.defaultTestimonials.testimonial1Text"),
       rating: 5,
     },
     {
-      name: "Martin Kovář",
-      role: "Facility Manager",
-      text: "Profesionální přístup a spolehlivost. Starají se o naše kanceláře už 3 roky a nikdy jsme neměli žádný problém.",
+      name: t("servicePage.defaultTestimonials.testimonial2Name"),
+      role: t("servicePage.defaultTestimonials.testimonial2Role"),
+      text: t("servicePage.defaultTestimonials.testimonial2Text"),
       rating: 5,
     },
     {
-      name: "Jana Svobodová",
-      role: "Obchodní ředitelka",
-      text: "Konečně úklidová firma, která myslí na detaily. Ekologické prostředky jsou pro nás důležité a oni to dodržují.",
+      name: t("servicePage.defaultTestimonials.testimonial3Name"),
+      role: t("servicePage.defaultTestimonials.testimonial3Role"),
+      text: t("servicePage.defaultTestimonials.testimonial3Text"),
       rating: 5,
     },
   ];
@@ -283,15 +283,15 @@ export function ServicePage({
   const defaultGalleryImages = [
     {
       img: "https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZXxlbnwxfHx8fDE3NjIyMzMwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Kancelářské prostory",
+      title: t("servicePage.defaultGallery.gallery1Title"),
     },
     {
       img: "https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGNsZWFuaW5nfGVufDF8fHx8MTc2MjIwNDkyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Profesionální výsledky",
+      title: t("servicePage.defaultGallery.gallery2Title"),
     },
     {
       img: "https://images.unsplash.com/photo-1747659362772-3caabc37c579?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMGVxdWlwbWVudCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjIyNDk5MjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Špičkové vybavení",
+      title: t("servicePage.defaultGallery.gallery3Title"),
     },
   ];
 
@@ -502,7 +502,7 @@ export function ServicePage({
             >
               <Star className="w-5 h-5" style={{ color: accentColor }} />
               <span className="text-sm" style={{ color: accentColor }}>
-                Naše práce
+                {t("homeCleaning.ourWork")}
               </span>
             </div>
             <h2 className="text-4xl text-gray-900 mb-4">
@@ -621,10 +621,11 @@ export function ServicePage({
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl text-gray-900 mb-4">
-                  Jak <span style={{ color: "#4ca137" }}>pracujeme</span>
+                  {t("processSection.titlePart1")}{" "}
+                  <span style={{ color: "#4ca137" }}>{t("processSection.titleHighlight")}</span>
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Náš osvědčený postup krok za krokem
+                  {t("processSection.subtitle")}
                 </p>
               </div>
 
@@ -667,10 +668,11 @@ export function ServicePage({
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl text-gray-900 mb-4">
-                  Naše <span style={{ color: "#FFA826" }}>záruky</span>
+                  {t("guaranteesSection.titlePart1")}{" "}
+                  <span style={{ color: "#FFA826" }}>{t("guaranteesSection.titleHighlight")}</span>
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Vaše spokojenost je naší prioritou
+                  {t("guaranteesSection.subtitle")}
                 </p>
               </div>
 
@@ -712,7 +714,7 @@ export function ServicePage({
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-lime-100 rounded-full mb-6 shadow-lg border border-green-200">
               <HelpCircle className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
-                FAQ
+                {t("faq.badge")}
               </span>
             </div>
             <h2 className="text-5xl text-gray-900 mb-6">{t("faq.title")}</h2>

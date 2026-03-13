@@ -65,6 +65,16 @@
     "mostPopular": "Найпопулярніше",
     "otherServices": "Інші спеціалізовані послуги"
   },
+  "processSection": {
+    "titlePart1": "Як ми",
+    "titleHighlight": "працюємо",
+    "subtitle": "Наш перевірений покроковий процес"
+  },
+  "guaranteesSection": {
+    "titlePart1": "Наші",
+    "titleHighlight": "гарантії",
+    "subtitle": "Ваше задоволення — наш пріоритет"
+  },
   "pricing": {
     "title": "Ціни",
     "subtitle": "Прозоре ціноутворення",
@@ -243,6 +253,7 @@
     "professionalCleaning": "Професійні клінінгові послуги"
   },
   "faq": {
+    "badge": "Питання та відповіді",
     "title": "Часті запитання",
     "description": "Відповіді на найпоширеніші запитання про наші послуги",
     "haveMoreQuestions": "Є ще запитання? Не соромтеся зв'язатися з нами!",
@@ -342,13 +353,13 @@
     "simpleSteps": "Прості кроки до чистого дому",
     "fromOrderToClean": "Від замовлення до ідеально чистого дому",
     "contactUs": "Зв'яжіться з нами",
-    "contactUsDesc": "Зателефонуйте, напишіть або заповніть форму",
-    "scheduleAppointment": "Запланувати візит",
-    "scheduleAppointmentDesc": "Виберіть час, який вам підходить",
+    "contactUsDesc": "Подзвоніть, напишіть або залиште заявку",
+    "scheduleAppointment": "Оберіть дату",
+    "scheduleAppointmentDesc": "Виберіть зручний час",
     "weClean": "Ми прибираємо",
-    "weCleanDesc": "Наша команда ретельно прибирає ваш дім",
-    "enjoyCleanliness": "Насолоджуйтеся чистотою",
-    "enjoyCleanlinessDesc": "Розслабтеся в чистому та свіжому домі",
+    "weCleanDesc": "Ретельно прибираємо ваш дім",
+    "enjoyCleanliness": "Чистий дім",
+    "enjoyCleanlinessDesc": "Чистий дім — час для себе",
     "transparentPricing": "Прозорі ціни",
     "chooseIdealPackage": "Виберіть свій ідеальний пакет",
     "transparentPricingDesc": "Прозоре ціноутворення без прихованих платежів",
@@ -356,6 +367,10 @@
     "perDeepCleaning": "за генеральне прибирання",
     "perPostRenovation": "прибирання після реконструкції",
     "cleanHome": "чистому дому",
+    "ourWork": "Наші роботи",
+    "resultsTitlePart1": "Результати,",
+    "resultsTitleHighlight": "які говорять за нас",
+    "resultsSubtitle": "Реальні перетворення приміщень наших клієнтів",
     "gallery": {
       "modernLivingRoom": "Сучасна вітальня",
       "deepCleaning": "Генеральне прибирання з глибоким чищенням",

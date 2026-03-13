@@ -306,25 +306,25 @@ export function HomeCleaningPage() {
                 description: t("homeCleaning.enjoyCleanlinessDesc"),
               },
             ].map((item, index) => (
-              <div key={index} className="relative h-full flex flex-col">
+              <div key={index} className="relative h-full flex flex-col min-w-0">
                 {/* Connection line */}
                 {index < 3 && (
                   <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-white/30"></div>
                 )}
 
-                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-300 h-full flex flex-col min-h-0 overflow-hidden">
                   {/* Step number */}
-                  <div className="text-6xl font-bold text-white/20 mb-4">
+                  <div className="text-4xl sm:text-5xl font-bold text-white/20 mb-2 sm:mb-3 flex-shrink-0">
                     {item.step}
                   </div>
 
                   {/* Icon */}
-                  <div className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                    <item.icon className="w-7 h-7 text-white" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg flex-shrink-0">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
 
-                  <h3 className="text-xl text-white mb-3">{item.title}</h3>
-                  <p className="text-green-100 leading-relaxed flex-1">
+                  <h3 className="text-base sm:text-lg text-white mb-1.5 sm:mb-2 flex-shrink-0 break-words leading-tight">{item.title}</h3>
+                  <p className="text-green-100 text-xs sm:text-sm leading-snug flex-1 min-h-0 overflow-hidden break-words">
                     {item.description}
                   </p>
                 </div>
@@ -659,17 +659,17 @@ export function HomeCleaningPage() {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
               <Sparkles className="w-5 h-5 text-green-600" />
               <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Naše práce
+                {t("homeCleaning.ourWork")}
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              Výsledky, které{" "}
+              {t("homeCleaning.resultsTitlePart1")}{" "}
               <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                mluví za nás
+                {t("homeCleaning.resultsTitleHighlight")}
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Podívejte se na skutečné transformace našich zákazníků
+              {t("homeCleaning.resultsSubtitle")}
             </p>
           </div>
 

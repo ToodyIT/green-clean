@@ -63,7 +63,7 @@ export default function BuildingsPage() {
               icon: "😊",
             },
             {
-              value: "8 let",
+              value: t("serviceData.buildings.stats.averageCooperationValue"),
               label: t("serviceData.buildings.stats.averageCooperation"),
               icon: "🤝",
             },

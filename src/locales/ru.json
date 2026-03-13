@@ -65,6 +65,16 @@
     "mostPopular": "Самое популярное",
     "otherServices": "Другие специализированные услуги"
   },
+  "processSection": {
+    "titlePart1": "Как мы",
+    "titleHighlight": "работаем",
+    "subtitle": "Наш проверенный пошаговый процесс"
+  },
+  "guaranteesSection": {
+    "titlePart1": "Наши",
+    "titleHighlight": "гарантии",
+    "subtitle": "Ваша удовлетворённость — наш приоритет"
+  },
   "pricing": {
     "title": "Цены",
     "subtitle": "Прозрачное ценообразование",
@@ -274,6 +284,7 @@
     "professionalCleaning": "Профессиональные клининговые услуги"
   },
   "faq": {
+    "badge": "Вопросы и ответы",
     "title": "Часто задаваемые вопросы",
     "description": "Ответы на самые распространенные вопросы о наших услугах",
     "haveMoreQuestions": "Есть еще вопросы? Не стесняйтесь связаться с нами!",
@@ -373,13 +384,13 @@
     "simpleSteps": "Простые шаги к чистому дому",
     "fromOrderToClean": "От заказа до идеально чистого дома",
     "contactUs": "Свяжитесь с нами",
-    "contactUsDesc": "Позвоните, напишите или заполните форму",
-    "scheduleAppointment": "Запланировать визит",
-    "scheduleAppointmentDesc": "Выберите время, которое вам подходит",
+    "contactUsDesc": "Позвоните, напишите или оставьте заявку",
+    "scheduleAppointment": "Выберите дату",
+    "scheduleAppointmentDesc": "Выберите удобное время",
     "weClean": "Мы убираем",
-    "weCleanDesc": "Наша команда тщательно уберет ваш дом",
-    "enjoyCleanliness": "Наслаждайтесь чистотой",
-    "enjoyCleanlinessDesc": "Расслабьтесь в чистом и свежем доме",
+    "weCleanDesc": "Тщательно уберём ваш дом",
+    "enjoyCleanliness": "Чистый дом",
+    "enjoyCleanlinessDesc": "Чистый дом — время для себя",
     "transparentPricing": "Прозрачные цены",
     "chooseIdealPackage": "Выберите свой идеальный пакет",
     "transparentPricingDesc": "Прозрачное ценообразование без скрытых платежей",
@@ -387,6 +398,10 @@
     "perDeepCleaning": "за генеральную уборку",
     "perPostRenovation": "уборка после реконструкции",
     "cleanHome": "чистому дому",
+    "ourWork": "Наши работы",
+    "resultsTitlePart1": "Результаты,",
+    "resultsTitleHighlight": "которые говорят за нас",
+    "resultsSubtitle": "Реальные преображения помещений наших клиентов",
     "gallery": {
       "modernLivingRoom": "Современная гостиная",
       "deepCleaning": "Генеральная уборка с глубокой чисткой",

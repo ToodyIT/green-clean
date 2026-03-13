@@ -65,6 +65,16 @@
     "mostPopular": "Most Popular",
     "otherServices": "Other Specialized Services"
   },
+  "processSection": {
+    "titlePart1": "How we",
+    "titleHighlight": "work",
+    "subtitle": "Our proven step-by-step process"
+  },
+  "guaranteesSection": {
+    "titlePart1": "Our",
+    "titleHighlight": "guarantees",
+    "subtitle": "Your satisfaction is our priority"
+  },
   "pricing": {
     "title": "Pricing",
     "subtitle": "Transparent Pricing",
@@ -243,6 +253,7 @@
     "professionalCleaning": "Professional Cleaning Services"
   },
   "faq": {
+    "badge": "FAQ",
     "title": "Frequently Asked Questions",
     "description": "Answers to the most common questions about our services",
     "haveMoreQuestions": "Have more questions? Don't hesitate to contact us!",
@@ -356,6 +367,10 @@
     "perDeepCleaning": "per deep cleaning",
     "perPostRenovation": "post-renovation cleaning",
     "cleanHome": "clean home",
+    "ourWork": "Our Work",
+    "resultsTitlePart1": "Results that",
+    "resultsTitleHighlight": "speak for us",
+    "resultsSubtitle": "See real transformations from our clients",
     "gallery": {
       "modernLivingRoom": "Modern Living Room",
       "deepCleaning": "Deep cleaning with thorough cleaning",
@@ -510,6 +525,7 @@
       "stats": {
         "satisfiedCompanies": "Satisfied Companies",
         "yearsOnMarket": "Years on Market",
+        "yearsValue": "10 years",
         "satisfaction": "Satisfaction",
         "support": "Support"
       },
@@ -1003,7 +1019,8 @@
         "managedBuildings": "Managed Buildings",
         "satisfiedResidents": "Satisfied Residents",
         "hoaSatisfaction": "HOA Satisfaction",
-        "avgCooperation": "Average Cooperation Length"
+        "averageCooperation": "Average Cooperation Length",
+        "averageCooperationValue": "8 years"
       },
       "whatsIncluded": [
         "Cleaning staircases and hallways",
@@ -1026,11 +1043,23 @@
           "question": "What does regular cleaning include?",
           "answer": "Vacuuming and mopping staircases, hallways, cleaning elevators, washing entrance areas, railings and doors. Care for building surroundings by agreement."
         },
+        "whatsIncluded": {
+          "question": "What does regular cleaning include?",
+          "answer": "Vacuuming and mopping staircases, hallways, cleaning elevators, washing entrance areas, railings and doors. Care for building surroundings by agreement."
+        },
         "hoaReporting": {
           "question": "Do you provide reporting for HOAs?",
           "answer": "Yes, we regularly provide written reporting on work performed, any issues and recommendations. Everything adapted to board requirements."
         },
+        "reporting": {
+          "question": "Do you provide reporting for HOAs?",
+          "answer": "Yes, we regularly provide written reporting on work performed, any issues and recommendations. Everything adapted to board requirements."
+        },
         "contractChange": {
+          "question": "How does it work when changing contract companies?",
+          "answer": "We help with smooth transition. First month we can provide services with trial discount so residents get used to the new system."
+        },
+        "companyChange": {
           "question": "How does it work when changing contract companies?",
           "answer": "We help with smooth transition. First month we can provide services with trial discount so residents get used to the new system."
         },
@@ -1103,7 +1132,18 @@
     "defaultTestimonials": {
       "testimonial1Name": "Petra Nováková",
       "testimonial1Role": "Airbnb Owner",
-      "testimonial1Text": "Great communication and flexibility. They've been cleaning my apartments for a year and I'm extremely satisfied. Guests rate cleanliness 5 stars."
+      "testimonial1Text": "Great communication and flexibility. They've been cleaning my apartments for a year and I'm extremely satisfied. Guests rate cleanliness 5 stars.",
+      "testimonial2Name": "Martin Kovář",
+      "testimonial2Role": "Facility Manager",
+      "testimonial2Text": "Professional approach and reliability. They have been taking care of our offices for 3 years and we have never had any problems.",
+      "testimonial3Name": "Jana Svobodová",
+      "testimonial3Role": "Commercial Director",
+      "testimonial3Text": "Finally a cleaning company that pays attention to details. Eco-friendly products are important to us and they deliver on that."
+    },
+    "defaultGallery": {
+      "gallery1Title": "Office spaces",
+      "gallery2Title": "Professional results",
+      "gallery3Title": "Top equipment"
     }
   }
 }
