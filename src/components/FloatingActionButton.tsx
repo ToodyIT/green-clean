@@ -3,6 +3,10 @@ import { useTranslation } from "next-i18next";
 import { Phone, MessageCircle, X, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/router";
+import {
+  CONTACT_PHONE_TEL,
+  CONTACT_PHONE_WHATSAPP,
+} from "../constants/contact";
 
 export function FloatingActionButton() {
   const { t } = useTranslation("common");
@@ -26,14 +30,14 @@ export function FloatingActionButton() {
     {
       icon: Phone,
       label: t("common.call"),
-      href: "tel:+420123456789",
+      href: CONTACT_PHONE_TEL,
       gradient: "from-green-500 to-emerald-600",
       delay: 0.1,
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/420123456789",
+      href: `https://wa.me/${CONTACT_PHONE_WHATSAPP}`,
       gradient: "from-lime-500 to-green-600",
       delay: 0.15,
     },

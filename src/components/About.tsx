@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
+import {
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+} from "../constants/contact";
 import { Card } from "./ui/card";
 import {
   Award,
@@ -320,6 +324,17 @@ export function About() {
             <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t("about.description4")}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+                {t("about.companyDetailsTitle")}
+              </p>
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                {t("contact.companyAddressDisplay")}
+              </p>
+              <p className="text-base sm:text-lg text-gray-700 mt-2">
+                {t("contact.companyIco")}
               </p>
             </div>
           </div>
@@ -720,10 +735,10 @@ export function About() {
                   <CheckCircle className="w-5 h-5" />
                 </a>
                 <a
-                  href="tel:+420123456789"
+                  href={CONTACT_PHONE_TEL}
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
                 >
-                  <span>+420 123 456 789</span>
+                  <span>{CONTACT_PHONE_DISPLAY}</span>
                 </a>
               </div>
             </div>

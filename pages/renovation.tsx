@@ -46,6 +46,28 @@ export default function RenovationPage() {
               icon: "🏆",
             },
           ]}
+          process={[
+            {
+              step: 1,
+              title: t("homeCleaning.contactUs"),
+              description: t("homeCleaning.contactUsDesc"),
+            },
+            {
+              step: 2,
+              title: t("homeCleaning.scheduleAppointment"),
+              description: t("homeCleaning.scheduleAppointmentDesc"),
+            },
+            {
+              step: 3,
+              title: t("homeCleaning.weClean"),
+              description: t("homeCleaning.weCleanDesc"),
+            },
+            {
+              step: 4,
+              title: t("homeCleaning.enjoyCleanliness"),
+              description: t("homeCleaning.enjoyCleanlinessDesc"),
+            },
+          ]}
           guarantees={
             t("serviceData.renovation.guarantees", {
               returnObjects: true,

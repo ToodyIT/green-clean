@@ -30,6 +30,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
+import { PricingIntroThenExtras } from "./PricingFeatureGroups";
 
 export function HomeCleaningPage() {
   const { t } = useTranslation("common");
@@ -312,7 +314,7 @@ export function HomeCleaningPage() {
                   <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-white/30"></div>
                 )}
 
-                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-300 h-full flex flex-col min-h-0 overflow-hidden">
+                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-300 h-full flex flex-col min-h-0">
                   {/* Step number */}
                   <div className="text-4xl sm:text-5xl font-bold text-white/20 mb-2 sm:mb-3 flex-shrink-0">
                     {item.step}
@@ -324,7 +326,7 @@ export function HomeCleaningPage() {
                   </div>
 
                   <h3 className="text-base sm:text-lg text-white mb-1.5 sm:mb-2 flex-shrink-0 break-words leading-tight">{item.title}</h3>
-                  <p className="text-green-100 text-xs sm:text-sm leading-snug flex-1 min-h-0 overflow-hidden break-words">
+                  <p className="text-green-100 text-xs sm:text-sm leading-snug break-words">
                     {item.description}
                   </p>
                 </div>
@@ -478,38 +480,31 @@ export function HomeCleaningPage() {
               ))}
 
             {activeTab === "monthly" &&
-              [
-                {
-                  name: t("homeCleaning.pricingPlans.monthly.plan1.name"),
-                  size: "20–40 m²",
-                  priceRange: "1500–2200",
-                  time: t("homeCleaning.pricingPlans.monthly.plan1.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.monthly.plan1.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-                {
-                  name: t("homeCleaning.pricingPlans.monthly.plan2.name"),
-                  size: "45–70 m²",
-                  priceRange: "2000–3200",
-                  time: t("homeCleaning.pricingPlans.monthly.plan2.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.monthly.plan2.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-                {
-                  name: t("homeCleaning.pricingPlans.monthly.plan3.name"),
-                  size: "70–100 m²",
-                  priceRange: "2500–4000",
-                  time: t("homeCleaning.pricingPlans.monthly.plan3.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.monthly.plan3.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-              ].map((plan, index) => (
+              (
+                [
+                  {
+                    planKey: "plan1" as const,
+                    name: t("homeCleaning.pricingPlans.monthly.plan1.name"),
+                    size: "20–40 m²",
+                    priceRange: "1500–2200",
+                    time: t("homeCleaning.pricingPlans.monthly.plan1.time"),
+                  },
+                  {
+                    planKey: "plan2" as const,
+                    name: t("homeCleaning.pricingPlans.monthly.plan2.name"),
+                    size: "45–70 m²",
+                    priceRange: "2000–3200",
+                    time: t("homeCleaning.pricingPlans.monthly.plan2.time"),
+                  },
+                  {
+                    planKey: "plan3" as const,
+                    name: t("homeCleaning.pricingPlans.monthly.plan3.name"),
+                    size: "70–100 m²",
+                    priceRange: "2500–4000",
+                    time: t("homeCleaning.pricingPlans.monthly.plan3.time"),
+                  },
+                ] as const
+              ).map((plan, index) => (
                 <Card
                   key={index}
                   className="relative overflow-hidden border-2 border-gray-200 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
@@ -549,53 +544,49 @@ export function HomeCleaningPage() {
                       {t("common.orderService")}
                     </Button>
 
-                    <div className="space-y-3">
-                      {plan.features.map((feature, fIndex) => (
-                        <div key={fIndex} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    <PricingIntroThenExtras
+                      tone="emerald"
+                      intro={t("homeCleaning.pricingBodyIncludesLight")}
+                      extraHeading={t(
+                        "homeCleaning.pricingExtraHeadingGeneral"
+                      )}
+                      items={
+                        t(
+                          `homeCleaning.pricingPlans.monthly.${plan.planKey}.features`,
+                          { returnObjects: true }
+                        ) as string[]
+                      }
+                    />
                   </div>
                 </Card>
               ))}
 
             {activeTab === "onetime" &&
-              [
-                {
-                  name: t("homeCleaning.pricingPlans.onetime.plan1.name"),
-                  size: "20–40 m²",
-                  priceRange: "2500–3500",
-                  time: t("homeCleaning.pricingPlans.onetime.plan1.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.onetime.plan1.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-                {
-                  name: t("homeCleaning.pricingPlans.onetime.plan2.name"),
-                  size: "45–70 m²",
-                  priceRange: "3500–5500",
-                  time: t("homeCleaning.pricingPlans.onetime.plan2.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.onetime.plan2.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-                {
-                  name: t("homeCleaning.pricingPlans.onetime.plan3.name"),
-                  size: "70–100 m²",
-                  priceRange: "5000–6500",
-                  time: t("homeCleaning.pricingPlans.onetime.plan3.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.onetime.plan3.features",
-                    { returnObjects: true }
-                  ) as string[],
-                },
-              ].map((plan, index) => (
+              (
+                [
+                  {
+                    planKey: "plan1" as const,
+                    name: t("homeCleaning.pricingPlans.onetime.plan1.name"),
+                    size: "20–40 m²",
+                    priceRange: "2500–3500",
+                    time: t("homeCleaning.pricingPlans.onetime.plan1.time"),
+                  },
+                  {
+                    planKey: "plan2" as const,
+                    name: t("homeCleaning.pricingPlans.onetime.plan2.name"),
+                    size: "45–70 m²",
+                    priceRange: "3500–5500",
+                    time: t("homeCleaning.pricingPlans.onetime.plan2.time"),
+                  },
+                  {
+                    planKey: "plan3" as const,
+                    name: t("homeCleaning.pricingPlans.onetime.plan3.name"),
+                    size: "70–100 m²",
+                    priceRange: "5000–6500",
+                    time: t("homeCleaning.pricingPlans.onetime.plan3.time"),
+                  },
+                ] as const
+              ).map((plan, index) => (
                 <Card
                   key={index}
                   className="relative overflow-hidden border-2 border-gray-200 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
@@ -635,16 +626,17 @@ export function HomeCleaningPage() {
                       {t("common.orderService")}
                     </Button>
 
-                    <div className="space-y-3">
-                      {plan.features.map((feature, fIndex) => (
-                        <div key={fIndex} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    <PricingIntroThenExtras
+                      tone="amber"
+                      intro={t("homeCleaning.pricingBodyIncludesGeneral")}
+                      extraHeading={t("homeCleaning.pricingExtraHeadingPost")}
+                      items={
+                        t(
+                          `homeCleaning.pricingPlans.onetime.${plan.planKey}.features`,
+                          { returnObjects: true }
+                        ) as string[]
+                      }
+                    />
                   </div>
                 </Card>
               ))}
@@ -898,10 +890,10 @@ export function HomeCleaningPage() {
                 {t("homeCleaning.faq.moreQuestions")}
               </p>
               <a
-                href="mailto:info@greenclean-praha.cz"
+                href={CONTACT_MAILTO}
                 className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
               >
-                info@greenclean-praha.cz
+                {CONTACT_EMAIL}
               </a>
             </div>
           </div>

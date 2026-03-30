@@ -23,6 +23,7 @@ import {
 } from "./ui/accordion";
 import { Contact } from "./Contact";
 import { useRouter } from "next/router";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
 
 interface ServicePageProps {
   title: string;
@@ -75,7 +76,6 @@ function ensureArray<T>(value: T[] | Record<string, T> | undefined | null): T[] 
 function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
-  const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
   const { t } = useTranslation("common");
 
   const steps = [
@@ -121,33 +121,11 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
       }
     };
 
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: "-50px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const index = Number(entry.target.getAttribute("data-index"));
-        if (entry.isIntersecting) {
-          setVisibleSteps((prev) => {
-            const updated = new Set(prev);
-            updated.add(index);
-            return updated;
-          });
-        }
-      });
-    }, observerOptions);
-
-    const stepElements = timelineRef.current?.querySelectorAll("[data-step]");
-    stepElements?.forEach((el) => observer.observe(el));
-
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
     };
   }, []);
 
@@ -169,36 +147,20 @@ function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
           {steps.map((item, index) => (
             <div
               key={index}
-              data-step
-              data-index={index}
               className="relative pl-24 pb-8"
             >
-              {/* Step circle/dot with animation */}
+              {/* Step circle — always visible (IntersectionObserver + opacity-0 hid content on many viewports) */}
               <div
-                className={`absolute left-5 top-0 w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center text-white transition-all duration-500 ${
-                  visibleSteps.has(index)
-                    ? "scale-100 opacity-100"
-                    : "scale-0 opacity-0"
-                }`}
+                className="absolute left-5 top-0 w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center text-white scale-100 opacity-100 transition-all duration-500"
                 style={{
                   backgroundColor: index % 2 === 0 ? accentColor : "#FFA826",
-                  transitionDelay: `${index * 100}ms`,
                 }}
               >
                 <span className="text-sm">{item.step}</span>
               </div>
 
               {/* Content card */}
-              <Card
-                className={`p-5 sm:p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden ${
-                  visibleSteps.has(index)
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-8 opacity-0"
-                }`}
-                style={{
-                  transitionDelay: `${index * 100 + 100}ms`,
-                }}
-              >
+              <Card className="p-5 sm:p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
                 <h3 className="text-lg sm:text-xl text-gray-900 mb-2 break-words">{item.title}</h3>
                 <p className="text-gray-600 text-sm sm:text-base break-words leading-relaxed">{item.desc}</p>
               </Card>
@@ -751,10 +713,10 @@ export function ServicePage({
             <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
               <p className="text-gray-700 mb-4">{t("faq.haveMoreQuestions")}</p>
               <a
-                href="mailto:info@greenclean-praha.cz"
+                href={CONTACT_MAILTO}
                 className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all"
               >
-                info@greenclean-praha.cz
+                {CONTACT_EMAIL}
               </a>
             </div>
           </div>

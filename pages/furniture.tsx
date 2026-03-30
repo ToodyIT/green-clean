@@ -30,15 +30,28 @@ export default function FurniturePage() {
             { value: "2-4h", label: t("serviceData.furniture.stats.dryingTime"), icon: "⏱️" },
             { value: "5★", label: t("serviceData.furniture.stats.rating"), icon: "⭐" },
           ]}
-          process={
-            t("serviceData.furniture.process", {
-              returnObjects: true,
-            }) as Array<{
-              step: number;
-              title: string;
-              description: string;
-            }>
-          }
+          process={[
+            {
+              step: 1,
+              title: t("serviceData.furniture.process.step1Title"),
+              description: t("serviceData.furniture.process.step1Desc"),
+            },
+            {
+              step: 2,
+              title: t("serviceData.furniture.process.step2Title"),
+              description: t("serviceData.furniture.process.step2Desc"),
+            },
+            {
+              step: 3,
+              title: t("serviceData.furniture.process.step3Title"),
+              description: t("serviceData.furniture.process.step3Desc"),
+            },
+            {
+              step: 4,
+              title: t("serviceData.furniture.process.step4Title"),
+              description: t("serviceData.furniture.process.step4Desc"),
+            },
+          ]}
           whatsIncluded={
             t("serviceData.furniture.whatsIncluded", {
               returnObjects: true,

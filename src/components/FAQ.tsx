@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { HelpCircle, Sparkles, Mail } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
 
 export function FAQ() {
   const { t } = useTranslation("common");
@@ -96,10 +97,10 @@ export function FAQ() {
           <div className="inline-block p-8 bg-gradient-to-r from-green-100 to-lime-100 rounded-3xl border-2 border-green-200">
             <p className="text-gray-700 mb-4">{t("faq.haveMoreQuestions")}</p>
             <a
-              href="mailto:info@greenclean-praha.cz"
+              href={CONTACT_MAILTO}
               className="text-lg bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-700 hover:to-emerald-700 transition-all block mb-4"
             >
-              info@greenclean-praha.cz
+              {CONTACT_EMAIL}
             </a>
             <Link
               href="/contact"

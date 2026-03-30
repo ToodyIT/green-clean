@@ -11,6 +11,12 @@ import {
 } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { useRouter } from "next/router";
+import {
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+} from "../constants/contact";
 
 export function Footer() {
   const { t } = useTranslation("common");
@@ -159,10 +165,10 @@ export function Footer() {
                   <Phone className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <a
-                  href="tel:+420123456789"
+                  href={CONTACT_PHONE_TEL}
                   className="hover:text-green-400 transition-colors mt-1.5"
                 >
-                  +420 123 456 789
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm group">
@@ -170,20 +176,20 @@ export function Footer() {
                   <Mail className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <a
-                  href="mailto:info@greenclean-praha.cz"
+                  href={CONTACT_MAILTO}
                   className="hover:text-green-400 transition-colors mt-1.5 break-all"
                 >
-                  info@greenclean.cz
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm group">
                 <div className="w-9 h-9 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
                   <MapPin className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
-                <span className="mt-1.5">
-                  Wenceslas Square 123
-                  <br />
-                  110 00 Prague 1
+                <span className="mt-1.5 whitespace-pre-line">
+                  {t("contact.companyAddressDisplay")}
+                  {"\n"}
+                  {t("contact.companyIco")}
                 </span>
               </li>
             </ul>

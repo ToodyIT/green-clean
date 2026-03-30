@@ -18,6 +18,17 @@ import {
 } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { useRouter } from "next/router";
+import { PricingIntroThenExtras } from "./PricingFeatureGroups";
+
+const SERVICE_DETAIL_PATHS: Record<string, string> = {
+  home: "/home-cleaning",
+  office: "/office",
+  airbnb: "/airbnb",
+  furniture: "/furniture",
+  renovation: "/renovation",
+  development: "/development",
+  buildings: "/buildings",
+};
 
 export function Pricing() {
   const { t } = useTranslation("common");
@@ -443,6 +454,17 @@ export function Pricing() {
     return val !== undefined ? val : fallback;
   };
 
+  const homePlanKey = (index: number) =>
+    `plan${index + 1}` as "plan1" | "plan2" | "plan3";
+
+  const getHomeCleaningNameOrTime = (
+    index: number,
+    field: "name" | "time"
+  ) => {
+    const pk = homePlanKey(index);
+    return t(`homeCleaning.pricingPlans.${homeServiceTab}.${pk}.${field}`);
+  };
+
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 via-green-50 to-slate-50 relative overflow-hidden">
       {/* Animated background */}
@@ -644,20 +666,46 @@ export function Pricing() {
                   </div>
 
                   {/* Time badge for home service */}
-                  {(plan.time || (currentService.hasTabs && getPlanLabel(currentService.id, homeServiceTab, index, "time", ""))) && (
+                  {(plan.time ||
+                    (currentService.hasTabs &&
+                      getPlanLabel(currentService.id, homeServiceTab, index, "time", ""))) && (
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 w-fit">
                       <Clock className="w-3.5 h-3.5 text-green-600" />
                       <span className="text-xs bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                        {currentService.hasTabs ? getPlanLabel(currentService.id, homeServiceTab, index, "time", plan.time || "") : plan.time}
+                        {currentService.id === "home"
+                          ? getHomeCleaningNameOrTime(index, "time")
+                          : currentService.hasTabs
+                            ? getPlanLabel(
+                                currentService.id,
+                                homeServiceTab,
+                                index,
+                                "time",
+                                plan.time || ""
+                              )
+                            : plan.time}
                       </span>
                     </div>
                   )}
 
                   {/* Title */}
                   <h3 className="text-2xl text-gray-900 mb-3">
-                    {currentService.hasTabs
-                      ? getPlanLabel(currentService.id, homeServiceTab, index, "name", plan.name)
-                      : getPlanLabel(currentService.id, null, index, "name", plan.name)}
+                    {currentService.id === "home"
+                      ? getHomeCleaningNameOrTime(index, "name")
+                      : currentService.hasTabs
+                        ? getPlanLabel(
+                            currentService.id,
+                            homeServiceTab,
+                            index,
+                            "name",
+                            plan.name
+                          )
+                        : getPlanLabel(
+                            currentService.id,
+                            null,
+                            index,
+                            "name",
+                            plan.name
+                          )}
                   </h3>
 
                   {/* Price */}
@@ -675,29 +723,92 @@ export function Pricing() {
                     <div className="text-gray-600">{translateUnit(plan.unit)}</div>
                   </div>
 
-                  {/* Features */}
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {((currentService.hasTabs ? getPlanLabel(currentService.id, homeServiceTab, index, "features", plan.features) : getPlanLabel(currentService.id, null, index, "features", plan.features)) as string[]).map((feature: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div
-                          className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
-                          style={{ background: currentService.color }}
-                        >
-                          <Check
-                            className="w-4 h-4 text-white"
-                            strokeWidth={3}
-                          />
-                        </div>
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Features — home apartments: same copy as /home-cleaning (grouped for general & post-reno) */}
+                  <div className="mb-8 flex-grow">
+                    {currentService.id === "home" &&
+                    homeServiceTab === "monthly" ? (
+                      <PricingIntroThenExtras
+                        tone="emerald"
+                        intro={t("homeCleaning.pricingBodyIncludesLight")}
+                        extraHeading={t(
+                          "homeCleaning.pricingExtraHeadingGeneral"
+                        )}
+                        items={
+                          t(
+                            `homeCleaning.pricingPlans.monthly.${homePlanKey(index)}.features`,
+                            { returnObjects: true }
+                          ) as string[]
+                        }
+                      />
+                    ) : currentService.id === "home" &&
+                      homeServiceTab === "onetime" ? (
+                      <PricingIntroThenExtras
+                        tone="amber"
+                        intro={t("homeCleaning.pricingBodyIncludesGeneral")}
+                        extraHeading={t(
+                          "homeCleaning.pricingExtraHeadingPost"
+                        )}
+                        items={
+                          t(
+                            `homeCleaning.pricingPlans.onetime.${homePlanKey(index)}.features`,
+                            { returnObjects: true }
+                          ) as string[]
+                        }
+                      />
+                    ) : (
+                      <ul className="space-y-3">
+                        {(
+                          (currentService.id === "home"
+                            ? (t(
+                                `homeCleaning.pricingPlans.weekly.${homePlanKey(index)}.features`,
+                                { returnObjects: true }
+                              ) as string[])
+                            : (currentService.hasTabs
+                                ? getPlanLabel(
+                                    currentService.id,
+                                    homeServiceTab,
+                                    index,
+                                    "features",
+                                    plan.features
+                                  )
+                                : getPlanLabel(
+                                    currentService.id,
+                                    null,
+                                    index,
+                                    "features",
+                                    plan.features
+                                  ))) as string[]
+                        ).map((feature: string, idx: number) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-3"
+                          >
+                            <div
+                              className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+                              style={{ background: currentService.color }}
+                            >
+                              <Check
+                                className="w-4 h-4 text-white"
+                                strokeWidth={3}
+                              />
+                            </div>
+                            <span className="text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
 
                   {/* CTA Button */}
                   <Button
                     className="w-full text-white transition-all duration-300 hover:scale-105 border-0 hover:shadow-lg mt-auto"
                     style={{ background: currentService.color }}
-                    onClick={() => router.push(`/${currentService.id}`)}
+                    onClick={() =>
+                      router.push(
+                        SERVICE_DETAIL_PATHS[currentService.id] ??
+                          `/${currentService.id}`
+                      )
+                    }
                   >
                     {t("common.learnMore")}
                     <ArrowRight className="w-4 h-4 ml-2" />

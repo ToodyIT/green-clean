@@ -9,6 +9,12 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Phone, Mail, MapPin, Clock, Send, Sparkles } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import {
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+} from "../constants/contact";
 
 export function Contact() {
   const { t } = useTranslation("common");
@@ -50,23 +56,24 @@ export function Contact() {
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500"></div>
 
             <div className="relative flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 group-hover:scale-105 transition-all duration-500">
+              {/* Owner photo: hidden visually; remove `hidden` to show again */}
+              <div
+                className="hidden relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 group-hover:scale-105 transition-all duration-500"
+                aria-hidden
+              >
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Andrii Mazar - Owner GreenClean"
+                  alt=""
                   className="w-full h-full object-cover"
                 />
-                {/* Green overlay with animation */}
                 <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-emerald-600/30 group-hover:from-green-600/20 group-hover:to-emerald-600/20 transition-all duration-500"></div>
-
-                {/* Decorative ring */}
                 <div
                   className="absolute -inset-2 rounded-3xl border-4 opacity-30 group-hover:opacity-50 transition-opacity duration-500"
                   style={{ borderColor: "#4ca137" }}
                 ></div>
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 max-w-3xl mx-auto md:mx-0">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 shadow-md">
                   <div
                     className="w-2 h-2 rounded-full animate-pulse"
@@ -87,19 +94,19 @@ export function Contact() {
 
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <a
-                    href="tel:+420123456789"
+                    href={CONTACT_PHONE_TEL}
                     className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                   >
                     <Phone className="w-4 h-4" />
-                    +420 123 456 789
+                    {CONTACT_PHONE_DISPLAY}
                   </a>
                   <a
-                    href="mailto:info@greenclean-praha.cz"
+                    href={CONTACT_MAILTO}
                     className="inline-flex items-center gap-2 px-5 py-3 bg-white border-2 text-gray-700 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
                     style={{ borderColor: "#4ca137" }}
                   >
                     <Mail className="w-4 h-4" style={{ color: "#4ca137" }} />
-                    info@greenclean-praha.cz
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
@@ -116,7 +123,7 @@ export function Contact() {
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gray-300 to-gray-300"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
           {/* Contact Form */}
           <Card
             className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col"
@@ -218,7 +225,7 @@ export function Contact() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+420 123 456 789"
+                    placeholder={CONTACT_PHONE_DISPLAY}
                     className="mt-2 border-2 focus:border-green-500 transition-colors"
                     onFocus={() => setFocusedField("phone")}
                     onBlur={() => setFocusedField(null)}
@@ -290,48 +297,49 @@ export function Contact() {
             </div>
           </Card>
 
-          {/* Contact Info */}
-          <div className="space-y-6 h-full flex flex-col">
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
+          {/* Contact Info — no flex-1 on cards so long copy (e.g. RU) is not clipped */}
+          <div className="space-y-6">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
               <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
 
-              <div className="relative flex items-start gap-4 h-full">
+              <div className="relative flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h4 className="text-lg text-gray-900 mb-2">
                     {t("common.phone")}
                   </h4>
                   <a
-                    href="tel:+420123456789"
+                    href={CONTACT_PHONE_TEL}
                     className="text-gray-600 hover:text-green-600 transition-colors text-lg"
                   >
-                    +420 123 456 789
+                    {CONTACT_PHONE_DISPLAY}
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">
-                    {t("contact.monFri")}
-                  </p>
+                  <div className="text-sm text-gray-500 mt-1 space-y-0.5">
+                    <p>{t("contact.monFri")}</p>
+                    <p>{t("contact.sat")}</p>
+                  </div>
                 </div>
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
               <div className="absolute -inset-1 bg-gradient-to-r from-lime-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
 
-              <div className="relative flex items-start gap-4 h-full">
+              <div className="relative flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h4 className="text-lg text-gray-900 mb-2">
                     {t("common.email")}
                   </h4>
                   <a
-                    href="mailto:info@greenclean-praha.cz"
+                    href={CONTACT_MAILTO}
                     className="text-gray-600 hover:text-green-600 transition-colors text-lg"
                   >
-                    info@greenclean-praha.cz
+                    {CONTACT_EMAIL}
                   </a>
                   <p className="text-sm text-gray-500 mt-1">
                     {t("contact.weRespond")}
@@ -340,20 +348,21 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
 
-              <div className="relative flex items-start gap-4 h-full">
+              <div className="relative flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h4 className="text-lg text-gray-900 mb-2">
                     {t("common.address")}
                   </h4>
-                  <p className="text-gray-600 text-lg">
-                    Prague, Czech Republic
+                  <p className="text-gray-600 text-lg whitespace-pre-line">
+                    {t("contact.companyAddressDisplay")}
                   </p>
+                  <p className="text-sm text-gray-600 mt-2">{t("contact.companyIco")}</p>
                   <p className="text-sm text-gray-500 mt-1">
                     {t("contact.servicesPrague")}
                   </p>
@@ -361,7 +370,7 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex-1">
+            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
               <div
                 className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
                 style={{
@@ -370,7 +379,7 @@ export function Contact() {
                 }}
               ></div>
 
-              <div className="relative flex items-start gap-4 h-full">
+              <div className="relative flex items-start gap-4">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
                   style={{
@@ -380,14 +389,18 @@ export function Contact() {
                 >
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-lg text-gray-900 mb-2">
-                    {t("common.businessHours")}
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base sm:text-lg text-gray-900 mb-2 leading-snug">
+                    {t("contact.officeSupportHoursTitle")}
                   </h4>
-                  <p className="text-gray-600">{t("contact.monFri")}</p>
-                  <p className="text-gray-600">{t("contact.sat")}</p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    {t("contact.sundayClosed")}
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {t("contact.monFri")}
+                  </p>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {t("contact.sat")}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2 leading-relaxed break-words">
+                    {t("contact.cleaningAnyTimeNote")}
                   </p>
                 </div>
               </div>

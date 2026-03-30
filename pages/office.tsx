@@ -30,6 +30,28 @@ export default function OfficePage() {
             { value: "98%", label: t("serviceData.office.stats.satisfaction"), icon: "😊" },
             { value: "24/7", label: t("serviceData.office.stats.support"), icon: "📞" },
           ]}
+          process={[
+            {
+              step: 1,
+              title: t("homeCleaning.contactUs"),
+              description: t("homeCleaning.contactUsDesc"),
+            },
+            {
+              step: 2,
+              title: t("homeCleaning.scheduleAppointment"),
+              description: t("homeCleaning.scheduleAppointmentDesc"),
+            },
+            {
+              step: 3,
+              title: t("homeCleaning.weClean"),
+              description: t("homeCleaning.weCleanDesc"),
+            },
+            {
+              step: 4,
+              title: t("homeCleaning.enjoyCleanliness"),
+              description: t("homeCleaning.enjoyCleanlinessDesc"),
+            },
+          ]}
           whatsIncluded={
             t("serviceData.office.whatsIncluded", {
               returnObjects: true,
