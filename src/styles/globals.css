@@ -1,44 +1,10 @@
 @import "tailwindcss";
 
+@source "../../pages/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
 /* Google Fonts Import - Montserrat для Drunk Cyr и Inter для NouvelR/Mont */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
-
-/* Custom Font Faces - добавьте файлы шрифтов если доступны */
-@font-face {
-  font-family: 'Drunk Cyr';
-  src: url('/fonts/DrunkCyr-Regular.woff2') format('woff2'),
-       url('/fonts/DrunkCyr-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Drunk Cyr';
-  src: url('/fonts/DrunkCyr-Bold.woff2') format('woff2'),
-       url('/fonts/DrunkCyr-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'NouvelR';
-  src: url('/fonts/NouvelR-Regular.woff2') format('woff2'),
-       url('/fonts/NouvelR-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'NouvelR';
-  src: url('/fonts/NouvelR-Medium.woff2') format('woff2'),
-       url('/fonts/NouvelR-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* CSS Variables for Fonts and Colors */
 :root {
@@ -222,6 +188,27 @@ button, .button {
   animation: slideUp 0.6s ease-out forwards;
 }
 
+/* Performance: disable GPU-heavy infinite animations */
+.animate-blob,
+.animate-marquee,
+.animate-gradient,
+.animate-shimmer {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-ping,
+  .animate-float,
+  .animate-bounce {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Glassmorphism */
 .glass {
   background: rgba(255, 255, 255, 0.05);
@@ -299,4 +286,12 @@ p {
 
 .font-secondary {
   font-family: var(--font-secondary);
+}
+
+/* Hide floating phone button while mobile burger menu is open */
+@media (max-width: 1023px) {
+  body.mobile-menu-open [data-fab-root],
+  body.mobile-menu-open [data-fab-scroll-top] {
+    display: none !important;
+  }
 }

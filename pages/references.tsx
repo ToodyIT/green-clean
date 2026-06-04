@@ -1,23 +1,32 @@
+import dynamic from "next/dynamic";
 import { GetStaticProps } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { References } from "../src/components/References";
-import { Contact } from "../src/components/Contact";
+import { useHomeSectionsTranslation } from "../src/i18n/useAppTranslation";
+import { loadTranslations } from "../src/i18n/loadTranslations";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
 import { FloatingActionButton } from "../src/components/FloatingActionButton";
-import { CookieConsent } from "../src/components/CookieConsent";
 import { SEO } from "../src/components/SEO";
 
+const References = dynamic(
+  () => import("../src/components/References").then((m) => m.References),
+  { ssr: true }
+);
+const CookieConsent = dynamic(
+  () => import("../src/components/CookieConsent").then((m) => m.CookieConsent),
+  { ssr: false }
+);
+
 export default function ReferencesPage() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
   return (
     <div className="min-h-screen">
-      <SEO title={t("references.title")} description={t("references.description")} />
+      <SEO
+        title={t("references.title")}
+        description={t("references.description")}
+      />
       <Header />
       <main>
         <References />
-        <Contact />
       </main>
       <Footer />
       <FloatingActionButton />
@@ -29,7 +38,7 @@ export default function ReferencesPage() {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "cs", ["common"])),
+      ...(await loadTranslations(locale)),
     },
   };
 };

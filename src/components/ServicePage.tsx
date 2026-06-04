@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import { useServiceDetailTranslation } from "../i18n/useAppTranslation";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -23,7 +23,11 @@ import {
 } from "./ui/accordion";
 import { Contact } from "./Contact";
 import { useRouter } from "next/router";
-import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_FORM_ID,
+  CONTACT_MAILTO,
+} from "../constants/contact";
 
 interface ServicePageProps {
   title: string;
@@ -76,7 +80,7 @@ function ensureArray<T>(value: T[] | Record<string, T> | undefined | null): T[] 
 function ProcessTimelineComponent({ accentColor }: { accentColor: string }) {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
-  const { t } = useTranslation("common");
+  const { t } = useServiceDetailTranslation();
 
   const steps = [
     {
@@ -187,7 +191,7 @@ export function ServicePage({
   process,
   guarantees,
 }: ServicePageProps) {
-  const { t } = useTranslation("common");
+  const { t } = useServiceDetailTranslation();
   const router = useRouter();
   // Default values
   const defaultWhatsIncluded = t("servicePage.defaultWhatsIncluded", {
@@ -295,9 +299,9 @@ export function ServicePage({
                   className="hover:opacity-90"
                   style={{ backgroundColor: accentColor }}
                   onClick={() => {
-                    const contactSection =
-                      document.getElementById("contact-section");
-                    contactSection?.scrollIntoView({ behavior: "smooth" });
+                    document
+                      .getElementById(CONTACT_FORM_ID)
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   {t("common.freeQuote")}
@@ -318,6 +322,10 @@ export function ServicePage({
               <ImageWithFallback
                 src={image}
                 alt={title}
+                width={800}
+                height={600}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -485,7 +493,10 @@ export function ServicePage({
                   <ImageWithFallback
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

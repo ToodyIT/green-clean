@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
+import { useLayoutTranslation } from "../i18n/useAppTranslation";
 import { Phone, MessageCircle, X, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/router";
@@ -7,24 +7,34 @@ import {
   CONTACT_PHONE_TEL,
   CONTACT_PHONE_WHATSAPP,
 } from "../constants/contact";
+import { navigateToContactForm } from "../utils/navigateToContactForm";
+import { useMobileMenu } from "../context/MobileMenuContext";
+import { useThrottledScroll } from "../hooks/useThrottledScroll";
+import { twJoin } from "tailwind-merge";
 
 export function FloatingActionButton() {
-  const { t } = useTranslation("common");
+  const { t } = useLayoutTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { isOpen: mobileMenuOpen } = useMobileMenu();
   const router = useRouter();
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      setIsOpen(false);
+    }
+  }, [mobileMenuOpen]);
+
+  useThrottledScroll(() => {
+    setShowScrollTop(window.scrollY > 400);
+  });
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const hideOnMobileMenu = mobileMenuOpen ? "hidden lg:flex" : "flex";
+  const hideScrollTopOnMobileMenu = mobileMenuOpen ? "hidden lg:block" : "block";
 
   const actions = [
     {
@@ -45,7 +55,7 @@ export function FloatingActionButton() {
       icon: Mail,
       label: t("common.email"),
       onClick: () => {
-        router.push("/contact");
+        navigateToContactForm(router);
         setIsOpen(false);
       },
       customGradient: "linear-gradient(to bottom right, #FFA826, #E59518)",
@@ -57,23 +67,32 @@ export function FloatingActionButton() {
     <>
       {/* Scroll to Top Button */}
       <div
-        className={`fixed bottom-24 right-4 sm:right-6 lg:right-8 z-40 transition-all duration-500 ${
+        data-fab-scroll-top
+        className={twJoin(
+          "fixed bottom-24 right-4 sm:right-6 lg:right-8 z-40 transition-all duration-500",
+          hideScrollTopOnMobileMenu,
           showScrollTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-10 pointer-events-none"
-        }`}
+        )}
       >
         <Button
           size="icon"
           onClick={scrollToTop}
-          className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-gray-200 text-gray-700 shadow-2xl hover:shadow-green-500/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:border-green-500 group"
+          className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 text-gray-700 shadow-2xl hover:shadow-green-500/50 hover:scale-105 transition-transform duration-300 hover:border-green-500 group"
         >
           <ArrowUp className="w-5 h-5 group-hover:text-green-600 transition-colors" />
         </Button>
       </div>
 
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 lg:right-8 z-50 flex flex-col items-end gap-3">
+      <div
+        data-fab-root
+        className={twJoin(
+          "fixed bottom-4 sm:bottom-6 right-4 sm:right-6 lg:right-8 z-40 flex-col items-end gap-3 transition-all duration-300",
+          hideOnMobileMenu
+        )}
+      >
         {/* Action Buttons */}
         {isOpen && (
           <>
@@ -144,16 +163,6 @@ export function FloatingActionButton() {
             isOpen ? "scale-100 rotate-0" : "scale-100 hover:scale-110"
           }`}
         >
-          {/* Animated background pulse */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-emerald-500 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-          {/* Ripple effect */}
-          <div
-            className={`absolute inset-0 rounded-full bg-green-400 ${
-              isOpen ? "animate-none" : "animate-ping"
-            } opacity-75`}
-          ></div>
-
           {/* Icon */}
           <div className="relative z-10 transition-transform duration-300">
             {isOpen ? (
@@ -166,10 +175,10 @@ export function FloatingActionButton() {
       </div>
 
       {/* Overlay when open */}
-      {isOpen && (
+      {isOpen && !mobileMenuOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden"
+          className="fixed inset-0 bg-black/20 z-40 transition-opacity duration-300 lg:hidden"
         />
       )}
     </>

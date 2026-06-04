@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://greenclean.cz
+
+# Sitemaps
+Sitemap: https://greenclean.cz/sitemap.xml

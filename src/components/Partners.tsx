@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "next-i18next";
+import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
 import {
   Building2,
   Hotel,
@@ -10,9 +10,10 @@ import {
   Warehouse,
   Briefcase,
 } from "lucide-react";
+import { SectionBackground } from "./SectionBackground";
 
 export function Partners() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
   const serviceAreas = [
     {
       name: t("partners.offices"),
@@ -46,14 +47,7 @@ export function Partners() {
 
   return (
     <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-1/4 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div
-          className="absolute bottom-10 right-1/4 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
-          style={{ backgroundColor: "#FFA826" }}
-        ></div>
-      </div>
+      <SectionBackground variant="lightSm" />
 
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0Y2ExMzciIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMTAgMTBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
@@ -79,11 +73,11 @@ export function Partners() {
         </div>
 
         {/* Service Areas Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 md:gap-6 items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 md:gap-6 items-stretch max-w-7xl mx-auto">
           {serviceAreas.map((area, index) => {
             const Icon = area.icon;
             return (
-              <div key={index} className="group relative">
+              <div key={index} className="group relative flex h-full">
                 {/* Glow effect */}
                 <div
                   className={`absolute -inset-2 rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${
@@ -99,9 +93,9 @@ export function Partners() {
                 ></div>
 
                 {/* Card */}
-                <div className="relative flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 bg-white border border-gray-200 rounded-xl sm:rounded-2xl hover:border-green-300 hover:shadow-lg hover:scale-110 transition-all duration-300">
+                <div className="relative flex h-full w-full min-h-[7.5rem] sm:min-h-[8.5rem] flex-col items-center justify-center gap-2 sm:gap-3 p-4 sm:p-5 bg-white border border-gray-200 rounded-xl sm:rounded-2xl hover:border-green-300 hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 ${
+                    className={`w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 ${
                       area.gradient ? `bg-gradient-to-br ${area.gradient}` : ""
                     }`}
                     style={
@@ -114,7 +108,7 @@ export function Partners() {
                   >
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <span className="text-[10px] sm:text-xs text-gray-700 group-hover:text-gray-900 transition-colors text-center leading-tight">
+                  <span className="flex min-h-[2.75rem] sm:min-h-[3.25rem] w-full items-center justify-center px-1 text-center text-[10px] sm:text-xs leading-snug text-gray-700 transition-colors group-hover:text-gray-900">
                     {area.name}
                   </span>
                 </div>

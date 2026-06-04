@@ -1,0 +1,23 @@
+{
+  "services": {
+    "title": "Naše služby",
+    "subtitle": "Komplexní úklidové řešení pro všechny",
+    "description": "Od kanceláří po bytové domy - zajistíme čistotu ve vašich prostorách",
+    "homeCleaning": "Úklid bytů a domů",
+    "homeCleaningDesc": "Pravidelný i jednorázový úklid domácností. Profesionální péče o váš domov s důrazem na detail a kvalitu.",
+    "officeCleaning": "Úklid kanceláří a firem Praha",
+    "officeCleaningDesc": "Pravidelný i jednorázový úklid kancelářských prostor. Zajistíme čisté a příjemné pracovní prostředí.",
+    "airbnbCleaning": "Úklid Airbnb bytů",
+    "airbnbCleaningDesc": "Rychlý a důkladný úklid mezi hosty. Garantujeme termín a vysokou kvalitu pro vaše hodnocení.",
+    "furnitureCleaning": "Čištění nábytku a sedaček",
+    "furnitureCleaningDesc": "Profesionální chemické čištění sedacích souprav, koberců a další čalouněné nábytku.",
+    "renovationCleaning": "Úklid po rekonstrukci a stavbě",
+    "renovationCleaningDesc": "Odstranění stavebního prachu a nečistot. Připravíme prostor k okamžitému užívání.",
+    "developmentCleaning": "Úklid developerských projektů",
+    "developmentCleaningDesc": "Komplexní úklidové služby pro developerské projekty. Zkušenosti s velkými projekty.",
+    "buildingCleaning": "Úklid panelových domů a SVJ",
+    "buildingCleaningDesc": "Pravidelný úklid společných prostor bytových domů. Péče o chodby, schodiště a okolí.",
+    "mostPopular": "Nejpopulárnější",
+    "otherServices": "Další specializované služby"
+  }
+}

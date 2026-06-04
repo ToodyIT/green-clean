@@ -1,15 +1,23 @@
+import dynamic from "next/dynamic";
 import { GetStaticProps } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { Contact } from "../src/components/Contact";
+import { useContactTranslation } from "../src/i18n/useAppTranslation";
+import { loadTranslations } from "../src/i18n/loadTranslations";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
 import { FloatingActionButton } from "../src/components/FloatingActionButton";
-import { CookieConsent } from "../src/components/CookieConsent";
 import { SEO } from "../src/components/SEO";
 
+const Contact = dynamic(
+  () => import("../src/components/Contact").then((m) => m.Contact),
+  { ssr: true }
+);
+const CookieConsent = dynamic(
+  () => import("../src/components/CookieConsent").then((m) => m.CookieConsent),
+  { ssr: false }
+);
+
 export default function ContactPage() {
-  const { t } = useTranslation("common");
+  const { t } = useContactTranslation();
   return (
     <div className="min-h-screen">
       <SEO title={t("contact.title")} description={t("contact.description")} />
@@ -27,7 +35,7 @@ export default function ContactPage() {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "cs", ["common"])),
+      ...(await loadTranslations(locale)),
     },
   };
 };

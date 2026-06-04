@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
+import { useHomeCleaningTranslation } from "../i18n/useAppTranslation";
+import { ensureStringArray } from "../utils/i18nArrays";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -30,11 +31,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_FORM_ID,
+  CONTACT_MAILTO,
+} from "../constants/contact";
 import { PricingIntroThenExtras } from "./PricingFeatureGroups";
 
 export function HomeCleaningPage() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeCleaningTranslation();
   const [activeTab, setActiveTab] = useState<"weekly" | "monthly" | "onetime">(
     "weekly"
   );
@@ -99,7 +104,7 @@ export function HomeCleaningPage() {
                   className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl shadow-green-500/40 hover:shadow-green-500/60 hover:scale-105 transition-all duration-300 border-0 text-lg px-8 py-6"
                   onClick={() =>
                     document
-                      .getElementById("contact-section")
+                      .getElementById(CONTACT_FORM_ID)
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
@@ -125,8 +130,12 @@ export function HomeCleaningPage() {
             <div className="hidden md:block relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1648475235027-21cd0ed83671?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGhvbWUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjIzNzYxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1648475235027-21cd0ed83671?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGhvbWUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjIzNzYxNTJ8MA&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
                   alt="Čistý moderní domov"
+                  width={800}
+                  height={600}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-[600px] object-cover"
                 />
                 {/* Glassmorphism overlay */}
@@ -400,30 +409,33 @@ export function HomeCleaningPage() {
                   size: "20–40 m²",
                   priceRange: "800–1100",
                   time: t("homeCleaning.pricingPlans.weekly.plan1.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.weekly.plan1.features",
-                    { returnObjects: true }
-                  ) as string[],
+                  features: ensureStringArray(
+                    t("homeCleaning.pricingPlans.weekly.plan1.features", {
+                      returnObjects: true,
+                    })
+                  ),
                 },
                 {
                   name: t("homeCleaning.pricingPlans.weekly.plan2.name"),
                   size: "45–70 m²",
                   priceRange: "1200–1700",
                   time: t("homeCleaning.pricingPlans.weekly.plan2.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.weekly.plan2.features",
-                    { returnObjects: true }
-                  ) as string[],
+                  features: ensureStringArray(
+                    t("homeCleaning.pricingPlans.weekly.plan2.features", {
+                      returnObjects: true,
+                    })
+                  ),
                 },
                 {
                   name: t("homeCleaning.pricingPlans.weekly.plan3.name"),
                   size: "70–100 m²",
                   priceRange: "1600–2100",
                   time: t("homeCleaning.pricingPlans.weekly.plan3.time"),
-                  features: t(
-                    "homeCleaning.pricingPlans.weekly.plan3.features",
-                    { returnObjects: true }
-                  ) as string[],
+                  features: ensureStringArray(
+                    t("homeCleaning.pricingPlans.weekly.plan3.features", {
+                      returnObjects: true,
+                    })
+                  ),
                 },
               ].map((plan, index) => (
                 <Card
@@ -458,7 +470,7 @@ export function HomeCleaningPage() {
                       className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                       onClick={() =>
                         document
-                          .getElementById("contact-section")
+                          .getElementById(CONTACT_FORM_ID)
                           ?.scrollIntoView({ behavior: "smooth" })
                       }
                     >
@@ -537,7 +549,7 @@ export function HomeCleaningPage() {
                       className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                       onClick={() =>
                         document
-                          .getElementById("contact-section")
+                          .getElementById(CONTACT_FORM_ID)
                           ?.scrollIntoView({ behavior: "smooth" })
                       }
                     >
@@ -550,12 +562,12 @@ export function HomeCleaningPage() {
                       extraHeading={t(
                         "homeCleaning.pricingExtraHeadingGeneral"
                       )}
-                      items={
+                      items={ensureStringArray(
                         t(
                           `homeCleaning.pricingPlans.monthly.${plan.planKey}.features`,
                           { returnObjects: true }
-                        ) as string[]
-                      }
+                        )
+                      )}
                     />
                   </div>
                 </Card>
@@ -619,7 +631,7 @@ export function HomeCleaningPage() {
                       className="w-full mb-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/30"
                       onClick={() =>
                         document
-                          .getElementById("contact-section")
+                          .getElementById(CONTACT_FORM_ID)
                           ?.scrollIntoView({ behavior: "smooth" })
                       }
                     >
@@ -630,12 +642,12 @@ export function HomeCleaningPage() {
                       tone="amber"
                       intro={t("homeCleaning.pricingBodyIncludesGeneral")}
                       extraHeading={t("homeCleaning.pricingExtraHeadingPost")}
-                      items={
+                      items={ensureStringArray(
                         t(
                           `homeCleaning.pricingPlans.onetime.${plan.planKey}.features`,
                           { returnObjects: true }
-                        ) as string[]
-                      }
+                        )
+                      )}
                     />
                   </div>
                 </Card>
@@ -694,7 +706,10 @@ export function HomeCleaningPage() {
                   <ImageWithFallback
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
 

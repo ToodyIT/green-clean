@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useContactTranslation } from "../i18n/useAppTranslation";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -11,17 +12,36 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import {
   CONTACT_EMAIL,
+  CONTACT_FORM_ID,
   CONTACT_MAILTO,
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
 } from "../constants/contact";
+import { scrollToContactForm } from "../utils/navigateToContactForm";
 
 export function Contact() {
-  const { t } = useTranslation("common");
+  const { t } = useContactTranslation();
+  const router = useRouter();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });
   const [, setFocusedField] = useState<string | null>(null);
+
+  useEffect(() => {
+    const scrollIfFormHash = () => {
+      if (window.location.hash === `#${CONTACT_FORM_ID}`) {
+        requestAnimationFrame(() => scrollToContactForm());
+      }
+    };
+
+    scrollIfFormHash();
+    router.events.on("hashChangeComplete", scrollIfFormHash);
+    router.events.on("routeChangeComplete", scrollIfFormHash);
+    return () => {
+      router.events.off("hashChangeComplete", scrollIfFormHash);
+      router.events.off("routeChangeComplete", scrollIfFormHash);
+    };
+  }, [router.events]);
 
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
@@ -62,8 +82,12 @@ export function Contact() {
                 aria-hidden
               >
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
                   alt=""
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  sizes="160px"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-emerald-600/30 group-hover:from-green-600/20 group-hover:to-emerald-600/20 transition-all duration-500"></div>
@@ -126,7 +150,8 @@ export function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
           {/* Contact Form */}
           <Card
-            className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col"
+            id={CONTACT_FORM_ID}
+            className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col scroll-mt-24"
             {...formAnimation}
           >
             {/* Gradient glow */}

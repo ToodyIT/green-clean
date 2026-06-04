@@ -1,0 +1,23 @@
+{
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Cleaning Solutions for Everyone",
+    "description": "From offices to apartment buildings - we ensure cleanliness in your spaces",
+    "homeCleaning": "Home Cleaning",
+    "homeCleaningDesc": "Regular and one-time household cleaning. Professional care for your home with attention to detail and quality.",
+    "officeCleaning": "Office and Commercial Cleaning Prague",
+    "officeCleaningDesc": "Regular and one-time office cleaning. We ensure a clean and pleasant working environment.",
+    "airbnbCleaning": "Airbnb Cleaning",
+    "airbnbCleaningDesc": "Fast and thorough cleaning between guests. We guarantee timing and high quality for your ratings.",
+    "furnitureCleaning": "Furniture and Upholstery Cleaning",
+    "furnitureCleaningDesc": "Professional chemical cleaning of sofas, carpets and other upholstered furniture.",
+    "renovationCleaning": "Post-Renovation and Construction Cleaning",
+    "renovationCleaningDesc": "Removal of construction dust and debris. We prepare the space for immediate use.",
+    "developmentCleaning": "Development Project Cleaning",
+    "developmentCleaningDesc": "Comprehensive cleaning services for development projects. Experience with large projects.",
+    "buildingCleaning": "Apartment Building and HOA Cleaning",
+    "buildingCleaningDesc": "Regular cleaning of common areas in apartment buildings. Care for hallways, staircases and surroundings.",
+    "mostPopular": "Most Popular",
+    "otherServices": "Other Specialized Services"
+  }
+}

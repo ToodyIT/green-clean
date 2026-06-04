@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
 import {
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
+  CONTACT_FORM_PATH,
 } from "../constants/contact";
+import { navigateToContactForm } from "../utils/navigateToContactForm";
 import { Card } from "./ui/card";
 import {
   Award,
@@ -25,10 +28,12 @@ import {
   Home,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { SectionBackground } from "./SectionBackground";
+import { useThrottledScroll } from "../hooks/useThrottledScroll";
 
 // Timeline Section Component with scroll animations
 function TimelineSection() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
   const [visibleDots, setVisibleDots] = useState<Set<number>>(new Set());
@@ -72,61 +77,48 @@ function TimelineSection() {
     },
   ];
 
+  useThrottledScroll(() => {
+    if (!timelineRef.current) return;
+
+    const rect = timelineRef.current.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const timelineHeight = rect.height;
+    const scrollStart = rect.top;
+
+    if (scrollStart < windowHeight && rect.bottom > 0) {
+      const visibleAmount = Math.max(
+        0,
+        Math.min(
+          1,
+          (windowHeight - scrollStart) / (timelineHeight + windowHeight)
+        )
+      );
+      setLineProgress(visibleAmount * 100);
+    }
+  });
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (!timelineRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"));
+          if (entry.isIntersecting) {
+            setVisibleDots((prev) => {
+              const updated = new Set(prev);
+              updated.add(index);
+              return updated;
+            });
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "-50px" }
+    );
 
-      const rect = timelineRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const timelineHeight = rect.height;
-
-      // Calculate how much of timeline is visible
-      const scrollStart = rect.top;
-
-      if (scrollStart < windowHeight && rect.bottom > 0) {
-        // Timeline is in view
-        const visibleAmount = Math.max(
-          0,
-          Math.min(
-            1,
-            (windowHeight - scrollStart) / (timelineHeight + windowHeight)
-          )
-        );
-        setLineProgress(visibleAmount * 100);
-      }
-    };
-
-    // Intersection Observer for dots
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: "-50px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const index = Number(entry.target.getAttribute("data-index"));
-        if (entry.isIntersecting) {
-          setVisibleDots((prev) => {
-            const updated = new Set(prev);
-            updated.add(index);
-            return updated;
-          });
-        }
-      });
-    }, observerOptions);
-
-    // Observe all milestone elements
     const milestoneElements =
       timelineRef.current?.querySelectorAll("[data-milestone]");
     milestoneElements?.forEach((el) => observer.observe(el));
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -165,18 +157,13 @@ function TimelineSection() {
               <div
                 className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 border-4 border-white shadow-lg z-10 hidden lg:block transition-all duration-500 ${
                   visibleDots.has(index)
-                    ? "scale-100 opacity-100 animate-pulse"
+                    ? "scale-100 opacity-100"
                     : "scale-0 opacity-0"
                 }`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                 }}
-              >
-                {/* Pulsing ring effect */}
-                {visibleDots.has(index) && (
-                  <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75"></div>
-                )}
-              </div>
+              />
 
               {/* Content card */}
               <Card
@@ -212,7 +199,8 @@ function TimelineSection() {
 }
 
 export function About() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
+  const router = useRouter();
 
   const values = [
     {
@@ -282,12 +270,7 @@ export function About() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-      {/* Animated background blobs */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div
-        className="absolute bottom-20 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
-        style={{ backgroundColor: "#FFA826" }}
-      ></div>
+      <SectionBackground variant="light" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
@@ -306,27 +289,27 @@ export function About() {
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div className="space-y-4">
-            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t("about.description1")}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t("about.description2")}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t("about.description3")}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t("about.description4")}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-all duration-300">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
                 {t("about.companyDetailsTitle")}
               </p>
@@ -342,20 +325,14 @@ export function About() {
           {/* Image with 3D effect */}
           <div className="relative">
             <div className="relative group">
-              {/* Glow effect */}
-              <div
-                className="absolute -inset-4 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4ca137, #FFA826)",
-                }}
-              ></div>
-
-              {/* Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group-hover:scale-105 transition-transform duration-500">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
                   alt="Our cleaning team"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full h-full object-cover aspect-[4/3]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
@@ -364,14 +341,14 @@ export function About() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+        {/* Stats — 4 icon blocks, ~30% smaller */}
+        <div className="mb-20 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <Card
                 key={index}
-                className="relative p-8 text-center border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden bg-white"
+                className="group relative overflow-hidden border-0 bg-white p-5 text-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 {/* Gradient background on hover */}
                 <div
@@ -386,9 +363,9 @@ export function About() {
                 ></div>
 
                 {/* Icon */}
-                <div className="relative mb-4 flex justify-center">
+                <div className="relative mb-3 flex justify-center">
                   <div
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 ${
+                    className={`flex h-14 w-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${
                       stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
                     }`}
                     style={
@@ -399,14 +376,14 @@ export function About() {
                         : {}
                     }
                   >
-                    <Icon className="w-8 h-8 text-white" />
+                    <Icon className="h-7 w-7 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative">
                   <div
-                    className={`text-5xl mb-2 bg-clip-text text-transparent ${
+                    className={`mb-1.5 bg-clip-text text-3xl text-transparent ${
                       stat.gradient ? `bg-gradient-to-r ${stat.gradient}` : ""
                     }`}
                     style={
@@ -728,7 +705,11 @@ export function About() {
 
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                  href="#kontakt"
+                  href={CONTACT_FORM_PATH}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToContactForm(router);
+                  }}
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-600 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 >
                   <span>{t("about.getPriceQuote")}</span>

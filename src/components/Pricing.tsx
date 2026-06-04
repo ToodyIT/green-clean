@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { useTranslation } from "next-i18next";
+import { usePricingTranslation } from "../i18n/useAppTranslation";
+import { ensureStringArray } from "../utils/i18nArrays";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -31,7 +32,7 @@ const SERVICE_DETAIL_PATHS: Record<string, string> = {
 };
 
 export function Pricing() {
-  const { t } = useTranslation("common");
+  const { t } = usePricingTranslation();
   const [selectedService, setSelectedService] = useState("home");
   const [homeServiceTab, setHomeServiceTab] = useState("weekly"); // For home service tabs
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
@@ -451,6 +452,11 @@ export function Pricing() {
         : (planTexts as any)[serviceId]?.[planIndex];
     if (!section) return fallback;
     const val = section[field];
+    if (field === "features") {
+      return ensureStringArray(val).length
+        ? ensureStringArray(val)
+        : ensureStringArray(fallback);
+    }
     return val !== undefined ? val : fallback;
   };
 
@@ -733,12 +739,12 @@ export function Pricing() {
                         extraHeading={t(
                           "homeCleaning.pricingExtraHeadingGeneral"
                         )}
-                        items={
+                        items={ensureStringArray(
                           t(
                             `homeCleaning.pricingPlans.monthly.${homePlanKey(index)}.features`,
                             { returnObjects: true }
-                          ) as string[]
-                        }
+                          )
+                        )}
                       />
                     ) : currentService.id === "home" &&
                       homeServiceTab === "onetime" ? (
@@ -748,36 +754,36 @@ export function Pricing() {
                         extraHeading={t(
                           "homeCleaning.pricingExtraHeadingPost"
                         )}
-                        items={
+                        items={ensureStringArray(
                           t(
                             `homeCleaning.pricingPlans.onetime.${homePlanKey(index)}.features`,
                             { returnObjects: true }
-                          ) as string[]
-                        }
+                          )
+                        )}
                       />
                     ) : (
                       <ul className="space-y-3">
-                        {(
-                          (currentService.id === "home"
-                            ? (t(
+                        {ensureStringArray(
+                          currentService.id === "home"
+                            ? t(
                                 `homeCleaning.pricingPlans.weekly.${homePlanKey(index)}.features`,
                                 { returnObjects: true }
-                              ) as string[])
-                            : (currentService.hasTabs
-                                ? getPlanLabel(
-                                    currentService.id,
-                                    homeServiceTab,
-                                    index,
-                                    "features",
-                                    plan.features
-                                  )
-                                : getPlanLabel(
-                                    currentService.id,
-                                    null,
-                                    index,
-                                    "features",
-                                    plan.features
-                                  ))) as string[]
+                              )
+                            : currentService.hasTabs
+                              ? getPlanLabel(
+                                  currentService.id,
+                                  homeServiceTab,
+                                  index,
+                                  "features",
+                                  plan.features
+                                )
+                              : getPlanLabel(
+                                  currentService.id,
+                                  null,
+                                  index,
+                                  "features",
+                                  plan.features
+                                )
                         ).map((feature: string, idx: number) => (
                           <li
                             key={idx}

@@ -1,4 +1,5 @@
 import { TFunction } from "next-i18next";
+import { useServiceDetailTranslation } from "../i18n/useAppTranslation";
 
 /** i18n returnObjects can return a plain object in some locales; ensure we always get an array. */
 function ensureStringArray(
@@ -324,9 +325,6 @@ export function getServiceData(t: TFunction) {
 }
 
 export function useServiceData() {
-  // This is a hook wrapper for component usage
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const { useTranslation } = require("next-i18next");
-  const { t } = useTranslation("common");
+  const { t } = useServiceDetailTranslation();
   return getServiceData(t);
 }

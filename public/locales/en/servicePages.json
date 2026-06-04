@@ -1,0 +1,999 @@
+{
+  "homeCleaning": {
+    "mostPopularService": "Most Popular Service",
+    "title": "Your Home Deserves Cleanliness",
+    "description": "Professional cleaning services for apartments and houses. Free up time for what you love while we take care of your home's cleanliness.",
+    "insured": "Insured",
+    "ecofriendly": "Eco-friendly",
+    "rating": "4.9/5 Rating",
+    "satisfiedCustomers": "Satisfied Customers",
+    "quality": "Quality",
+    "whyChooseUs": "Why Choose Us",
+    "trustedByThousands": "Trusted by Thousands of Households",
+    "combineProfessionalism": "We combine professionalism, reliability and personal approach",
+    "fullyInsured": "Fully Insured",
+    "fullyInsuredDesc": "Liability insurance up to 5 million CZK",
+    "verifiedStaff": "Verified Staff",
+    "verifiedStaffDesc": "All workers undergo thorough background checks",
+    "100Eco": "100% Eco-friendly",
+    "100EcoDesc": "We use only gentle and certified products",
+    "guaranteedQuality": "Guaranteed Quality",
+    "guaranteedQualityDesc": "Not satisfied? We'll come back and fix it for free",
+    "howItWorks": "How it works",
+    "simpleSteps": "Simple steps to a clean home",
+    "fromOrderToClean": "From order to perfectly clean home",
+    "contactUs": "Contact Us",
+    "contactUsDesc": "Call, write or fill out the form",
+    "scheduleAppointment": "Schedule Appointment",
+    "scheduleAppointmentDesc": "Choose a time that suits you",
+    "weClean": "We Clean",
+    "weCleanDesc": "Our team thoroughly cleans your home",
+    "enjoyCleanliness": "Enjoy Cleanliness",
+    "enjoyCleanlinessDesc": "Relax in a clean and fresh home",
+    "transparentPricing": "Transparent Pricing",
+    "chooseIdealPackage": "Choose Your Ideal Package",
+    "transparentPricingDesc": "Transparent pricing without hidden fees",
+    "perLightCleaning": "per light cleaning",
+    "perDeepCleaning": "per deep cleaning",
+    "perPostRenovation": "post-renovation cleaning",
+    "pricingGroupLight": "Light cleaning",
+    "pricingGroupDeepExtra": "Deep cleaning — in addition to light cleaning",
+    "pricingGroupPostExtra": "Post-renovation — in addition to deep cleaning",
+    "pricingBodyIncludesLight": "Includes full light cleaning.",
+    "pricingExtraHeadingGeneral": "Deep cleaning adds",
+    "pricingBodyIncludesGeneral": "Includes full deep cleaning.",
+    "pricingExtraHeadingPost": "Post-renovation adds",
+    "cleanHome": "clean home",
+    "ourWork": "Our Work",
+    "resultsTitlePart1": "Results that",
+    "resultsTitleHighlight": "speak for us",
+    "resultsSubtitle": "See real transformations from our clients",
+    "gallery": {
+      "modernLivingRoom": "Modern Living Room",
+      "deepCleaning": "Deep cleaning with thorough cleaning",
+      "kitchenAfterRenovation": "Kitchen After Renovation",
+      "dustRemoval": "Construction dust removal",
+      "ecoApproach": "Eco-friendly Approach",
+      "safeForFamily": "Safe for the whole family",
+      "satisfaction": "100% Satisfaction"
+    },
+    "testimonials": {
+      "badge": "What Clients Say",
+      "title": "Read Our Clients'",
+      "titleHighlight": "Experiences",
+      "testimonial1Name": "Jana Svobodová",
+      "testimonial1Role": "Working Mom",
+      "testimonial1Text": "Amazing help! Finally I have time for family and home is always perfectly clean. The lady is kind, discreet and extremely thorough.",
+      "testimonial2Name": "Petr Novák",
+      "testimonial2Role": "Senior Manager",
+      "testimonial2Text": "Professional services at a fair price. They've been cleaning for us for 3 years and we're always satisfied. 100% reliability. I recommend!",
+      "testimonial3Name": "Martina Kučerová",
+      "testimonial3Role": "Retiree",
+      "testimonial3Text": "Very pleasant and thorough lady. I always look forward to cleaning because I know the apartment will shine with cleanliness. Thank you!"
+    },
+    "faq": {
+      "titlePart1": "Frequently Asked",
+      "titlePart2": "Questions",
+      "description": "Answers to the most common questions about apartment and house cleaning",
+      "q1": "How often would you recommend regular cleaning?",
+      "a1": "For a regular household, we recommend cleaning 1x per week or 2x per month. It depends on apartment size, number of residents and your preferences. We'll be happy to help you find the ideal frequency.",
+      "q2": "Do I need to be home during cleaning?",
+      "a2": "No, we offer key service. After signing a contract, we can clean even without your presence. We have liability insurance and all our workers are verified.",
+      "q3": "Do you provide your own cleaning supplies?",
+      "a3": "Yes, we bring our own eco-friendly cleaning supplies and professional equipment. However, we can also use your products if you prefer or have special requirements.",
+      "q4": "Do you clean on weekends too?",
+      "a4": "Yes, we offer cleaning 7 days a week including Saturdays and Sundays to accommodate your schedule. Weekend appointments are very popular, so we recommend booking in advance.",
+      "q5": "What if I need to change the appointment?",
+      "a5": "Just let us know at least 24 hours in advance and we'll arrange an alternative appointment without any fees. We understand that life brings unexpected situations.",
+      "q6": "Do you also offer deep cleaning?",
+      "a6": "Yes, we also perform extensive deep cleaning including window washing, stove cleaning, refrigerator, tiles and other more demanding work. We recommend deep cleaning 2-4x per year.",
+      "moreQuestions": "Have more questions? Don't hesitate to contact us!"
+    },
+    "pricingPlans": {
+      "weekly": {
+        "plan1": {
+          "name": "1 Bedroom",
+          "time": "2–3 hours",
+          "features": [
+            "Dusting furniture, shelves, and reachable surfaces",
+            "Vacuuming carpets and wet-mopping hard floors",
+            "Bathroom and WC: tub/shower, sink, taps, sanitary ceramics",
+            "Kitchen: worktops, hood exterior, appliance fronts, sink",
+            "Trash removal and bag change",
+            "Interior window cleaning (reachable areas; balcony glazing excluded)",
+            "Mirrors and glass surfaces"
+          ]
+        },
+        "plan2": {
+          "name": "2 Bedroom / 2+1",
+          "time": "4–6 hours",
+          "features": [
+            "Same standard as a smaller home, extended to more rooms",
+            "More thorough dust removal in every room",
+            "Multiple bathrooms and WCs",
+            "Kitchen backsplash and grout lines",
+            "Vacuum and mop all floors",
+            "Interior windows in all rooms",
+            "Details: handles, switches, skirting boards"
+          ]
+        },
+        "plan3": {
+          "name": "3 Bedroom / 3+1",
+          "time": "6–8 hours",
+          "features": [
+            "Full cleaning of all living areas",
+            "Kitchen including appliance exteriors and hood",
+            "Bathrooms and WC in full scope",
+            "Vacuum carpets and clean hard floors",
+            "Hallway and reachable cabinet exteriors",
+            "Interior windows (standard reachable areas)",
+            "Optional small extras on request"
+          ]
+        }
+      },
+      "monthly": {
+        "plan1": {
+          "name": "1 Bedroom",
+          "time": "3–4 hours",
+          "features": [
+            "Window and glass cleaning including frames and sills inside",
+            "Cleaning appliances inside (fridge, oven, microwave by agreement)",
+            "Cleaning cabinets and drawers inside (scope by agreement)",
+            "Limescale and buildup removal in bathroom and kitchen",
+            "Deep cleaning of grout, silicone, and tile joints",
+            "Door frames, skirting, and cornices dust removal",
+            "Disinfection of high-touch surfaces (handles, switches)"
+          ]
+        },
+        "plan2": {
+          "name": "2 Bedroom / 2+1",
+          "time": "5–7 hours",
+          "features": [
+            "All interior windows including frames in multiple rooms",
+            "Range hood and filter cleaning",
+            "Cabinet interiors in several rooms (by agreement)",
+            "Radiators and plinths",
+            "Hard floor care (polish / suitable product)",
+            "Skirting and wall joints",
+            "Light fixtures and chandeliers (reachable, no disassembly)"
+          ]
+        },
+        "plan3": {
+          "name": "3 Bedroom / 3+1",
+          "time": "7–9 hours",
+          "features": [
+            "Full window cleaning including frames and tracks",
+            "Deep carpet cleaning in main areas",
+            "Basic upholstery cleaning (spot)",
+            "All appliances inside by agreement",
+            "Full sanitary disinfection",
+            "Grout and silicone review throughout",
+            "Premium detailing and finish"
+          ]
+        }
+      },
+      "onetime": {
+        "plan1": {
+          "name": "1 Bedroom",
+          "time": "4–5 hours",
+          "features": [
+            "Construction dust on walls, ceilings, and floors",
+            "HEPA vacuuming including hard-to-reach areas",
+            "Removal of labels, adhesives, and protective films",
+            "Post-painting touch-ups (drops and splatters)",
+            "Radiators and floors from grout dust and debris",
+            "Coarser trade residue after building work",
+            "Final handover cleaning"
+          ]
+        },
+        "plan2": {
+          "name": "2 Bedroom / 2+1",
+          "time": "6–8 hours",
+          "features": [
+            "Broader construction dust removal across rooms",
+            "Tile and grout cleaning after construction",
+            "Rough debris and small leftover materials",
+            "Dust-wiping all reachable surfaces",
+            "Kitchen units from dust and protective film",
+            "Space ready for move-in",
+            "Scope coordinated to site condition"
+          ]
+        },
+        "plan3": {
+          "name": "3 Bedroom / 3+1",
+          "time": "8–10 hours",
+          "features": [
+            "Complete post-renovation clean of the entire home",
+            "Dust removal from all rooms including cabinets",
+            "Professional window cleaning after build (reachable areas)",
+            "Final clean of appliances and fittings after installation",
+            "All floor types after construction work",
+            "Special requests by agreement (e.g. cellar, garage)",
+            "Premium move-in ready finish"
+          ]
+        }
+      }
+    }
+  },
+  "serviceData": {
+    "home": {
+      "title": "Home Cleaning",
+      "description": "Professional cleaning services for households. We ensure a clean and pleasant home for you and your family.",
+      "features": [
+        "Regular weekly or monthly cleaning",
+        "Deep cleaning of apartments and houses",
+        "Cleaning after painting and renovation",
+        "Window washing and floor polishing",
+        "Ironing and laundry care",
+        "Individual cleaning plan according to your needs",
+        "Our own eco-friendly cleaning products",
+        "Flexible scheduling and key service option"
+      ],
+      "pricing": {
+        "smallApartment": {
+          "name": "Small Apartment",
+          "features": [
+            "Up to 50 m²",
+            "Complete cleaning",
+            "2-3 hours",
+            "Regular 10% discount"
+          ]
+        },
+        "mediumApartment": {
+          "name": "Medium Apartment",
+          "features": [
+            "50-100 m²",
+            "Complete cleaning",
+            "3-4 hours",
+            "Ironing option",
+            "Regular 15% discount"
+          ]
+        },
+        "largeHouse": {
+          "name": "Large House",
+          "features": [
+            "Over 100 m²",
+            "Dedicated team",
+            "Complete care",
+            "Flexible service scope"
+          ]
+        }
+      }
+    },
+    "office": {
+      "title": "Office and Commercial Cleaning Prague",
+      "description": "Professional office cleaning with guaranteed quality. We ensure a clean and pleasant working environment for your employees.",
+      "features": [
+        "Regular daily, weekly or monthly cleaning",
+        "Cleaning of offices, common areas and restrooms",
+        "Disinfection of frequently touched surfaces",
+        "Restocking of hygiene supplies",
+        "Window and blind washing",
+        "Flexible scheduling according to your company needs",
+        "Liability insurance",
+        "Option for cleaning outside business hours"
+      ],
+      "pricing": {
+        "smallOffices": {
+          "name": "Small Offices",
+          "features": [
+            "Up to 100 m²",
+            "Basic cleaning",
+            "Flexible scheduling",
+            "Regular cleanings"
+          ]
+        },
+        "mediumOffices": {
+          "name": "Medium Offices",
+          "features": [
+            "100-300 m²",
+            "Complete cleaning",
+            "Dedicated team",
+            "Account manager",
+            "15% discount"
+          ]
+        },
+        "largeOffices": {
+          "name": "Large Offices",
+          "features": [
+            "Over 300 m²",
+            "Dedicated team",
+            "SLA guarantees",
+            "Reporting",
+            "24/7 support"
+          ]
+        }
+      },
+      "stats": {
+        "satisfiedCompanies": "Satisfied Companies",
+        "yearsOnMarket": "Years on Market",
+        "yearsValue": "10 years",
+        "satisfaction": "Satisfaction",
+        "support": "Support"
+      },
+      "whatsIncluded": [
+        "Vacuuming all floor areas",
+        "Mopping hard floors",
+        "Disinfection of work desks",
+        "Cleaning of kitchens and break rooms",
+        "Cleaning of restrooms and washrooms",
+        "Emptying trash bins",
+        "Restocking toilet paper and soap",
+        "Dusting surfaces",
+        "Cleaning glass partitions",
+        "Regular deep cleanings"
+      ],
+      "faq": {
+        "cleanOutsideHours": {
+          "question": "Do you clean outside business hours?",
+          "answer": "Yes, we can perform cleaning before the start of business hours, after closing, or on weekends, so we don't disturb your company's operations."
+        },
+        "recommendedFrequency": {
+          "question": "How often would you recommend cleaning offices?",
+          "answer": "For standard offices, we recommend cleaning 2-3 times per week. For spaces with higher traffic, daily cleaning is more suitable. Everything depends on the size and intensity of space usage."
+        },
+        "ownSupplies": {
+          "question": "Do you provide your own cleaning supplies?",
+          "answer": "Yes, we use professional eco-friendly products and modern equipment. However, we can also use your products if you prefer."
+        },
+        "companyReferences": {
+          "question": "Do you have references from companies?",
+          "answer": "Yes, we clean offices for more than 50 companies in Prague. We'll be happy to provide you with reference contacts."
+        },
+        "notSatisfied": {
+          "question": "What if I'm not satisfied with the cleaning?",
+          "answer": "We have a quality guarantee - if you're not satisfied, we'll return and fix the problem for free within 24 hours."
+        },
+        "longTermContracts": {
+          "question": "Do you offer long-term contracts with discounts?",
+          "answer": "Yes, for regular cooperation we offer favorable prices and individual discounts based on the scope of services."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Tomáš Dvořák",
+        "testimonial1Role": "CEO IT Company",
+        "testimonial1Text": "We have been working together for 3 years. The teams are always professional, discreet and meet all our security requirements.",
+        "testimonial2Name": "Lucie Marková",
+        "testimonial2Role": "Office Manager",
+        "testimonial2Text": "Finally, a cleaning company you can rely on. Flexible, communicative and most importantly reliable. I recommend!",
+        "testimonial3Name": "Pavel Černý",
+        "testimonial3Role": "Facility Manager",
+        "testimonial3Text": "Perfect quality at a reasonable price. I especially appreciate their proactive approach and regular reporting."
+      },
+      "gallery": {
+        "modernOffices": "Modern Offices",
+        "professionalTeam": "Professional Team",
+        "modernTechnology": "Modern Technology"
+      }
+    },
+    "airbnb": {
+      "title": "Airbnb Cleaning",
+      "description": "Fast and thorough cleaning between guests with timing guarantee. We help you maintain high ratings for your Airbnb.",
+      "features": [
+        "Cleaning on check-out day and before check-in",
+        "Changing bed linens and towels",
+        "Checking functionality of all equipment",
+        "Restocking basic hygiene supplies",
+        "Photo documentation for your review",
+        "Reporting any issues",
+        "Flexible availability 7 days a week",
+        "Special prices for regular cleanings"
+      ],
+      "pricing": {
+        "oneBedroom": {
+          "name": "1 Bedroom Apartment",
+          "features": [
+            "Up to 35 m²",
+            "Complete cleaning",
+            "Linen change"
+          ]
+        },
+        "twoThreeBedroom": {
+          "name": "2-3 Bedroom Apartment",
+          "features": [
+            "35-70 m²",
+            "Complete cleaning",
+            "Linen change",
+            "Photo documentation"
+          ]
+        },
+        "largeApartments": {
+          "name": "Large Apartments",
+          "features": [
+            "Over 70 m²",
+            "Complete cleaning",
+            "Linen change",
+            "Express option"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Guest Check-out",
+        "step1Desc": "We arrive after guest departure",
+        "step2Title": "Status Check",
+        "step2Desc": "We check the apartment and take photos",
+        "step3Title": "Cleaning",
+        "step3Desc": "We thoroughly clean the entire space",
+        "step4Title": "Ready for Guest",
+        "step4Desc": "Apartment is clean and ready"
+      },
+      "guarantees": [
+        "Guaranteed cleaning time - we always finish before the next guest's check-in",
+        "Photo documentation after each cleaning - you have an overview of the apartment's condition",
+        "Immediate issue reporting - nothing will surprise you",
+        "Flexible availability 7 days a week - we clean evenings and weekends too"
+      ],
+      "whatsIncluded": [
+        "Complete vacuuming and mopping",
+        "Changing all bed linens",
+        "Changing towels and cloths",
+        "Cleaning and disinfection of bathroom",
+        "Kitchen cleaning including appliances",
+        "Checking functionality of all equipment",
+        "Restocking basic hygiene supplies",
+        "Taking out trash",
+        "Ventilating the space",
+        "Photo documentation of completed cleaning"
+      ],
+      "faq": {
+        "cleaningSpeed": {
+          "question": "How quickly can you clean between guests?",
+          "answer": "Standard cleaning of 1+kk we can do in 1.5-2 hours. Larger apartments 2-3 hours. We also offer express service with a 20% surcharge for situations where time between guests is very short."
+        },
+        "provideLinens": {
+          "question": "Do you provide bed linens and towels?",
+          "answer": "We can arrange washing of your linens or supply our own quality hotel linens for an additional fee. Everything according to your preferences."
+        },
+        "excessiveDamage": {
+          "question": "What if a guest causes excessive damage?",
+          "answer": "In such a case, we will immediately contact you with photo documentation and offer a solution. We charge according to the actual scope of work."
+        },
+        "eveningWeekend": {
+          "question": "Can you clean in the evening or on weekends?",
+          "answer": "Yes, we are available 7 days a week including evening hours. We understand that check-outs and check-ins are often at non-standard times."
+        },
+        "reportIssues": {
+          "question": "Do you report minor issues too?",
+          "answer": "Yes, we check the functionality of all equipment and immediately report any issues or missing equipment to you."
+        },
+        "communication": {
+          "question": "How does communication and ordering work?",
+          "answer": "You can send us your reservation calendar and we'll plan cleanings automatically. We communicate via WhatsApp, email or phone - whatever suits you."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Petra Nováková",
+        "testimonial1Role": "Owner of 5 Airbnbs",
+        "testimonial1Text": "They've been cleaning my apartments for 2 years. Guests still praise the cleanliness and I have peace of mind. Photo documentation is a great thing!",
+        "testimonial2Name": "Jakub Svoboda",
+        "testimonial2Role": "Host Manager",
+        "testimonial2Text": "I manage 12 apartments and GreenClean is absolute certainty for me. Always on time, always perfectly cleaned.",
+        "testimonial3Name": "Andrea Malá",
+        "testimonial3Role": "Investor",
+        "testimonial3Text": "Reliability and quality at a fair price. My apartment ratings have significantly increased since GreenClean has been cleaning."
+      },
+      "gallery": {
+        "cleanAirbnb": "Clean Airbnb Apartments",
+        "modernSpaces": "Modern Spaces",
+        "readyForGuests": "Ready for Guests"
+      }
+    },
+    "furniture": {
+      "title": "Furniture and Upholstery Cleaning",
+      "description": "Professional wet and dry cleaning of upholstered furniture. Removal of stains, odors and allergens using state-of-the-art technology.",
+      "features": [
+        "Deep cleaning of sofas",
+        "Carpet and carpeted floor cleaning",
+        "Stain and odor removal",
+        "Disinfection and anti-allergen treatment",
+        "Gentle on materials",
+        "Fast drying thanks to modern technology",
+        "Eco-friendly cleaning products",
+        "Option for stain protection treatment"
+      ],
+      "pricing": {
+        "sofaCleaning": {
+          "name": "Sofa Cleaning",
+          "features": [
+            "Armchair: 800 CZK",
+            "2-seater sofa: 1400 CZK",
+            "3-seater sofa: 1800 CZK"
+          ]
+        },
+        "carpetCleaning": {
+          "name": "Carpet Cleaning",
+          "features": [
+            "Deep cleaning",
+            "Stain removal",
+            "Disinfection"
+          ]
+        },
+        "protectionTreatment": {
+          "name": "Protection Treatment",
+          "features": [
+            "Stain protection",
+            "Extended lifespan",
+            "Easier maintenance"
+          ]
+        }
+      },
+      "stats": {
+        "cleanedItems": "Cleaned Items",
+        "ecoFriendly": "Eco-friendly",
+        "dryingTime": "Drying Time",
+        "rating": "Rating"
+      },
+      "process": {
+        "step1Title": "Inspection",
+        "step1Desc": "We check material type and stains",
+        "step2Title": "Pre-cleaning",
+        "step2Desc": "We vacuum and apply cleaners",
+        "step3Title": "Deep Cleaning",
+        "step3Desc": "Professional wet cleaning",
+        "step4Title": "Drying",
+        "step4Desc": "Fast drying and inspection"
+      },
+      "whatsIncluded": [
+        "Vacuuming and surface pre-cleaning",
+        "Deep wet cleaning",
+        "Stain removal with special products",
+        "Disinfection and bacteria removal",
+        "Neutralization of unpleasant odors",
+        "Anti-allergen treatment",
+        "Fast drying with professional equipment",
+        "Optional stain protection treatment",
+        "Result inspection",
+        "Tips for subsequent care"
+      ],
+      "faq": {
+        "dryingTime": {
+          "question": "How long does drying take?",
+          "answer": "Thanks to modern technology, furniture is only slightly damp and can be used after 2-4 hours. Complete drying takes 6-12 hours depending on the material."
+        },
+        "oldStains": {
+          "question": "Can you remove old stains?",
+          "answer": "Most stains, yes. We have special products for wine, coffee, blood, grease, etc. For very old stains, we cannot guarantee 100% removal, but we always strive for maximum results."
+        },
+        "safeForChildren": {
+          "question": "Is cleaning safe for children and pets?",
+          "answer": "Yes, we use eco-friendly, certified products that are safe for the whole family including children and animals."
+        },
+        "leatherFurniture": {
+          "question": "Do you clean leather furniture too?",
+          "answer": "Yes, we have special procedures and products for leather and faux leather. Cleaning including subsequent treatment and leather care."
+        },
+        "protectionTreatment": {
+          "question": "What is protection treatment and what is it for?",
+          "answer": "Protection treatment creates an invisible protective layer that repels liquids and dirt. It extends the life of furniture and makes regular maintenance easier."
+        },
+        "preparation": {
+          "question": "Do I need to prepare the furniture in any way?",
+          "answer": "Ideally remove loose items (pillows, blankets, etc.). We'll take care of complete preparation and subsequent cleaning."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Markéta Horáková",
+        "testimonial1Role": "House owner",
+        "testimonial1Text": "The sofa looks like new! I didn't believe that children's stains could be removed. Fantastic work!",
+        "testimonial2Name": "David Novotný",
+        "testimonial2Role": "Restaurateur",
+        "testimonial2Text": "We clean all furniture in the restaurant with them. Professional approach, fast drying, no downtime.",
+        "testimonial3Name": "Ivana Králová",
+        "testimonial3Role": "Interior designer",
+        "testimonial3Text": "I recommend to all my clients. Always top quality and gentle approach to luxury materials."
+      },
+      "gallery": {
+        "sofaCleaning": "Sofa Cleaning",
+        "professionalCare": "Professional Care",
+        "modernTechnology": "Modern Technology"
+      }
+    },
+    "renovation": {
+      "title": "Post-Renovation and Construction Cleaning",
+      "description": "Complete removal of construction dust and debris. We prepare the space for immediate use or handover.",
+      "features": [
+        "Removal of construction dust and dirt",
+        "Window, frame and sill washing",
+        "Floor and tile cleaning",
+        "Bathroom and kitchen cleaning",
+        "Removal of labels and adhesives",
+        "Polishing of tiles and flooring",
+        "Final cleaning before handover",
+        "Option for regular cleanings during construction"
+      ],
+      "pricing": {
+        "roughCleaning": {
+          "name": "Rough Cleaning",
+          "features": [
+            "Dust removal",
+            "Floor cleaning",
+            "Basic window washing"
+          ]
+        },
+        "finalCleaning": {
+          "name": "Final Cleaning",
+          "features": [
+            "Complete cleaning",
+            "Surface polishing",
+            "Thorough window washing",
+            "Ready for handover"
+          ]
+        },
+        "completePackage": {
+          "name": "Complete Package",
+          "features": [
+            "Rough + final",
+            "Regular cleaning during construction",
+            "Dedicated team"
+          ]
+        }
+      },
+      "stats": {
+        "projects": "Projects",
+        "deadlineCompliance": "Deadline Compliance",
+        "teams": "Teams",
+        "references": "References"
+      },
+      "guarantees": [
+        "Exact deadline compliance - construction won't be delayed due to cleaning",
+        "Complete removal of construction dust - space will be perfectly clean",
+        "Protection of finished surfaces - we work with maximum care",
+        "Option for regular cleanings during construction - we'll keep the work space clean"
+      ],
+      "whatsIncluded": [
+        "Removal of coarse dirt and debris",
+        "Vacuuming construction dust",
+        "Wet cleaning of all floors",
+        "Window washing inside and outside",
+        "Cleaning frames and sills",
+        "Removal of adhesives and labels",
+        "Polishing tiles and flooring",
+        "Cleaning bathrooms and restrooms",
+        "Cleaning kitchen lines",
+        "Final inspection and detail touch-up"
+      ],
+      "faq": {
+        "bestTime": {
+          "question": "When is the best time for post-renovation cleaning?",
+          "answer": "Ideal is first rough cleaning after completion of construction work and then final cleaning just before handover. We can also perform regular cleanings during renovation."
+        },
+        "constructionMaterials": {
+          "question": "Do you remove construction materials too?",
+          "answer": "We remove construction dust, dirt and small debris. Large amounts of debris or materials must be cleared by the construction company beforehand."
+        },
+        "cleaningDuration": {
+          "question": "How long does post-renovation cleaning take?",
+          "answer": "For a 3+1 apartment, count on 6-10 hours depending on the degree of soiling. Larger spaces or very dirty surfaces can take several days."
+        },
+        "exteriors": {
+          "question": "Do you clean exteriors, balconies too?",
+          "answer": "Yes, we offer complete service including window washing from outside, cleaning balconies, terraces and immediate surroundings."
+        },
+        "luxuryMaterials": {
+          "question": "Do you have experience with luxury materials?",
+          "answer": "Yes, we have experience with marble, granite, design tiles, wooden floors and other demanding materials."
+        },
+        "windowWashingOnly": {
+          "question": "Can we order only window washing?",
+          "answer": "Yes, we also offer separate window washing or other partial services according to your needs."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Milan Procházka",
+        "testimonial1Role": "Apartment owner",
+        "testimonial1Text": "After renovation, the apartment was in terrible condition. In one day they worked a miracle - space ready to move in!",
+        "testimonial2Name": "Radek Veselý",
+        "testimonial2Role": "Construction company",
+        "testimonial2Text": "We work together regularly. Always perfect results, deadline compliance. Reliable partner for construction handovers.",
+        "testimonial3Name": "Zuzana Fischerová",
+        "testimonial3Role": "Developer",
+        "testimonial3Text": "Professional approach and excellent communication. Their work significantly simplifies apartment handovers to clients."
+      },
+      "gallery": {
+        "afterRenovation": "After Renovation",
+        "constructionCleaning": "Construction Cleaning",
+        "finalResult": "Final Result"
+      }
+    },
+    "development": {
+      "title": "Development Project Cleaning",
+      "description": "Comprehensive cleaning services for development projects of all sizes. Experience with large-scale projects and new constructions.",
+      "features": [
+        "Cleaning during construction",
+        "Final cleaning before apartment handover",
+        "Coordination with other trades",
+        "Capacity for large projects",
+        "Deadline compliance",
+        "Complete documentation",
+        "Custom price quote",
+        "References from completed projects"
+      ],
+      "pricing": {
+        "smallProjects": {
+          "name": "Small Projects",
+          "features": [
+            "Up to 10 apartments",
+            "Complete cleaning",
+            "Flexible scheduling"
+          ]
+        },
+        "mediumProjects": {
+          "name": "Medium Projects",
+          "features": [
+            "10-50 apartments",
+            "Dedicated team",
+            "Coordination",
+            "Reporting"
+          ]
+        },
+        "largeProjects": {
+          "name": "Large Projects",
+          "features": [
+            "Over 50 apartments",
+            "Complete management",
+            "SLA guarantees",
+            "24/7 availability"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Initial Meeting",
+        "step1Desc": "We discuss scope and project schedule",
+        "step2Title": "Price Quote",
+        "step2Desc": "We prepare detailed custom quote",
+        "step3Title": "Coordination",
+        "step3Desc": "Project manager coordinates all work",
+        "step4Title": "Implementation",
+        "step4Desc": "Progressive cleanings according to project plan"
+      },
+      "stats": {
+        "developmentProjects": "Development Projects",
+        "cleanedApartments": "Cleaned Apartments",
+        "deadlineCompliance": "Deadline Compliance",
+        "yearsExperience": "Years of Experience"
+      },
+      "guarantees": [
+        "Dedicated project manager - one contact for everything",
+        "Regular reporting with photo documentation - you have an overview of progress",
+        "Flexible capacity - we can deploy multiple teams simultaneously",
+        "SLA guarantees - clearly defined service level"
+      ],
+      "whatsIncluded": [
+        "Coordination with general contractor",
+        "Cleaning during construction (intermediate phases)",
+        "Rough cleaning after work completion",
+        "Final cleaning before handover",
+        "Washing all windows and glazing",
+        "Complete documentation",
+        "Work progress reporting",
+        "Dedicated project manager",
+        "Capacity for large projects",
+        "Handover deadline compliance"
+      ],
+      "faq": {
+        "largeProjects": {
+          "question": "Do you have experience with large projects?",
+          "answer": "Yes, we have references from projects from 20 to 200+ apartment units. We have sufficient capacity and experience coordinating large projects."
+        },
+        "coordination": {
+          "question": "How does coordination with other companies work?",
+          "answer": "We have a project manager who coordinates work with the general contractor and other trades. We use modern tools for communication and reporting."
+        },
+        "reporting": {
+          "question": "Do you provide regular reporting?",
+          "answer": "Yes, we provide weekly/monthly reporting with photo documentation, description of work performed and plan for the next period."
+        },
+        "strictDeadlines": {
+          "question": "Can you meet strict deadlines?",
+          "answer": "Yes, we have experience with demanding deadlines. If needed, we can deploy multiple teams simultaneously and work weekends too."
+        },
+        "customPricing": {
+          "question": "Do you offer individual pricing terms?",
+          "answer": "Yes, for large projects we create custom price quotes considering scope, frequency and length of cooperation."
+        },
+        "insurance": {
+          "question": "Do you have insurance for development projects?",
+          "answer": "Yes, we have professional liability insurance up to 10 million CZK, which is standard for work on development projects."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Ing. Petr Novák",
+        "testimonial1Role": "Developer",
+        "testimonial1Text": "We worked together on a project of 85 apartments. Perfect coordination, deadline compliance and excellent communication. We will definitely continue.",
+        "testimonial2Name": "Jan Malý",
+        "testimonial2Role": "General Contractor",
+        "testimonial2Text": "Finally, a cleaning company that understands construction processes. Flexible, fast and most importantly reliable.",
+        "testimonial3Name": "Martina Kovářová",
+        "testimonial3Role": "Project Manager",
+        "testimonial3Text": "I especially appreciate their reporting and proactive approach. They always warn in time about potential problems."
+      },
+      "gallery": {
+        "developmentProjects": "Development Projects",
+        "largeProjects": "Large Projects",
+        "beforeHandover": "Before Handover"
+      }
+    },
+    "buildings": {
+      "title": "Apartment Building and HOA Cleaning",
+      "description": "Regular cleaning of common areas in apartment buildings. We ensure a clean and pleasant environment for all residents.",
+      "features": [
+        "Hallway and staircase cleaning",
+        "Elevator and entrance area cleaning",
+        "Common area cleaning",
+        "Basement and attic cleaning",
+        "Building exterior care",
+        "Regularity and reliability",
+        "Individual cleaning frequency",
+        "Transparent reporting for HOAs"
+      ],
+      "pricing": {
+        "smallBuilding": {
+          "name": "Small Building",
+          "features": [
+            "Up to 12 apartments",
+            "2x per week",
+            "Basic cleaning",
+            "Flexible scheduling"
+          ]
+        },
+        "mediumBuilding": {
+          "name": "Medium Building",
+          "features": [
+            "12-30 apartments",
+            "3x per week",
+            "Complete cleaning",
+            "HOA reporting"
+          ]
+        },
+        "largeBuilding": {
+          "name": "Large Building",
+          "features": [
+            "Over 30 apartments",
+            "Daily cleaning",
+            "Dedicated staff",
+            "Complete management"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Building Inspection",
+        "step1Desc": "We find out scope and building specifics",
+        "step2Title": "Schedule Proposal",
+        "step2Desc": "We propose optimal cleaning frequency",
+        "step3Title": "HOA Board Presentation",
+        "step3Desc": "We introduce ourselves to the HOA board",
+        "step4Title": "Regular Cleaning",
+        "step4Desc": "We ensure reliable cleaning according to plan"
+      },
+      "stats": {
+        "managedBuildings": "Managed Buildings",
+        "satisfiedResidents": "Satisfied Residents",
+        "hoaSatisfaction": "HOA Satisfaction",
+        "averageCooperation": "Average Cooperation Length",
+        "averageCooperationValue": "8 years"
+      },
+      "whatsIncluded": [
+        "Cleaning staircases and hallways",
+        "Washing railings and handrails",
+        "Cleaning entrance areas",
+        "Cleaning elevators",
+        "Washing entrance doors",
+        "Cleaning common areas",
+        "Care for building surroundings",
+        "Cleaning basements and attics (by agreement)",
+        "Regular reporting for HOA",
+        "Communication with HOA board"
+      ],
+      "faq": {
+        "recommendedFrequency": {
+          "question": "How often do you recommend building cleaning?",
+          "answer": "Standard 2-3 times per week for regular buildings. For buildings with higher traffic or more luxurious properties, we recommend daily cleaning."
+        },
+        "whatIncluded": {
+          "question": "What does regular cleaning include?",
+          "answer": "Vacuuming and mopping staircases, hallways, cleaning elevators, washing entrance areas, railings and doors. Care for building surroundings by agreement."
+        },
+        "whatsIncluded": {
+          "question": "What does regular cleaning include?",
+          "answer": "Vacuuming and mopping staircases, hallways, cleaning elevators, washing entrance areas, railings and doors. Care for building surroundings by agreement."
+        },
+        "hoaReporting": {
+          "question": "Do you provide reporting for HOAs?",
+          "answer": "Yes, we regularly provide written reporting on work performed, any issues and recommendations. Everything adapted to board requirements."
+        },
+        "reporting": {
+          "question": "Do you provide reporting for HOAs?",
+          "answer": "Yes, we regularly provide written reporting on work performed, any issues and recommendations. Everything adapted to board requirements."
+        },
+        "contractChange": {
+          "question": "How does it work when changing contract companies?",
+          "answer": "We help with smooth transition. First month we can provide services with trial discount so residents get used to the new system."
+        },
+        "companyChange": {
+          "question": "How does it work when changing contract companies?",
+          "answer": "We help with smooth transition. First month we can provide services with trial discount so residents get used to the new system."
+        },
+        "weekendCleaning": {
+          "question": "Do you clean on weekends too?",
+          "answer": "Yes, we adapt schedule to building needs. We can perform cleaning on weekends too if it's more convenient for residents."
+        },
+        "complaints": {
+          "question": "How do you handle resident complaints?",
+          "answer": "We have a direct line for reporting problems. We handle complaints within 24 hours. We always communicate with HOA board and try to find quick solutions."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Vladimír Horák",
+        "testimonial1Role": "HOA Chairman",
+        "testimonial1Text": "They've been cleaning our building for 4 years. Residents are satisfied, reporting is clear and price is fair. I recommend!",
+        "testimonial2Name": "Eva Dvořáková",
+        "testimonial2Role": "HOA Board Member",
+        "testimonial2Text": "Professional approach and excellent communication. Finally we have a cleaning company you can rely on.",
+        "testimonial3Name": "Josef Veselý",
+        "testimonial3Role": "Property Manager",
+        "testimonial3Text": "I manage 8 buildings and everywhere I switched to GreenClean. Quality, reliability and fair prices."
+      },
+      "gallery": {
+        "commonAreas": "Common Areas",
+        "panelBuildings": "Panel Buildings",
+        "cleanEnvironment": "Clean Environment"
+      }
+    }
+  },
+  "servicePage": {
+    "defaultWhatsIncluded": [
+      "Complete vacuuming of all areas",
+      "Washing and disinfection of all surfaces",
+      "Window and frame cleaning",
+      "Wet floor mopping",
+      "Dust removal from hard-to-reach places",
+      "Sanitary facilities cleaning",
+      "Emptying and disinfection of trash bins",
+      "Restocking hygiene supplies",
+      "Quality check after work completion",
+      "Documentation of work performed"
+    ],
+    "defaultFaq": {
+      "howLong": {
+        "question": "How long does cleaning take?",
+        "answer": "Cleaning time depends on space size and scope of work. For standard space up to 100 m², count on 2-4 hours. We'll provide exact time estimate after inspection."
+      },
+      "cleaningProducts": {
+        "question": "What cleaning products do you use?",
+        "answer": "We use exclusively professional eco-friendly products that are gentle on the environment, health and very effective. All products have EU certification."
+      },
+      "needToBePresent": {
+        "question": "Do I need to be present during cleaning?",
+        "answer": "It's not necessary. Most of our clients entrust us with keys and we perform cleaning according to agreed requirements. Of course, you can be present if you prefer."
+      },
+      "payment": {
+        "question": "How does payment work?",
+        "answer": "You can pay cash, bank transfer or card. We invoice after service completion with option to set up regular payments for recurring cleanings."
+      },
+      "liabilityInsurance": {
+        "question": "Do you have liability insurance?",
+        "answer": "Yes, we have professional liability insurance for damages up to 5 million CZK. Your property is thus fully protected during our services."
+      },
+      "oneTimeCleaning": {
+        "question": "Can I order one-time cleaning?",
+        "answer": "Of course! We offer both one-time cleanings and regular services. Pricing is flexible and we adapt to your needs."
+      }
+    },
+    "defaultTestimonials": {
+      "testimonial1Name": "Petra Nováková",
+      "testimonial1Role": "Airbnb Owner",
+      "testimonial1Text": "Great communication and flexibility. They've been cleaning my apartments for a year and I'm extremely satisfied. Guests rate cleanliness 5 stars.",
+      "testimonial2Name": "Martin Kovář",
+      "testimonial2Role": "Facility Manager",
+      "testimonial2Text": "Professional approach and reliability. They have been taking care of our offices for 3 years and we have never had any problems.",
+      "testimonial3Name": "Jana Svobodová",
+      "testimonial3Role": "Commercial Director",
+      "testimonial3Text": "Finally a cleaning company that pays attention to details. Eco-friendly products are important to us and they deliver on that."
+    },
+    "defaultGallery": {
+      "gallery1Title": "Office spaces",
+      "gallery2Title": "Professional results",
+      "gallery3Title": "Top equipment"
+    }
+  }
+}

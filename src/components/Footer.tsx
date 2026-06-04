@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useTranslation } from "next-i18next";
+import { useLayoutTranslation } from "../i18n/useAppTranslation";
 import {
   Facebook,
   Instagram,
@@ -17,9 +17,11 @@ import {
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
 } from "../constants/contact";
+import { navigateToContactForm } from "../utils/navigateToContactForm";
+import { SectionBackground } from "./SectionBackground";
 
 export function Footer() {
-  const { t } = useTranslation("common");
+  const { t } = useLayoutTranslation();
   const router = useRouter();
   const services = [
     { id: "home", label: t("services.homeCleaning") },
@@ -53,26 +55,9 @@ export function Footer() {
         }}
       ></div>
 
-      {/* Animated background blobs - multiple layers */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-900/30 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-      <div
-        className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-        style={{ backgroundColor: "rgba(255, 168, 38, 0.25)" }}
-      ></div>
-      <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-emerald-900/20 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-blob animation-delay-4000"></div>
+      <SectionBackground variant="dark" />
 
-      {/* Radial gradient overlays */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-green-500/5 via-transparent to-transparent rounded-full blur-3xl"></div>
-
-      {/* Noise texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E\")",
-        }}
-      ></div>
 
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -92,21 +77,21 @@ export function Footer() {
             <div className="flex gap-3 mt-6">
               <a
                 href="#"
-                className="relative w-11 h-11 bg-gray-800/80 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-all duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50 hover:scale-110 hover:-rotate-6"
+                className="relative w-11 h-11 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-colors duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400/0 to-green-600/0 group-hover:from-green-400/20 group-hover:to-green-600/20 transition-all"></div>
                 <Facebook className="w-5 h-5 relative z-10" />
               </a>
               <a
                 href="#"
-                className="relative w-11 h-11 bg-gray-800/80 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-all duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50 hover:scale-110"
+                className="relative w-11 h-11 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-all duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50 hover:scale-110"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400/0 to-green-600/0 group-hover:from-green-400/20 group-hover:to-green-600/20 transition-all"></div>
                 <Instagram className="w-5 h-5 relative z-10" />
               </a>
               <a
                 href="#"
-                className="relative w-11 h-11 bg-gray-800/80 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-all duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50 hover:scale-110 hover:rotate-6"
+                className="relative w-11 h-11 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 transition-all duration-300 group overflow-hidden border border-gray-700/50 hover:border-green-500/50 hover:scale-110 hover:rotate-6"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400/0 to-green-600/0 group-hover:from-green-400/20 group-hover:to-green-600/20 transition-all"></div>
                 <Linkedin className="w-5 h-5 relative z-10" />
@@ -143,7 +128,11 @@ export function Footer() {
               {company.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => router.push(`/${item.id}`)}
+                    onClick={() =>
+                      item.id === "contact"
+                        ? navigateToContactForm(router)
+                        : router.push(`/${item.id}`)
+                    }
                     className="text-sm hover:text-green-400 transition-all text-left group flex items-center gap-2 hover:translate-x-1"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-600 group-hover:bg-green-400 group-hover:w-2 transition-all"></span>
@@ -161,7 +150,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm group">
-                <div className="w-9 h-9 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
+                <div className="w-9 h-9 rounded-lg bg-gray-800/80 border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
                   <Phone className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <a
@@ -172,7 +161,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm group">
-                <div className="w-9 h-9 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
+                <div className="w-9 h-9 rounded-lg bg-gray-800/80 border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
                   <Mail className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <a
@@ -183,7 +172,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm group">
-                <div className="w-9 h-9 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
+                <div className="w-9 h-9 rounded-lg bg-gray-800/80 border border-gray-700/50 flex items-center justify-center flex-shrink-0 group-hover:bg-green-600/20 group-hover:border-green-500/50 transition-all">
                   <MapPin className="w-4 h-4 group-hover:text-green-400 transition-colors" />
                 </div>
                 <span className="mt-1.5 whitespace-pre-line">
@@ -199,7 +188,7 @@ export function Footer() {
         <Separator className="bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p className="flex items-center gap-1">© 2025 ToodyIT</p>
+          <p className="flex items-center gap-1">© 2026 ToodyIT</p>
         </div>
       </div>
     </footer>

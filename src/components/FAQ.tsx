@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
+import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
 import {
   Accordion,
   AccordionContent,
@@ -8,10 +8,15 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { HelpCircle, Sparkles, Mail } from "lucide-react";
-import { CONTACT_EMAIL, CONTACT_MAILTO } from "../constants/contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_FORM_PATH,
+  CONTACT_MAILTO,
+} from "../constants/contact";
+import { SectionBackground } from "./SectionBackground";
 
 export function FAQ() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
   const faqs = [
     {
       question: t("faq.howToOrder"),
@@ -41,12 +46,7 @@ export function FAQ() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
-        style={{ backgroundColor: "#FFA826" }}
-      ></div>
+      <SectionBackground variant="lightSm" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 max-w-4xl relative z-10">
         {/* Header */}
@@ -103,7 +103,7 @@ export function FAQ() {
               {CONTACT_EMAIL}
             </a>
             <Link
-              href="/contact"
+              href={CONTACT_FORM_PATH}
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-green-700 hover:to-emerald-700 hover:shadow-xl"
             >
               {t("faq.contactUs")}

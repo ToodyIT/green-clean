@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { useServiceDetailTranslation } from "../src/i18n/useAppTranslation";
+import { loadTranslations } from "../src/i18n/loadTranslations";
 import { ServicePage } from "../src/components/ServicePage";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
@@ -10,7 +10,7 @@ import { SEO } from "../src/components/SEO";
 import { useServiceData } from "../src/utils/serviceData";
 
 export default function AirbnbPage() {
-  const { t } = useTranslation("common");
+  const { t } = useServiceDetailTranslation();
   const servicesData = useServiceData();
 
   return (
@@ -128,7 +128,7 @@ export default function AirbnbPage() {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "cs", ["common"])),
+      ...(await loadTranslations(locale)),
     },
   };
 };

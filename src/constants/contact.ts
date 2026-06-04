@@ -1,3 +1,7 @@
+/** Anchor id and path for the contact quote form */
+export const CONTACT_FORM_ID = "contact-form";
+export const CONTACT_FORM_PATH = `/contact#${CONTACT_FORM_ID}`;
+
 /** Site-wide contact details — single source of truth for links and display */
 export const CONTACT_PHONE_E164 = "+420773601737";
 export const CONTACT_PHONE_DISPLAY = "+420 773 601 737";

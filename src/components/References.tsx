@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "next-i18next";
+import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
 import { Card } from "./ui/card";
 import {
   Star,
@@ -15,9 +15,10 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { SectionBackground } from "./SectionBackground";
 
 export function References() {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
 
   const testimonials = [
@@ -95,12 +96,7 @@ export function References() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div
-        className="absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
-        style={{ backgroundColor: "#FFA826" }}
-      ></div>
+      <SectionBackground variant="light" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
@@ -235,12 +231,7 @@ export function References() {
       <div className="mb-16 w-full">
         {/* Background with gradient */}
         <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12 overflow-hidden">
-          {/* Decorative blobs */}
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-          <div
-            className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-            style={{ backgroundColor: "#FFA826" }}
-          ></div>
+          <SectionBackground variant="lightSm" />
 
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
             <div className="text-center mb-8">
@@ -259,61 +250,22 @@ export function References() {
             </div>
           </div>
 
-          {/* Infinite scrolling marquee */}
-          <div className="relative overflow-hidden py-6 w-full">
-            {/* Gradient overlays */}
-            <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-green-50 via-emerald-50 to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-teal-50 via-emerald-50 to-transparent z-10"></div>
-
-            {/* Scrolling content */}
-            <div className="flex animate-marquee">
-              {/* First set */}
-              {clients.map((client, index) => {
-                const IconComponent = clientIcons[index];
-                return (
-                  <div
-                    key={`first-${index}`}
-                    className="flex-shrink-0 mx-3 px-10 py-8 bg-white border-2 border-green-200 rounded-2xl shadow-lg hover:shadow-2xl hover:border-green-500 hover:scale-110 transition-all duration-300 group min-w-[240px] relative overflow-hidden"
-                  >
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transform -skew-x-12 group-hover:translate-x-full transition-all duration-700"></div>
-
-                    <div className="relative flex items-center justify-center gap-3">
-                      <IconComponent
-                        className="w-5 h-5 flex-shrink-0 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500"
-                        style={{ color: "#FFA826" }}
-                      />
-                      <div className="text-gray-800 group-hover:text-green-600 transition-colors whitespace-nowrap text-center">
-                        {client}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-              {/* Duplicate set for seamless loop */}
-              {clients.map((client, index) => {
-                const IconComponent = clientIcons[index];
-                return (
-                  <div
-                    key={`second-${index}`}
-                    className="flex-shrink-0 mx-3 px-10 py-8 bg-white border-2 border-green-200 rounded-2xl shadow-lg hover:shadow-2xl hover:border-green-500 hover:scale-110 transition-all duration-300 group min-w-[240px] relative overflow-hidden"
-                  >
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transform -skew-x-12 group-hover:translate-x-full transition-all duration-700"></div>
-
-                    <div className="relative flex items-center justify-center gap-3">
-                      <IconComponent
-                        className="w-5 h-5 flex-shrink-0 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500"
-                        style={{ color: "#FFA826" }}
-                      />
-                      <div className="text-gray-800 group-hover:text-green-600 transition-colors whitespace-nowrap text-center">
-                        {client}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="flex flex-wrap justify-center gap-3 px-4 py-6 max-w-6xl mx-auto">
+            {clients.map((client, index) => {
+              const IconComponent = clientIcons[index];
+              return (
+                <div
+                  key={index}
+                  className="flex min-w-[200px] flex-shrink-0 items-center justify-center gap-3 rounded-2xl border-2 border-green-200 bg-white px-6 py-5 shadow-md transition-shadow duration-300 hover:border-green-500 hover:shadow-lg sm:min-w-[220px] sm:px-8 sm:py-6"
+                >
+                  <IconComponent
+                    className="h-5 w-5 flex-shrink-0"
+                    style={{ color: "#FFA826" }}
+                  />
+                  <span className="text-center text-gray-800">{client}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -322,15 +274,9 @@ export function References() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
         <div className="max-w-4xl mx-auto">
           <Card className="relative p-12 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 border-0 text-white shadow-2xl overflow-hidden">
-            {/* Animated background */}
-            <div className="absolute inset-0">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-            </div>
-
             <div className="relative text-center">
               <Award
-                className="w-20 h-20 mx-auto mb-6 animate-float"
+                className="w-20 h-20 mx-auto mb-6"
                 style={{ color: "#FFB84D" }}
               />
               <div className="text-6xl mb-4">98%</div>

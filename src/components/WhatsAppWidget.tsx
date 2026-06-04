@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
+import { useLayoutTranslation } from "../i18n/useAppTranslation";
 import { MessageCircle, X } from "lucide-react";
 
 interface WhatsAppWidgetProps {
@@ -13,7 +13,7 @@ export function WhatsAppWidget({
   message,
   position = "right",
 }: WhatsAppWidgetProps) {
-  const { t } = useTranslation("common");
+  const { t } = useLayoutTranslation();
   const defaultMessage = message || t("whatsapp.defaultMessage");
   const [isVisible, setIsVisible] = useState(false);
   const [showPrompt, setShowPrompt] = useState(true);

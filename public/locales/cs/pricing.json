@@ -1,0 +1,359 @@
+{
+  "pricing": {
+    "title": "Ceník",
+    "subtitle": "Transparentní ceník",
+    "description": "Jasné ceny podle služeb a metrů čtverečních bez skrytých poplatků",
+    "homesApartments": "Byty a domy",
+    "lightCleaning": "Lehký úklid",
+    "deepCleaning": "Generální úklid",
+    "postRenovation": "Úklid po rekonstrukci",
+    "officesCompanies": "Kanceláře a firmy",
+    "airbnbApartments": "Airbnb byty",
+    "furnitureUpholstery": "Nábytek a sedačky",
+    "postRenovationTitle": "Po rekonstrukci",
+    "developmentProjects": "Developerské projekty",
+    "apartmentBuildings": "Panelové domy a SVJ",
+    "needAccurateQuote": "Získejte individuální nabídku úklidu",
+    "needAccurateQuoteSubline": "Odpovíme do 24 hodin.",
+    "perCleaning": "za úklid",
+    "perSquareMeter": "za metr čtvereční",
+    "monthly": "měsíčně",
+    "customPrice": "individuální cena",
+    "onRequest": "na poptávku",
+    "perPiece": "za kus",
+    "from": "Od",
+    "custom": "Individuálně",
+    "planTexts": {
+      "home": {
+        "weekly": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "2–3 h",
+            "features": [
+              "Vysávání a mytí podlah",
+              "Úklid koupelny",
+              "Úklid kuchyně",
+              "Utírání prachu"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "4–6 h",
+            "features": [
+              "Více místností",
+              "Důkladný úklid",
+              "Mytí zrcadel",
+              "Flexibilní plán"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "6–8 h",
+            "features": [
+              "Kompletní úklid",
+              "Péče o rostliny",
+              "Žehlení dle přání",
+              "Individuální požadavky"
+            ]
+          }
+        ],
+        "monthly": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "3–4 h",
+            "features": [
+              "Mytí oken",
+              "Čištění spotřebičů",
+              "Čištění skříní",
+              "Dezinfekce"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "5–7 h",
+            "features": [
+              "Čištění dlažby",
+              "Čištění digestoře",
+              "Leštění podlah",
+              "Plná dezinfekce"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "7–9 h",
+            "features": [
+              "Generální úklid",
+              "Čištění nábytku",
+              "Mytí oken a rámů",
+              "Prémiová dezinfekce"
+            ]
+          }
+        ],
+        "onetime": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "4–5 h",
+            "features": [
+              "Odstraňování prachu",
+              "Mytí oken",
+              "Úklid po malování",
+              "Finální úklid"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "6–8 h",
+            "features": [
+              "Generální úklid",
+              "Čištění dlažby",
+              "Mytí všech ploch",
+              "Kompletní dokončení"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "8–10 h",
+            "features": [
+              "Kompletní úklid",
+              "Odvoz odpadu",
+              "Čištění spotřebičů",
+              "Prémiové dokončení"
+            ]
+          }
+        ]
+      },
+      "office": [
+        {
+          "name": "Malé kanceláře",
+          "features": [
+            "Otírání prachu z nábytku, polic a pracovních ploch",
+            "Vysávání koberců a mokrý úklid tvrdých podlah",
+            "Úklid WC a sanitárních zařízení",
+            "Kuchyňky: pracovní desky, dřez, spotřebiče zvenku",
+            "Skleněné dveře a přepážky v dosahu",
+            "Vynášení odpadků a výměna pytlů",
+            "Dezinfekce klik, vypínačů a zábradlí",
+            "Termíny mimo špičku vaší provozní doby"
+          ]
+        },
+        {
+          "name": "Střední kanceláře",
+          "features": [
+            "Plný rozsah jako u malých kanceláří na větší ploše",
+            "Zasedací místnosti a společné zóny (stoly, židle, skříně)",
+            "Častější úklid WC dle domluvy",
+            "Mytí vnitřního skla a přepážek",
+            "Skříně na materiál a společné úložné prostory (zvenku)",
+            "Vyhrazený kontakt a měsíční reporting",
+            "Objemová sleva z ceny za m²"
+          ]
+        },
+        {
+          "name": "Velké kanceláře",
+          "features": [
+            "Úklid více pater s koordinovaným týmem",
+            "SLA s dohodnutými reakčními časy",
+            "Reporting a kontrolní seznamy pro facility",
+            "Protokol klíčů a vstupů v souladu s domem",
+            "Noční a víkendové úklidy dle potřeby",
+            "Ekologické nebo standardní prostředky dle domluvy",
+            "Spotřební materiál a technika pro velké plochy na vyžádání"
+          ]
+        }
+      ],
+      "airbnb": [
+        {
+          "name": "Byt 1+kk",
+          "features": [
+            "Otírání prachu z nábytku a dostupných ploch",
+            "Vysávání koberců a mokrý úklid podlah",
+            "Koupelna a WC: keramika, sprcha, umyvadlo, zrcadlo",
+            "Kuchyně: deska, dřez, varná deska a spotřebiče zvenku",
+            "Vynesení odpadků a základní úprava prostoru",
+            "Výměna ložního prádla a povlečení postelí",
+            "Mytí oken zevnitř (dostupné části)",
+            "Předání připravené pro dalšího hosta"
+          ]
+        },
+        {
+          "name": "Byt 2–3+kk",
+          "features": [
+            "Stejný standard jako u menšího bytu, více místností",
+            "Důkladnější úklid prachu v ložnicích a chodbách",
+            "Více koupelen v jednom standardu",
+            "Kuchyně včetně obkladů a dvířek skříní",
+            "Foto dokumentace na vyžádání",
+            "Expresní termín pro obrat ve stejný den",
+            "Výměna prádla ve všech ložnicích",
+            "Závěrečná kontrola osvětlení, zápachu a skvrn"
+          ]
+        },
+        {
+          "name": "Velké byty",
+          "features": [
+            "Kompletní úklid všech obývaných pokojů a ložnic",
+            "Velká kuchyně a jídelní zóny",
+            "Všechny koupelny a WC v plném rozsahu",
+            "Chodba, vstup a úložné prostory v dosahu",
+            "Expresní obrat dle domluvy",
+            "Výměna prádla a ručníků v celém bytě",
+            "Okna zevnitř v hlavních místnostech",
+            "Drobná úprava před focením na vyžádání"
+          ]
+        }
+      ],
+      "furniture": [
+        {
+          "name": "Čištění sedaček",
+          "features": [
+            "Kontrola typu látky a skvrn",
+            "Extrakční čištění profesionální technikou",
+            "Cílená péče o lokální skvrny",
+            "Snížení zápachu a rychlejší schnutí",
+            "Křeslo od 800 Kč, 2místná od 1400 Kč, 3místná od 1800 Kč",
+            "Šetrné prostředky k barvám a vláknům",
+            "Tipy na běžnou péči po úklidu"
+          ]
+        },
+        {
+          "name": "Čištění koberců",
+          "features": [
+            "Vysávání před vlhkým čištěním",
+            "Hloubkové extrakční mytí za m²",
+            "Ošetření skvrn a namáhaných míst",
+            "Dezinfekce vhodná pro domácnosti s dětmi",
+            "Rychlejší sušení s odborným prouděním vzduchu",
+            "Čištění třásní a okrajů kde je to možné",
+            "Cena 120 Kč/m² — finální rozsah po prohlídce"
+          ]
+        },
+        {
+          "name": "Impregnační ochrana",
+          "features": [
+            "Impregnace proti vodě a nečistotám",
+            "Prodloužení životnosti čalounění a koberců",
+            "Snadnější běžná údržba",
+            "Vhodné po hloubkovém čištění",
+            "Od 400 Kč za kus podle rozměru",
+            "Přípravek podle materiálu",
+            "Doporučeno u světlých látek"
+          ]
+        }
+      ],
+      "renovation": [
+        {
+          "name": "Hrubý úklid",
+          "features": [
+            "Odstranění hrubého stavebního prachu a suti",
+            "Vysávání podlah a dostupných ploch",
+            "Základní mytí oken zevnitř",
+            "Úklid běžných zbytků po řemeslech",
+            "Příprava pod malbu nebo finální fázi",
+            "HEPA vysávání v citlivých prostorech na vyžádání",
+            "Předání hrubě připraveného stavu"
+          ]
+        },
+        {
+          "name": "Finální úklid",
+          "features": [
+            "Odstranění jemného prachu ze stěn, podlah a instalací",
+            "Důkladné mytí oken včetně rámů zevnitř",
+            "Sanitární prostory včetně spár a silikonů",
+            "Kuchyňské linky a vestavěné spotřebiče zvenku",
+            "Mytí podlah a dokončovací detaily",
+            "Připraveno k předání nebo nastěhování",
+            "Závěrečná kontrola dle dohodnutého seznamu"
+          ]
+        },
+        {
+          "name": "Kompletní balíček",
+          "features": [
+            "Hrubý i finální úklid v jednom projektu",
+            "Pravidelné návštěvy stavby dle domluvy",
+            "Vyhrazený tým a jeden kontaktní člověk",
+            "Časový plán podle průběhu stavby",
+            "Individuální rozsah: garáž, sklep, exteriér",
+            "Reporting a foto dokumentace na vyžádání",
+            "Cena po prohlídce — bez skrytých položek"
+          ]
+        }
+      ],
+      "development": [
+        {
+          "name": "Menší projekty",
+          "features": [
+            "Úklid před předáním do cca 10 jednotek",
+            "Kompletní úklid bytu před předáním klientovi",
+            "Odstranění etiket, prachu a lehké stavební špíny",
+            "Okna a podlahy připravené k převzetí",
+            "Flexibilní termíny podle dokončení stavby",
+            "Koordinace se stavbyvedoucím",
+            "Sazba od 30 Kč/m² — přesná cena po obchůzce"
+          ]
+        },
+        {
+          "name": "Střední projekty",
+          "features": [
+            "10–50 jednotek s vyhrazeným koordinátorem",
+            "Fázovaný úklid podle předávek",
+            "Škálování týmu podle milníků",
+            "Písemný reporting a seznam vad na vyžádání",
+            "Opakované návštěvy pro opravy",
+            "Stejný standard kvality ve všech bytech",
+            "Sazba od 25 Kč/m² dle domluvy"
+          ]
+        },
+        {
+          "name": "Velké projekty",
+          "features": [
+            "50+ jednotek: plný provozní režim",
+            "SLA a sankce ve smlouvě",
+            "Dostupnost 24/7 u kritických termínů",
+            "Sklady a společné části dle rozsahu",
+            "Audity kvality a reporting pro klienta",
+            "Koordinace s dodavateli na vyžádání",
+            "Individuální cena po technické schůzce"
+          ]
+        }
+      ],
+      "buildings": [
+        {
+          "name": "Menší dům",
+          "features": [
+            "Společné prostory: schodiště, chodby, podesty",
+            "Vstup a prosklení hlavních dveří",
+            "Sklepní chodby v dohodnutém rozsahu",
+            "Svítidla a zábradlí v dosahu",
+            "Základní úklid místnosti s popelnicemi",
+            "Standard 2× týdně — frekvence upravitelná",
+            "Od 3000 Kč/měsíc — podle velikosti domu"
+          ]
+        },
+        {
+          "name": "Střední dům",
+          "features": [
+            "12–30 bytů: rozšířený rozsah společných prostor",
+            "3× týdně nebo dle domluvy se SVJ",
+            "Kabiny výtahu a strojovna (dostupné zóny)",
+            "Sezónní hloubkové úklidy vstupních zón",
+            "Jednoduchý reporting pro výbor SVJ",
+            "Kontaktní osoba pro připomínky obyvatel",
+            "Od 6000 Kč/měsíc — nutná prohlídka"
+          ]
+        },
+        {
+          "name": "Velký dům",
+          "features": [
+            "30+ bytů: denní nebo téměř denní úklid",
+            "Stálý tým známý s domem",
+            "Kompletní správa úklidového materiálu",
+            "Zimní a blátivé období — častější průchody",
+            "Před garážemi a parkováním dle domluvy",
+            "Vlastní smlouva a SLA",
+            "Cena na vyžádání po auditu objektu"
+          ]
+        }
+      ]
+    }
+  }
+}

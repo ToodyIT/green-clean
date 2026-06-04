@@ -1,0 +1,359 @@
+{
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Transparent Pricing",
+    "description": "Clear prices by service and square meters without hidden fees",
+    "homesApartments": "Homes and Apartments",
+    "lightCleaning": "Light Cleaning",
+    "deepCleaning": "Deep Cleaning",
+    "postRenovation": "Post-Renovation Cleaning",
+    "officesCompanies": "Offices and Companies",
+    "airbnbApartments": "Airbnb Apartments",
+    "furnitureUpholstery": "Furniture and Upholstery",
+    "postRenovationTitle": "Post-Renovation",
+    "developmentProjects": "Development Projects",
+    "apartmentBuildings": "Apartment Buildings and HOAs",
+    "needAccurateQuote": "Get a personal cleaning quote",
+    "needAccurateQuoteSubline": "We will respond within 24 hours.",
+    "perCleaning": "per cleaning",
+    "perSquareMeter": "per square meter",
+    "monthly": "monthly",
+    "customPrice": "custom price",
+    "onRequest": "on request",
+    "perPiece": "per piece",
+    "from": "From",
+    "custom": "Custom",
+    "planTexts": {
+      "home": {
+        "weekly": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "2–3 hours",
+            "features": [
+              "Vacuuming and mopping",
+              "Bathroom cleaning",
+              "Kitchen cleaning",
+              "Dusting"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "4–6 hours",
+            "features": [
+              "More rooms",
+              "Thorough cleaning",
+              "Mirror cleaning",
+              "Flexible scheduling"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "6–8 hours",
+            "features": [
+              "Complete cleaning",
+              "Plant care",
+              "Ironing option",
+              "Custom requirements"
+            ]
+          }
+        ],
+        "monthly": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "3–4 hours",
+            "features": [
+              "Window washing",
+              "Appliance cleaning",
+              "Cabinet cleaning",
+              "Disinfection"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "5–7 hours",
+            "features": [
+              "Tile cleaning",
+              "Range hood cleaning",
+              "Floor polishing",
+              "Full disinfection"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "7–9 hours",
+            "features": [
+              "Deep cleaning",
+              "Furniture cleaning",
+              "Windows and frames",
+              "Premium disinfection"
+            ]
+          }
+        ],
+        "onetime": [
+          {
+            "name": "1+1 / 1+kk",
+            "time": "4–5 hours",
+            "features": [
+              "Dust removal",
+              "Window washing",
+              "Post-painting cleaning",
+              "Final cleaning"
+            ]
+          },
+          {
+            "name": "2+1 / 2+kk",
+            "time": "6–8 hours",
+            "features": [
+              "Deep cleaning",
+              "Tile cleaning",
+              "All surface washing",
+              "Complete finalization"
+            ]
+          },
+          {
+            "name": "3+1 / 3+kk",
+            "time": "8–10 hours",
+            "features": [
+              "Complete cleaning",
+              "Debris removal",
+              "Appliance cleaning",
+              "Premium finish"
+            ]
+          }
+        ]
+      },
+      "office": [
+        {
+          "name": "Small Offices",
+          "features": [
+            "Dusting furniture, shelves, and work surfaces",
+            "Vacuuming carpets and wet-mopping hard floors",
+            "Cleaning WC and sanitary facilities",
+            "Kitchenettes: worktops, sink, appliance exteriors",
+            "Glass doors and interior partitions within reach",
+            "Trash removal and bag change",
+            "Disinfection of handles, switches, and railings",
+            "Scheduling outside your peak hours"
+          ]
+        },
+        {
+          "name": "Medium Offices",
+          "features": [
+            "Full small-office scope for larger floor areas",
+            "Meeting rooms and shared zones (tables, chairs, sideboards)",
+            "More frequent WC cleaning by agreement",
+            "Interior glass and partition washing",
+            "Supply cupboards and shared storage (exterior)",
+            "Dedicated contact person and monthly reporting",
+            "Volume discount on the per-m² rate"
+          ]
+        },
+        {
+          "name": "Large Offices",
+          "features": [
+            "Multi-floor cleaning with a coordinated team",
+            "SLA with agreed response times",
+            "Reporting and checklists for facility management",
+            "Key and security protocol aligned with building rules",
+            "Night and weekend service available",
+            "Eco or standard products as agreed",
+            "Consumables and equipment for large areas on request"
+          ]
+        }
+      ],
+      "airbnb": [
+        {
+          "name": "1 Bedroom Apartment",
+          "features": [
+            "Dusting furniture and reachable surfaces",
+            "Vacuuming carpets and wet-mopping floors",
+            "Bathroom and WC: ceramics, shower, sink, mirror",
+            "Kitchen: worktops, sink, hob and appliance fronts",
+            "Trash removal and tidying common areas",
+            "Bed linen change and bed making",
+            "Interior windows (reachable areas)",
+            "Handover ready for the next guest"
+          ]
+        },
+        {
+          "name": "2-3 Bedroom Apartment",
+          "features": [
+            "Everything from the smaller unit, extended to more rooms",
+            "More thorough dusting in bedrooms and corridors",
+            "Multiple bathrooms cleaned to the same standard",
+            "Kitchen including backsplash and cupboard fronts",
+            "Photo documentation on request",
+            "Express slot for same-day turnaround",
+            "Linen change in all bedrooms",
+            "Final check of lights, odours, and visible stains"
+          ]
+        },
+        {
+          "name": "Large Apartments",
+          "features": [
+            "Full cleaning of all living areas and bedrooms",
+            "Large kitchen and dining zones",
+            "All bathrooms and WC in full scope",
+            "Hallway, entrance, and storage (reachable)",
+            "Express turnaround option by agreement",
+            "Linen and towel change throughout",
+            "Interior windows in main rooms",
+            "Optional staging touches before photography"
+          ]
+        }
+      ],
+      "furniture": [
+        {
+          "name": "Sofa Cleaning",
+          "features": [
+            "Inspection of fabric type and stains",
+            "Extraction cleaning with professional equipment",
+            "Spot treatment of local stains",
+            "Odour reduction and faster drying",
+            "Armchair from 800 CZK, 2-seat from 1400 CZK, 3-seat from 1800 CZK",
+            "Safe products for colours and fibres",
+            "Aftercare tips for everyday use"
+          ]
+        },
+        {
+          "name": "Carpet Cleaning",
+          "features": [
+            "Vacuuming before wet cleaning",
+            "Deep extraction wash by m²",
+            "Stain and high-traffic area treatment",
+            "Disinfection suitable for households with children",
+            "Faster drying with professional airflow",
+            "Fringe and edge cleaning where applicable",
+            "Price 120 CZK/m² — final scope by inspection"
+          ]
+        },
+        {
+          "name": "Protection Treatment",
+          "features": [
+            "Impregnation against liquids and dirt",
+            "Extends upholstery and carpet life",
+            "Easier day-to-day maintenance",
+            "Suitable after deep cleaning",
+            "From 400 CZK per piece by size",
+            "Product matched to material",
+            "Recommended for light-coloured fabrics"
+          ]
+        }
+      ],
+      "renovation": [
+        {
+          "name": "Rough Cleaning",
+          "features": [
+            "Removal of coarse construction dust and debris",
+            "Vacuuming floors and accessible surfaces",
+            "Basic interior window washing",
+            "Cleaning of common trade residue",
+            "Preparation for painting or final phase",
+            "HEPA vacuuming in dust-sensitive areas on request",
+            "Handover of visibly passable rough state"
+          ]
+        },
+        {
+          "name": "Final Cleaning",
+          "features": [
+            "Fine dust removal from walls, floors, and fittings",
+            "Thorough window and frame cleaning inside",
+            "Sanitary areas including joints and silicone",
+            "Kitchen units and installed appliances (exterior)",
+            "Floor washing and detail finishing",
+            "Ready for client handover or move-in",
+            "Final walkthrough against agreed checklist"
+          ]
+        },
+        {
+          "name": "Complete Package",
+          "features": [
+            "Rough clean plus final clean in one project",
+            "Regular site visits during construction by agreement",
+            "Dedicated team and single point of contact",
+            "Timeline aligned with your construction schedule",
+            "Custom scope: garages, cellars, outdoor areas",
+            "Reporting and photo documentation optional",
+            "Price on inspection — no surprises in scope"
+          ]
+        }
+      ],
+      "development": [
+        {
+          "name": "Small Projects",
+          "features": [
+            "Turnover cleaning for up to about 10 units",
+            "Complete flat clean before handover",
+            "Removal of labels, dust, and light construction dirt",
+            "Windows and floors ready for takeover",
+            "Flexible dates around construction deadlines",
+            "Coordination with site manager",
+            "Rate from 30 CZK/m² — exact figure after walkthrough"
+          ]
+        },
+        {
+          "name": "Medium Projects",
+          "features": [
+            "10–50 units with dedicated coordinator",
+            "Phased cleaning aligned with approvals",
+            "Team scaling to your milestones",
+            "Written reporting and snag lists on request",
+            "Repeat visits for punch-list items",
+            "Uniform quality standard across all units",
+            "Rate from 25 CZK/m² by agreement"
+          ]
+        },
+        {
+          "name": "Large Projects",
+          "features": [
+            "50+ units: full operational setup",
+            "SLA and penalties defined in contract",
+            "24/7 availability for critical deadlines",
+            "Warehouse and common parts included by scope",
+            "Quality audits and client reporting",
+            "Subcontractor coordination on request",
+            "Custom price after technical meeting"
+          ]
+        }
+      ],
+      "buildings": [
+        {
+          "name": "Small Building",
+          "features": [
+            "Common areas: stairwells, corridors, landings",
+            "Entrance and glass at main doors",
+            "Basement and cellar corridors (agreed scope)",
+            "Light fixtures and railings within reach",
+            "Waste room and bin area basic cleaning",
+            "2× per week standard — frequency adjustable",
+            "From 3000 CZK/month — by building size"
+          ]
+        },
+        {
+          "name": "Medium Building",
+          "features": [
+            "12–30 apartments: extended common-area scope",
+            "3× per week or as agreed with HOA",
+            "Elevator cabins and machine room (exterior access)",
+            "Seasonal deep cleans of entrance zones",
+            "Simple reporting for SVJ / HOA board",
+            "Contact person for residents’ requests",
+            "From 6000 CZK/month — inspection required"
+          ]
+        },
+        {
+          "name": "Large Building",
+          "features": [
+            "30+ units: daily or near-daily cleaning",
+            "Dedicated staff familiar with the building",
+            "Full management of cleaning supplies",
+            "Winter and mud-season extra passes",
+            "Parking and garage frontages by agreement",
+            "Custom contract and SLA",
+            "Price on request after site audit"
+          ]
+        }
+      ]
+    }
+  }
+}

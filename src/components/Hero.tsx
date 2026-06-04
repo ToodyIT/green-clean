@@ -1,29 +1,25 @@
 import React from "react";
-import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
+import { twJoin } from "tailwind-merge";
 import { Button } from "./ui/button";
 import { CheckCircle, ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { SectionBackground } from "./SectionBackground";
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
 }
 
 export function Hero({ onNavigate }: HeroProps) {
-  const { t } = useTranslation("common");
+  const { t } = useHomeSectionsTranslation();
+  const router = useRouter();
+  const locale = router.locale || "cs";
+  const isLongTitleLocale = locale === "ru" || locale === "uk";
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-green-50 to-emerald-50">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div
-          className="absolute top-40 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-          style={{ backgroundColor: "#FFA826" }}
-        ></div>
-        <div
-          className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
-          style={{ backgroundColor: "#FFB84D" }}
-        ></div>
-      </div>
+      <SectionBackground variant="light" />
 
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0Y2ExMzciIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMTAgMTBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-40"></div>
@@ -32,16 +28,23 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             {/* Badge with glassmorphism */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-md border border-green-200 rounded-full mb-4 sm:mb-6 lg:mb-8 shadow-lg hover:bg-white transition-all duration-300 group">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/95 border border-green-200 rounded-full mb-4 sm:mb-6 lg:mb-8 shadow-lg hover:bg-white transition-colors duration-300 group">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 group-hover:rotate-12 transition-transform" />
               <span className="text-xs sm:text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                 {t("hero.badge")}
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-gray-900">
-              {t("hero.title")}
-              <span className="block bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
+            <h1
+              className={twJoin(
+                "mb-3 sm:mb-4 lg:mb-6 leading-tight text-gray-900",
+                isLongTitleLocale
+                  ? "text-[2rem] sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+                  : "text-5xl sm:text-6xl lg:text-7xl xl:text-[5rem]"
+              )}
+            >
+              <span className="block whitespace-nowrap">{t("hero.title")}</span>
+              <span className="block whitespace-nowrap bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 {t("hero.titleHighlight")}
               </span>
             </h1>
@@ -129,30 +132,25 @@ export function Hero({ onNavigate }: HeroProps) {
             </div>
           </div>
 
-          {/* Image with modern effects */}
-          <div className="relative lg:block hidden">
-            <div className="relative">
+          {/* Image with modern effects — 80% of column width (20% smaller than original) */}
+          <div className="relative hidden lg:block">
+            <div className="relative ml-auto w-[80%]">
               {/* Glow effect */}
-              <div
-                className="absolute -inset-4 rounded-3xl blur-2xl opacity-20 animate-pulse"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4ca137, #FFA826)",
-                }}
-              ></div>
-
-              {/* Image container */}
-              <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-500">
+              <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-[1.02] transition-transform duration-300">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
                   alt="Professional cleaning team"
+                  width={800}
+                  height={600}
+                  priority
+                  sizes="(max-width: 1024px) 0px, 40vw"
                   className="w-full h-full object-cover aspect-[4/3]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
               </div>
 
               {/* Floating stats card with glassmorphism */}
-              <div className="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-2xl p-6 shadow-2xl hover:scale-110 transition-transform duration-300">
+              <div className="absolute -bottom-8 -left-8 bg-white border border-gray-200 rounded-2xl p-6 shadow-2xl">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <div className="text-4xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">

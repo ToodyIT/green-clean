@@ -1,0 +1,987 @@
+{
+  "homeCleaning": {
+    "mostPopularService": "Nejoblíbenější služba",
+    "title": "Váš domov zaslouží čistotu",
+    "description": "Profesionální úklidové služby pro byty a domy. Uvolněte si čas pro to, co máte rádi, zatímco my se postaráme o čistotu vašeho domova.",
+    "insured": "Pojištěno",
+    "ecofriendly": "Ekologické",
+    "rating": "4.9/5 hodnocení",
+    "satisfiedCustomers": "Spokojených zákazníků",
+    "quality": "Kvalita",
+    "whyChooseUs": "Proč si vybrat nás",
+    "trustedByThousands": "Důvěřují nám tisíce domácností",
+    "combineProfessionalism": "Kombinujeme profesionalitu, spolehlivost a osobní přístup",
+    "fullyInsured": "Plně pojištěno",
+    "fullyInsuredDesc": "Pojištění odpovědnosti za škodu až 5 mil. Kč",
+    "verifiedStaff": "Prověřený personál",
+    "verifiedStaffDesc": "Všichni pracovníci prochází důkladným prověřením",
+    "100Eco": "100% ekologické",
+    "100EcoDesc": "Používáme pouze šetrné a certifikované prostředky",
+    "guaranteedQuality": "Garantovaná kvalita",
+    "guaranteedQualityDesc": "Nespokojenost? Vrátíme se a opravíme zdarma",
+    "howItWorks": "Jak to funguje",
+    "simpleSteps": "Jednoduché kroky k čistému domovu",
+    "fromOrderToClean": "Od objednávky po dokonale čistý domov",
+    "contactUs": "Kontaktujte nás",
+    "contactUsDesc": "Zavolejte, napište nebo vyplňte formulář",
+    "scheduleAppointment": "Domluvíme termín",
+    "scheduleAppointmentDesc": "Vyberte si čas, který vám vyhovuje",
+    "weClean": "Uklízíme",
+    "weCleanDesc": "Náš tým důkladně uklidí váš domov",
+    "enjoyCleanliness": "Užijte si čistotu",
+    "enjoyCleanlinessDesc": "Relaxujte v čistém a svěžím domově",
+    "transparentPricing": "Transparentní ceny",
+    "chooseIdealPackage": "Vyberte si ideální balíček",
+    "transparentPricingDesc": "Transparentní ceník bez skrytých poplatků",
+    "perLightCleaning": "za lehký úklid",
+    "perDeepCleaning": "za generální úklid",
+    "perPostRenovation": "úklid po rekonstrukci",
+    "pricingGroupLight": "Lehký úklid",
+    "pricingGroupDeepExtra": "Generální úklid — navíc oproti lehkému",
+    "pricingGroupPostExtra": "Úklid po rekonstrukci — navíc oproti generálnímu",
+    "pricingBodyIncludesLight": "Zahrnuje kompletní lehký úklid.",
+    "pricingExtraHeadingGeneral": "Navíc u generálního",
+    "pricingBodyIncludesGeneral": "Zahrnuje kompletní generální úklid.",
+    "pricingExtraHeadingPost": "Navíc po rekonstrukci",
+    "cleanHome": "čistému domovu",
+    "ourWork": "Naše práce",
+    "resultsTitlePart1": "Výsledky, které",
+    "resultsTitleHighlight": "mluví za nás",
+    "resultsSubtitle": "Podívejte se na skutečné transformace našich zákazníků",
+    "gallery": {
+      "modernLivingRoom": "Moderní obývací pokoj",
+      "deepCleaning": "Generální úklid s hloubkovým čištěním",
+      "kitchenAfterRenovation": "Kuchyně po rekonstrukci",
+      "dustRemoval": "Odstranění stavebního prachu",
+      "ecoApproach": "Ekologický přístup",
+      "safeForFamily": "Bezpečné pro celou rodinu",
+      "satisfaction": "100% spokojenost"
+    },
+    "testimonials": {
+      "badge": "Co říkají klienti",
+      "title": "Přečtěte si",
+      "titleHighlight": "zkušenosti našich klientů",
+      "testimonial1Name": "Jana Svobodová",
+      "testimonial1Role": "Pracující maminka",
+      "testimonial1Text": "Úžasná pomoc! Konečně mám čas na rodinu a domov je vždy perfektně uklizený. Paní je milá, diskrétní a nesmírně důkladná.",
+      "testimonial2Name": "Petr Novák",
+      "testimonial2Role": "Senior manager",
+      "testimonial2Text": "Profesionální služby za férovou cenu. Uklízí nám už 3 roky a vždy jsme spokojeni. Spolehlivost na 100%. Doporučuji!",
+      "testimonial3Name": "Martina Kučerová",
+      "testimonial3Role": "Důchodkyně",
+      "testimonial3Text": "Velmi příjemná a důkladná paní. Vždy se těším na úklid, protože vím, že byt bude zářit čistotou. Děkuji!"
+    },
+    "faq": {
+      "titlePart1": "Často kladené",
+      "titlePart2": "otázky",
+      "description": "Odpovědi na nejčastější dotazy o úklidu bytů a domů",
+      "q1": "Jak často byste doporučili pravidelný úklid?",
+      "a1": "Pro běžnou domácnost doporučujeme úklid 1x týdně nebo 2x měsíčně. Záleží na velikosti bytu, počtu obyvatel a vašich preferencích. Rádi vám pomůžeme najít ideální frekvenci.",
+      "q2": "Musím být doma během úklidu?",
+      "a2": "Ne, nabízíme klíčovou službu. Po podepsání smlouvy můžeme uklízet i bez vaší přítomnosti. Máme pojištění odpovědnosti za škodu a všichni naši pracovníci jsou prověření.",
+      "q3": "Poskytujete vlastní čisticí prostředky?",
+      "a3": "Ano, přinášíme vlastní ekologické čisticí prostředky a profesionální vybavení. Můžeme však použít i vaše produkty, pokud to preferujete nebo máte speciální požadavky.",
+      "q4": "Uklízíte i o víkendech?",
+      "a4": "Ano, nabízíme úklidy 7 dní v týdnu včetně sobot a nedělí, abychom vyhověli vašemu rozvrhu. Víkendové termíny jsou velmi oblíbené, proto doporučujeme rezervaci předem.",
+      "q5": "Co když potřebuji změnit termín?",
+      "a5": "Stačí nás informovat alespoň 24 hodin předem a domluvíme náhradní termín bez jakýchkoli poplatků. Chápeme, že život přináší nečekané situace.",
+      "q6": "Nabízíte i generální úklid?",
+      "a6": "Ano, provádíme i rozsáhlé generální úklidy včetně mytí oken, čištění sporáku, lednice, obkladů a dalších náročnějších prací. Generální úklid doporučujeme 2-4x ročně.",
+      "moreQuestions": "Máte další otázky? Neváhejte nás kontaktovat!"
+    },
+    "pricingPlans": {
+      "weekly": {
+        "plan1": {
+          "name": "1+kk",
+          "time": "2–3 hodiny",
+          "features": [
+            "Otírání prachu z nábytku, polic a dostupných ploch",
+            "Vysávání koberců a mokrý úklid podlah (mop)",
+            "Koupelna a WC: vana/sprcha, umyvadlo, baterie, sanitární keramika",
+            "Kuchyně: pracovní deska, digestoř zvenku, dvířka spotřebičů, dřez",
+            "Vynesení odpadků a výměna pytle",
+            "Mytí oken zevnitř (dostupné části, bez skel na balkoně)",
+            "Zrcadla a skleněné plochy"
+          ]
+        },
+        "plan2": {
+          "name": "2+kk / 2+1",
+          "time": "4–6 hodin",
+          "features": [
+            "Stejný standard jako u menšího bytu, rozšířený na více místností",
+            "Důkladnější odstranění prachu ve všech pokojích",
+            "Úklid více koupelen a WC",
+            "Kuchyňská linka včetně obkladů a spár",
+            "Vysávání a mop všech podlah",
+            "Úklid oken zevnitř ve všech pokojích",
+            "Detaily: kliky, vypínače, podlahové lišty"
+          ]
+        },
+        "plan3": {
+          "name": "3+kk / 3+1",
+          "time": "6–8 hodin",
+          "features": [
+            "Kompletní úklid všech obývaných místností",
+            "Kuchyně včetně spotřebičů zvenku a digestoře",
+            "Koupelny a WC v plném rozsahu",
+            "Vysávání koberců a úklid tvrdých podlah",
+            "Úklid vstupní chodby a dostupných skříní zvenku",
+            "Úklid oken zevnitř (standardně dostupné partie)",
+            "Možnost domluvy na drobných individuálních úkonech"
+          ]
+        }
+      },
+      "monthly": {
+        "plan1": {
+          "name": "1+kk",
+          "time": "3–4 hodiny",
+          "features": [
+            "Mytí oken a skel včetně rámu a parapetů zevnitř",
+            "Čištění spotřebičů zevnitř (lednice, trouba, mikrovlnka dle domluvy)",
+            "Čištění skříní a zásuvek zevnitř (rozsah po domluvě)",
+            "Odstranění vodního kamene, tahů a usazenin v koupelně a kuchyni",
+            "Hloubkové čištění spár, silikonů a obkladů",
+            "Čištění zárubní, lišt a podhledů od prachu",
+            "Dezinfekce často dotýkaných povrchů (kliky, vypínače)"
+          ]
+        },
+        "plan2": {
+          "name": "2+kk / 2+1",
+          "time": "5–7 hodin",
+          "features": [
+            "Mytí všech oken zevnitř včetně rámů ve více pokojích",
+            "Čištění digestoře a filtrů",
+            "Čištění skříní zevnitř ve více místnostech (po domluvě)",
+            "Čištění radiátorů a podstavců",
+            "Péče o tvrdé podlahy (leštění / vhodný přípravek)",
+            "Podlahové lišty a spáry u zdí",
+            "Čištění svítidel a lustru (bez demontáže, dostupné části)"
+          ]
+        },
+        "plan3": {
+          "name": "3+kk / 3+1",
+          "time": "7–9 hodin",
+          "features": [
+            "Kompletní mytí oken včetně rámů a dostupných kolejnic",
+            "Hloubkové čištění koberců v hlavních zónách",
+            "Základní čištění čalounění a sedacích souprav (místně)",
+            "Čištění všech spotřebičů zevnitř dle domluvy",
+            "Kompletní dezinfekce sanitárních prostor",
+            "Revize spár a silikonů v celém bytě",
+            "Prémiová péče o detaily a dokončení"
+          ]
+        }
+      },
+      "onetime": {
+        "plan1": {
+          "name": "1+kk",
+          "time": "4–5 hodin",
+          "features": [
+            "Odstranění stavebního prachu na stěnách, stropech a podlahách",
+            "Odsátí prachu včetně těžko dostupných míst (HEPA technologie)",
+            "Odstranění zbytků štítků, lepidel a ochranných fólií",
+            "Úklid po malířských pracích (drobné skvrny a odstřiky)",
+            "Čištění topných těles a podlah od stavebního spelu",
+            "Úklid hrubších nečistot po řemeslných pracích",
+            "Finální úklid před předáním bytu"
+          ]
+        },
+        "plan2": {
+          "name": "2+kk / 2+1",
+          "time": "6–8 hodin",
+          "features": [
+            "Rozsáhlejší odstranění stavebního prachu ve více místnostech",
+            "Čištění spár a dlažeb po stavbě",
+            "Odstranění hrubých nečistot a drobných stavebních zbytků",
+            "Mytí všech dostupných ploch od prachu",
+            "Kuchyňská linka od stavebního prachu a fólií",
+            "Příprava prostoru na finální užívání",
+            "Koordinace rozsahu dle stavu díla"
+          ]
+        },
+        "plan3": {
+          "name": "3+kk / 3+1",
+          "time": "8–10 hodin",
+          "features": [
+            "Kompletní úklid po rekonstrukci celého bytu",
+            "Odstranění prachu ze všech místností včetně skříní",
+            "Profesionální úklid oken po stavbě (dostupné části)",
+            "Finální úklid spotřebičů a instalací po montáži",
+            "Péče o všechny typy podlah po stavebních pracích",
+            "Speciální požadavky dle domluvy (např. garáž, sklep)",
+            "Prémiové dokončení před nastěhováním"
+          ]
+        }
+      }
+    }
+  },
+  "serviceData": {
+    "home": {
+      "title": "Úklid bytů a domů",
+      "description": "Profesionální úklidové služby pro domácnosti. Zajistíme čistý a příjemný domov pro vás a vaši rodinu.",
+      "features": [
+        "Pravidelný týdenní nebo měsíční úklid",
+        "Generální úklid bytů a domů",
+        "Úklid po malování a rekonstrukci",
+        "Mytí oken a leštění podlah",
+        "Žehlení a péče o prádlo",
+        "Individuální plán úklidu podle vašich potřeb",
+        "Vlastní ekologické čisticí prostředky",
+        "Flexibilní termíny a možnost klíčové služby"
+      ],
+      "pricing": {
+        "smallApartment": {
+          "name": "Malý byt",
+          "features": [
+            "Do 50 m²",
+            "Kompletní úklid",
+            "2-3 hodiny",
+            "Pravidelná 10% sleva"
+          ]
+        },
+        "mediumApartment": {
+          "name": "Střední byt",
+          "features": [
+            "50-100 m²",
+            "Kompletní úklid",
+            "3-4 hodiny",
+            "Možnost žehlení",
+            "Pravidelná 15% sleva"
+          ]
+        },
+        "largeHouse": {
+          "name": "Velký dům",
+          "features": [
+            "Nad 100 m²",
+            "Dedikovaný tým",
+            "Kompletní péče",
+            "Flexibilní rozsah služeb"
+          ]
+        }
+      }
+    },
+    "office": {
+      "title": "Úklid kanceláří a firem Praha",
+      "description": "Profesionální úklid kanceláří se zaručenou kvalitou. Zajistíme čisté a příjemné pracovní prostředí pro vaše zaměstnance.",
+      "features": [
+        "Pravidelný denní, týdenní nebo měsíční úklid",
+        "Úklid kanceláří, společných prostor a WC",
+        "Dezinfekce často dotýkaných povrchů",
+        "Doplnění hygienických potřeb",
+        "Mytí oken a žaluzií",
+        "Flexibilní termíny podle potřeb vaší firmy",
+        "Pojištění odpovědnosti",
+        "Možnost úklidu mimo pracovní dobu"
+      ],
+      "pricing": {
+        "smallOffices": {
+          "name": "Malé kanceláře",
+          "features": [
+            "Do 100 m²",
+            "Základní úklid",
+            "Flexibilní termíny",
+            "Pravidelné úklidy"
+          ]
+        },
+        "mediumOffices": {
+          "name": "Střední kanceláře",
+          "features": [
+            "100-300 m²",
+            "Kompletní úklid",
+            "Dedikovaný tým",
+            "Account manager",
+            "15% sleva"
+          ]
+        },
+        "largeOffices": {
+          "name": "Velké kanceláře",
+          "features": [
+            "Nad 300 m²",
+            "Dedikovaný tým",
+            "SLA garance",
+            "Reporting",
+            "24/7 podpora"
+          ]
+        }
+      },
+      "stats": {
+        "satisfiedCompanies": "Spokojených firem",
+        "yearsOnMarket": "Let na trhu",
+        "yearsValue": "10 let",
+        "satisfaction": "Spokojenost",
+        "support": "Podpora"
+      },
+      "whatsIncluded": [
+        "Vysávání všech podlahových ploch",
+        "Vytírání tvrdých podlah",
+        "Dezinfekce pracovních stolů",
+        "Čištění kuchyněk a odpočinkových prostor",
+        "Úklid WC a umýváren",
+        "Vynášení odpadkových košů",
+        "Doplňování toaletního papíru a mýdla",
+        "Otírání prachu z povrchů",
+        "Mytí skleněných přepážek",
+        "Pravidelné generální úklidy"
+      ],
+      "faq": {
+        "cleanOutsideHours": {
+          "question": "Uklízíte i mimo pracovní dobu?",
+          "answer": "Ano, můžeme provádět úklid před začátkem pracovní doby, po jejím ukončení nebo o víkendech, abychom nerušili provoz vaší firmy."
+        },
+        "recommendedFrequency": {
+          "question": "Jak často byste doporučili úklid kanceláří?",
+          "answer": "Pro standardní kanceláře doporučujeme úklid 2-3x týdně. Pro prostory s vyšším provozem je vhodnější denní úklid. Vše záleží na velikosti a intenzitě využití prostor."
+        },
+        "ownSupplies": {
+          "question": "Poskytujete vlastní čistící prostředky?",
+          "answer": "Ano, používáme profesionální ekologické prostředky a moderní vybavení. Můžeme však použít i vaše produkty, pokud to preferujete."
+        },
+        "companyReferences": {
+          "question": "Máte reference od firem?",
+          "answer": "Ano, uklízíme kanceláře pro více než 50 firem v Praze. Rádi vám poskytneme kontakty na reference."
+        },
+        "notSatisfied": {
+          "question": "Co když není s úklidem spokojenost?",
+          "answer": "Máme garanci kvality - pokud nebudete spokojeni, vrátíme se a problém napravíme zdarma do 24 hodin."
+        },
+        "longTermContracts": {
+          "question": "Nabízíte dlouhodobé smlouvy se slevou?",
+          "answer": "Ano, při pravidelné spolupráci nabízíme výhodné ceny a individuální slevy dle rozsahu služeb."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Tomáš Dvořák",
+        "testimonial1Role": "CEO IT společnosti",
+        "testimonial1Text": "Spolupracujeme již 3 roky. Týmy jsou vždy profesionální, diskrétní a dodržují všechny naše bezpečnostní požadavky.",
+        "testimonial2Name": "Lucie Marková",
+        "testimonial2Role": "Office Manager",
+        "testimonial2Text": "Konečně úklidová firma, na kterou se můžete spolehnout. Flexibilní, komunikativní a hlavně spolehlivá. Doporučuji!",
+        "testimonial3Name": "Pavel Černý",
+        "testimonial3Role": "Facility Manager",
+        "testimonial3Text": "Perfektní kvalita za rozumnou cenu. Oceňuji zejména proaktivní přístup a pravidelné reportování."
+      },
+      "gallery": {
+        "modernOffices": "Moderní kanceláře",
+        "professionalTeam": "Profesionální tým",
+        "modernTechnology": "Moderní technologie"
+      }
+    },
+    "airbnb": {
+      "title": "Úklid Airbnb",
+      "description": "Rychlý a důkladný úklid mezi hosty s garancí termínu. Pomůžeme vám udržet vysoké hodnocení vašeho Airbnb.",
+      "features": [
+        "Úklid v den odjezdu hosta a před příjezdem",
+        "Převlékání povlečení a ručníků",
+        "Kontrola funkčnosti všech spotřebičů",
+        "Doplňování základních hygienických potřeb",
+        "Fotodokumentace pro vaši kontrolu",
+        "Hlášení závad",
+        "Flexibilní dostupnost 7 dní v týdnu",
+        "Výhodné ceny pro pravidelné úklidy"
+      ],
+      "pricing": {
+        "oneBedroom": {
+          "name": "Byt 1+kk",
+          "features": [
+            "Do 35 m²",
+            "Kompletní úklid",
+            "Převlékání lůžkovin"
+          ]
+        },
+        "twoThreeBedroom": {
+          "name": "Byt 2–3+kk",
+          "features": [
+            "35–70 m²",
+            "Kompletní úklid",
+            "Převlékání lůžkovin",
+            "Fotodokumentace"
+          ]
+        },
+        "largeApartments": {
+          "name": "Velké byty",
+          "features": [
+            "Nad 70 m²",
+            "Kompletní úklid",
+            "Převlékání lůžkovin",
+            "Express varianta"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Odjezd hosta",
+        "step1Desc": "Přijedeme po odjezdu hosta",
+        "step2Title": "Kontrola stavu",
+        "step2Desc": "Zkontrolujeme byt a vyfotíme",
+        "step3Title": "Úklid",
+        "step3Desc": "Důkladně uklidíme celý prostor",
+        "step4Title": "Připraveno pro hosta",
+        "step4Desc": "Byt je čistý a připravený"
+      },
+      "guarantees": [
+        "Garantovaný termín úklidu – vždy dokončíme před příjezdem dalšího hosta",
+        "Fotodokumentace po každém úklidu – máte přehled o stavu bytu",
+        "Okamžité hlášení závad – nic vás nepřekvapí",
+        "Flexibilní dostupnost 7 dní v týdnu – uklízíme i večer a o víkendech"
+      ],
+      "whatsIncluded": [
+        "Kompletní vysávání a vytírání",
+        "Převlékání všech lůžkovin",
+        "Výměna ručníků a utěrek",
+        "Úklid a dezinfekce koupelny",
+        "Úklid kuchyně včetně spotřebičů",
+        "Kontrola funkčnosti zařízení",
+        "Doplnění základních hygienických potřeb",
+        "Vynášení odpadků",
+        "Větrání prostoru",
+        "Fotodokumentace provedeného úklidu"
+      ],
+      "faq": {
+        "cleaningSpeed": {
+          "question": "Jak rychle zvládnete úklid mezi hosty?",
+          "answer": "Standardní úklid 1+kk zvládneme za 1,5–2 hodiny. Větší byty 2–3 hodiny. Nabízíme i express službu s 20% příplatkem."
+        },
+        "provideLinens": {
+          "question": "Poskytujete povlečení a ručníky?",
+          "answer": "Můžeme zajistit praní vašich lůžkovin nebo dodáme vlastní kvalitní hotelové povlečení za příplatek."
+        },
+        "excessiveDamage": {
+          "question": "Co když host způsobí větší škodu?",
+          "answer": "V takovém případě vás okamžitě kontaktujeme s fotodokumentací a nabídneme řešení. Fakturujeme dle skutečného rozsahu práce."
+        },
+        "eveningWeekend": {
+          "question": "Uklízíte i večer nebo o víkendech?",
+          "answer": "Ano, jsme k dispozici 7 dní v týdnu včetně večerních hodin. Rozumíme, že odjezdy a příjezdy bývají v nestandardních časech."
+        },
+        "reportIssues": {
+          "question": "Hlásíte i drobné závady?",
+          "answer": "Ano, kontrolujeme funkčnost všech zařízení a případné závady nebo chybějící vybavení vám okamžitě hlásíme."
+        },
+        "communication": {
+          "question": "Jak funguje komunikace a objednávání?",
+          "answer": "Můžete nám poslat kalendář rezervací a úklidy naplánujeme automaticky. Komunikujeme přes WhatsApp, e-mail nebo telefon."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Petra Nováková",
+        "testimonial1Role": "Vlastní 5 Airbnb",
+        "testimonial1Text": "Uklízí mé byty už 2 roky. Hosté stále chválí čistotu a mám klid. Fotodokumentace je skvělá věc!",
+        "testimonial2Name": "Jakub Svoboda",
+        "testimonial2Role": "Host Manager",
+        "testimonial2Text": "Spravuji 12 bytů a GreenClean je pro mě absolutní jistota. Vždy včas, vždy perfektně uklizeno.",
+        "testimonial3Name": "Andrea Malá",
+        "testimonial3Role": "Investor",
+        "testimonial3Text": "Spolehlivost a kvalita za férovou cenu. Hodnocení mého bytu se od doby, co uklízí GreenClean, výrazně zlepšila."
+      },
+      "gallery": {
+        "cleanAirbnb": "Čisté Airbnb byty",
+        "modernSpaces": "Moderní prostory",
+        "readyForGuests": "Připraveno pro hosty"
+      }
+    },
+    "furniture": {
+      "title": "Čištění nábytku a čalounění",
+      "description": "Profesionální mokré a suché čištění čalouněného nábytku. Odstranění skvrn, pachů a alergenů pomocí nejmodernější techniky.",
+      "features": [
+        "Hloubkové čištění pohovek",
+        "Čištění koberců a kobercových podlah",
+        "Odstranění skvrn a pachů",
+        "Dezinfekce a protialergenní úprava",
+        "Šetrnost k materiálům",
+        "Rychlé schnutí díky moderní technologii",
+        "Ekologické čisticí prostředky",
+        "Možnost ochranné úpravy proti skvrnám"
+      ],
+      "pricing": {
+        "sofaCleaning": {
+          "name": "Čištění pohovky",
+          "features": [
+            "Křeslo: 800 Kč",
+            "Pohovka 2-seater: 1400 Kč",
+            "Pohovka 3-seater: 1800 Kč"
+          ]
+        },
+        "carpetCleaning": {
+          "name": "Čištění koberců",
+          "features": [
+            "Hloubkové čištění",
+            "Odstranění skvrn",
+            "Dezinfekce"
+          ]
+        },
+        "protectionTreatment": {
+          "name": "Ochranná úprava",
+          "features": [
+            "Ochrana proti skvrnám",
+            "Prodloužení životnosti",
+            "Jednodušší údržba"
+          ]
+        }
+      },
+      "stats": {
+        "cleanedItems": "Vyčištěno položek",
+        "ecoFriendly": "Ekologické",
+        "dryingTime": "Doba schnutí",
+        "rating": "Hodnocení"
+      },
+      "process": {
+        "step1Title": "Prohlídka",
+        "step1Desc": "Zkontrolujeme typ materiálu a skvrny",
+        "step2Title": "Předčištění",
+        "step2Desc": "Vysajeme a naneseme čisticí prostředky",
+        "step3Title": "Hloubkové čištění",
+        "step3Desc": "Profesionální mokré čištění",
+        "step4Title": "Schnutí",
+        "step4Desc": "Rychlé schnutí a kontrola"
+      },
+      "whatsIncluded": [
+        "Vysávání a předčištění povrchů",
+        "Hloubkové mokré čištění",
+        "Odstranění skvrn speciálními přípravky",
+        "Dezinfekce a odstranění bakterií",
+        "Neutralizace nepříjemných pachů",
+        "Protialergenní úprava",
+        "Rychlé schnutí s profesionální technikou",
+        "Volitelná ochranná úprava proti skvrnám",
+        "Kontrola výsledku",
+        "Tipy na následnou péči"
+      ],
+      "faq": {
+        "dryingTime": {
+          "question": "Jak dlouho trvá schnutí?",
+          "answer": "Díky moderní technologii je nábytek jen mírně vlhký a po 2–4 hodinách použitelný. Úplné schnutí 6–12 hodin dle materiálu."
+        },
+        "oldStains": {
+          "question": "Odstraníte i staré skvrny?",
+          "answer": "Většinu ano. Máme speciální přípravky na víno, kávu, krev, tuk atd. U velmi starých skvrn nemůžeme zaručit 100% odstranění, vždy ale usilujeme o maximum."
+        },
+        "safeForChildren": {
+          "question": "Je čištění bezpečné pro děti a zvířata?",
+          "answer": "Ano, používáme ekologické certifikované přípravky bezpečné pro celou rodinu včetně dětí a zvířat."
+        },
+        "leatherFurniture": {
+          "question": "Čistíte i kožený nábytek?",
+          "answer": "Ano, máme speciální postupy a přípravky na kůži a koženku. Čištění včetně následné úpravy a péče o kůži."
+        },
+        "protectionTreatment": {
+          "question": "Co je ochranná úprava a k čemu slouží?",
+          "answer": "Ochranná úprava vytvoří neviditelnou vrstvu odpuzující tekutiny a nečistoty. Prodlouží životnost nábytku a zjednoduší běžnou údržbu."
+        },
+        "preparation": {
+          "question": "Musím nábytek nějak připravit?",
+          "answer": "Ideálně odstraňte volné předměty (polštáře, deky). O kompletní přípravu a následné čištění se postaráme my."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Markéta Horáková",
+        "testimonial1Role": "Vlastníce domu",
+        "testimonial1Text": "Pohovka vypadá jako nová! Nevěřila jsem, že dětské skvrny jdou odstranit. Fantastická práce!",
+        "testimonial2Name": "David Novotný",
+        "testimonial2Role": "Restauratér",
+        "testimonial2Text": "U nich čistíme veškerý nábytek v restauraci. Profesionální přístup, rychlé schnutí, žádné prostoje.",
+        "testimonial3Name": "Ivana Králová",
+        "testimonial3Role": "Interiérová designérka",
+        "testimonial3Text": "Doporučuji všem svým klientům. Vždy špičková kvalita a šetrný přístup k luxusním materiálům."
+      },
+      "gallery": {
+        "sofaCleaning": "Čištění pohovek",
+        "professionalCare": "Profesionální péče",
+        "modernTechnology": "Moderní technologie"
+      }
+    },
+    "renovation": {
+      "title": "Úklid po rekonstrukci a stavební úklid",
+      "description": "Kompletní odstranění stavebního prachu a nečistot. Připravíme prostor k okamžitému užívání nebo předání.",
+      "features": [
+        "Odstranění stavebního prachu a nečistot",
+        "Mytí oken, rámů a parapetů",
+        "Čištění podlah a obkladů",
+        "Úklid koupelen a kuchyní",
+        "Odstranění štítků a lepidel",
+        "Leštění obkladů a podlah",
+        "Finální úklid před předáním",
+        "Možnost pravidelných úklidů během stavby"
+      ],
+      "pricing": {
+        "roughCleaning": {
+          "name": "Hrubý úklid",
+          "features": [
+            "Odstranění prachu",
+            "Čištění podlah",
+            "Základní mytí oken"
+          ]
+        },
+        "finalCleaning": {
+          "name": "Finální úklid",
+          "features": [
+            "Kompletní úklid",
+            "Leštění povrchů",
+            "Důkladné mytí oken",
+            "Připraveno k předání"
+          ]
+        },
+        "completePackage": {
+          "name": "Kompletní balíček",
+          "features": [
+            "Hrubý + finální",
+            "Pravidelné úklidy během stavby",
+            "Dedikovaný tým"
+          ]
+        }
+      },
+      "stats": {
+        "projects": "Projektů",
+        "deadlineCompliance": "Dodržení termínů",
+        "teams": "Týmů",
+        "references": "Reference"
+      },
+      "guarantees": [
+        "Přesné dodržení termínů – stavba se kvůli úklidu neprodluží",
+        "Kompletní odstranění stavebního prachu – prostor bude dokonale čistý",
+        "Ochrana dokončených povrchů – pracujeme s maximální opatrností",
+        "Možnost pravidelných úklidů během stavby – udržíme pracovní prostor v čistotě"
+      ],
+      "whatsIncluded": [
+        "Odstranění hrubých nečistot a sutin",
+        "Vysávání stavebního prachu",
+        "Mokré čištění všech podlah",
+        "Mytí oken zevnitř i zvenku",
+        "Čištění rámů a parapetů",
+        "Odstranění lepidel a štítků",
+        "Leštění obkladů a podlah",
+        "Úklid koupelen a WC",
+        "Čištění kuchyňské linky",
+        "Finální kontrola a dotažení detailů"
+      ],
+      "faq": {
+        "bestTime": {
+          "question": "Kdy je nejvhodnější čas na úklid po rekonstrukci?",
+          "answer": "Ideální je nejdříve hrubý úklid po dokončení stavebních prací a poté finální úklid těsně před předáním. Nabízíme i pravidelné úklidy během rekonstrukce."
+        },
+        "constructionMaterials": {
+          "question": "Odstraňujete i stavební materiál?",
+          "answer": "Odstraňujeme stavební prach, nečistoty a drobnou suť. Velké množství suti nebo materiálu musí předem odstranit stavební firma."
+        },
+        "cleaningDuration": {
+          "question": "Jak dlouho trvá úklid po rekonstrukci?",
+          "answer": "U bytu 3+1 počítejte s 6–10 hodinami dle stupně znečištění. Větší prostory nebo velmi znečištěné povrchy mohou trvat i několik dní."
+        },
+        "exteriors": {
+          "question": "Čistíte i exteriéry, balkony?",
+          "answer": "Ano, nabízíme kompletní službu včetně mytí oken zvenku, úklidu balkonů, teras a bezprostředního okolí."
+        },
+        "luxuryMaterials": {
+          "question": "Máte zkušenosti s luxusními materiály?",
+          "answer": "Ano, máme zkušenosti s mramorem, žulou, designovými obklady, dřevěnými podlahami a dalšími náročnými materiály."
+        },
+        "windowWashingOnly": {
+          "question": "Můžeme objednat jen mytí oken?",
+          "answer": "Ano, nabízíme i samostatné mytí oken nebo jiné dílčí služby dle vašich potřeb."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Milan Procházka",
+        "testimonial1Role": "Vlastník bytu",
+        "testimonial1Text": "Po rekonstrukci byl byt v hrozném stavu. Za jeden den udělali zázrak – prostor připraven k nastěhování!",
+        "testimonial2Name": "Radek Veselý",
+        "testimonial2Role": "Stavební firma",
+        "testimonial2Text": "Spolupracujeme pravidelně. Vždy perfektní výsledky, dodržení termínů. Spolehlivý partner pro předávání staveb.",
+        "testimonial3Name": "Zuzana Fischerová",
+        "testimonial3Role": "Developer",
+        "testimonial3Text": "Profesionální přístup a vynikající komunikace. Jejich práce výrazně zjednodušuje předávání bytů klientům."
+      },
+      "gallery": {
+        "afterRenovation": "Po rekonstrukci",
+        "constructionCleaning": "Stavební úklid",
+        "finalResult": "Finální výsledek"
+      }
+    },
+    "development": {
+      "title": "Úklid developerských projektů",
+      "description": "Komplexní úklidové služby pro developerské projekty všech velikostí. Zkušenosti s rozsáhlými projekty a novostavbami.",
+      "features": [
+        "Úklid během stavby",
+        "Finální úklid před předáním bytů",
+        "Koordinace s dalšími řemesly",
+        "Kapacita pro velké projekty",
+        "Dodržení termínů",
+        "Kompletní dokumentace",
+        "Individuální cenová nabídka",
+        "Reference z realizovaných projektů"
+      ],
+      "pricing": {
+        "smallProjects": {
+          "name": "Malé projekty",
+          "features": [
+            "Do 10 bytů",
+            "Kompletní úklid",
+            "Flexibilní termíny"
+          ]
+        },
+        "mediumProjects": {
+          "name": "Střední projekty",
+          "features": [
+            "10–50 bytů",
+            "Dedikovaný tým",
+            "Koordinace",
+            "Reportování"
+          ]
+        },
+        "largeProjects": {
+          "name": "Velké projekty",
+          "features": [
+            "Nad 50 bytů",
+            "Kompletní management",
+            "SLA garance",
+            "Dostupnost 24/7"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Úvodní schůzka",
+        "step1Desc": "Probereme rozsah a harmonogram projektu",
+        "step2Title": "Cenová nabídka",
+        "step2Desc": "Připravíme podrobnou individuální kalkulaci",
+        "step3Title": "Koordinace",
+        "step3Desc": "Projektový manažer koordinuje veškeré práce",
+        "step4Title": "Realizace",
+        "step4Desc": "Postupné úklidy dle plánu projektu"
+      },
+      "stats": {
+        "developmentProjects": "Developerské projekty",
+        "cleanedApartments": "Uklizených bytů",
+        "deadlineCompliance": "Dodržení termínů",
+        "yearsExperience": "Roky zkušeností"
+      },
+      "guarantees": [
+        "Dedikovaný projektový manažer – jeden kontakt pro vše",
+        "Pravidelné reportování s fotodokumentací – máte přehled o pokroku",
+        "Flexibilní kapacita – můžeme nasadit více týmů najednou",
+        "SLA garance – jasně definovaná úroveň služeb"
+      ],
+      "whatsIncluded": [
+        "Koordinace s hlavním zhotovitelem",
+        "Úklid během stavby (mezipodoby)",
+        "Hrubý úklid po dokončení prací",
+        "Finální úklid před předáním",
+        "Mytí všech oken a zasklení",
+        "Kompletní dokumentace",
+        "Reportování průběhu prací",
+        "Dedikovaný projektový manažer",
+        "Kapacita pro velké projekty",
+        "Dodržení termínů předání"
+      ],
+      "faq": {
+        "largeProjects": {
+          "question": "Máte zkušenosti s velkými projekty?",
+          "answer": "Ano, máme reference z projektů od 20 do 200+ bytů. Máme dostatečnou kapacitu a zkušenosti s koordinací velkých projektů."
+        },
+        "coordination": {
+          "question": "Jak funguje koordinace s ostatními firmami?",
+          "answer": "Máme projektového manažera, který koordinuje práce s hlavním zhotovitelem a dalšími řemesly. Používáme moderní nástroje pro komunikaci a reportování."
+        },
+        "reporting": {
+          "question": "Poskytujete pravidelné reportování?",
+          "answer": "Ano, poskytujeme týdenní/měsíční reportování s fotodokumentací, popisem provedených prací a plánem na další období."
+        },
+        "strictDeadlines": {
+          "question": "Zvládnete náročné termíny?",
+          "answer": "Ano, máme zkušenosti s náročnými deadliny. V případě potřeby můžeme nasadit více týmů současně a pracovat i o víkendech."
+        },
+        "customPricing": {
+          "question": "Nabízíte individuální cenové podmínky?",
+          "answer": "Ano, u velkých projektů vytváříme individuální kalkulace s ohledem na rozsah, frekvenci a délku spolupráce."
+        },
+        "insurance": {
+          "question": "Máte pojištění pro developerské projekty?",
+          "answer": "Ano, máme profesionální pojištění odpovědnosti do 10 mil. Kč, což je standard u prací na developerských projektech."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Ing. Petr Novák",
+        "testimonial1Role": "Developer",
+        "testimonial1Text": "Spolupracovali jsme na projektu 85 bytů. Perfektní koordinace, dodržení termínů a vynikající komunikace. Určitě budeme pokračovat.",
+        "testimonial2Name": "Jan Malý",
+        "testimonial2Role": "Hlavní zhotovitel",
+        "testimonial2Text": "Konečně úklidová firma, která rozumí stavebním procesům. Flexibilní, rychlá a hlavně spolehlivá.",
+        "testimonial3Name": "Martina Kovářová",
+        "testimonial3Role": "Projektová manažerka",
+        "testimonial3Text": "Oceňuji zejména jejich reportování a proaktivní přístup. Vždy včas upozorní na případné problémy."
+      },
+      "gallery": {
+        "developmentProjects": "Developerské projekty",
+        "largeProjects": "Velké projekty",
+        "beforeHandover": "Před předáním"
+      }
+    },
+    "buildings": {
+      "title": "Úklid bytových domů a SVJ",
+      "description": "Pravidelný úklid společných prostor v bytových domech. Zajistíme čisté a příjemné prostředí pro všechny obyvatele.",
+      "features": [
+        "Úklid chodeb a schodišť",
+        "Úklid výtahů a vstupních prostor",
+        "Úklid společných prostor",
+        "Úklid sklepů a půd",
+        "Péče o okolí domu",
+        "Pravidelnost a spolehlivost",
+        "Individuální frekvence úklidu",
+        "Transparentní reportování pro SVJ"
+      ],
+      "pricing": {
+        "smallBuilding": {
+          "name": "Malý dům",
+          "features": [
+            "Do 12 bytů",
+            "2× týdně",
+            "Základní úklid",
+            "Flexibilní termíny"
+          ]
+        },
+        "mediumBuilding": {
+          "name": "Střední dům",
+          "features": [
+            "12–30 bytů",
+            "3× týdně",
+            "Kompletní úklid",
+            "Reportování pro SVJ"
+          ]
+        },
+        "largeBuilding": {
+          "name": "Velký dům",
+          "features": [
+            "Nad 30 bytů",
+            "Denní úklid",
+            "Dedikovaný personál",
+            "Kompletní management"
+          ]
+        }
+      },
+      "process": {
+        "step1Title": "Prohlídka domu",
+        "step1Desc": "Zjistíme rozsah a specifika domu",
+        "step2Title": "Návrh harmonogramu",
+        "step2Desc": "Navrhneme optimální frekvenci úklidu",
+        "step3Title": "Prezentace před výborem SVJ",
+        "step3Desc": "Představíme se výboru SVJ",
+        "step4Title": "Pravidelný úklid",
+        "step4Desc": "Zajistíme spolehlivý úklid dle plánu"
+      },
+      "stats": {
+        "managedBuildings": "Spravovaných domů",
+        "satisfiedResidents": "Spokojených obyvatel",
+        "hoaSatisfaction": "Spokojenost SVJ",
+        "averageCooperation": "Průměrná délka spolupráce",
+        "averageCooperationValue": "8 let"
+      },
+      "whatsIncluded": [
+        "Úklid schodišť a chodeb",
+        "Mytí zábradlí a madel",
+        "Úklid vstupních prostor",
+        "Úklid výtahů",
+        "Mytí vstupních dveří",
+        "Úklid společných prostor",
+        "Péče o okolí domu",
+        "Úklid sklepů a půd (po dohodě)",
+        "Pravidelné reportování pro SVJ",
+        "Komunikace s výborem SVJ"
+      ],
+      "faq": {
+        "recommendedFrequency": {
+          "question": "Jak často doporučujete úklid domu?",
+          "answer": "Standardně 2–3× týdně u běžných domů. U domů s vyšším provozem nebo luxusnějších nemovitostí doporučujeme denní úklid."
+        },
+        "whatsIncluded": {
+          "question": "Co zahrnuje pravidelný úklid?",
+          "answer": "Vysávání a vytírání schodišť, chodeb, úklid výtahů, mytí vstupních prostor, zábradlí a dveří. Péče o okolí domu po dohodě."
+        },
+        "reporting": {
+          "question": "Poskytujete reportování pro SVJ?",
+          "answer": "Ano, pravidelně poskytujeme písemné reportování o provedených pracích, závadách a doporučeních. Vše přizpůsobeno požadavkům výboru."
+        },
+        "companyChange": {
+          "question": "Jak to funguje při změně úklidové firmy?",
+          "answer": "Pomůžeme s plynulým přechodem. První měsíc můžeme poskytnout služby se zkušební slevou, aby si obyvatelé zvykli na nový systém."
+        },
+        "weekendCleaning": {
+          "question": "Uklízíte i o víkendech?",
+          "answer": "Ano, přizpůsobíme harmonogram potřebám domu. Můžeme provádět úklid i o víkendech, pokud to obyvatelům vyhovuje."
+        },
+        "complaints": {
+          "question": "Jak řešíte stížnosti obyvatel?",
+          "answer": "Máme přímou linku pro hlášení problémů. Na stížnosti reagujeme do 24 hodin. Jsme v kontaktu s výborem SVJ a hledáme rychlá řešení."
+        }
+      },
+      "testimonials": {
+        "testimonial1Name": "Vladimír Horák",
+        "testimonial1Role": "Předseda SVJ",
+        "testimonial1Text": "Uklízí náš dům už 4 roky. Obyvatelé jsou spokojeni, reportování je srozumitelné, ceny férové. Doporučuji!",
+        "testimonial2Name": "Eva Dvořáková",
+        "testimonial2Role": "Členka výboru SVJ",
+        "testimonial2Text": "Profesionální přístup a vynikající komunikace. Konečně úklidová firma, na kterou se dá spolehnout.",
+        "testimonial3Name": "Josef Veselý",
+        "testimonial3Role": "Správce nemovitostí",
+        "testimonial3Text": "Spravuji 8 domů a všude jsem přešel na GreenClean. Kvalita, spolehlivost a férové ceny."
+      },
+      "gallery": {
+        "commonAreas": "Společné prostory",
+        "panelBuildings": "Panelové domy",
+        "cleanEnvironment": "Čisté prostředí"
+      }
+    }
+  },
+  "servicePage": {
+    "defaultWhatsIncluded": [
+      "Kompletní vysávání všech ploch",
+      "Mytí a dezinfekce povrchů",
+      "Mytí oken a rámů",
+      "Vytírání podlah",
+      "Odstraňování prachu z těžko přístupných míst",
+      "Úklid sanitárních zařízení",
+      "Vynášení a dezinfekce košů",
+      "Doplňování hygienických potřeb",
+      "Kontrola kvality po provedení",
+      "Dokumentace provedených prací"
+    ],
+    "defaultFaq": {
+      "howLong": {
+        "question": "Jak dlouho trvá úklid?",
+        "answer": "Čas závisí na velikosti a rozsahu. Pro prostor do 100 m² počítejte 2–4 hodiny. Přesný odhad po prohlídce."
+      },
+      "cleaningProducts": {
+        "question": "Jaké prostředky používáte?",
+        "answer": "Pouze profesionální ekologické prostředky šetrné k prostředí a zdraví. Všechny mají certifikaci EU."
+      },
+      "needToBePresent": {
+        "question": "Musím být při úklidu přítomen?",
+        "answer": "Není nutné. Většina klientů nám svěří klíče. Samozřejmě můžete být přítomni, pokud preferujete."
+      },
+      "payment": {
+        "question": "Jak probíhá platba?",
+        "answer": "Hotovost, převod nebo karta. Fakturujeme po provedení s možností pravidelné platby."
+      },
+      "liabilityInsurance": {
+        "question": "Máte pojištění odpovědnosti?",
+        "answer": "Ano, máme profesionální pojištění do 5 mil. Kč. Vaše majetek je během našich služeb chráněn."
+      },
+      "oneTimeCleaning": {
+        "question": "Mohu objednat jednorázový úklid?",
+        "answer": "Samozřejmě! Nabízíme jednorázové i pravidelné úklidy. Ceny jsou flexibilní, přizpůsobíme se vám."
+      }
+    },
+    "defaultTestimonials": {
+      "testimonial1Name": "Petra Nováková",
+      "testimonial1Role": "Majitelka Airbnb",
+      "testimonial1Text": "Skvělá komunikace a flexibilita. Uklízí mé byty už rok a jsem maximálně spokojená. Hosté hodnotí čistotu 5 hvězdičkami.",
+      "testimonial2Name": "Martin Kovář",
+      "testimonial2Role": "Facility Manager",
+      "testimonial2Text": "Profesionální přístup a spolehlivost. Starají se o naše kanceláře už 3 roky a nikdy jsme neměli žádný problém.",
+      "testimonial3Name": "Jana Svobodová",
+      "testimonial3Role": "Obchodní ředitelka",
+      "testimonial3Text": "Konečně úklidová firma, která myslí na detaily. Ekologické prostředky jsou pro nás důležité a oni to dodržují."
+    },
+    "defaultGallery": {
+      "gallery1Title": "Kancelářské prostory",
+      "gallery2Title": "Profesionální výsledky",
+      "gallery3Title": "Špičkové vybavení"
+    }
+  }
+}

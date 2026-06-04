@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
+import { useLayoutTranslation } from "../i18n/useAppTranslation";
 import { X, Cookie } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function CookieConsent() {
-  const { t } = useTranslation("common");
+  const { t } = useLayoutTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -33,16 +33,8 @@ export function CookieConsent() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 sm:p-6 pointer-events-none">
       <div className="container mx-auto max-w-6xl pointer-events-auto">
-        <div className="relative bg-white/98 backdrop-blur-2xl border-2 border-gray-200 rounded-3xl shadow-2xl p-6 sm:p-8 overflow-hidden animate-slide-up">
-          {/* Gradient background */}
+        <div className="relative bg-white border-2 border-gray-200 rounded-3xl shadow-2xl p-6 sm:p-8 overflow-hidden animate-slide-up">
           <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 opacity-50"></div>
-
-          {/* Animated blobs */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-          <div
-            className="absolute bottom-0 left-0 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
-            style={{ backgroundColor: "#FFA826" }}
-          ></div>
 
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-6">
             {/* Icon */}

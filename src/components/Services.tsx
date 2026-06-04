@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useTranslation } from "next-i18next";
+import { useServicesTranslation } from "../i18n/useAppTranslation";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { SectionBackground } from "./SectionBackground";
 import { useScrollAnimation, animations } from "../hooks/useScrollAnimation";
 import { useRouter } from "next/router";
 
@@ -33,7 +34,7 @@ interface ServiceCardProps {
 }
 
 function ServiceCard({ service, index }: ServiceCardProps) {
-  const { t } = useTranslation("common");
+  const { t } = useServicesTranslation();
   const router = useRouter();
   const cardAnimation = useScrollAnimation({ threshold: 0.2 });
   const Icon = service.icon;
@@ -48,12 +49,17 @@ function ServiceCard({ service, index }: ServiceCardProps) {
         className="group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white hover:-translate-y-2 h-full flex flex-col"
         onClick={() => router.push(`/${service.id}`)}
       >
-        {/* Image with gradient overlay */}
-        <div className="relative h-56 overflow-hidden flex-shrink-0">
+        {/* Image — height via inline style (h-48 is not in compiled CSS) */}
+        <div
+          className="relative shrink-0 overflow-hidden"
+          style={{ height: "11.75rem" }}
+        >
           <ImageWithFallback
             src={service.image}
             alt={service.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           {/* Gradient overlay */}
           <div
@@ -70,20 +76,16 @@ function ServiceCard({ service, index }: ServiceCardProps) {
           ></div>
 
           {/* Icon badge */}
-          <div className="absolute top-4 left-4">
-            <div className="w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-              <Icon className="w-7 h-7 text-white" />
+          <div className="absolute top-4 left-4 z-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/30 bg-white/20 shadow-lg backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
+              <Icon className="h-7 w-7 text-white transition-transform duration-500 group-hover:scale-110" />
             </div>
           </div>
 
-          {/* Shimmer effect on hover */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="absolute inset-0 animate-shimmer"></div>
-          </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 relative flex-1 flex flex-col">
+        <div className="relative flex flex-1 flex-col p-6">
           {/* Gradient line */}
           <div
             className={`absolute top-0 left-0 right-0 h-1 ${
@@ -98,10 +100,10 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             }
           ></div>
 
-          <h3 className="text-xl text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">
+          <h3 className="mb-3 text-xl text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-emerald-600 group-hover:bg-clip-text group-hover:text-transparent">
             {service.title}
           </h3>
-          <p className="text-gray-600 mb-4 leading-relaxed flex-1">
+          <p className="mb-4 flex-1 leading-relaxed text-gray-600">
             {service.description}
           </p>
 
@@ -120,15 +122,15 @@ function ServiceCard({ service, index }: ServiceCardProps) {
           </div>
 
           {/* CTA */}
-          <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors mt-auto">
+          <div className="mt-auto flex items-center text-green-600 transition-colors group-hover:text-emerald-600">
             <span className="mr-2">{t("common.learnMore")}</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
           </div>
         </div>
 
         {/* Corner accent */}
         <div
-          className={`absolute bottom-0 right-0 w-24 h-24 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${
+          className={`absolute bottom-0 right-0 h-24 w-24 opacity-5 rounded-tl-full transition-opacity group-hover:opacity-10 ${
             service.gradient
               ? `bg-gradient-to-br ${service.gradient}`
               : ""
@@ -145,7 +147,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 }
 
 export function Services() {
-  const { t } = useTranslation("common");
+  const { t } = useServicesTranslation();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
   const featuredAnimation = useScrollAnimation({ threshold: 0.15 });
   const router = useRouter();
@@ -233,12 +235,7 @@ export function Services() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
-        style={{ backgroundColor: "#FFA826" }}
-      ></div>
+      <SectionBackground variant="light" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
         {/* Header */}
@@ -273,20 +270,22 @@ export function Services() {
               >
                 <Card
                   key={service.id}
-                  className="group relative overflow-hidden border-2 border-green-200 shadow-2xl hover:shadow-green-500/30 transition-all duration-500 cursor-pointer bg-gradient-to-br from-white to-green-50/30 hover:-translate-y-2 mb-16"
+                  className="group relative mb-16 cursor-pointer overflow-hidden border-2 border-green-200 bg-gradient-to-br from-white to-green-50/30 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-green-500/30"
                   onClick={() => router.push(`/${service.id}`)}
                 >
-                  <div className="grid lg:grid-cols-2 gap-0">
+                  <div className="grid items-stretch gap-0 lg:grid-cols-2">
                     {/* Image with gradient overlay */}
-                    <div className="relative h-80 lg:h-auto overflow-hidden">
+                    <div className="relative h-80 overflow-hidden lg:h-auto">
                       <ImageWithFallback
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {/* Gradient overlay */}
                       <div
-                        className={`absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500 ${
+                        className={`absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-80 ${
                           service.gradient
                             ? `bg-gradient-to-br ${service.gradient}`
                             : ""
@@ -299,29 +298,25 @@ export function Services() {
                       ></div>
 
                       {/* Icon badge */}
-                      <div className="absolute top-6 left-6">
-                        <div className="w-20 h-20 bg-white/20 backdrop-blur-md border border-white/30 rounded-3xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                          <Icon className="w-10 h-10 text-white" />
+                      <div className="absolute top-6 left-6 z-10">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/30 bg-white/20 shadow-lg backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
+                          <Icon className="h-10 w-10 text-white transition-transform duration-500 group-hover:scale-110" />
                         </div>
                       </div>
 
                       {/* Featured badge */}
-                      <div className="absolute top-6 right-6">
-                        <div className="px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-lg">
-                          <span className="text-white text-sm">
+                      <div className="absolute top-6 right-6 z-10">
+                        <div className="rounded-full border border-white/30 bg-white/20 px-4 py-2 shadow-lg backdrop-blur-md">
+                          <span className="text-sm text-white">
                             ★ {t("services.mostPopular")}
                           </span>
                         </div>
                       </div>
 
-                      {/* Shimmer effect on hover */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="absolute inset-0 animate-shimmer"></div>
-                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 lg:p-12 relative flex flex-col justify-center">
+                    <div className="relative flex flex-col justify-center p-8 lg:p-12">
                       {/* Gradient line */}
                       <div
                         className={`absolute top-0 left-0 right-0 h-1 ${
@@ -336,10 +331,10 @@ export function Services() {
                         }
                       ></div>
 
-                      <h3 className="text-3xl lg:text-4xl text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">
+                      <h3 className="mb-4 text-3xl text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-emerald-600 group-hover:bg-clip-text group-hover:text-transparent lg:text-4xl">
                         {service.title}
                       </h3>
-                      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                      <p className="mb-6 text-lg leading-relaxed text-gray-600">
                         {service.description}
                       </p>
 
@@ -358,16 +353,16 @@ export function Services() {
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center text-green-600 group-hover:text-emerald-600 transition-colors text-lg">
+                      <div className="flex items-center text-lg text-green-600 transition-colors group-hover:text-emerald-600">
                         <span className="mr-2">{t("common.learnMore")}</span>
-                        <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                        <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2" />
                       </div>
                     </div>
                   </div>
 
                   {/* Corner accent */}
                   <div
-                    className={`absolute bottom-0 right-0 w-32 h-32 opacity-5 rounded-tl-full group-hover:opacity-10 transition-opacity ${
+                    className={`absolute bottom-0 right-0 h-32 w-32 opacity-5 rounded-tl-full transition-opacity group-hover:opacity-10 ${
                       service.gradient
                         ? `bg-gradient-to-br ${service.gradient}`
                         : ""
@@ -396,7 +391,7 @@ export function Services() {
         </div>
 
         {/* Other Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
+        <div className="mb-12 grid items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.slice(1).map((service, index) => (
             <ServiceCard
               key={service.id}
