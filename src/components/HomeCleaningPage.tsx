@@ -142,7 +142,7 @@ export function HomeCleaningPage() {
                 <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-white/50 shadow-xl">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-3xl mb-1">2000+</div>
+                      <div className="text-3xl mb-1">500+</div>
                       <div className="text-sm text-gray-600">
                         {t("homeCleaning.satisfiedCustomers")}
                       </div>
@@ -187,160 +187,6 @@ export function HomeCleaningPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 lg:py-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
-              <ThumbsUp className="w-5 h-5 text-green-600" />
-              <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                {t("homeCleaning.whyChooseUs")}
-              </span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
-              {t("homeCleaning.trustedByThousands")}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t("homeCleaning.combineProfessionalism")}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Shield,
-                title: t("homeCleaning.fullyInsured"),
-                description: t("homeCleaning.fullyInsuredDesc"),
-                color: "from-green-500 to-emerald-500",
-              },
-              {
-                icon: Users,
-                title: t("homeCleaning.verifiedStaff"),
-                description: t("homeCleaning.verifiedStaffDesc"),
-                color: "from-emerald-500 to-teal-500",
-              },
-              {
-                icon: Leaf,
-                title: t("homeCleaning.100Eco"),
-                description: t("homeCleaning.100EcoDesc"),
-                color: "from-green-500 to-lime-500",
-              },
-              {
-                icon: Award,
-                title: t("homeCleaning.guaranteedQuality"),
-                description: t("homeCleaning.guaranteedQualityDesc"),
-                color: "from-lime-500 to-green-500",
-              },
-            ].map((item, index) => (
-              <Card
-                key={index}
-                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white p-8 hover:-translate-y-2"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}
-                >
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
-
-                {/* Corner accent */}
-                <div
-                  className={`absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity`}
-                ></div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
-          <div
-            className="absolute bottom-10 right-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"
-            style={{ backgroundColor: "rgba(255, 168, 38, 0.2)" }}
-          ></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-4 sm:mb-6 shadow-lg">
-              <Target className="w-5 h-5 text-white" />
-              <span className="text-sm text-white">
-                {t("homeCleaning.howItWorks")}
-              </span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl text-white mb-4">
-              {t("homeCleaning.simpleSteps")}{" "}
-              <span className="text-yellow-300">
-                {t("homeCleaning.cleanHome")}
-              </span>
-            </h2>
-            <p className="text-xl text-green-50 max-w-3xl mx-auto">
-              {t("homeCleaning.fromOrderToClean")}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8 items-stretch">
-            {[
-              {
-                step: "01",
-                icon: MessageCircle,
-                title: t("homeCleaning.contactUs"),
-                description: t("homeCleaning.contactUsDesc"),
-              },
-              {
-                step: "02",
-                icon: Calendar,
-                title: t("homeCleaning.scheduleAppointment"),
-                description: t("homeCleaning.scheduleAppointmentDesc"),
-              },
-              {
-                step: "03",
-                icon: Zap,
-                title: t("homeCleaning.weClean"),
-                description: t("homeCleaning.weCleanDesc"),
-              },
-              {
-                step: "04",
-                icon: Heart,
-                title: t("homeCleaning.enjoyCleanliness"),
-                description: t("homeCleaning.enjoyCleanlinessDesc"),
-              },
-            ].map((item, index) => (
-              <div key={index} className="relative h-full flex flex-col min-w-0">
-                {/* Connection line */}
-                {index < 3 && (
-                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-white/30"></div>
-                )}
-
-                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-300 h-full flex flex-col min-h-0">
-                  {/* Step number */}
-                  <div className="text-4xl sm:text-5xl font-bold text-white/20 mb-2 sm:mb-3 flex-shrink-0">
-                    {item.step}
-                  </div>
-
-                  {/* Icon */}
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg flex-shrink-0">
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-
-                  <h3 className="text-base sm:text-lg text-white mb-1.5 sm:mb-2 flex-shrink-0 break-words leading-tight">{item.title}</h3>
-                  <p className="text-green-100 text-xs sm:text-sm leading-snug break-words">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -652,6 +498,154 @@ export function HomeCleaningPage() {
                   </div>
                 </Card>
               ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-12 sm:py-16 lg:py-20 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-6 shadow-lg border border-green-200">
+              <ThumbsUp className="w-5 h-5 text-green-600" />
+              <span className="text-sm bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                {t("homeCleaning.whyChooseUs")}
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-gray-900 mb-4">
+              {t("homeCleaning.trustedByThousands")}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t("homeCleaning.combineProfessionalism")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: t("homeCleaning.fullyInsured"),
+                description: t("homeCleaning.fullyInsuredDesc"),
+                color: "from-green-500 to-emerald-500",
+              },
+              {
+                icon: Users,
+                title: t("homeCleaning.verifiedStaff"),
+                description: t("homeCleaning.verifiedStaffDesc"),
+                color: "from-emerald-500 to-teal-500",
+              },
+              {
+                icon: Leaf,
+                title: t("homeCleaning.100Eco"),
+                description: t("homeCleaning.100EcoDesc"),
+                color: "from-green-500 to-lime-500",
+              },
+              {
+                icon: Award,
+                title: t("homeCleaning.guaranteedQuality"),
+                description: t("homeCleaning.guaranteedQualityDesc"),
+                color: "from-lime-500 to-green-500",
+              },
+            ].map((item, index) => (
+              <Card
+                key={index}
+                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white p-8 hover:-translate-y-2"
+              >
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}
+                >
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* Corner accent */}
+                <div
+                  className={`absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity`}
+                ></div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+          <div
+            className="absolute bottom-10 right-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"
+            style={{ backgroundColor: "rgba(255, 168, 38, 0.2)" }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full mb-4 sm:mb-6 shadow-lg">
+              <Target className="w-5 h-5 text-white" />
+              <span className="text-sm text-white">
+                {t("homeCleaning.howItWorks")}
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-white">
+              {t("homeCleaning.simpleSteps")}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 items-stretch">
+            {[
+              {
+                step: "01",
+                icon: MessageCircle,
+                title: t("homeCleaning.contactUs"),
+                description: t("homeCleaning.contactUsDesc"),
+              },
+              {
+                step: "02",
+                icon: Calendar,
+                title: t("homeCleaning.scheduleAppointment"),
+                description: t("homeCleaning.scheduleAppointmentDesc"),
+              },
+              {
+                step: "03",
+                icon: Zap,
+                title: t("homeCleaning.weClean"),
+                description: t("homeCleaning.weCleanDesc"),
+              },
+              {
+                step: "04",
+                icon: Heart,
+                title: t("homeCleaning.enjoyCleanliness"),
+                description: t("homeCleaning.enjoyCleanlinessDesc"),
+              },
+            ].map((item, index) => (
+              <div key={index} className="relative h-full flex flex-col min-w-0">
+                {/* Connection line */}
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-white/30"></div>
+                )}
+
+                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-300 h-full flex flex-col min-h-0">
+                  {/* Step number */}
+                  <div className="text-4xl sm:text-5xl font-bold text-white/20 mb-2 sm:mb-3 flex-shrink-0">
+                    {item.step}
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg flex-shrink-0">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+
+                  <h3 className="text-base sm:text-lg text-white mb-1.5 sm:mb-2 flex-shrink-0 break-words leading-tight">{item.title}</h3>
+                  <p className="text-green-100 text-xs sm:text-sm leading-snug break-words">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
