@@ -83,10 +83,10 @@ export function Hero({ onNavigate }: HeroProps) {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-3 sm:p-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl sm:rounded-2xl hover:bg-white hover:shadow-lg hover:scale-105 transition-all duration-300 group"
+                  className="flex items-start gap-3 p-3 sm:p-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl sm:rounded-2xl"
                 >
                   <div
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:rotate-6 transition-transform ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg ${
                       item.gradient ? `bg-gradient-to-br ${item.gradient}` : ""
                     }`}
                     style={
@@ -115,16 +115,16 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
+                className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-2xl shadow-green-500/50 hover:shadow-green-500/80 hover:scale-105 transition-all duration-300 border-0"
                 onClick={() => onNavigate?.("contact")}
               >
                 {t("common.freeQuote")}
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-green-600 hover:scale-105 transition-all duration-300"
+                className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg rounded-xl bg-white border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-green-600 hover:scale-105 transition-all duration-300"
                 onClick={() => onNavigate?.("services")}
               >
                 {t("hero.ourServices")}
@@ -169,7 +169,7 @@ export function Hero({ onNavigate }: HeroProps) {
                           "linear-gradient(to right, #FFA826, #E59518)",
                       }}
                     >
-                      15+
+                      3+
                     </div>
                     <div className="text-sm text-gray-600">
                       {t("hero.yearsOfExperience")}

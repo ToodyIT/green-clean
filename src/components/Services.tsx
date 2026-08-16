@@ -194,7 +194,7 @@ export function Services() {
       description: t("services.furnitureCleaningDesc"),
       image:
         "https://images.unsplash.com/photo-1654511830326-63a577771a7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXJuaXR1cmUlMjBjbGVhbmluZyUyMHNvZmF8ZW58MXx8fHwxNzYxMTQ0NjA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      customGradient: "linear-gradient(to right, #FFA826, #FFB84D, #E59518)",
+      gradient: "from-teal-500 via-green-500 to-lime-500",
       priceFrom: "500 Kč",
       priceTo: "3 500 Kč",
     },
@@ -216,7 +216,7 @@ export function Services() {
       description: t("services.developmentCleaningDesc"),
       image:
         "https://images.unsplash.com/photo-1631365696563-4990f4e9302c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBjbGVhbmluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjExNDQ2MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      gradient: "from-teal-500 via-green-500 to-lime-500",
+      customGradient: "linear-gradient(to right, #FFA826, #FFB84D, #E59518)",
       priceFrom: "30 Kč/m²",
       priceTo: "50 Kč/m²",
     },

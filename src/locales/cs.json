@@ -28,7 +28,7 @@
     "contactTodayQuote": "Kontaktujte nás ještě dnes a získejte cenovou nabídku šitou přímo vašim potřebám"
   },
   "hero": {
-    "badge": "Profesionální služby od roku 2010",
+    "badge": "Profesionální služby od roku 2023",
     "title": "Úklidové služby",
     "titleHighlight": "Praha",
     "description": "Zajistíme čistotu a pořádek ve vašich prostorách. Spolehlivě, rychle a za férové ceny.",
@@ -41,7 +41,7 @@
     "flexibleScheduling": "Flexibilní termíny",
     "flexibleSchedulingDesc": "Dle vašich potřeb",
     "ourServices": "Naše služby",
-    "satisfiedClients": "Spokojených klientů",
+    "satisfiedClients": "Dokončených úklidů",
     "yearsOfExperience": "Let zkušeností"
   },
   "services": {
@@ -397,10 +397,10 @@
     "subtitle": "Proč si vybrat GreenClean?",
     "companyDetailsTitle": "Sídlo a identifikace společnosti",
     "description1": "Jsme profesionální úklidová firma s více než 15letou tradicí na českém trhu. Specializujeme se na úklid komerčních i rezidenčních prostor v Praze a okolí.",
-    "description2": "Naše společnost byla založena s jasnou vizí - poskytovat kvalitní úklidové služby s důrazem na individuální přístup ke každému klientovi. Za dobu našeho působení jsme si vybudovali důvěru stovek spokojených zákazníků.",
-    "description3": "Důvěřujeme zkušeným profesionálům, kteří jsou pravidelně proškolováni v nejnovějších metodách úklidu. Používáme pouze certifikované čisticí prostředky a moderní technologie.",
+    "description2": "Naše společnost byla založena s jasnou vizí - poskytovat kvalitní úklidové služby s důrazem na individuální přístup ke každému klientovi.",
+    "description3": "Používáme pouze certifikované čisticí prostředky a moderní technologie.",
     "description4": "Důvěřují nám firmy, vlastníci nemovitostí i soukromí klienti, kteří oceňují kvalitu, spolehlivost a pečlivý přístup k detailům.",
-    "satisfiedClients": "Spokojených klientů",
+    "satisfiedClients": "Dokončených úklidů",
     "yearsInBusiness": "Let na trhu",
     "teamMembers": "Členný tým",
     "clientSatisfaction": "Spokojenost klientů",

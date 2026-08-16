@@ -18,10 +18,6 @@ const Services = dynamic(
   () => import("../src/components/Services").then((m) => m.Services),
   { ssr: true }
 );
-const Partners = dynamic(
-  () => import("../src/components/Partners").then((m) => m.Partners),
-  { ssr: true }
-);
 const About = dynamic(
   () => import("../src/components/About").then((m) => m.About),
   { ssr: true }
@@ -60,7 +56,6 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero onNavigate={handleHeroNavigate} />
-        <Partners />
         <Services />
         <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 relative overflow-hidden">
           <SectionBackground variant="cta" />

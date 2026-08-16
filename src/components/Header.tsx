@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useLayoutTranslation } from "../i18n/useAppTranslation";
 import { Button } from "./ui/button";
-import { Sparkles, Globe, Check, Home, X } from "lucide-react";
+import { Sparkles, Globe, Check, Phone, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,11 @@ import {
 import logo from "../../public/images/logo.png";
 import { twJoin } from "tailwind-merge";
 import Image from "next/image";
-import { CONTACT_FORM_PATH } from "../constants/contact";
+import {
+  CONTACT_FORM_PATH,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+} from "../constants/contact";
 import { navigateToContactForm } from "../utils/navigateToContactForm";
 import { useMobileMenu } from "../context/MobileMenuContext";
 
@@ -118,13 +122,14 @@ export function Header() {
             </nav>
 
             <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0 min-w-0">
-              {/* Úklid bytů a domů - Featured Service */}
               <Button
-                className="bg-green-50 text-green-800 hover:bg-green-100 border-2 border-green-300 shadow-sm hover:shadow-md transition-all duration-300 text-sm xl:text-base font-semibold px-3 xl:px-4 py-2.5 whitespace-nowrap"
-                onClick={() => router.push("/home-cleaning")}
+                asChild
+                className="h-9 bg-green-50 text-green-800 hover:bg-green-100 border-2 border-green-300 shadow-sm hover:shadow-md transition-all duration-300 text-sm font-semibold px-3 whitespace-nowrap"
               >
-                <Home className="w-4 h-4 xl:w-5 xl:h-5 mr-1.5 xl:mr-2 shrink-0" />
-                <span className="truncate max-w-[140px] xl:max-w-none">{t("header.homeCleaning")}</span>
+                <a href={CONTACT_PHONE_TEL} aria-label={CONTACT_PHONE_DISPLAY}>
+                  <Phone className="w-4 h-4 shrink-0" />
+                  <span>{CONTACT_PHONE_DISPLAY}</span>
+                </a>
               </Button>
 
               {/* Language Selector */}
@@ -132,10 +137,9 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="border-2 border-gray-300 text-gray-800 font-semibold hover:border-green-600 hover:bg-green-50 hover:text-green-800 transition-all gap-1.5 shrink-0 text-sm px-3 py-2.5"
+                    className="h-9 border-2 border-gray-300 text-gray-800 font-semibold hover:border-green-600 hover:bg-green-50 hover:text-green-800 transition-all gap-1.5 shrink-0 text-sm px-3"
                   >
-                    <Globe className="w-4 h-4 xl:w-5 xl:h-5" />
+                    <Globe className="w-4 h-4" />
                     <span className="uppercase text-sm tracking-wide">
                       {getLanguageDisplayCode(currentLanguage)}
                     </span>
@@ -163,11 +167,11 @@ export function Header() {
               </DropdownMenu>
 
               <Button
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 text-sm xl:text-base font-semibold px-3 xl:px-5 py-2.5 min-w-0"
+                className="h-9 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 text-sm font-semibold px-3 whitespace-nowrap"
                 onClick={() => router.push("/pricing")}
               >
-                <Sparkles className="w-4 h-4 xl:w-5 xl:h-5 mr-1.5 xl:mr-2 shrink-0" />
-                <span className="whitespace-normal text-left leading-tight max-w-[125px] xl:max-w-[180px] 2xl:max-w-none">{t("common.freeQuote")}</span>
+                <Sparkles className="w-4 h-4 shrink-0" />
+                <span>{t("common.freeQuote")}</span>
               </Button>
             </div>
 
@@ -315,14 +319,17 @@ export function Header() {
 
                 <div className="mb-6">
                   <Button
+                    asChild
                     className="w-full rounded-2xl border-2 border-green-300 bg-gradient-to-r from-green-50 to-emerald-50 py-6 text-base font-semibold text-green-800 shadow-md transition-all hover:from-green-100 hover:to-emerald-100 hover:shadow-lg"
-                    onClick={() => {
-                      router.push("/home-cleaning");
-                      setIsOpen(false);
-                    }}
                   >
-                    <Home className="mr-2 h-5 w-5" />
-                    {t("header.homeCleaning")}
+                    <a
+                      href={CONTACT_PHONE_TEL}
+                      onClick={() => setIsOpen(false)}
+                      aria-label={CONTACT_PHONE_DISPLAY}
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      {CONTACT_PHONE_DISPLAY}
+                    </a>
                   </Button>
                 </div>
 

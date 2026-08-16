@@ -1,6 +1,6 @@
 {
   "hero": {
-    "badge": "Professional services since 2010",
+    "badge": "Professional services since 2023",
     "title": "Cleaning Services",
     "titleHighlight": "Prague",
     "description": "We ensure cleanliness and order in your spaces. Reliably, quickly and at fair prices.",
@@ -13,7 +13,7 @@
     "flexibleScheduling": "Flexible Scheduling",
     "flexibleSchedulingDesc": "According to your needs",
     "ourServices": "Our Services",
-    "satisfiedClients": "Satisfied Clients",
+    "satisfiedClients": "Completed cleanings",
     "yearsOfExperience": "Years of Experience"
   },
   "partners": {
@@ -34,10 +34,10 @@
     "subtitle": "Why Choose GreenClean?",
     "companyDetailsTitle": "Registered office & company ID",
     "description1": "We are a professional cleaning company with more than 15 years of tradition in the Czech market. We specialize in cleaning commercial and residential spaces in Prague and surrounding areas.",
-    "description2": "Our company was founded with a clear vision - to provide quality cleaning services with emphasis on individual approach to each client. During our operation we have built trust with hundreds of satisfied customers.",
-    "description3": "We trust experienced professionals who are regularly trained in the latest cleaning methods. We use only certified cleaning products and modern technology.",
+    "description2": "Our company was founded with a clear vision - to provide quality cleaning services with emphasis on individual approach to each client.",
+    "description3": "We use only certified cleaning products and modern technology.",
     "description4": "Companies, property owners and private clients trust us — those who value quality, reliability and attention to detail.",
-    "satisfiedClients": "Satisfied Clients",
+    "satisfiedClients": "Completed cleanings",
     "yearsInBusiness": "Years in Business",
     "teamMembers": "Team Members",
     "clientSatisfaction": "Client Satisfaction",

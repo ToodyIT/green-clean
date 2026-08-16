@@ -50,7 +50,7 @@ export default function DevelopmentPage() {
             { value: "50+", label: t("serviceData.development.stats.developmentProjects"), icon: "🏗️" },
             { value: "5000+", label: t("serviceData.development.stats.cleanedApartments"), icon: "🏠" },
             { value: "100%", label: t("serviceData.development.stats.deadlineCompliance"), icon: "⏰" },
-            { value: "15+", label: t("serviceData.development.stats.yearsExperience"), icon: "📅" },
+            { value: "3+", label: t("serviceData.development.stats.yearsExperience"), icon: "📅" },
           ]}
           guarantees={
             t("serviceData.development.guarantees", {

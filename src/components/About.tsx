@@ -17,7 +17,6 @@ import {
   Heart,
   Sparkles,
   Zap,
-  TrendingUp,
   CheckCircle,
   Calendar,
   Leaf,
@@ -246,25 +245,21 @@ export function About() {
       value: "500+",
       label: t("about.satisfiedClients"),
       gradient: "from-green-500 to-emerald-600",
-      icon: Users,
     },
     {
-      value: "15+",
+      value: "3+",
       label: t("about.yearsInBusiness"),
       customColor: "#FFA826",
-      icon: TrendingUp,
     },
     {
-      value: "50+",
+      value: "10+",
       label: t("about.teamMembers"),
       gradient: "from-lime-500 to-green-600",
-      icon: Zap,
     },
     {
-      value: "98%",
+      value: "94%",
       label: t("about.clientSatisfaction"),
       customColor: "#FFB84D",
-      icon: Sparkles,
     },
   ];
 
@@ -288,37 +283,12 @@ export function About() {
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="space-y-4">
-            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                {t("about.description1")}
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                {t("about.description2")}
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                {t("about.description3")}
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                {t("about.description4")}
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-green-200/60 transition-shadow duration-300">
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
-                {t("about.companyDetailsTitle")}
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                {t("contact.companyAddressDisplay")}
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 mt-2">
-                {t("contact.companyIco")}
-              </p>
+          <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm">
+            <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
+              <p>{t("about.description1")}</p>
+              <p>{t("about.description2")}</p>
+              <p>{t("about.description3")}</p>
+              <p>{t("about.description4")}</p>
             </div>
           </div>
 
@@ -341,68 +311,47 @@ export function About() {
           </div>
         </div>
 
-        {/* Stats — 4 icon blocks, ~30% smaller */}
+        {/* Stats */}
         <div className="mb-20 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <Card
-                key={index}
-                className="group relative overflow-hidden border-0 bg-white p-5 text-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              >
-                {/* Gradient background on hover */}
+          {stats.map((stat, index) => (
+            <Card
+              key={index}
+              className="group relative overflow-hidden border-0 bg-white px-4 py-6 text-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:px-5 sm:py-8"
+            >
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${
+                  stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
+                }`}
+                style={
+                  stat.customColor
+                    ? { backgroundColor: stat.customColor }
+                    : {}
+                }
+              ></div>
+
+              <div className="relative">
                 <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 ${
-                    stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
+                  className={`about-stat-value mb-3 bg-clip-text text-transparent ${
+                    stat.gradient ? `bg-gradient-to-r ${stat.gradient}` : ""
                   }`}
                   style={
                     stat.customColor
-                      ? { backgroundColor: stat.customColor }
-                      : {}
+                      ? {
+                          backgroundImage: `linear-gradient(to right, ${stat.customColor}, ${stat.customColor}dd)`,
+                          WebkitBackgroundClip: "text",
+                          backgroundClip: "text",
+                        }
+                      : undefined
                   }
-                ></div>
-
-                {/* Icon */}
-                <div className="relative mb-3 flex justify-center">
-                  <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${
-                      stat.gradient ? `bg-gradient-to-br ${stat.gradient}` : ""
-                    }`}
-                    style={
-                      stat.customColor
-                        ? {
-                            background: `linear-gradient(to bottom right, ${stat.customColor}, ${stat.customColor}dd)`,
-                          }
-                        : {}
-                    }
-                  >
-                    <Icon className="h-7 w-7 text-white" />
-                  </div>
+                >
+                  {stat.value}
                 </div>
-
-                {/* Content */}
-                <div className="relative">
-                  <div
-                    className={`mb-1.5 bg-clip-text text-3xl text-transparent ${
-                      stat.gradient ? `bg-gradient-to-r ${stat.gradient}` : ""
-                    }`}
-                    style={
-                      stat.customColor
-                        ? {
-                            backgroundImage: `linear-gradient(to right, ${stat.customColor}, ${stat.customColor}dd)`,
-                            WebkitBackgroundClip: "text",
-                            backgroundClip: "text",
-                          }
-                        : {}
-                    }
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-gray-600 sm:text-base">
+                  {stat.label}
                 </div>
-              </Card>
-            );
-          })}
+              </div>
+            </Card>
+          ))}
         </div>
 
         {/* Values */}
@@ -641,13 +590,11 @@ export function About() {
               return (
                 <Card
                   key={index}
-                  className="relative p-6 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group bg-white overflow-hidden"
+                  className="relative p-6 border-0 shadow-xl bg-white overflow-hidden"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
                   <div className="relative">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -703,21 +650,21 @@ export function About() {
                 {t("about.contactToday")}
               </p>
 
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <a
                   href={CONTACT_FORM_PATH}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateToContactForm(router);
                   }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-600 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm bg-white text-green-600 rounded-md shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 >
                   <span>{t("about.getPriceQuote")}</span>
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-4 h-4" />
                 </a>
                 <a
                   href={CONTACT_PHONE_TEL}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-md hover:bg-white/20 transition-all duration-300"
                 >
                   <span>{CONTACT_PHONE_DISPLAY}</span>
                 </a>
