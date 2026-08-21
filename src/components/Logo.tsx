@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logo from "../../public/images/logo.png";
+
 export function Logo({
   className = "",
   inline = false,
@@ -6,11 +9,10 @@ export function Logo({
   inline?: boolean;
 }) {
   return (
-    <span className={`${inline ? "inline" : ""} ${className}`}>
-      <span className="text-green-600" style={{ fontWeight: 700 }}>
-        Green
-      </span>
-      <span style={{ color: "#FFA826", fontWeight: 400 }}>Clean</span>
-    </span>
+    <Image
+      src={logo}
+      alt="GreenClean"
+      className={`${inline ? "inline-block" : ""} h-7 w-auto ${className}`}
+    />
   );
 }

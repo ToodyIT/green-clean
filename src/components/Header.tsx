@@ -91,7 +91,7 @@ export function Header() {
               <Image
                 src={logo}
                 alt="GreenClean"
-                className="h-12 sm:h-14 w-auto"
+                className="h-8 sm:h-10 w-auto"
               />
             </Link>
 
@@ -124,7 +124,8 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0 min-w-0">
               <Button
                 asChild
-                className="h-9 bg-green-50 text-green-800 hover:bg-green-100 border-2 border-green-300 shadow-sm hover:shadow-md transition-all duration-300 text-sm font-semibold px-3 whitespace-nowrap"
+                variant="outline"
+                className="h-9 border-2 border-gray-300 text-gray-800 font-semibold hover:border-green-600 hover:bg-green-50 hover:text-green-800 transition-all gap-1.5 shrink-0 text-sm px-3 whitespace-nowrap"
               >
                 <a href={CONTACT_PHONE_TEL} aria-label={CONTACT_PHONE_DISPLAY}>
                   <Phone className="w-4 h-4 shrink-0" />
@@ -267,7 +268,7 @@ export function Header() {
               aria-hidden={!isOpen}
             >
               <div className="flex shrink-0 items-center justify-between border-b border-green-200 bg-white/95 p-5 shadow-sm">
-                <Image src={logo} alt="GreenClean" className="h-10 w-auto" />
+                <Image src={logo} alt="GreenClean" className="h-7 w-auto" />
                 <Button
                   variant="ghost"
                   size="icon"
@@ -320,7 +321,8 @@ export function Header() {
                 <div className="mb-6">
                   <Button
                     asChild
-                    className="w-full rounded-2xl border-2 border-green-300 bg-gradient-to-r from-green-50 to-emerald-50 py-6 text-base font-semibold text-green-800 shadow-md transition-all hover:from-green-100 hover:to-emerald-100 hover:shadow-lg"
+                    variant="outline"
+                    className="w-full rounded-2xl border-2 border-gray-300 py-6 text-base font-semibold text-gray-800 hover:border-green-600 hover:bg-green-50 hover:text-green-800 transition-all"
                   >
                     <a
                       href={CONTACT_PHONE_TEL}

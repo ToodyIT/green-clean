@@ -250,9 +250,9 @@ export function Contact() {
 
           {/* Contact Info — no flex-1 on cards so long copy (e.g. RU) is not clipped */}
           <div className="space-y-6">
-            <Card className="p-6 border-0 shadow-lg group bg-white">
+            <Card className="p-6 border-0 shadow-lg bg-white">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -273,9 +273,9 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="p-6 border-0 shadow-lg group bg-white">
+            <Card className="p-6 border-0 shadow-lg bg-white">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -295,9 +295,9 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="p-6 border-0 shadow-lg group bg-white">
+            <Card className="p-6 border-0 shadow-lg bg-white">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -315,10 +315,10 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="p-6 border-0 shadow-lg group bg-white">
+            <Card className="p-6 border-0 shadow-lg bg-white">
               <div className="flex items-start gap-4">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
                   style={{
                     backgroundImage:
                       "linear-gradient(to bottom right, #FFA826, #E59518)",

@@ -297,13 +297,13 @@ export function About() {
             <div className="relative group">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
-                  alt="Our cleaning team"
-                  width={800}
-                  height={600}
+                  src="/images/about-team.jpg"
+                  alt="Tým GreenClean při úklidu kanceláře"
+                  width={1024}
+                  height={682}
                   loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="w-full h-full object-cover aspect-[4/3]"
+                  className="w-full h-full object-cover aspect-[3/2]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
               </div>

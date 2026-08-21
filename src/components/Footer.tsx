@@ -10,6 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Separator } from "./ui/separator";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import {
   CONTACT_EMAIL,
@@ -19,6 +20,7 @@ import {
 } from "../constants/contact";
 import { navigateToContactForm } from "../utils/navigateToContactForm";
 import { SectionBackground } from "./SectionBackground";
+import logo from "../../public/images/logo.png";
 
 export function Footer() {
   const { t } = useLayoutTranslation();
@@ -65,11 +67,12 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div>
-                <div className="text-xl text-white">
-                  <span style={{ color: "#4ca137" }}>Green</span>
-                  <span style={{ color: "#FFA826" }}>Clean</span>
-                </div>
-                <div className="text-sm text-gray-400">
+                <Image
+                  src={logo}
+                  alt="GreenClean"
+                  className="h-7 w-auto"
+                />
+                <div className="text-sm text-gray-400 mt-2">
                   {t("footer.professionalCleaning")}
                 </div>
               </div>

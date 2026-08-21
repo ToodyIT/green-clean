@@ -138,13 +138,13 @@ export function Hero({ onNavigate }: HeroProps) {
               {/* Glow effect */}
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-[1.02] transition-transform duration-300">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2MTE0NDYwN3ww&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
-                  alt="Professional cleaning team"
-                  width={800}
-                  height={600}
+                  src="/images/homepage-hero.jpg"
+                  alt="GreenClean — profesionální úklid kanceláří"
+                  width={1024}
+                  height={576}
                   priority
                   sizes="(max-width: 1024px) 0px, 40vw"
-                  className="w-full h-full object-cover aspect-[4/3]"
+                  className="w-full h-full object-cover aspect-[16/9]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
               </div>

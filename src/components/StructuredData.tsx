@@ -16,6 +16,8 @@ const LOCAL_BUSINESS_JSON_LD = {
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#organization`,
   name: "GreenClean",
+  logo: `${SITE_URL}/images/logo.png`,
+  image: `${SITE_URL}/images/logo.png`,
   description: "Profesionální úklidové služby v Praze a okolí. Úklid kanceláří, bytů, Airbnb, úklid po rekonstrukci.",
   url: SITE_URL,
   telephone: CONTACT_PHONE_E164,
