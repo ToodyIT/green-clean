@@ -54,7 +54,7 @@ const LOCAL_BUSINESS_JSON_LD = {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Saturday", "Sunday"],
       opens: "09:00",
-      closes: "15:00",
+      closes: "18:00",
     },
   ],
   sameAs: [],

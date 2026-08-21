@@ -8,7 +8,6 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Phone, Mail, MapPin, Clock, Send, Sparkles } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import {
   CONTACT_EMAIL,
@@ -23,7 +22,6 @@ export function Contact() {
   const { t } = useContactTranslation();
   const router = useRouter();
   const headerAnimation = useScrollAnimation({ threshold: 0.2 });
-  const ownerAnimation = useScrollAnimation({ threshold: 0.2 });
   const formAnimation = useScrollAnimation({ threshold: 0.2 });
   const [, setFocusedField] = useState<string | null>(null);
 
@@ -69,75 +67,6 @@ export function Contact() {
           </p>
         </div>
 
-        {/* Owner Section */}
-        <div className="max-w-4xl mx-auto mb-20" {...ownerAnimation}>
-          <Card className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-hidden bg-white">
-            {/* Gradient glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500"></div>
-
-            <div className="relative flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-              {/* Owner photo: hidden visually; remove `hidden` to show again */}
-              <div
-                className="hidden relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 group-hover:scale-105 transition-all duration-500"
-                aria-hidden
-              >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1604783125462-37d81c7385e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYW1lcmljYW4lMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYyODUxMjg3fDA&ixlib=rb-4.1.0&q=80&w=800&utm_source=figma&utm_medium=referral"
-                  alt=""
-                  width={400}
-                  height={400}
-                  loading="lazy"
-                  sizes="160px"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-emerald-600/30 group-hover:from-green-600/20 group-hover:to-emerald-600/20 transition-all duration-500"></div>
-                <div
-                  className="absolute -inset-2 rounded-3xl border-4 opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-                  style={{ borderColor: "#4ca137" }}
-                ></div>
-              </div>
-
-              <div className="flex-1 max-w-3xl mx-auto md:mx-0">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 shadow-md">
-                  <div
-                    className="w-2 h-2 rounded-full animate-pulse"
-                    style={{ backgroundColor: "#4ca137" }}
-                  ></div>
-                  <span className="text-sm" style={{ color: "#4ca137" }}>
-                    {t("contact.ownerDirector")}
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl text-gray-900 mb-4">
-                  Andrii Mazar
-                </h3>
-
-                <p className="text-lg text-gray-600 mb-6 italic">
-                  &quot;{t("contact.ownerQuote")}&quot;
-                </p>
-
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <a
-                    href={CONTACT_PHONE_TEL}
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                  >
-                    <Phone className="w-4 h-4" />
-                    {CONTACT_PHONE_DISPLAY}
-                  </a>
-                  <a
-                    href={CONTACT_MAILTO}
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-white border-2 text-gray-700 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-                    style={{ borderColor: "#4ca137" }}
-                  >
-                    <Mail className="w-4 h-4" style={{ color: "#4ca137" }} />
-                    {CONTACT_EMAIL}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-
         {/* Separator with text */}
         <div className="flex items-center gap-4 max-w-6xl mx-auto mb-16">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-gray-300"></div>
@@ -151,13 +80,10 @@ export function Contact() {
           {/* Contact Form */}
           <Card
             id={CONTACT_FORM_ID}
-            className="relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white overflow-hidden group h-full flex flex-col scroll-mt-24"
+            className="p-8 border-0 shadow-xl bg-white h-full flex flex-col scroll-mt-24"
             {...formAnimation}
           >
-            {/* Gradient glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
-            <div className="relative flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col">
               <h3 className="text-3xl text-gray-900 mb-8 flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Send className="w-5 h-5 text-white" />
@@ -324,10 +250,8 @@ export function Contact() {
 
           {/* Contact Info — no flex-1 on cards so long copy (e.g. RU) is not clipped */}
           <div className="space-y-6">
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
-              <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
-              <div className="relative flex items-start gap-4">
+            <Card className="p-6 border-0 shadow-lg group bg-white">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
@@ -349,10 +273,8 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
-              <div className="absolute -inset-1 bg-gradient-to-r from-lime-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
-              <div className="relative flex items-start gap-4">
+            <Card className="p-6 border-0 shadow-lg group bg-white">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-lime-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
@@ -373,10 +295,8 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-green-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
-              <div className="relative flex items-start gap-4">
+            <Card className="p-6 border-0 shadow-lg group bg-white">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
@@ -395,16 +315,8 @@ export function Contact() {
               </div>
             </Card>
 
-            <Card className="relative p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white">
-              <div
-                className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #FFA826, #E59518)",
-                }}
-              ></div>
-
-              <div className="relative flex items-start gap-4">
+            <Card className="p-6 border-0 shadow-lg group bg-white">
+              <div className="flex items-start gap-4">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
                   style={{
