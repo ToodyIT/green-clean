@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/router";
 import { useHomeSectionsTranslation } from "../i18n/useAppTranslation";
 import {
@@ -18,13 +19,13 @@ import {
   Sparkles,
   Zap,
   CheckCircle,
-  Calendar,
   Leaf,
   Droplets,
   Wind,
   Briefcase,
   Building2,
   Home,
+  X,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { SectionBackground } from "./SectionBackground";
@@ -36,42 +37,64 @@ function TimelineSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [lineProgress, setLineProgress] = useState(0);
   const [visibleDots, setVisibleDots] = useState<Set<number>>(new Set());
+  const [openPhotoIndex, setOpenPhotoIndex] = useState<number | null>(null);
+  const [lightboxMounted, setLightboxMounted] = useState(false);
+  const [lightboxVisible, setLightboxVisible] = useState(false);
+
+  useEffect(() => {
+    setLightboxMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (openPhotoIndex === null) {
+      setLightboxVisible(false);
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => setLightboxVisible(true));
+    });
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightboxVisible(false);
+        window.setTimeout(() => setOpenPhotoIndex(null), 280);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [openPhotoIndex]);
+
+  const closeLightbox = () => {
+    setLightboxVisible(false);
+    window.setTimeout(() => setOpenPhotoIndex(null), 280);
+  };
 
   const milestones = [
     {
-      year: "2010",
-      title: t("about.companyFoundation"),
-      description: t("about.companyFoundationDesc"),
+      src: "/images/journey-1.jpg",
+      alt: t("about.journeyPhoto1Alt"),
       position: "left",
     },
     {
-      year: "2013",
-      title: t("about.teamExpansion"),
-      description: t("about.teamExpansionDesc"),
+      src: "/images/journey-2.jpg",
+      alt: t("about.journeyPhoto2Alt"),
       position: "right",
     },
     {
-      year: "2016",
-      title: t("about.ecoInitiative"),
-      description: t("about.ecoInitiativeDesc"),
+      src: "/images/journey-3.jpg",
+      alt: t("about.journeyPhoto3Alt"),
       position: "left",
     },
     {
-      year: "2019",
-      title: t("about.newTechnologies"),
-      description: t("about.newTechnologiesDesc"),
-      position: "right",
-    },
-    {
-      year: "2022",
-      title: t("about.qualityAward"),
-      description: t("about.qualityAwardDesc"),
-      position: "left",
-    },
-    {
-      year: "2025",
-      title: t("about.today"),
-      description: t("about.todayDesc"),
+      src: "/images/journey-4.jpg",
+      alt: t("about.journeyPhoto4Alt"),
       position: "right",
     },
   ];
@@ -129,11 +152,11 @@ function TimelineSection() {
 
       <div ref={timelineRef} className="relative max-w-4xl mx-auto">
         {/* Background timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 hidden lg:block"></div>
+        <div className="pointer-events-none absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 hidden lg:block"></div>
 
         {/* Animated progress line */}
         <div
-          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-green-600 hidden lg:block transition-all duration-300 ease-out"
+          className="pointer-events-none absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-green-600 hidden lg:block transition-all duration-300 ease-out"
           style={{
             height: `${lineProgress}%`,
             top: 0,
@@ -152,7 +175,6 @@ function TimelineSection() {
                   : "lg:justify-end"
               }`}
             >
-              {/* Timeline dot with animation */}
               <div
                 className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 border-4 border-white shadow-lg z-10 hidden lg:block transition-all duration-500 ${
                   visibleDots.has(index)
@@ -164,35 +186,65 @@ function TimelineSection() {
                 }}
               />
 
-              {/* Content card */}
               <Card
-                className={`relative w-full lg:w-5/12 p-6 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group bg-white ${
+                role="button"
+                tabIndex={0}
+                aria-label={milestone.alt}
+                onClick={() => setOpenPhotoIndex(index)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setOpenPhotoIndex(index);
+                  }
+                }}
+                className={`relative z-10 w-full lg:w-5/12 p-6 border-0 shadow-xl bg-white cursor-pointer ${
                   milestone.position === "left" ? "lg:mr-auto" : "lg:ml-auto"
                 }`}
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <Calendar className="w-7 h-7" />
-                    </div>
-                    <div className="text-3xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                      {milestone.year}
-                    </div>
-                  </div>
-                  <h4 className="text-xl text-gray-900 mb-2">
-                    {milestone.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {milestone.description}
-                  </p>
-                </div>
+                <ImageWithFallback
+                  src={milestone.src}
+                  alt={milestone.alt}
+                  width={1024}
+                  height={682}
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="pointer-events-none h-40 w-full rounded-xl object-cover"
+                />
               </Card>
             </div>
           ))}
         </div>
       </div>
+
+      {lightboxMounted &&
+        openPhotoIndex !== null &&
+        createPortal(
+          <div
+            className="photo-lightbox"
+            data-open={lightboxVisible ? "true" : "false"}
+            style={{ zIndex: 9999 }}
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={milestones[openPhotoIndex].alt}
+          >
+            <button
+              type="button"
+              className="photo-lightbox__close"
+              onClick={closeLightbox}
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <img
+              src={milestones[openPhotoIndex].src}
+              alt={milestones[openPhotoIndex].alt}
+              className="photo-lightbox__image"
+              onClick={(event) => event.stopPropagation()}
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

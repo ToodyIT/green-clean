@@ -132,9 +132,9 @@ export function Hero({ onNavigate }: HeroProps) {
             </div>
           </div>
 
-          {/* Image with modern effects — 80% of column width (20% smaller than original) */}
+          {/* Image with modern effects — 88% of column width (10% larger than previous 80%) */}
           <div className="relative hidden lg:block">
-            <div className="relative ml-auto w-[80%]">
+            <div className="relative ml-auto w-[88%]">
               {/* Glow effect */}
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl hover:scale-[1.02] transition-transform duration-300">
                 <ImageWithFallback
@@ -143,8 +143,8 @@ export function Hero({ onNavigate }: HeroProps) {
                   width={1024}
                   height={576}
                   priority
-                  sizes="(max-width: 1024px) 0px, 40vw"
-                  className="w-full h-full object-cover aspect-[16/9]"
+                  sizes="(max-width: 1024px) 0px, 44vw"
+                  className="w-full h-full object-cover object-center aspect-[16/9]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
               </div>
